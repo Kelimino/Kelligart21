@@ -6,7 +6,7 @@
         kellig21
       </h1>
       <lottie-animation
-    path="../../assets/icons/arrow.json"
+    path="@/assets/icons/arrow.json"
 />
 
       <div class="links">
