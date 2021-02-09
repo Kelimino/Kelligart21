@@ -5,9 +5,7 @@
       <h1 class="title">
         kellig21
       </h1>
-      <lottie-animation
-    path="@/assets/icons/arrow.json"
-/>
+      <lottie-animation path="icons/arrow.json" />
 
       <div class="links">
         <a
@@ -38,16 +36,10 @@ export default {
   components: {
     LottieAnimation
   },
-  data(){
-
-    return{}
+  data() {
+    return {};
   },
-  methods:{
-
-
-  },
-  mounted() {
-
-  }
+  methods: {},
+  mounted() {}
 };
 </script>
