@@ -65,7 +65,12 @@
 
      <lottie  :width="250"
       :height="250"
-      :options="lottieOptions"/>
+      :options="animationsOptions.arrow"/>
+
+      <lottie  :width="250"
+      :height="250"
+      :options="animationsOptions.star"/>
+
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -90,7 +95,8 @@
 
 <script>
 import lottie from "vue-lottie/src/lottie.vue";
-import * as animationData from "@/assets/animation/arrow.json"
+import * as arrowAnimationData from "@/assets/animation/arrow.json"
+import * as starAnimationData from "@/assets/animation/star.json";
 import { gsap, TimelineMax, TweenMax, Power2, ScrollTrigger } from "gsap";
 // gsap.registerPlugin(ScrollTrigger)
 
@@ -101,7 +107,14 @@ export default {
   data() {
     return {
       drink: "",
-      lottieOptions: { animationData: animationData.default },
+      animationsOptions: {
+                    arrow: {
+                        animationData: arrowAnimationData.default
+                    }, 
+                    star: {
+                        animationData: starAnimationData.default
+                    }
+                },
       personnage: ["mario", "zelda", "pokemon"],
       list: [
         { name: "kellig", age: 33, birth: "21.08.87" },
