@@ -87,6 +87,7 @@
 <script>
 import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
 import { gsap, TimelineMax, TweenMax, Power2, ScrollTrigger } from "gsap";
+// gsap.registerPlugin(ScrollTrigger);
 
 export default {
   components: {
