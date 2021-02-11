@@ -93,8 +93,9 @@
 import lottie from "vue-lottie/src/lottie.vue";
 import * as arrow from "@/assets/animation/arrow.json";
 import * as star from "@/assets/animation/star.json";
-import { gsap, TimelineMax, TweenMax, Power2, ScrollTrigger } from "gsap";
-// gsap.registerPlugin(ScrollTrigger)
+import { gsap, TimelineMax, TweenMax, Power2} from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
   components: {
@@ -199,7 +200,7 @@ export default {
     let tl2 = new TimelineMax({
       // yes, we can add it to an entire timeline!
       scrollTrigger: {
-        trigger: "#box",
+        trigger: "#canvas",
         x: "500px",
         pin: true, // pin the trigger element while active
         start: "top top"
