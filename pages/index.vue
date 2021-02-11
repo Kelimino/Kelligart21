@@ -63,13 +63,9 @@
       <label for="texte">Last name:</label> d
       <input type="text" v-model="lastname" />
 
-     <lottie  :width="250"
-      :height="250"
-      :options="animationsOptions.arrow"/>
+      <lottie :width="250" :height="250" :options="animationsOptions.arrow" />
 
-      <lottie  :width="250"
-      :height="250"
-      :options="animationsOptions.star"/>
+      <lottie :width="250" :height="250" :options="animationsOptions.star" />
 
       <div class="links">
         <a
@@ -95,8 +91,8 @@
 
 <script>
 import lottie from "vue-lottie/src/lottie.vue";
-import * as arrowAnimationData from "@/assets/animation/arrow.json"
-import * as starAnimationData from "@/assets/animation/star.json";
+import * as arrow from "@/assets/animation/arrow.json";
+import * as star from "@/assets/animation/star.json";
 import { gsap, TimelineMax, TweenMax, Power2, ScrollTrigger } from "gsap";
 // gsap.registerPlugin(ScrollTrigger)
 
@@ -108,13 +104,13 @@ export default {
     return {
       drink: "",
       animationsOptions: {
-                    arrow: {
-                        animationData: arrowAnimationData.default
-                    }, 
-                    star: {
-                        animationData: starAnimationData.default
-                    }
-                },
+        arrow: {
+          animationData: arrow.default
+        },
+        star: {
+          animationData: star.default
+        }
+      },
       personnage: ["mario", "zelda", "pokemon"],
       list: [
         { name: "kellig", age: 33, birth: "21.08.87" },
