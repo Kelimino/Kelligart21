@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <!-- <Logo /> -->
+      <img src="@/assets/img/logo.png" alt="logo" />
       <!-- function afternoon is a string (data dans array)  -->
       <h3>{{ good("night") }}</h3>
       <label for="input">What is your favorite drink ?</label>
@@ -41,20 +42,15 @@
         >kelligart</a
       >
       <div>
-
-
-
-
-
         <ul>
-          <li v-for="(pers, index) in personnage">
+          <li v-for="(pers, index) in personnage" :key="index">
             {{ pers }}
           </li>
         </ul>
       </div>
       <div>
         <ul>
-          <li v-for="(lists, index) in list">
+          <li v-for="(lists, index) in list" :key="index">
             {{ lists.name }}.{{ lists.age }}.{{ lists.birth }}
           </li>
         </ul>
@@ -66,6 +62,7 @@
       <input type="text" v-model="name" />
       <label for="texte">Last name:</label> d
       <input type="text" v-model="lastname" />
+
       <lottie-animation path="icons/arrow.json" />
       <div class="links">
         <a
@@ -92,7 +89,7 @@
 <script>
 import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
 import { gsap, TimelineMax, TweenMax, Power2, ScrollTrigger } from "gsap";
-// gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger)
 
 export default {
   components: {
