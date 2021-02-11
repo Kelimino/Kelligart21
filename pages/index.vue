@@ -4,12 +4,16 @@
       <Logo />
       <!-- function afternoon is a string (data dans array)  -->
       <h3>{{ good("night") }}</h3>
+      <label for="input">What is your favorite drink ?</label>
+      <input type="text" ref="input" />
+      <button @click="refclik">Submit</button>
+      <p>Your favorite drink is {{ drink }}</p>
       <h1 class="title">
         {{ presentation() }}
       </h1>
       <!-- juste un crochet car c'est un objet et pas une value  -->
       <div v-bind:class="{ active: active }" @click="clickHello">
-        <span>Hello world</span>
+        <span>Click on me !</span>
       </div>
       <p>{{ intro }}</p>
       <!-- v-html fait passer une balise html, start est la data -->
@@ -17,12 +21,15 @@
       <!-- vue js sait que le on:clikc appel un code donc pas de ()-->
       <!-- v-on:click = @click -->
       <div class="game">
-  <div v-bind:style="{ width:ballon + '%', height:ballon + '%', }" v-bind:class="{ballon, done: end} "></div>
-  <div class="air"><div v-bind:style="{ width:grow + '%', opacity:grow + '%' }"></div></div>
-  <button @click="blow" v-show="!end"> Souffler</button>
-  <button @click="restart">recommencer</button>
-
-
+        <div
+          v-bind:style="{ width: ballon + '%', height: ballon + '%' }"
+          v-bind:class="{ ballon, done: end }"
+        ></div>
+        <div class="air">
+          <div v-bind:style="{ width: grow + '%', opacity: grow + '%' }"></div>
+        </div>
+        <button @click="blow" v-show="!end">Souffler</button>
+        <button @click="restart">recommencer</button>
       </div>
       <button @click.once="add(1)">Add</button>
       <button @click="minus(1)">Subtract</button>
@@ -48,7 +55,7 @@
         </ul>
       </div>
 
-      <button @click="error = !error">{{ state }}</button>
+      <button @click="clickerror">{{ state }}</button>
       <p v-show="error">Message error appear in a box</p>
       <label for="texte">Name:</label>
       <input type="text" v-model="name" />
@@ -79,6 +86,7 @@
 
 <script>
 import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
+import { gsap, TimelineMax, TweenMax, Power2, ScrollTrigger } from "gsap";
 
 export default {
   components: {
@@ -86,9 +94,9 @@ export default {
   },
   data() {
     return {
-      
+      drink: "",
 
-      personnage:["mario","zelda","pokemon"],
+      personnage: ["mario", "zelda", "pokemon"],
       list: [
         { name: "kellig", age: 33, birth: "21.08.87" },
         { name: "Eadrin", age: 12, birth: "27.10.2008" }
@@ -111,19 +119,28 @@ export default {
   },
 
   methods: {
+    refclik: function() {
+      console.log(this.$refs.input.value);
+      this.drink = this.$refs.input.value;
+    },
+    clickerror: function() {
+      this.error = !this.error;
+      if ((this.error = this.error)) {
+        this.state = "close";
+      } else this.state = "open";
+    },
 
-    blow: function(){
-
+    blow: function() {
       this.grow -= 20;
       this.ballon += 10;
-      if(this.grow <= 0){
-        this.end = true
+      if (this.grow <= 0) {
+        this.end = true;
       }
     },
-    restart: function(){
+    restart: function() {
       this.grow = 100;
       this.ballon = 10;
-      this.end = false
+      this.end = false;
     },
     clickHello: function() {
       this.active = !this.active;
@@ -151,6 +168,28 @@ export default {
       this.y = event.offsetY;
     }
   },
-  mounted() {}
+  mounted() {
+    const Overlay = document.querySelector(".title");
+    let tl = new TimelineMax({}).fromTo(
+      Overlay,
+      1,
+      { y: 100, color: "#OOO", autoAlpha: 0, ease: Power2.easeinOut },
+      {
+        y: 0,
+        color: "#FF0000",
+        autoAlpha: 1,
+        ease: Power2.easeinOut
+      }
+    );
+    let tl2 = new TimelineMax({
+      // yes, we can add it to an entire timeline!
+      scrollTrigger: {
+        trigger: "#box",
+        x: "500px",
+        pin: true, // pin the trigger element while active
+        start: "top top"
+      }
+    });
+  }
 };
 </script>
