@@ -61,7 +61,9 @@
       <input type="text" v-model="name" />
       <label for="texte">Last name:</label>
       <input type="text" v-model="lastname" />
-      <lottie-animation path="icons/arrow.json" />
+      <lottie-animation
+    path="icons/arrow.json"
+/>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
