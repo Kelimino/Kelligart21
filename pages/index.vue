@@ -41,6 +41,11 @@
         >kelligart</a
       >
       <div>
+
+
+
+
+
         <ul>
           <li v-for="(pers, index) in personnage">
             {{ pers }}
@@ -59,11 +64,9 @@
       <p v-show="error">Message error appear in a box</p>
       <label for="texte">Name:</label>
       <input type="text" v-model="name" />
-      <label for="texte">Last name:</label>
+      <label for="texte">Last name:</label> d
       <input type="text" v-model="lastname" />
-      <lottie-animation
-    path="icons/arrow.json"
-/>
+      <lottie-animation path="icons/arrow.json" />
       <div class="links">
         <a
           href="https://nuxtjs.org/"
