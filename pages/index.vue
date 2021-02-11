@@ -63,7 +63,9 @@
       <label for="texte">Last name:</label> d
       <input type="text" v-model="lastname" />
 
-      <lottie-animation path="icons/arrow.json" />
+     <lottie  :width="250"
+      :height="250"
+      :options="lottieOptions"/>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -87,18 +89,19 @@
 </template>
 
 <script>
-import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
+import lottie from "vue-lottie/src/lottie.vue";
+import * as animationData from "@/assets/animation/arrow.json"
 import { gsap, TimelineMax, TweenMax, Power2, ScrollTrigger } from "gsap";
 // gsap.registerPlugin(ScrollTrigger)
 
 export default {
   components: {
-    LottieAnimation
+    lottie
   },
   data() {
     return {
       drink: "",
-
+      lottieOptions: { animationData: animationData.default },
       personnage: ["mario", "zelda", "pokemon"],
       list: [
         { name: "kellig", age: 33, birth: "21.08.87" },
