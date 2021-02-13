@@ -63,9 +63,23 @@
       <label for="texte">Last name:</label> d
       <input type="text" v-model="lastname" />
 
-      <lottie :width="250" :height="250" :options="animationsOptions.arrow" />
-
-      <lottie :width="250" :height="250" :options="animationsOptions.star" />
+      <div>
+        <lottie
+          :width="250"
+          :height="250"
+          :options="animationsOptions.arrow"
+          v-on:animCreated="handleAnimation"
+        />
+      </div>
+      <div v-on:mouseover="say()" v-on:mouseleave="bye()">
+        <lottie
+          class="start"
+          :width="250"
+          :height="250"
+          :options="animationsOptions.star"
+          v-on:animCreated="handleAnimation"
+        />
+      </div>
 
       <div class="links">
         <a
@@ -93,9 +107,7 @@
 import lottie from "vue-lottie/src/lottie.vue";
 import * as arrow from "@/assets/animation/arrow.json";
 import * as star from "@/assets/animation/star.json";
-import { gsap, TimelineMax, TweenMax, Power2} from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+
 
 export default {
   components: {
@@ -106,10 +118,13 @@ export default {
       drink: "",
       animationsOptions: {
         arrow: {
-          animationData: arrow.default
+          animationData: arrow.default,
+          autoplay: false,
+          loop: false
         },
         star: {
-          animationData: star.default
+          animationData: star.default,
+          autoplay: false
         }
       },
       personnage: ["mario", "zelda", "pokemon"],
@@ -126,7 +141,6 @@ export default {
       age: 25,
       x: 0,
       y: 0,
-      name: "",
       lastname: "",
       grow: 100,
       ballon: 10,
@@ -135,6 +149,18 @@ export default {
   },
 
   methods: {
+    handleAnimation: function(anim) {
+      this.anim = anim;
+    },
+    say: function() {
+      this.anim.play()
+    },
+
+    bye: function() {
+      this.anim.stop();
+      this.anim.setDirection(-1);
+    },
+
     refclik: function() {
       console.log(this.$refs.input.value);
       this.drink = this.$refs.input.value;
@@ -185,27 +211,7 @@ export default {
     }
   },
   mounted() {
-    const Overlay = document.querySelector(".title");
-    let tl = new TimelineMax({}).fromTo(
-      Overlay,
-      1,
-      { y: 100, color: "#OOO", autoAlpha: 0, ease: Power2.easeinOut },
-      {
-        y: 0,
-        color: "#FF0000",
-        autoAlpha: 1,
-        ease: Power2.easeinOut
-      }
-    );
-    let tl2 = new TimelineMax({
-      // yes, we can add it to an entire timeline!
-      scrollTrigger: {
-        trigger: "#canvas",
-        x: "500px",
-        pin: true, // pin the trigger element while active
-        start: "top top"
-      }
-    });
+
   }
 };
 </script>
