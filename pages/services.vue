@@ -48,7 +48,7 @@ export default {
   },
   mounted() {
     let Overlay = document.querySelector(".title");
-    this.tl = new TimelineMax({})
+    this.tl = gsap.timeline({})
     
     .from(
       Overlay,
