@@ -9,6 +9,7 @@ body{
 
     height: 100%;
     background:ghostwhite;
+    overflow-x: hidden;
 }
 
 .page-enter-active,
@@ -133,4 +134,57 @@ span{
     background: aqua;
     height: 20px;
     transition: all 0.4s linear;
+}
+
+.header{
+
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background: rgb(255, 175, 164);
+    color: rgb(110, 69, 50);
+}
+
+.domain{
+
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    background: burlywood;
+    color: indianred;
+
+    h2{
+
+        font-weight: bold;
+        font-size: 5em;
+    }
+}
+
+.colors{
+    width: 100;
+    height: 100vh;
+    background: #000;
+    div{
+        text-align: center;
+        font-weight: bold;
+        color: #000;
+
+        width: 100%;
+        height: 100%;
+    }
+    .orange{
+        background: chocolate;
+    }
+    .blue{
+        background: rgb(85, 74, 250);
+    }
+    .green{
+        background: rgb(30, 210, 90);
+    }
+    .activeP{
+
+        font-size: 3em;
+        color: #F2F2F2;
+    }
+
 }
