@@ -10,17 +10,17 @@
       <p>This a page on services</p>
 
     </section>
-        <section class="colors">
-     <div class="orange"><p>Hello</p></div>
-    <div class="blue"><p>Hello</p></div>
-    <div class="green"><p>Hello</p></div>
+        <section id="colors">
+     <div class="panel orange"><p>Hello</p></div>
+    <div class=" panel blue"><p>Hello</p></div>
+    <div class=" panel green"><p>Hello</p></div>
 
     </section>
   </div>
 </template>
 
 <script>
-import { gsap, TimelineMax, Power2 } from "gsap";
+import { gsap, Power2 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,7 +72,6 @@ this.tl2 = gsap.timeline({
   scrollTrigger: {
     trigger: ".domain",
     start: "100px 80%",
-    end: "400px 100%",
     toggleActions: "restart pause resume none",
     scrub: 2,
     pin: ".domain p",
@@ -94,14 +93,14 @@ tl3
 
 ScrollTrigger.create({
   animation: tl3,
-  trigger: ".colors",
+  trigger: "#colors",
   pin: true,
-  start:"top center",
-  end: "bottom 500px",
-  markers: true,
   pinSpacing: false,
+  start: "top center",
+  end: "bottom 80%",
+  markers: true,
   anticipatePin: 1,
-  toggleClass: ".activeP",
+  toggleClass: {targets: "#colors .panel p", className: "activeP"},
   onEnter: () => console.log("heeeyye")
 })
 

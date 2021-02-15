@@ -1,12 +1,16 @@
-html{
+$title: 'Playfair Display', serif;
+$text: 'Roboto', sans-serif;
 
+
+html{
+    
     height: 100%;
     width: 100%;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 body{
-
+    
     height: 100%;
     background:ghostwhite;
     overflow-x: hidden;
@@ -14,47 +18,64 @@ body{
 
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.5s;
+    transition: opacity 0.5s;
 }
 .page-enter,
 .page-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 
-.container{
 
-    p{
-
-        color: #000;
-    }
+footer{
+    
+    padding: 1em 2.4em 1em 2.4em;
+    
+    position: fixed;
+    z-index: 100;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border: solid 1px rgba($color: #000000, $alpha: 0.2);
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: 2px 2px 20px rgba($color: #000000, $alpha: 0.2);
+    
 }
 
 nav{
     width: 100%;
-    height: 10rem;
-    background: aqua;
-
+    height: 100%;
+    
     ul{
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: stretch;
-
+        justify-content: space-between;
+        align-items: center;
+        
+        
         li{
+            margin-right: 1.2em;
             
-
+            &:last-child{
+                margin-right: 0px;
+            }
+            
+            
             a{
                 text-decoration: none;
+                color: rgba($color: #000000, $alpha: 0.5);
+                font-size: 0.8em;
+                font-family: $text;
             }
         }
-
-
+        
+        
     }
 }
 
 #canvas{
-
+    
     width: 500px;
     height: 500px;
     border: solid 2px #000;
@@ -63,19 +84,19 @@ nav{
 }
 
 span{
-
+    
     color:red;
 }
 
 .active{
-
+    
     span{
-
+        
         color:green;
     }
 }
 .game{
-
+    
     width: 500px;
     height: 500px;
     margin: 50px auto;
@@ -89,7 +110,7 @@ span{
     background: #F2F2F2;
 }
 .ballon{
-
+    
     display: block;
     border-radius: 100%;
     background: radial-gradient(crimson 50%, rgb(94, 7, 7));
@@ -100,22 +121,22 @@ span{
     left: 50%;
     transform-origin: center;
     transform: translateX(-50%) translateY(-50%) ;
-
+    
 }
 .done{
-
+    
     animation: envol 2s linear 0.4s 1 forwards ;
     box-shadow: 2px 2px 30px rgb(94, 7, 7);
     
 }
 
 @keyframes envol{
-
+    
     0%{
         top: initial;
         opacity: 1;
         top: 30%;
-
+        
     }
     100%{
         top: -100%;
@@ -136,42 +157,45 @@ span{
     transition: all 0.4s linear;
 }
 
-.header{
-
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-    background: rgb(255, 175, 164);
-    color: rgb(110, 69, 50);
-}
 
 .domain{
-
+    
     width: 100%;
     height: 500px;
     text-align: center;
     background: burlywood;
     color: indianred;
-
+    
     h2{
-
+        
         font-weight: bold;
         font-size: 5em;
     }
 }
 
-.colors{
+
+#colors {
+    width: 100%;
+    height: 100%; 
+    position:relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
     width: 100;
     height: 100vh;
     background: #000;
-    div{
+    
+    .panel {
+        position: absolute;
+        will-change: transform;
         text-align: center;
         font-weight: bold;
         color: #000;
-
+        
         width: 100%;
         height: 100%;
     }
+    
     .orange{
         background: chocolate;
     }
@@ -182,9 +206,8 @@ span{
         background: rgb(30, 210, 90);
     }
     .activeP{
-
+        
         font-size: 3em;
         color: #F2F2F2;
     }
-
 }
