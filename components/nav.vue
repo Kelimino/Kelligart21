@@ -63,9 +63,11 @@ export default {
     },
     animLogo: function(){
          this.anim.play()
+         this.anim.setDirection(1)
     }
     ,
     endLogo: function(){    
+         this.anim.setDirection(-1)
          this.anim.stop()
     }
     }
