@@ -1,14 +1,13 @@
 <template>
   <div>
-    <div>
-      <nuxt-link to="about"><img src="" alt="" />À propos</nuxt-link>
-    </div>
+
+      <nuxt-link to="about" class="about-link" ><span><img src="@/assets/img/kellig.jpg" alt="Kellig" class="kellig" /></span>À propos</nuxt-link>
 
     <footer>
       <nav>
         <ul>
-          <li>
-            <nuxt-link to="/" class="logo" v-on:mouseover="animLogo">
+          <li v-on:mouseover="animLogo" v-on:mouseleave="endLogo" >
+            <nuxt-link to="/" class="logo" >
               <lottie
                 class="logo"
                 :width="50"
@@ -29,6 +28,9 @@
           </li>
           <li>
             <nuxt-link to="blog">Blog</nuxt-link>
+          </li>
+          <li>
+            <p class="setting"><span></span><span></span><span></span></p>
           </li>
         </ul>
       </nav>
@@ -60,8 +62,11 @@ export default {
       this.anim = anim;
     },
     animLogo: function(){
-        this.anim.play()
-        console.log(logo)
+         this.anim.play()
+    }
+    ,
+    endLogo: function(){    
+         this.anim.stop()
     }
     }
 };
