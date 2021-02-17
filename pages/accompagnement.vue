@@ -1,38 +1,67 @@
 <template>
   <div id="accompagnement">
-
-      <section class="intro panel">
-        <div class="back-intro"></div>
-       
-       <h4>Introduction</h4>
-       <h1>Nous sommes tous <em><br/> Designers</em></h1>
-       <p>Je vous accompagne dans cette aventure collective et créative</p>
-         <div class="earth-anim">
+    <section class="intro panel">
+      <div class="back-intro"></div>
+      <h1><span>nous sommes tous</span></h1>
+      <h2><span>&amp; Designers</span></h2>
+      <p>Je vous accompagne dans cette aventure collective et créative</p>
+      <div class="earth-anim">
         <lottie
           :options="animationsOptions.earth"
           v-on:animCreated="handleAnimation"
         />
       </div>
+    </section>
 
-      </section>
-
-      <section class="synopsis panel">
-        <div class="back-intro"></div>
-       
-       <h4>Synopsis</h4>
-       <h2>Tout commence par une histoire où l’utilisateur en est le principal protagoniste, dans un univers où son expérience est le fil conducteur de votre scénario</h2>
-
-
-      </section>
-      <section class="univers panel">
-        <div class="back-intro"></div>
-       
-       <h4>Univers</h4>
-       <h2>Dans cette univers, le héro va devoir accomplir sa quête, combattre des vilains, réussir ses actions, se sentir bien </h2>
-
-
-      </section>
-
+    <section class="synopsis panel">
+      <div class="back-intro"></div>
+      <h5>Chapitre 1</h5>
+      <h4>Synopsis</h4>
+      <h3>
+        Tout commence par une histoire où l’utilisateur en est le principal
+        protagoniste, dans un univers où son expérience est le fil conducteur de
+        votre scénario
+      </h3>
+    </section>
+    <section class="univers panel">
+      <div class="back-intro"></div>
+      <h5>Chapitre 2</h5>
+      <h4>Univers</h4>
+      <h3>Dans votre univers, il va découvrir un nouveau monde,</h3>
+    </section>
+    <section class="declenchement panel">
+      <div class="back-intro"></div>
+      <h5>Chapitre 3</h5>
+      <h4>Déclenchement</h4>
+      <h3>
+        Dans cette univers, le héro va devoir accomplir sa quête, combattre des
+        vilains, réussir ses actions, se sentir bien
+      </h3>
+    </section>
+    <section class="aventure panel">
+      <div class="back-intro"></div>
+      <h5>Chapitre 4</h5>
+      <h4>Aventure</h4>
+      <h3>
+        Son aventure séquentielle, va le mener sur différentes étapes. Un
+        parcours itératif qu'il va surmonter ses obstacles, réussir ses actions,
+        être orienté
+      </h3>
+    </section>
+    <section class="denouement panel">
+      <div class="back-intro"></div>
+      <h5>Chapitre 5</h5>
+      <h4>Dénouement</h4>
+      <h3>
+        Dans cette univers, le héro va devoir accomplir sa quête, combattre des
+        vilains, réussir ses actions, se sentir bien
+      </h3>
+    </section>
+    <section class="end panel">
+      <div class="back"></div>
+      <h5>Prochaine étape</h5>
+      <h4>Services</h4>
+    </section>
   </div>
 </template>
 
@@ -42,7 +71,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import lottie from "vue-lottie/src/lottie.vue";
-import * as arrow from "@/assets/animation/earth.json";
+import * as earth from "@/assets/animation/earth.json";
 
 export default {
   components: {
@@ -52,38 +81,65 @@ export default {
     return {
       animationsOptions: {
         earth: {
-          animationData: arrow.default,
+          animationData: earth.default,
           autoplay: true,
           loop: true
         }
       }
-    }
+    };
   },
   methods: {
-
-      handleAnimation: function(anim) {
+    handleAnimation: function(anim) {
       this.anim = anim;
     }
   },
-  mounted(){
+  mounted() {
+    gsap.utils.toArray(".panel").forEach(function(el) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: el,
+            start: "top center",
+            end: "80% center",
+            toggleActions: "restart none none none"
+          }
+        })
+        .from(el, { autoAlpha: 0, scale: 0.95 })
+        .from(".panel h3", { autoAlpha: 0, y: 50 }, "<= 0.5")
+        .to(".panel h3", { autoAlpha: 1, y: 0 });
+    });
 
-    this.tl2 = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".synopsis",
-    start: "top center",
-    end: "80% center",
-    toggleActions: 'restart reset resume reset',
-    markers: true
+    this.titleEffect = gsap
+      .timeline({delay:0.5})
+      .from(".intro h1 span ", { y: "2em" })
+      .from(".intro h2 span ", { y: "2em" }, "<");
+
+    this.tl2 = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".synopsis",
+          start: "top center",
+          end: "80% center",
+          toggleActions: "restart reset resume reset"
+        }
+      })
+      .to("#accompagnement", { background: "#000", duration: 2 })
+      .to(".synopsis h4", { color: " #FFF " }, "-= 1")
+      .to(".synopsis h3", { color: " #FFF " }, "-= 1")
+      .to(".about-link", { color: " #FFF " }, "-= 1");
+
+    this.endTl = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".end",
+          start: "top center",
+          toggleActions: "restart reset resume reset",
+          markers: true
+        }
+      })
+      .set(".end .back", { autoAlpha: 0 })
+      .to(".end .back", { autoAlpha: 1, scale: 10, duration: 0.2 })
+      .to(".end h4", { color: " #FFF " }, "-= 1");
   }
-})
-.to("#accompagnement", {background: "#000", duration: 2 })
-.to(".synopsis h4", {color: " #FFF "}, "-= 1")
-.to(".synopsis h2", {color: " #FFF "}, "-= 1")
-.to(".about-link", {color: " #FFF "}, "-= 1");
-
-
-  }
-
-
 };
 </script>
