@@ -1,9 +1,8 @@
 <template>
   <div id="accompagnement">
     <section class="intro panel">
-      <div class="back-intro"></div>
       <h1><span>nous sommes tous</span></h1>
-      <h2><span>&amp; Designers</span></h2>
+      <h2><span>Designers</span></h2>
       <p>Je vous accompagne dans cette aventure collective et créative</p>
       <div class="earth-anim">
         <lottie
@@ -112,7 +111,8 @@ export default {
     this.titleEffect = gsap
       .timeline({delay:0.5})
       .from(".intro h1 span ", { y: "2em" })
-      .from(".intro h2 span ", { y: "2em" }, "<");
+      .from(".intro h2 span ", { y: "2em" }, "<")
+      .from(".intro p ", { autoAlpha: 0 })
 
     this.tl2 = gsap
       .timeline({

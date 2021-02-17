@@ -1,13 +1,16 @@
 <template>
   <div>
-
-      <nuxt-link to="about" class="about-link" ><span><img src="@/assets/img/kellig.jpg" alt="Kellig" class="kellig" /></span>À propos</nuxt-link>
+    <nuxt-link to="about" class="about-link"
+      ><span
+        ><img src="@/assets/img/kellig.jpg" alt="Kellig" class="kellig"/></span
+      >À propos</nuxt-link
+    >
 
     <footer>
       <nav>
         <ul>
-          <li v-on:mouseover="animLogo" v-on:mouseleave="endLogo" >
-            <nuxt-link to="/" class="logo" >
+          <li v-on:mouseover="animLogo" v-on:mouseleave="endLogo">
+            <nuxt-link to="/" class="logo">
               <lottie
                 class="logo"
                 :width="50"
@@ -46,30 +49,34 @@ export default {
   components: {
     lottie
   },
-  data (){
-    return{
+  data() {
+    return {
       animationsOptions: {
         logo: {
           animationData: logo.default,
           autoplay: false,
           loop: false
         }
-      },
-    }
+      }
+    };
   },
-    methods: {
+  methods: {
     handleAnimation: function(anim) {
       this.anim = anim;
     },
-    animLogo: function(){
-         this.anim.play()
-         this.anim.setDirection(1)
+    animLogo: function() {
+      this.anim.setSpeed(1);
+      this.anim.setDirection(1);
+      this.anim.play();
+    },
+
+    endLogo: function() {
+      
+      this.anim.setSpeed(1.5);
+      this.anim.setDirection(-1);
+      this.anim.stop();
+      
     }
-    ,
-    endLogo: function(){    
-         this.anim.setDirection(-1)
-         this.anim.stop()
-    }
-    }
+  }
 };
 </script>

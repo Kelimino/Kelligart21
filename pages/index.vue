@@ -1,22 +1,24 @@
 <template>
   <div class="container">
     <div>
-
       <section class="bienvenue panel">
-        <div class="back-intro"></div>
-      <!-- <transition appear
-     @before-enter="beforeEnter"
-     @before-leave="beforeLeave"
-     @enter="enter"
-      >
-     Place element div here for transition
-      </transition> -->
-       <h1> <span>Directeur artistique</span></h1>
-       <h2><span>&amp; creative designer </span></h2>
-       
-       
-       <p>skip intro</p>
+        <transition
+          appear
+          name="fade"
+          @before-enter="beforeEnter"
+          @enter="Enter"
+        >
+          <img
+            class="back-intro"
+            src="@/assets/img/sea.jpg"
+            alt="image"
+            v-show="showImg"
+          />
+        </transition>
+        <h1><span>Directeur artistique</span></h1>
+        <h2><span>&amp; creative designer </span></h2>
 
+        <p>skip intro</p>
       </section>
     </div>
   </div>
@@ -26,35 +28,66 @@
 import { gsap } from "gsap";
 
 export default {
-
-
-  methods:{
-
-      beforeEnter: function (el) {
-      el.style.color ='green'
-      console.log('i am green')
-    },
-
-      enter: function (el) {
-      el.style.color ='black'
-      console.log('i am black')
-    },
-
-      beforeLeave: function (el) {
-      el.style.color ='pink'
-      console.log('i am Pink')
-    },
+  data() {
+    return {
+      showImg: true
+    };
   },
 
-  mounted(){
+  methods: {
+    beforeEnter: function(el) {
+      console.log("beforeEnter", el);
+            gsap
+        .timeline({})
+        .from(el, { autoAlpha: 0, duration: 0.6})
+        .to(el, { autoAlpha: 1, scale: 1.2, duration: 0.6, ease: "power2.out" },"+=0.5");
+    },
+    Enter: function() {
 
-    this.titleEffect = gsap.timeline({
-    })
+    }
+    //   afterEnter: function (el) {
+    //   el.style.width ='100%'
+    //   console.log('afterEnter', el)
+    //   setTimeout(() => this.showImg = false, 2000)
+    // },
+    //   beforeLeave: function (el) {
+    //   console.log('beforeLeave', el)
+    // },
+    //   Leave: function (el) {
+    //   console.log('leave', el)
+    // },
+    //   afterLeave: function (el) {
+    //   console.log('afterLeave', el)
+    // }
+  },
 
-    .from(".bienvenue h1 span ", { y: "2em"})
-    .from(".bienvenue h2 span ", { y: "2em"}, "<")
+  mounted() {
+    this.titleEffect = gsap
+      .timeline({})
+
+      .from(".bienvenue h1 span ", { y: "2em" })
+      .from(".bienvenue h2 span ", { y: "2em" }, "<");
   }
-
+};
+</script>
+<style scoped>
+/* .fade-enter-to{
+  border: solid 10px green;
 
 }
-</script>
+
+.fade-enter-active{
+
+  border: solid 10px purple;
+}
+
+.fade-leave-to{
+   border: solid 10px red;
+  transition: all 0.6s linear;
+}
+
+.fade-leave-active{
+
+  transition: all 0.6s linear;
+} */
+</style>
