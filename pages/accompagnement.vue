@@ -1,5 +1,14 @@
 <template>
   <div id="accompagnement">
+
+    <svg class="filter-effect">
+  <filter id="turbulence" x="0" y="0">
+    <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
+    <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+  </filter>
+</svg>
+<div class="titlePin">Nous sommes tous <span>Designers</span></div>
+
     <section class="intro panel">
       <h1><span>nous sommes tous</span></h1>
       <h2><span>Designers</span></h2>
@@ -13,6 +22,8 @@
     </section>
 
     <section class="synopsis panel">
+
+
       <div class="back-intro"></div>
       <h5>Chapitre 1</h5>
       <h4>Synopsis</h4>
@@ -134,7 +145,6 @@ export default {
           trigger: ".end",
           start: "top center",
           toggleActions: "restart reset resume reset",
-          markers: true
         }
       })
       .set(".end .back", { autoAlpha: 0 })

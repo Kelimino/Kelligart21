@@ -1,5 +1,13 @@
 <template>
   <div class="container">
+
+        <svg>
+  <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+    <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
+    <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+  </filter>
+</svg>
+
     <div>
       <section class="bienvenue panel">
         <transition
@@ -39,7 +47,7 @@ export default {
       console.log("beforeEnter", el);
             gsap
         .timeline({})
-        .from(el, { autoAlpha: 0, duration: 0.6})
+        .from(el, { autoAlpha: 0})
         .to(el, { autoAlpha: 1, scale: 1.2, duration: 0.6, ease: "power2.out" },"+=0.5");
     },
     Enter: function() {
