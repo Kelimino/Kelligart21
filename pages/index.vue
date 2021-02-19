@@ -9,8 +9,8 @@
           v-show="showImg"
         />
       </transition> -->
-
-      <video class="back-video" width="320" height="240" ref="videoPlayer">
+  <button @click="videoPause">Pause</button>
+      <video class="back-video" width="320" height="240" ref="video">
         <source :src="video" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -37,10 +37,13 @@ export default {
 
   methods: {
 
-    playVideo: function (){
-    this.$refs.videoPlayer.play();
 
+    videoPause: function (){
+   this.$refs.video.pause();
     },
+    // playVideo: function() {
+    //   this.$refs.video.play();
+    // },
     beforeEnter: function(el) {
       console.log("beforeEnter", el);
       gsap
@@ -55,19 +58,21 @@ export default {
   },
 
   mounted() {
-
-    function playVideo() {
-  this.$refs.videoPlayer.play();
-}
-
-    
+    let vid = document.querySelector(".back-video")
+    vid.pause()
 
     this.titleEffect = gsap
       .timeline({})
       .to(".about-link ", { color: "#FFF" })
       .from(".bienvenue h1 span ", { y: "2em" })
       .from(".bienvenue h2 span ", { y: "2em" }, "<")
-      .call(playVideo())
+      .to(".bienvenue h1 span ", { y: "0em", duration: 1.5 })
+      .to(".bienvenue h2 span ", { y: "0em", duration: 1.5 }, "<")
+      .add( function(){ 
+    vid.play() }, "<=0.5" )
+    .to(".bienvenue h1 span ", { y: "-2em" })
+    .to(".bienvenue h2 span ", { y: "-2em" }, "<")
+    .to(".back-video", { scale: 2, duration: 2})
   }
 };
 </script>

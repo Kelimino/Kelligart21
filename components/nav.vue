@@ -3,7 +3,7 @@
     <nuxt-link to="about" class="about-link"
       ><span
         ><img src="@/assets/img/kellig.jpg" alt="Kellig" class="kellig"/></span
-      >À propos</nuxt-link
+      ></nuxt-link
     >
 
     <footer>

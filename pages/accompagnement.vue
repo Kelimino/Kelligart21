@@ -136,6 +136,7 @@ export default {
         }
       })
       .to("#accompagnement", { background: "#0D1317", duration: 2 })
+      .to(".about-link ", {color: "#FFF" },"<")
 
     this.endTl = gsap
       .timeline({

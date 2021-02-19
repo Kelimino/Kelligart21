@@ -128,14 +128,20 @@ nav{
     
     font-family: $text;
     font-size: 0.8em;
-    font-weight: 500;
     text-decoration: none;
     color: $main;
     
     &:hover{
+ 
         
         span{
-            transform: scale(1.1);
+            
+
+            &:before{
+
+                opacity: 1;
+                right: 120%;
+            }
             
             
             
@@ -154,6 +160,20 @@ nav{
         position: relative;
         margin-right: 0.5em;
         transition: all 0.2s ease-in-out;
+        
+        &:before{
+            
+            content: "À propos";
+            display: block;
+            width: 5em;
+            color: #FFF;
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.2s linear;
+        }
     }
     
     
@@ -168,6 +188,8 @@ nav{
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
+        
+        
         
         
         
@@ -313,23 +335,23 @@ nav{
 /*-----Acceuil -----*/
 
 #accueil{
-
+    
     background: $main;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
     .filter-effect{
         display: none;
     }
-
-
+    
+    
 }
 .bienvenue{
     width: 100%;
-
+    
     .back-video{
         
         position: absolute;
@@ -362,7 +384,7 @@ nav{
         width: 100%;
         overflow: hidden;
         position: relative;
-
+        
         
         span{
             position: absolute;
@@ -384,39 +406,39 @@ nav{
 
 #accompagnement{
     
-
+    
     .filter-effect{
         display: none;
     }
-
-
+    
+    
     .titlePin{
-
-            font-family: $text;
-            font-style:italic;
-            font-weight: lighter;
-            font-size: 2rem;
-            text-transform: uppercase;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            opacity: 0.2;
-            transform: translateX(-50%) translateY(-50%);
+        
+        font-family: $text;
+        font-style:italic;
+        font-weight: lighter;
+        font-size: 2rem;
+        text-transform: uppercase;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        opacity: 0.2;
+        transform: translateX(-50%) translateY(-50%);
         span{
-
+            
             font-family: $title;
             font-size: 5rem;
             font-style:normal;
             font-weight: bold;
-
+            
         }
-
         
-
-
+        
+        
+        
     }
     .panel{
         
@@ -428,9 +450,9 @@ nav{
         align-items: center;
         justify-content: center;
         text-align: center;
-
+        
         .back-intro{
-
+            
             width: 25%;
             height: 70%;
             position: absolute;
@@ -474,34 +496,36 @@ nav{
         
         position: relative;
         overflow: hidden;
+        background: $main;
         
         .earth-anim{
             
             position: absolute;
             overflow: hidden;
             width: 30%;
-            background: #F0EFEC;
+            
             z-index: -1;
             top: 50%;
             left: 50%;
             transform: translateX(-50%) translateY(-50%) scale(2);
-
+            
             svg{
-
+                
                 width: 50%;
-
-
+                
+                
             }
             
         }
         
         h1{
-        
+            
             height: 1em;
             font-size: 4rem;
             font-family: $text;    
             font-style: italic;
             font-weight: 100;
+            color: #FFF;
         }
         h2{
             
@@ -511,12 +535,13 @@ nav{
             font-size: 6rem;
             height: 1.2em;
             margin: initial;
+            color: $primary;
         }
         h1, h2{
             
             
             text-transform: uppercase;
-            color: $main;
+            
             width: 30em;
             overflow: hidden;
             position: relative;
@@ -530,7 +555,7 @@ nav{
             }
         }
         p{
-            color: rgba($color: $main, $alpha: 0.5);
+            color: #FFF;
             font-family: $text;
             font-size: 0.8em;
         }
@@ -562,31 +587,31 @@ nav{
 /*-----Service -----*/
 
 #service{
-
-
-
-
+    
+    
+    
+    
     .intro{
-
-        background: $secondary;
+        
+        background: $main;
         height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        
         .back{
-            background: $main;
+            background: $primary;
             height: 0%;
             width: 100%;
             transform-origin: bottom;
             position: absolute;
             bottom: 0;
         }
-
-
+        
+        
         h1{
-
+            
             position: relative;
             font-family: $title;
             color: $primary;
@@ -594,8 +619,8 @@ nav{
             font-size: 4em;
             overflow: hidden;
             height: 0.9em;
-    width: 100%;
-
+            width: 100%;
+            
             span{
                 position: absolute;
                 left: 50%;
@@ -604,16 +629,16 @@ nav{
                 opacity: 0;
             }
         }
-
+        
         p{
-
+            
             font-family: $text;
             text-transform: uppercase;
             font-size: 1em;
-            color: $main;
+            color: #FFF;
             margin: 2em auto;
             
-
+            
         }
     }
 }
