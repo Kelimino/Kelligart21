@@ -1,14 +1,12 @@
 <template>
-  <div class="container">
+  <div id="accueil">
 
-        <svg>
+        <svg class="filter-effect">
   <filter id="turbulence" x="0" y="0" width="100%" height="100%">
     <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
     <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
   </filter>
 </svg>
-
-    <div>
       <section class="bienvenue panel">
         <transition
           appear
@@ -28,7 +26,6 @@
 
         <p>skip intro</p>
       </section>
-    </div>
   </div>
 </template>
 
@@ -72,9 +69,10 @@ export default {
   mounted() {
     this.titleEffect = gsap
       .timeline({})
-
+      .to(".about-link ", {color: "#FFF" })
       .from(".bienvenue h1 span ", { y: "2em" })
       .from(".bienvenue h2 span ", { y: "2em" }, "<");
+      
   }
 };
 </script>

@@ -121,6 +121,7 @@ export default {
 
     this.titleEffect = gsap
       .timeline({delay:0.5})
+      .to(".about-link ", {color: "#0D1317" })
       .from(".intro h1 span ", { y: "2em" })
       .from(".intro h2 span ", { y: "2em" }, "<")
       .from(".intro p ", { autoAlpha: 0 })
@@ -134,10 +135,7 @@ export default {
           toggleActions: "restart reset resume reset"
         }
       })
-      .to("#accompagnement", { background: "#000", duration: 2 })
-      .to(".synopsis h4", { color: " #FFF " }, "-= 1")
-      .to(".synopsis h3", { color: " #FFF " }, "-= 1")
-      .to(".about-link", { color: " #FFF " }, "-= 1");
+      .to("#accompagnement", { background: "#0D1317", duration: 2 })
 
     this.endTl = gsap
       .timeline({

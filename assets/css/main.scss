@@ -174,6 +174,8 @@ nav{
     
 }
 
+
+
 #canvas{
     
     width: 500px;
@@ -312,18 +314,19 @@ nav{
 
     background: $main;
     height: 100vh;
-
-}
-.bienvenue{
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+
+    .filter-effect{
+        display: none;
+    }
 
 
-    
+}
+.bienvenue{
+    width: 100%;
 
     .back-intro{
         
@@ -381,9 +384,11 @@ nav{
 
 #accompagnement{
     
+
     .filter-effect{
         display: none;
     }
+
 
     .titlePin{
 
@@ -461,7 +466,7 @@ nav{
             font-family:$text;
             font-size: 1em;
             margin: 1em 3em;
-            width: 20‡%;
+            width: 20%;
         }
         
     }
