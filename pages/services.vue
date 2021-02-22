@@ -165,7 +165,17 @@ export default {
         {
           name: "Communication visuelle",
           span:
-            "Graphisme - Illustration - Stationnary - Pao - Réseaux sociaux",
+            "Graphisme - Illustration - Stationnary - Pao - Réseaux sociaux - Motion Design",
+          class: "CV",
+          picture: require("@/assets/img/kellig.jpg"),
+          description:
+            "Valoriser et communiquer votre image et message de marque"
+        },
+
+        {
+          name: "Développement Front",
+          span:
+            "Animation - Intéraction - Site Vitrine - Framework - Responsive - Webpack",
           class: "CV",
           picture: require("@/assets/img/kellig.jpg"),
           description:
@@ -177,8 +187,12 @@ export default {
 
   methods: {},
   mounted() {
+
+
+
+
     this.backList = gsap
-      .timeline({
+      .timeline({ repeat:-1, 
         scrollTrigger: {
           trigger: ".list-expertise",
           start: "top top",
