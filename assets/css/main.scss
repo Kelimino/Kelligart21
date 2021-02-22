@@ -601,7 +601,7 @@ nav{
         justify-content: center;
         align-items: center;
         position: fixed;
-        z-index: 10;
+        z-index: 5;
         transform-origin: top;
         
         h1{
@@ -637,20 +637,68 @@ nav{
     }
     
     .expertise{
-        background: $primary;
+        background: $main;
         width: 100%;
         padding: 10em 0;
+               
+            
+            
+            .backlist{
+                
+                transform: rotate(-20deg) translateX(-50%) translateY(-50%);
+                transform-origin: center;
+                transform-origin: center;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: nowrap;              
+                position: fixed;
+                top: 50%;
+                left: 80%;
+                width: auto;
+                height: auto;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                z-index: 0;
+                opacity: 0.3;
+                
+                
+                li{
+                    width: 350px !important;
+                    display: flex;
+                    padding: 0;
+                    margin: 1em 0.5em;
+                    display: flex;
+                    flex-direction: column;
+                    
+                    
+                    img{
+                        
+                        width: 100%;
+                        height: auto;
+                        margin: 0.5em 0;
+                        
+                    }
+                }
+                
+                
+            }
+            
+            
+
         
-        ul{
+        .list-expertise{
             
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
             width: 100%;
+            position: relative;
             
             &:hover > *{
-                opacity: 0.3;
                 h2{
                     -webkit-text-stroke-color: #FFF;
                     -webkit-text-stroke-width: 2px;
@@ -662,32 +710,33 @@ nav{
             
             &:hover > *:hover{
                 opacity: 1;
+                
                 h2{
                     
-                    
                     color: $secondary;
-                    
-                    
                 }
                 h3{
                     animation-name: loop;
-                    animation-duration: 12s;
+                    animation-timing-function: linear;
+                    animation-duration:4s;
                     animation-iteration-count: infinite;
-                    opacity: 1;
+                    
                 }
                 @keyframes loop {
                     0% {
                         transform: translate(0, 0);
+                        opacity: 1;
                     }
                     100% {
-                        transform: translate(10%, 0);
+                        transform: translate(30%, 0);
+                        opacity: 1;
                     }
                     
                 }
                 
                 p{
                     
-                    margin-top: 3em;
+                    margin-top: 5em;
                     opacity: 1;
                 }
             }
@@ -701,17 +750,13 @@ nav{
                 
                 
                 
-                
-                
                 h2{
                     
                     font-family: $title;
                     text-transform: uppercase;
                     font-size: 4em;
                     transition: all 0.6s ease-in-out;
-                    -webkit-text-stroke-color: #FFF;
-                    -webkit-text-stroke-width: 2px;
-                    color: transparent;
+                    color: #FFF;
                     
                     
                 }
@@ -721,10 +766,13 @@ nav{
                     text-transform: uppercase;
                     font-size: 3em;
                     font-weight: 200;
-                    color: $secondary;
+                    color: $primary;
                     display: inline-block;
+                    width: auto;
                     opacity: 0;
                     white-space: nowrap;
+                    position: absolute;
+                    left: -50%;
                     
                     
                 }

@@ -11,7 +11,55 @@
       <p>est l'outil le plus puissant d'un Designer</p>
     </section>
     <section class="expertise">
-      <ul>
+      <ul class="backlist">
+        <li>
+          <img
+            v-for="(poster, index) in graphisme"
+            class="graphisme"
+            :key="index"
+            :src="poster.path"
+            alt="poster"
+          />
+        </li>
+        <li>
+          <img
+            v-for="(poster, index) in web"
+            class="web"
+            :key="index"
+            :src="poster.path"
+            alt="poster"
+          />
+        </li>
+         <li>
+          <img
+            v-for="(poster, index) in graphisme2"
+            class="graphisme"
+            :key="index"
+            :src="poster.path"
+            alt="poster"
+          />
+        </li>
+        <li>
+          <img
+            v-for="(poster, index) in web2"
+            class="web"
+            :key="index"
+            :src="poster.path"
+            alt="poster"
+          />
+        </li>
+        <li>
+          <img
+            v-for="(poster, index) in graphisme"
+            class="graphisme"
+            :key="index"
+            :src="poster.path"
+            alt="poster"
+          />
+        </li>
+      </ul>
+
+      <ul class="list-expertise">
         <li
           v-for="(domain, index) in expertise"
           :key="index"
@@ -40,11 +88,57 @@ export default {
   },
   data() {
     return {
+      graphisme: [
+        {
+          path: require("@/assets/img/poster1.jpg")
+        },
+        {
+          path: require("@/assets/img/poster2.jpg")
+        },
+        {
+          path: require("@/assets/img/poster3.png")
+        },
+        {
+          path: require("@/assets/img/poster4.jpg")
+        }
+      ],
+      graphisme2: [
+
+        {
+          path: require("@/assets/img/poster5.png")
+        },
+        {
+          path: require("@/assets/img/poster6.png")
+        },
+                {
+          path: require("@/assets/img/poster4.jpg")
+        },
+        {
+          path: require("@/assets/img/poster3.png")
+        },
+      ],
+      web: [
+        {
+          path: require("@/assets/img/web1.png")
+        },
+        {
+          path: require("@/assets/img/web2.jpg")
+        }
+      ],
+      web2: [
+        {
+          path: require("@/assets/img/web3.png")
+        },
+        {
+          path: require("@/assets/img/web4.png")
+        }
+      ],
+
       expertise: [
         {
-          name: "Art direction",
+          name: "Direction artistique",
           span:
-            "Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction - Art Direction ",
+            "Branding - Charte graphique - Logo - Motion design - lancement de produit - Art Direction - Art Direction",
           class: "DA",
           picture: require("@/assets/img/kellig.jpg"),
           description:
@@ -52,7 +146,8 @@ export default {
         },
         {
           name: "Expérience utilisateur",
-          span: "Expérience Utilisateur - Expérience Utilisateur - Expérience Utilisateur - Expérience Utilisateur",
+          span:
+            "Design thinking - Ateliers de conception - Design sprint - Interview - Ergonomie Web - Persona",
           class: "UX",
           picture: require("@/assets/img/kellig.jpg"),
           description:
@@ -60,7 +155,8 @@ export default {
         },
         {
           name: "Design d'interfaces",
-          span: "Design d'interfaces - Design d'interfaces - Design d'interfaces - Design d'interfaces - Design d'interfaces - Design d'interfaces - Design d'interfaces - Design d'interfaces - Design d'interfaces - Design d'interfaces ",
+          span:
+            "Catalogue - Ecommerce - Logiciel - Application - Site évènementiel - Webdesign - Maquettes - Prototypes intéractifs",
           class: "UI",
           picture: require("@/assets/img/kellig.jpg"),
           description:
@@ -68,7 +164,8 @@ export default {
         },
         {
           name: "Communication visuelle",
-          span: "Communication visuelle - Communication visuelle - Communication visuelle - Communication visuelle - Communication visuelle - Communication visuelle - Communication visuelle - Communication visuelle - Communication visuelle - Communication visuelle ",
+          span:
+            "Graphisme - Illustration - Stationnary - Pao - Réseaux sociaux",
           class: "CV",
           picture: require("@/assets/img/kellig.jpg"),
           description:
@@ -80,37 +177,20 @@ export default {
 
   methods: {},
   mounted() {
-    // let expertises = document.querySelectorAll(".expertise ul li");
-    // console.log(expertises)
-
-    // expertises.forEach(expertise => {
-    //   let titleSpan = expertise.querySelector("h3");
-    //   let title = expertise.querySelector("h2");
-    //   let description = expertise.querySelector("p");
-    //   let animText = gsap
-    //     .timeline({paused: true})
-    //     animText
-
-    //     .to(title, {
-    //       y: -20, autoAlpha:0, duration: 0.6, ease: "power2.inOut"
-    //     })
-    //     .to(description, {
-    //       display:"block"
-    //     })
-    //     .fromTo(titleSpan ,{x:-500}, {
-    //       x: 500, repeat: -1, duration: 10, autoAlpha:1
-    //     }, "<")
-
-
-    //   expertise.addEventListener("mouseenter", function() {
-    //     animText.play();
-    //     console.log('hey')
-    //   });
-    //   expertise.addEventListener("mouseleave", function() {
-    //     animText.reverse();
-    //     console.log('bye')
-    //   });
-    // });
+    this.backList = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".list-expertise",
+          start: "top top",
+          toggleActions: "play none none none"
+        }
+      })
+      .to(".backlist .graphisme", {
+        y: "30%", duration:10
+      })
+      .to(".backlist .web", {
+        y: "-30%", duration:10
+      }, "<")
 
     this.tlSvc = gsap
       .timeline({ delay: 0.5 })
@@ -123,11 +203,7 @@ export default {
       .to(".Three", { y: -100, autoAlpha: 0 }, "+=0.5")
       .to(".intro h1", { display: "none" })
       .to(".intro p", { autoAlpha: 0, y: -10 }, "-=1")
-      .to(
-        ".intro",
-        { height: "0%", ease: "power4.out", duration: 1 },
-        "-=0.5"
-      )
+      .to(".intro", { height: "0%", ease: "power4.out", duration: 1 }, "-=0.5")
       .to(".about-link", { color: " #FFF " });
   }
 };
