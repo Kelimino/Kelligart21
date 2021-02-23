@@ -30,7 +30,7 @@
             alt="poster"
           />
         </li>
-         <li>
+        <li>
           <img
             v-for="(poster, index) in graphisme2"
             class="graphisme"
@@ -50,7 +50,7 @@
         </li>
         <li>
           <img
-            v-for="(poster, index) in graphisme"
+            v-for="(poster, index) in graphisme3"
             class="graphisme"
             :key="index"
             :src="poster.path"
@@ -103,34 +103,54 @@ export default {
         }
       ],
       graphisme2: [
-
         {
           path: require("@/assets/img/poster5.png")
         },
         {
-          path: require("@/assets/img/poster6.png")
-        },
-                {
-          path: require("@/assets/img/poster4.jpg")
+          path: require("@/assets/img/poster8.png")
         },
         {
-          path: require("@/assets/img/poster3.png")
+          path: require("@/assets/img/poster7.png")
         },
+        {
+          path: require("@/assets/img/poster6.png")
+        }
+      ],
+      graphisme3: [
+        {
+          path: require("@/assets/img/poster1.jpg")
+        },
+        {
+          path: require("@/assets/img/poster6.png")
+        }
+        ,
+        {
+          path: require("@/assets/img/poster4.jpg")
+        }
       ],
       web: [
         {
           path: require("@/assets/img/web1.png")
         },
         {
-          path: require("@/assets/img/web2.jpg")
+          path: require("@/assets/img/web5.png")
+        },
+        {
+          path: require("@/assets/img/web6.png")
+        },
+        {
+          path: require("@/assets/img/web3.png")
         }
       ],
       web2: [
         {
-          path: require("@/assets/img/web3.png")
+          path: require("@/assets/img/web2.jpg")
         },
         {
           path: require("@/assets/img/web4.png")
+        },
+        {
+          path: require("@/assets/img/web1.png")
         }
       ],
 
@@ -187,34 +207,48 @@ export default {
 
   methods: {},
   mounted() {
-
-
-
-
     this.backList = gsap
-      .timeline({ repeat:-1, 
-        scrollTrigger: {
-          trigger: ".list-expertise",
-          start: "top top",
-          toggleActions: "play none none none"
-        }
-      })
+      .timeline({ repeat: -1, yoyo: true })
       .to(".backlist .graphisme", {
-        y: "30%", duration:10
+        y: "30%",
+        duration: 20
       })
-      .to(".backlist .web", {
-        y: "-30%", duration:10
-      }, "<")
+      .to(
+        ".backlist .web",
+        {
+          y: "-10%",
+          duration: 20
+        },
+        "<"
+      );
 
     this.tlSvc = gsap
       .timeline({ delay: 0.5 })
       .set("h1 span", { y: 100 })
-      .to(".One", { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" })
-      .to(".One", { y: -100, autoAlpha: 0 }, "+=0.5")
-      .to(".Two", { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" })
-      .to(".Two", { y: -100, autoAlpha: 0 }, "+=0.5")
-      .to(".Three", { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" })
-      .to(".Three", { y: -100, autoAlpha: 0 }, "+=0.5")
+      .to(".One", {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        color: "#F0EFEC",
+        ease: "power3.out"
+      })
+      .to(".One", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
+      .to(".Two", {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        color: "#F0EFEC",
+        ease: "power3.out"
+      })
+      .to(".Two", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
+      .to(".Three", {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        color: "#F0EFEC",
+        ease: "power3.out"
+      })
+      .to(".Three", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
       .to(".intro h1", { display: "none" })
       .to(".intro p", { autoAlpha: 0, y: -10 }, "-=1")
       .to(".intro", { height: "0%", ease: "power4.out", duration: 1 }, "-=0.5")
