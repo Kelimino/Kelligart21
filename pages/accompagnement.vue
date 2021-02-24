@@ -95,7 +95,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-
 import lottie from "vue-lottie/src/lottie.vue";
 import * as earth from "@/assets/animation/earth.json";
 
@@ -111,7 +110,7 @@ export default {
           autoplay: true,
           loop: true
         }
-      },
+      }
 
       // postit: [
       //   {
@@ -144,6 +143,7 @@ export default {
     }
   },
   mounted() {
+
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
         .timeline({
