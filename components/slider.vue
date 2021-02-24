@@ -4,17 +4,20 @@
       <div class="swiper-wrapper">
           <!-- Slides -->
           <div class="swiper-slide" v-for="(projet, index) in projets" :key="index" :href="projet.href" >
-              <h2>{{projet.nom}}</h2>
+              <img :src="projet.path" alt="">
+              <div class="content"><h2>{{projet.nom}}</h2>
               <p>{{projet.description}}</p>
-              <nuxt-link :to="projet.href">Voir l'étude</nuxt-link>
+              <nuxt-link :to="projet.href">Voir l'étude</nuxt-link></div>
+              
+              
           </div>
       </div>
       <!-- If we need pagination -->
       <div class="swiper-pagination"></div>
 
       <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <!-- <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div> -->
 
       <!-- If we need scrollbar -->
       <div class="swiper-scrollbar"></div>
@@ -38,10 +41,34 @@ data(){
           nom: "Laforet",
           class:"projet",
           description:
-            "Prendre des idées afin de les matérialiser en véritable positionnement de marque, une image désirable avec un message mémorable",
-          href: "projets/laforet",
+            "Refont du site Immobilier",
+          href: "/laforet",
           path: require("@/assets/img/tiles/web16.png")
-        }
+        },
+                {
+          nom: "Goall",
+          class:"projet",
+          description:
+            "Design concept sur une plateforme de streaming de football",
+          href: "/goall",
+          path: require("@/assets/img/tiles/web16.png")
+        },
+         {
+          nom: "Star",
+          class:"projet",
+          description:
+            "Design concept sur une application de transport",
+          href: "/star",
+          path: require("@/assets/img/tiles/web16.png")
+        },
+        {
+          nom: "Design",
+          class:"projet",
+          description:
+            "Article sur le design digital",
+          href: "/design",
+          path: require("@/assets/img/tiles/web16.png")
+        },
       ]
 
 
@@ -54,19 +81,11 @@ data(){
   mounted() {
     new Swiper('.swiper-container', {
       loop: true,
-      slidesPerView: 1,
-      spaceBetween: 30,
+      slidesPerView: 4,
       pagination: {
         el: '.swiper-pagination',
         type: 'progressbar',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
+      }
     })
   }
 }

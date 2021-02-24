@@ -38,7 +38,7 @@ footer{
     
     position: fixed;
     z-index: 100;
-    bottom: 1em;
+    bottom: 0em;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     border: solid 1px rgba($color: $main, $alpha: 0.2);
@@ -1055,15 +1055,88 @@ nav{
 }
 
 #projets{
-height: 100%;
+height: 100vh;
+background: $main;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
 
 .swiper-container{
     width: 100%;
     height: 100%;
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 5em 0;
 }
+
+
+.swiper-wrapper{
+
+    height: auto;
+}
+
 .swiper-slide {
-    width: 30%;
+    width: auto;
+    height: 20em;
+    min-height: 20em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
 
+    .content{
+        z-index: 2;
+        margin: 1em 0 0 0.5em;
+    }
+
+    img{
+
+        width: 100%;
+        height:50%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.5;
+    }
+
+    h2{
+
+        font-family: $title;
+        font-size: 1em;
+        color: $secondary;
+    }
+    p{
+        font-family: $text;
+        color: $secondary;
+        font-size: 0.8em;
+        line-height: 1.2em;
+        margin: 1em 0;
+    }
+    a{
+        display: none;
+    }
+
+}
+.swiper-pagination-progressbar {
+    background: rgba($color: $primary, $alpha: 0.2);
+    position: absolute;
+    border-radius: 0.2em;
+    top: inherit !important;
+    bottom: 12% !important;
+    width: 30% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: $primary;
+}
+
+.swiper-container-horizontal > .swiper-scrollbar {
+    display: none;
 }
 
 }
+
