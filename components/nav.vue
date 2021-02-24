@@ -1,20 +1,16 @@
 <template>
   <div>
-    <nuxt-link to="about" class="about-link"
-      ><span
-        ><img src="@/assets/img/kellig.jpg" alt="Kellig" class="kellig"/></span
-      ></nuxt-link
-    >
+
 
     <footer>
-      <nav>
+      <nav class="mainNav">
         <ul>
           <li v-on:mouseover="animLogo" v-on:mouseleave="endLogo">
             <nuxt-link to="/" class="logo">
               <lottie
                 class="logo"
-                :width="50"
-                :height="50"
+                :width="65"
+                :height="65"
                 :options="animationsOptions.logo"
                 v-on:animCreated="handleAnimation"
             /></nuxt-link>
@@ -30,10 +26,11 @@
             <nuxt-link to="projets">Projets</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="blog">Blog</nuxt-link>
-          </li>
-          <li>
-            <p class="setting"><span></span><span></span><span></span></p>
+                <nuxt-link to="about" class="about-link"
+      ><span
+        ><img src="@/assets/img/kellig.jpg" alt="Kellig" class="kellig"/></span
+      ></nuxt-link
+    >
           </li>
         </ul>
       </nav>
@@ -44,6 +41,10 @@
 <script>
 import lottie from "vue-lottie/src/lottie.vue";
 import * as logo from "@/assets/animation/logo.json";
+
+// import { gsap } from "gsap";
+// import { Draggable } from "gsap/Draggable";
+// gsap.registerPlugin(Draggable);
 
 export default {
   components: {
@@ -77,6 +78,13 @@ export default {
       this.anim.stop();
       
     }
+  },
+
+  mounted(){
+
+    // Draggable.create(".mainNav",{
+
+    // })
   }
 };
 </script>

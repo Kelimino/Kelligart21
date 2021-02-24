@@ -21,6 +21,7 @@
     "sass-loader": "^10.1.1",
     "scrollmagic": "^2.0.8",
     "smooth-scrollbar": "^8.6.0",
+    "swiper": "^6.4.15",
     "vue-lottie": "^0.2.1"
   },
   "devDependencies": {

@@ -12,7 +12,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel:"stylesheet",  href:"https://fonts.googleapis.com/css2?family=Catamaran:wght@900&family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap"}
+      { rel:"stylesheet",  href:"https://fonts.googleapis.com/css2?family=Catamaran:wght@800&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,800;1,200;1,300;1,400&display=swap"}
     ]
   },
 
