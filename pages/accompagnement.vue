@@ -234,8 +234,7 @@ export default {
         scrollTrigger: {
           trigger: ".denouement",
           start: "center 55%",
-          toggleActions: "play none none reset",
-          markers:true
+          toggleActions: "play none none reset"
         }
       })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })

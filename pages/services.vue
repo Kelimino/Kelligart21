@@ -253,24 +253,22 @@ export default {
 
   methods: {},
   mounted() {
-    this.backList = gsap
+    gsap
       .timeline({ repeat: -1, yoyo: true })
       .to(".backlist .graphisme", {
         y: "30%",
-        duration: 20,
-        margin: "10px !important"
+        duration: 20
       })
       .to(
         ".backlist .web",
         {
           y: "-10%",
-          duration: 20,
-          margin: "10px !important"
+          duration: 20
         },
         "<"
       );
 
-    this.tlSvc = gsap
+    gsap
       .timeline({})
       .set("h1 span", { y: 100 })
       .to(".One", {
@@ -302,12 +300,12 @@ export default {
       .to(".intro", { height: "0%", ease: "power4.out", duration: 1 }, "-=0.5")
       .to(".about-link", { color: " #FFF " });
 
-    this.footerAnim = gsap
+  gsap
       .timeline({
         scrollTrigger: {
           trigger: ".expertise .DF",
           start: "bottom bottom",
-          toggleActions: "play none none reset"
+          toggleActions: "restart none none reset"
         }
       })
       .to(".expertise", { y: "-400px", duration: 1.5, ease: "power4.out" });
