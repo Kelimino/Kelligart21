@@ -5,7 +5,7 @@
       <!-- Slides -->
       <div class="swiper-slide" v-for="(projet, index) in projets" :key="index">
         <nuxt-link :to="projet.href">
-          <img :src="projet.path" alt=""  data-swiper-parallax-opacity="0.1" />
+          <img :src="projet.path" alt="projet image" />
           <div
             class="content"
             
@@ -73,7 +73,17 @@ export default {
     };
   },
 
+  methods:{
+    hoverSlide: function (){
+      this.swiperSlide = document.querySelector('.swiper-slide')
+       this.swiperSlide .forEach(element => console.log(element));
+
+    }
+
+  },
+
   mounted() {
+
     this.swiper = new Swiper(".swiper-container", {
       effect:'EffectFlip',
         flipEffect: {
@@ -83,7 +93,7 @@ export default {
       loop: true,
       slidesPerView: 'auto',
       centeredSlides:true,
-      spaceBetween:2,
+      spaceBetween:20,
       resistanceRatio: 0.5,
       longSwipes: true,
       longSwipesRatio: 0.5,
@@ -99,11 +109,8 @@ export default {
     this.swiper.on("touchMove", function() {
       gsap.to(".swiper-slide", { scale: 0.9 });
     });
-    this.swiper.on("touchEnd", function() {
+    this.swiper.on("touchEnd ", function() {
       gsap.to(".swiper-slide", { scale: 1 });
-    });
-        this.swiper.on("scroll", function() {
-      console.log('scroll')
     });
   }
 };

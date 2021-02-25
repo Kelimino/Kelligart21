@@ -1,7 +1,5 @@
 <template>
   <div>
-
-
     <footer>
       <nav class="mainNav">
         <ul>
@@ -26,11 +24,13 @@
             <nuxt-link to="projets">Projets</nuxt-link>
           </li>
           <li>
-                <nuxt-link to="about" class="about-link"
-      ><span
-        ><img src="@/assets/img/kellig.jpg" alt="Kellig" class="kellig"/></span
-      ></nuxt-link
-    >
+            <nuxt-link to="about" class="about-link"
+              ><span
+                ><img
+                  src="@/assets/img/kellig.jpg"
+                  alt="Kellig"
+                  class="kellig"/></span
+            ></nuxt-link>
           </li>
         </ul>
       </nav>
@@ -62,6 +62,8 @@ export default {
     };
   },
   methods: {
+
+    
     handleAnimation: function(anim) {
       this.anim = anim;
     },
@@ -70,20 +72,14 @@ export default {
       this.anim.setDirection(1);
       this.anim.play();
     },
-
     endLogo: function() {
-      
       this.anim.setSpeed(1.5);
       this.anim.setDirection(-1);
-      this.anim.stop();
-      
     }
   },
 
-  mounted(){
-
+  mounted() {
     // Draggable.create(".mainNav",{
-
     // })
   }
 };
