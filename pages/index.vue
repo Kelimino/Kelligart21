@@ -35,18 +35,18 @@ export default {
   },
 
   mounted() {
-    //function declaration
-  function greet(){
-  console.log("bonjour")
-  }
-      //function expression que lon met dans une variable
-  const speak = function(name, time){
-  console.log('good'+ (time) + (name) )
-    };
+  //   //function declaration
+  // function greet(){
+  // console.log("bonjour")
+  // }
+  //     //function expression que lon met dans une variable
+  // const speak = function(name, time){
+  // console.log('good'+ (time) + (name) )
+  //   };
 
-    //function évoquée 
-    speak();
-    greet()
+  //   //function évoquée 
+  //   speak();
+  //   greet()
 
 
 

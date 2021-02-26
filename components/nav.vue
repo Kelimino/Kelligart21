@@ -82,6 +82,7 @@ export default {
 
   mounted() {
     Draggable.create("#draggable",{
+      bounds: document.querySelector("body"),
     })
   }
 };
