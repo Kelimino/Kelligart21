@@ -3,14 +3,11 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-      <div class="swiper-slide" v-for="(projet, index) in projets" :key="index">
+      <div class="swiper-slide" v-for="(projet, index) in projets" :key="index" >
         <nuxt-link :to="projet.href">
           <img :src="projet.path" alt="projet image" />
-          <div
-            class="content"
-            
-          >
-            <h2 data-swiper-parallax-y="-10" >{{ projet.nom }}</h2>
+          <div class="content">
+            <h2 data-swiper-parallax-y="-10">{{ projet.nom }}</h2>
             <p data-swiper-parallax-y="-10">{{ projet.description }}</p>
           </div>
         </nuxt-link>
@@ -33,7 +30,7 @@ import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import { gsap } from "gsap";
 
-import SwiperCore, {Mousewheel, Parallax, EffectFlip } from 'swiper/core';
+import SwiperCore, { Mousewheel, Parallax, EffectFlip } from "swiper/core";
 SwiperCore.use([Mousewheel, Parallax, EffectFlip]);
 
 export default {
@@ -73,27 +70,20 @@ export default {
     };
   },
 
-  methods:{
-    hoverSlide: function (){
-      this.swiperSlide = document.querySelector('.swiper-slide')
-       this.swiperSlide .forEach(element => console.log(element));
-
-    }
-
+  methods: {
   },
 
   mounted() {
-
     this.swiper = new Swiper(".swiper-container", {
-      effect:'EffectFlip',
-        flipEffect: {
-    slideShadows: false,
-  },
+      effect: "EffectFlip",
+      flipEffect: {
+        slideShadows: false
+      },
 
       loop: true,
-      slidesPerView: 'auto',
-      centeredSlides:true,
-      spaceBetween:20,
+      slidesPerView: "auto",
+      centeredSlides: true,
+      spaceBetween: 20,
       resistanceRatio: 0.5,
       longSwipes: true,
       longSwipesRatio: 0.5,
@@ -101,8 +91,8 @@ export default {
       speed: 1000,
       parallax: true,
       direction: "horizontal",
-      mousewheel:{
-        enable:true,
+      mousewheel: {
+        enable: true
       }
     });
 

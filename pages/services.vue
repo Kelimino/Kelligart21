@@ -16,6 +16,7 @@
         ><span>Découvrez mes projets</span></nuxt-link
       >
     </section>
+
     <section class="expertise">
       <ul class="backlist">
         <li>
@@ -217,7 +218,7 @@ export default {
           class: "UX",
           // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
-            "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et process définis"
+            "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et process choisis"
         },
         {
           name: "Design d'Interfaces",
@@ -251,7 +252,8 @@ export default {
     };
   },
 
-  methods: {},
+  methods: {
+  },
   mounted() {
     gsap
       .timeline({ repeat: -1, yoyo: true })

@@ -1,14 +1,6 @@
 <template>
   <div id="accueil">
     <section class="bienvenue panel">
-      <!-- <transition appear name="fade" @before-enter="beforeEnter" @enter="Enter">
-        <img
-          class="back-intro"
-          src="@/assets/img/sea.jpg"
-          alt="image"
-          v-show="showImg"
-        />
-      </transition> -->
   <button @click="videoPause">Pause</button>
       <video class="back-video" width="320" height="240" ref="video">
         <source :src="video" type="video/mp4" />
@@ -37,28 +29,29 @@ export default {
 
   methods: {
 
-
     videoPause: function (){
    this.$refs.video.pause();
     },
-    // playVideo: function() {
-    //   this.$refs.video.play();
-    // },
-    beforeEnter: function(el) {
-      console.log("beforeEnter", el);
-      gsap
-        .timeline({})
-        .from(el, { autoAlpha: 0 })
-        .to(
-          el,
-          { autoAlpha: 1, scale: 1.2, duration: 0.6, ease: "power2.out" },
-          "+=0.5"
-        );
-    }
   },
 
   mounted() {
-    let vid = document.querySelector(".back-video")
+    //function declaration
+  function greet(){
+  console.log("bonjour")
+  }
+      //function expression que lon met dans une variable
+  const speak = function(name, time){
+  console.log('good'+ (time) + (name) )
+    };
+
+    //function évoquée 
+    speak();
+    greet()
+
+
+
+
+    let vid = document.querySelector(".back-video");
     vid.pause()
 
     this.titleEffect = gsap

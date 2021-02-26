@@ -1,4 +1,5 @@
 <template>
+
   <div id="accompagnement">
     <!-- <svg class="filter-effect">
   <filter id="turbulence" x="0" y="0">
@@ -75,7 +76,7 @@
       <h4>Aventure</h4>
       <h3>
         Son aventure séquentielle, va le mener sur différentes étapes. Un
-        parcours itératif qu'il va parcourir. Surmonter des obstacles et trouver des opportuntiés
+        parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver des opportuntiés
         pour s'orienter et réussir son but
       </h3>
       <p class="question">Quel sera son parcours, que recherche t'il ?</p>
@@ -95,6 +96,7 @@
     </div>
         <div class="titlePin">Nous sommes tous <span>Designers</span></div>
   </div>
+
 </template>
 
 <script>
@@ -146,7 +148,7 @@ export default {
   methods: {
     handleAnimation: function(anim) {
       this.anim = anim;
-    }
+    },
   },
   mounted() {
 
@@ -237,6 +239,7 @@ export default {
           toggleActions: "play none none reset"
         }
       })
+      .set(".denouement", { paddingBottom: "7em"})
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", {autoAlpha: 0}, "<")
 

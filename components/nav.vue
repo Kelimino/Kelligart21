@@ -62,18 +62,17 @@ export default {
     };
   },
   methods: {
-
-    
     handleAnimation: function(anim) {
       this.anim = anim;
+      this.anim.goToAndStop(0);
     },
     animLogo: function() {
       this.anim.setSpeed(1);
       this.anim.setDirection(1);
-      this.anim.play();
+      this.anim.play(0);
     },
     endLogo: function() {
-      this.anim.setSpeed(1.5);
+      this.anim.setSpeed(1.3);
       this.anim.setDirection(-1);
     }
   },
