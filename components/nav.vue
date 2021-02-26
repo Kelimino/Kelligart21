@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer>
+    <footer id="draggable">
       <nav class="mainNav">
         <ul>
           <li v-on:mouseover="animLogo" v-on:mouseleave="endLogo">
@@ -42,9 +42,12 @@
 import lottie from "vue-lottie/src/lottie.vue";
 import * as logo from "@/assets/animation/logo.json";
 
-// import { gsap } from "gsap";
-// import { Draggable } from "gsap/Draggable";
-// gsap.registerPlugin(Draggable);
+import { gsap } from "gsap";
+import { Draggable } from "gsap/Draggable";
+
+if (process.client) {
+  gsap.registerPlugin(Draggable);
+}
 
 export default {
   components: {
@@ -78,8 +81,8 @@ export default {
   },
 
   mounted() {
-    // Draggable.create(".mainNav",{
-    // })
+    Draggable.create("#draggable",{
+    })
   }
 };
 </script>
