@@ -232,7 +232,6 @@ ScrollTrigger.scrollerProxy(".smooth-scroll", {
 
 
 ScrollTrigger.addEventListener("refresh", () => this.locoScroll.update());
-
 // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 
