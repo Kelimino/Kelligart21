@@ -1,4 +1,5 @@
 <template>
+<div class="smooth-scroll">
   <div id="accompagnement">
     <section class="end">
       <p>
@@ -87,6 +88,7 @@
     </div>
     <div class="titlePin">Nous sommes tous <span>Designers</span></div>
   </div>
+</div>
 </template>
 
 <script>
@@ -95,6 +97,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import lottie from "vue-lottie/src/lottie.vue";
 import * as earth from "@/assets/animation/earth.json";
+import LocomotiveScroll from "locomotive-scroll"
 
 export default {
   components: {
@@ -111,12 +114,30 @@ export default {
       }
     };
   },
-  methods: {
+  methods: {  
     handleAnimation: function(anim) {
       this.anim = anim;
     }
   },
   mounted() {
+
+  this.locoScroll = new LocomotiveScroll({
+  el: document.querySelector(".smooth-scroll"),
+  smooth: true
+});
+
+this.locoScroll.on("scroll", ScrollTrigger.update);
+
+ScrollTrigger.scrollerProxy(".smooth-scroll", {
+  scrollTop(value) {
+    return arguments.length ? this.locoScroll.scrollTo(value, 0, 0) : this.locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  },
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
+});
 
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
@@ -126,6 +147,7 @@ export default {
             start: "20% center",
             end: "bottom center",
             toggleActions: "restart none none reset",
+            scroller: ".smooth-scroll",
             scrub: true
           }
         })
@@ -207,6 +229,15 @@ export default {
       .set(".denouement", { paddingBottom: "7em" })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", { autoAlpha: 0 }, "<");
+
+
+ScrollTrigger.addEventListener("refresh", () => this.locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
+
+
+
   }
 };
 </script>

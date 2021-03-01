@@ -19,6 +19,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    //resest scroll
+    '@/assets/css/scroll.css',
     //resest css meyerweb
     '@/assets/css/reset.css',
     //gobal css compile
@@ -29,7 +31,6 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
