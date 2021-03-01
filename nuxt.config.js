@@ -1,4 +1,5 @@
 export default {
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'kellig21',
@@ -18,7 +19,6 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-
     //resest css meyerweb
     '@/assets/css/reset.css',
     //gobal css compile
@@ -29,6 +29,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -46,7 +47,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [
-      "gsap"
+      "gsap",
     ]
   }
 };

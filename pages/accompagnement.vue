@@ -1,102 +1,92 @@
 <template>
-
   <div id="accompagnement">
-    <!-- <svg class="filter-effect">
-  <filter id="turbulence" x="0" y="0">
-    <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
-    <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
-  </filter>
-</svg> -->
-        <section class="end">
-      <p>Un ensemble d'expertises pour que vous puissez identifier vos besoins</p>
-      <!-- <div v-for="(post, index) in postit" :key="index" class="postit">
-        {{post.phase}}
-      </div> -->
-
-      <nuxt-link to="services" class="btnMain"><span>Découvrez mes expertises</span></nuxt-link>
+    <section class="end">
+      <p>
+        Un ensemble d'expertises pour que vous puissez identifier vos besoins
+      </p>
+      <nuxt-link to="services" class="btnMain"
+        ><span>Découvrez mes expertises</span></nuxt-link
+      >
     </section>
 
-   <div class="story">
+    <div class="story">
+      <section class="intro panel">
+        <h1><span>nous sommes tous</span></h1>
+        <h2><span>Designers</span></h2>
+        <p>Je vous accompagne dans cette aventure collective et créative</p>
+        <div class="earth-anim">
+          <lottie
+            :options="animationsOptions.earth"
+            v-on:animCreated="handleAnimation"
+          />
+        </div>
+      </section>
 
-
-
-    <section class="intro panel">
-      <h1><span>nous sommes tous</span></h1>
-      <h2><span>Designers</span></h2>
-      <p>Je vous accompagne dans cette aventure collective et créative</p>
-      <div class="earth-anim">
-        <lottie
-          :options="animationsOptions.earth"
-          v-on:animCreated="handleAnimation"
-        />
-      </div>
-    </section>
-
-
-    <section class="synopsis panel">
-      <div class="img-wrap">
-        <img src="~/assets/img/story1.jpg" alt="img " />
-      </div>
-      <h5>01</h5>
-      <h4>Synopsis</h4>
-      <h3>
-        Tout commence par une histoire où l’utilisateur en est le principal
-        protagoniste, dans un univers où son expérience est le fil conducteur de
-        votre scénario
-      </h3>
-      <p class="question">Qui est votre héros ?</p>
-    </section>
-    <section class="univers panel">
-      <div class="img-wrap">
-        <img src="~/assets/img/story2.jpg" alt="img " />
-      </div>
-      <h5>02</h5>
-      <h4>Univers</h4>
-      <h3>
-        Dans votre univers, il va découvrir un nouveau monde à appréhender. L'aimera t-il ?
-      </h3>
-      <p class="question">À quoi ressemble votre univers ?</p>
-    </section>
-    <section class="declenchement panel">
-      <div class="img-wrap">
-        <img src="~/assets/img/story3.jpg" alt="img " />
-      </div>
-      <h5>03</h5>
-      <h4>Déclenchement</h4>
-      <h3>
-        Le héros débarque dans votre monde avec des attentes, motivé à poursuivre sa quête
-      </h3>
-      <p class="question">Pourquoi le héros arrive t-il dans votre monde ?</p>
-    </section>
-    <section class="aventure panel">
-      <div class="img-wrap">
-        <img src="~/assets/img/story5.jpg" alt="img " />
-      </div>
-      <h5>04</h5>
-      <h4>Aventure</h4>
-      <h3>
-        Son aventure séquentielle, va le mener sur différentes étapes. Un
-        parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver des opportuntiés
-        pour s'orienter et réussir son but
-      </h3>
-      <p class="question">Quel sera son parcours, que recherche t'il ?</p>
-    </section>
-    <section class="denouement panel">
-      <div class="img-wrap">
-        <img src="~/assets/img/story4.jpg" alt="img " />
-      </div>
-      <h5>05</h5>
-      <h4>Dénouement</h4>
-      <h3>
-        Une fois la mission accomplie ou même en cas d'échec, le héros en
-        sortira grandit, reviendra t-il ?
-      </h3>
-      <p class="question" >Quelle est son expérience finale ?</p>
-    </section>
+      <section class="synopsis panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story1.jpg" alt="img " />
+        </div>
+        <h5>01</h5>
+        <h4>Synopsis</h4>
+        <h3>
+          Tout commence par une histoire où l’utilisateur en est le principal
+          protagoniste, dans un univers où son expérience est le fil conducteur
+          de votre scénario
+        </h3>
+        <p class="question">Qui est votre héros ?</p>
+      </section>
+      <section class="univers panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story2.jpg" alt="img " />
+        </div>
+        <h5>02</h5>
+        <h4>Univers</h4>
+        <h3>
+          Dans votre univers, il va découvrir un nouveau monde à appréhender.
+          L'aimera t-il ?
+        </h3>
+        <p class="question">À quoi ressemble votre univers ?</p>
+      </section>
+      <section class="declenchement panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story3.jpg" alt="img " />
+        </div>
+        <h5>03</h5>
+        <h4>Déclenchement</h4>
+        <h3>
+          Le héros débarque dans votre monde avec des attentes, motivé à
+          poursuivre sa quête
+        </h3>
+        <p class="question">Pourquoi le héros arrive t-il dans votre monde ?</p>
+      </section>
+      <section class="aventure panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story5.jpg" alt="img " />
+        </div>
+        <h5>04</h5>
+        <h4>Aventure</h4>
+        <h3>
+          Son aventure séquentielle, va le mener sur différentes étapes. Un
+          parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver
+          des opportuntiés pour s'orienter et réussir son but
+        </h3>
+        <p class="question">Quel sera son parcours, que recherche t'il ?</p>
+      </section>
+      <section class="denouement panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story4.jpg" alt="img " />
+        </div>
+        <h5>05</h5>
+        <h4>Dénouement</h4>
+        <h3>
+          Une fois la mission accomplie ou même en cas d'échec, le héros en
+          sortira grandit, reviendra t-il ?
+        </h3>
+        <p class="question">Quelle est son expérience finale ?</p>
+      </section>
     </div>
-        <div class="titlePin">Nous sommes tous <span>Designers</span></div>
+    <div class="titlePin">Nous sommes tous <span>Designers</span></div>
   </div>
-
 </template>
 
 <script>
@@ -119,36 +109,12 @@ export default {
           loop: true
         }
       }
-
-      // postit: [
-      //   {
-      //     phase: " Comprendre"
-      //   },
-      //   {
-      //     phase: " Analyser"
-      //   },
-      //   {
-      //     phase: " Définir"
-      //   },
-      //   {
-      //     phase: " Rechercher"
-      //   },
-      //   {
-      //     phase: " Concevoir"
-      //   },
-      //   {
-      //     phase: " Lancer"
-      //   },
-      //   {
-      //     phase: " Tester"
-      //   }
-      // ]
     };
   },
   methods: {
     handleAnimation: function(anim) {
       this.anim = anim;
-    },
+    }
   },
   mounted() {
 
@@ -200,8 +166,8 @@ export default {
     });
 
     this.titleEffect = gsap
-      .timeline({ 
-      delay: 0.5,
+      .timeline({
+        delay: 0.5
       })
       .to(".about-link ", { color: "#0D1317" })
       .from(".intro h1 span ", { y: "2em" })
@@ -217,7 +183,7 @@ export default {
           scrub: true
         }
       })
-      .to(".titlePin", {autoAlpha: 0.1})
+      .to(".titlePin", { autoAlpha: 0.1 })
       .to(".about-link ", { color: "#FFF" }, "<");
 
     this.endTl = gsap
@@ -230,8 +196,7 @@ export default {
       })
       .to(".end", { autoAlpha: 1, scale: 1, duration: 0.2 });
 
-
-      this.endAnim = gsap
+    this.endAnim = gsap
       .timeline({
         scrollTrigger: {
           trigger: ".denouement",
@@ -239,10 +204,9 @@ export default {
           toggleActions: "play none none reset"
         }
       })
-      .set(".denouement", { paddingBottom: "7em"})
+      .set(".denouement", { paddingBottom: "7em" })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
-      .to(".titlePin", {autoAlpha: 0}, "<")
-
+      .to(".titlePin", { autoAlpha: 0 }, "<");
   }
 };
 </script>

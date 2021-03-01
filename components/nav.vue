@@ -67,16 +67,16 @@ export default {
   methods: {
     handleAnimation: function(anim) {
       this.anim = anim;
-      this.anim.goToAndStop(0);
     },
     animLogo: function() {
       this.anim.setSpeed(1);
       this.anim.setDirection(1);
-      this.anim.play(0);
+      this.anim.play();
     },
     endLogo: function() {
       this.anim.setSpeed(1.3);
       this.anim.setDirection(-1);
+      this.anim.play();
     }
   },
 

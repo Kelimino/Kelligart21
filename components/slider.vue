@@ -100,7 +100,8 @@ export default {
       gsap.to(".swiper-slide", { scale: 0.9 });
     });
     this.swiper.on("touchEnd ", function() {
-      gsap.to(".swiper-slide", { scale: 1 });
+      gsap.to(".swiper-slide", { scale: 1 })
+      
     });
   }
 };
