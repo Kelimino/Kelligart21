@@ -106,8 +106,6 @@ export default {
   },
   data() {
     return {
-      lmS: null,
-
       animationsOptions: {
         earth: {
           animationData: earth.default,
@@ -123,32 +121,27 @@ export default {
     }
   },
   mounted() {
-    this.lmS = new this.locomotiveScroll({
-      el: document.querySelector(".smooth-scroll"),
-      smooth: true
-    });
-    console.log("lmS", this.lmS);
+const locoScroll = new this.locomotiveScroll({
+  el: document.querySelector(".smooth-scroll"),
+  smooth: true, 
+  smoothMobile: true,
+  lerp: .07, 
+});
 
-    this.lmS.on("scroll", ScrollTrigger.update);
+locoScroll.on("scroll", ScrollTrigger.update);
+ScrollTrigger.scrollerProxy(".smooth-scroll", {
+  scrollTop(value) {
+    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+  }, 
+  getBoundingClientRect() {
+ return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  },
+  pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
+});
 
-    ScrollTrigger.scrollerProxy(".smooth-scroll", {
-      scrollTop(value) {
-        return arguments.length
-          ? this.lmS.scrollTo(value, 0, 0)
-          : this.lmS.scroll.instance.scroll.y;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight
-        };
-      },
-      pinType: document.querySelector(".smooth-scroll").style.transform
-        ? "transform"
-        : "fixed"
-    });
+
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+ScrollTrigger.refresh(); 
 
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
@@ -241,9 +234,7 @@ export default {
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", { autoAlpha: 0 }, "<");
 
-    ScrollTrigger.addEventListener("refresh", () => this.lmS.update());
 
-    ScrollTrigger.refresh();
   }
 };
 </script>

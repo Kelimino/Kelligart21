@@ -33,7 +33,7 @@ export default {
   plugins: [
     {
       src: "~/plugins/locomotiveScroll.js",
-      mode: "client"
+      ssr:false
     }
     
   ],
