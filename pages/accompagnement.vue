@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="accompagnement" class="smooth-scroll">
+    <div id="accompagnement" data-scroll-container class="smooth-scroll">
       <section class="end">
         <p>
           Un ensemble d'expertises pour que vous puissez identifier vos besoins
@@ -75,7 +75,11 @@
           </h3>
           <p class="question">Quel sera son parcours, que recherche t'il ?</p>
         </section>
-        <section class="denouement panel">
+        <section
+          class="denouement panel"
+          data-scroll
+          data-scroll-call="triggerEnd()"
+        >
           <div class="img-wrap">
             <img src="~/assets/img/story4.jpg" alt="img " />
           </div>
@@ -121,27 +125,36 @@ export default {
     }
   },
   mounted() {
-const locoScroll = new this.locomotiveScroll({
-  el: document.querySelector(".smooth-scroll"),
-  smooth: true, 
-  smoothMobile: true,
-  lerp: .07, 
-});
 
-locoScroll.on("scroll", ScrollTrigger.update);
-ScrollTrigger.scrollerProxy(".smooth-scroll", {
-  scrollTop(value) {
-    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-  }, 
-  getBoundingClientRect() {
- return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-  },
-  pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
-});
+    const locoScroll = new this.locomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+      smoothMobile: true,
+      lerp: 0.07
+    });
 
+    locoScroll.on("scroll", ScrollTrigger.update);
+    ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+      scrollTop(value) {
+        return arguments.length
+          ? locoScroll.scrollTo(value, 0, 0)
+          : locoScroll.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight
+        };
+      },
+      pinType: document.querySelector("[data-scroll-container]").style.transform
+        ? "transform"
+        : "fixed"
+    });
 
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-ScrollTrigger.refresh(); 
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    ScrollTrigger.refresh();
 
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
@@ -162,13 +175,13 @@ ScrollTrigger.refresh();
         .fromTo(
           ".img-wrap",
           { y: 50 },
-          { y: -50, duration: 5, autoAlpha: 1, ease: "power4.inOut" },
+          { y: -50, duration: 30, autoAlpha: 1, ease: "power4.inOut" },
           "<"
         )
         .fromTo(
           ".img-wrap img",
           { y: 70 },
-          { y: -100, duration: 5, autoAlpha: 0.5, ease: "power4.inOut" },
+          { y: -100, duration: 30, autoAlpha: 0.5, ease: "power4.inOut" },
           "<"
         )
 
@@ -193,7 +206,7 @@ ScrollTrigger.refresh();
 
     this.titleEffect = gsap
       .timeline({
-        delay: 0.5
+        delay: 3
       })
       .to(".about-link ", { color: "#0D1317" })
       .from(".intro h1 span ", { y: "2em" })
@@ -226,15 +239,14 @@ ScrollTrigger.refresh();
       .timeline({
         scrollTrigger: {
           trigger: ".denouement",
-          start: "center 55%",
-          toggleActions: "play none none reset"
+          start: "20% bottom ",
+          toggleActions: "play none none reset",
+          markers: true
         }
       })
       .set(".denouement", { paddingBottom: "7em" })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", { autoAlpha: 0 }, "<");
-
-
   }
 };
 </script>
