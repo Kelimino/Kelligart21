@@ -1,94 +1,96 @@
 <template>
-<div class="smooth-scroll">
-  <div id="accompagnement">
-    <section class="end">
-      <p>
-        Un ensemble d'expertises pour que vous puissez identifier vos besoins
-      </p>
-      <nuxt-link to="services" class="btnMain"
-        ><span>Découvrez mes expertises</span></nuxt-link
-      >
-    </section>
-
-    <div class="story">
-      <section class="intro panel">
-        <h1><span>nous sommes tous</span></h1>
-        <h2><span>Designers</span></h2>
-        <p>Je vous accompagne dans cette aventure collective et créative</p>
-        <div class="earth-anim">
-          <lottie
-            :options="animationsOptions.earth"
-            v-on:animCreated="handleAnimation"
-          />
-        </div>
+  <div>
+    <div id="accompagnement" class="smooth-scroll">
+      <section class="end">
+        <p>
+          Un ensemble d'expertises pour que vous puissez identifier vos besoins
+        </p>
+        <nuxt-link to="services" class="btnMain"
+          ><span>Découvrez mes expertises</span></nuxt-link
+        >
       </section>
 
-      <section class="synopsis panel">
-        <div class="img-wrap">
-          <img src="~/assets/img/story1.jpg" alt="img " />
-        </div>
-        <h5>01</h5>
-        <h4>Synopsis</h4>
-        <h3>
-          Tout commence par une histoire où l’utilisateur en est le principal
-          protagoniste, dans un univers où son expérience est le fil conducteur
-          de votre scénario
-        </h3>
-        <p class="question">Qui est votre héros ?</p>
-      </section>
-      <section class="univers panel">
-        <div class="img-wrap">
-          <img src="~/assets/img/story2.jpg" alt="img " />
-        </div>
-        <h5>02</h5>
-        <h4>Univers</h4>
-        <h3>
-          Dans votre univers, il va découvrir un nouveau monde à appréhender.
-          L'aimera t-il ?
-        </h3>
-        <p class="question">À quoi ressemble votre univers ?</p>
-      </section>
-      <section class="declenchement panel">
-        <div class="img-wrap">
-          <img src="~/assets/img/story3.jpg" alt="img " />
-        </div>
-        <h5>03</h5>
-        <h4>Déclenchement</h4>
-        <h3>
-          Le héros débarque dans votre monde avec des attentes, motivé à
-          poursuivre sa quête
-        </h3>
-        <p class="question">Pourquoi le héros arrive t-il dans votre monde ?</p>
-      </section>
-      <section class="aventure panel">
-        <div class="img-wrap">
-          <img src="~/assets/img/story5.jpg" alt="img " />
-        </div>
-        <h5>04</h5>
-        <h4>Aventure</h4>
-        <h3>
-          Son aventure séquentielle, va le mener sur différentes étapes. Un
-          parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver
-          des opportuntiés pour s'orienter et réussir son but
-        </h3>
-        <p class="question">Quel sera son parcours, que recherche t'il ?</p>
-      </section>
-      <section class="denouement panel">
-        <div class="img-wrap">
-          <img src="~/assets/img/story4.jpg" alt="img " />
-        </div>
-        <h5>05</h5>
-        <h4>Dénouement</h4>
-        <h3>
-          Une fois la mission accomplie ou même en cas d'échec, le héros en
-          sortira grandit, reviendra t-il ?
-        </h3>
-        <p class="question">Quelle est son expérience finale ?</p>
-      </section>
+      <div class="story">
+        <section class="intro panel">
+          <h1><span>nous sommes tous</span></h1>
+          <h2><span>Designers</span></h2>
+          <p>Je vous accompagne dans cette aventure collective et créative</p>
+          <div class="earth-anim">
+            <lottie
+              :options="animationsOptions.earth"
+              v-on:animCreated="handleAnimation"
+            />
+          </div>
+        </section>
+
+        <section class="synopsis panel">
+          <div class="img-wrap">
+            <img src="~/assets/img/story1.jpg" alt="img " />
+          </div>
+          <h5>01</h5>
+          <h4>Synopsis</h4>
+          <h3>
+            Tout commence par une histoire où l’utilisateur en est le principal
+            protagoniste, dans un univers où son expérience est le fil
+            conducteur de votre scénario
+          </h3>
+          <p class="question">Qui est votre héros ?</p>
+        </section>
+        <section class="univers panel">
+          <div class="img-wrap">
+            <img src="~/assets/img/story2.jpg" alt="img " />
+          </div>
+          <h5>02</h5>
+          <h4>Univers</h4>
+          <h3>
+            Dans votre univers, il va découvrir un nouveau monde à appréhender.
+            L'aimera t-il ?
+          </h3>
+          <p class="question">À quoi ressemble votre univers ?</p>
+        </section>
+        <section class="declenchement panel">
+          <div class="img-wrap">
+            <img src="~/assets/img/story3.jpg" alt="img " />
+          </div>
+          <h5>03</h5>
+          <h4>Déclenchement</h4>
+          <h3>
+            Le héros débarque dans votre monde avec des attentes, motivé à
+            poursuivre sa quête
+          </h3>
+          <p class="question">
+            Pourquoi le héros arrive t-il dans votre monde ?
+          </p>
+        </section>
+        <section class="aventure panel">
+          <div class="img-wrap">
+            <img src="~/assets/img/story5.jpg" alt="img " />
+          </div>
+          <h5>04</h5>
+          <h4>Aventure</h4>
+          <h3>
+            Son aventure séquentielle, va le mener sur différentes étapes. Un
+            parcours itératif qu'il va naviguer. Surmonter des obstacles,
+            trouver des opportuntiés pour s'orienter et réussir son but
+          </h3>
+          <p class="question">Quel sera son parcours, que recherche t'il ?</p>
+        </section>
+        <section class="denouement panel">
+          <div class="img-wrap">
+            <img src="~/assets/img/story4.jpg" alt="img " />
+          </div>
+          <h5>05</h5>
+          <h4>Dénouement</h4>
+          <h3>
+            Une fois la mission accomplie ou même en cas d'échec, le héros en
+            sortira grandit, reviendra t-il ?
+          </h3>
+          <p class="question">Quelle est son expérience finale ?</p>
+        </section>
+      </div>
+      <div class="titlePin">Nous sommes tous <span>Designers</span></div>
     </div>
-    <div class="titlePin">Nous sommes tous <span>Designers</span></div>
   </div>
-</div>
 </template>
 
 <script>
@@ -98,13 +100,14 @@ gsap.registerPlugin(ScrollTrigger);
 import lottie from "vue-lottie/src/lottie.vue";
 import * as earth from "@/assets/animation/earth.json";
 
-
 export default {
   components: {
     lottie
   },
   data() {
     return {
+      lmS: null,
+
       animationsOptions: {
         earth: {
           animationData: earth.default,
@@ -114,29 +117,38 @@ export default {
       }
     };
   },
-  methods: {  
+  methods: {
     handleAnimation: function(anim) {
       this.anim = anim;
     }
   },
   mounted() {
+    this.lmS = new this.locomotiveScroll({
+      el: document.querySelector(".smooth-scroll"),
+      smooth: true
+    });
+    console.log("lmS", this.lmS);
 
-  this.locoScroll = new this.locomotiveScroll({
-  el: document.querySelector(".smooth-scroll"),
-  smooth: true
-});
+    this.lmS.on("scroll", ScrollTrigger.update);
 
-this.locoScroll.on("scroll", ScrollTrigger.update);
-
-ScrollTrigger.scrollerProxy(".smooth-scroll", {
-  scrollTop(value) {
-    return arguments.length ? this.locoScroll.scrollTo(value, 0, 0) : this.locoScroll.scroll.instance.scroll.y;
-  }, 
-  getBoundingClientRect() {
-    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-  },
-  pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
-});
+    ScrollTrigger.scrollerProxy(".smooth-scroll", {
+      scrollTop(value) {
+        return arguments.length
+          ? this.lmS.scrollTo(value, 0, 0)
+          : this.lmS.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight
+        };
+      },
+      pinType: document.querySelector(".smooth-scroll").style.transform
+        ? "transform"
+        : "fixed"
+    });
 
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
@@ -229,13 +241,9 @@ ScrollTrigger.scrollerProxy(".smooth-scroll", {
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", { autoAlpha: 0 }, "<");
 
+    ScrollTrigger.addEventListener("refresh", () => this.lmS.update());
 
-ScrollTrigger.addEventListener("refresh", () => this.locoScroll.update());
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-ScrollTrigger.refresh();
-
-
-
+    ScrollTrigger.refresh();
   }
 };
 </script>
