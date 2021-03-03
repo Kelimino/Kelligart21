@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="service" data-scroll-container class="smooth-scroll">
+    <div id="service" class="smooth-scroll">
       <section class="intro panel">
         <div class="back"></div>
         <p>L'esprit</p>
@@ -21,7 +21,7 @@
         >
       </section>
 
-      <section class="expertise">
+      <section class="expertise" >
         <ul class="backlist">
           <li>
             <img
@@ -90,7 +90,6 @@
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-
 import { smoothScroll } from "~/mixins/smoothScroll.js";
 
 export default {
@@ -312,7 +311,6 @@ export default {
         scrollTrigger: {
           trigger: ".expertise .DF",
           start: "bottom bottom",
-          scroller: ".smooth-scroll",
           toggleActions: "restart none none reset"
         }
       })

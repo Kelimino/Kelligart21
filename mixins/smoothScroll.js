@@ -53,7 +53,8 @@ export const smoothScroll = {
   },
 
   destroyed() {
-    scrollX.destroy();
+    const x = scrollX
+    x.destroy();
   },
   methods: {
     scrollMeTo(target, duration) {

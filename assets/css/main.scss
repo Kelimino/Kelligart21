@@ -4,16 +4,14 @@ $main: #0d1317;
 $primary: #3451be;
 $secondary: #f0efec;
 
+html{
+  height:100%;
+
+}
 body {
-  overflow: hidden;
+  height:100%;
   margin: 0;
   padding: 0;
-}
-
-#js-scroll {
-  overflow: hidden;
-  box-sizing: border-box;
-  position: relative;
 }
 
 .page-enter-active,
