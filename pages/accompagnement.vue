@@ -99,12 +99,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   mixins: [locomotive],
-
-  watch:{
-
-
-  },
-
   mounted() {
 //     this.lmS.on("scroll", ScrollTrigger.update);
 //     ScrollTrigger.scrollerProxy(".smooth-scroll", {
