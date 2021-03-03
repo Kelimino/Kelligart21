@@ -17,18 +17,18 @@
           <p>Je vous accompagne dans cette aventure collective et créative</p>
         </section>
 
-        <section class="synopsis panel">
+        <section class="synopsis panel" data-scroll-section>
           <div class="img-wrap">
             <img src="~/assets/img/story1.jpg" alt="img " />
           </div>
-          <h5>01</h5>
-          <h4>Synopsis</h4>
-          <h3>
+          <h5 data-scroll data-scroll-speed="1">01</h5>
+          <h4 data-scroll data-scroll-speed="1" >Synopsis</h4>
+          <h3 data-scroll data-scroll-speed="2" >
             Tout commence par une histoire où l’utilisateur en est le principal
             protagoniste, dans un univers où son expérience est le fil
             conducteur de votre scénario
           </h3>
-          <p class="question">Qui est votre héros ?</p>
+          <p class="question" data-scroll data-scroll-speed="3">Qui est votre héros ?</p>
         </section>
         <section class="univers panel">
           <div class="img-wrap">
