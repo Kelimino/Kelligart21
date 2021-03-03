@@ -92,39 +92,21 @@
 </template>
 
 <script>
-import locomotive from "~/mixins/locomotive.js";
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import {smoothScroll} from "~/mixins/smoothScroll.js";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
-  mixins: [locomotive],
+  mixins: [ smoothScroll],
   mounted() {
-//     this.lmS.on("scroll", ScrollTrigger.update);
-//     ScrollTrigger.scrollerProxy(".smooth-scroll", {
-//       scrollTop(value) {
-//         return arguments.length ? this.lmS.scrollTo(value, 0, 0) : this.lmS.scroll.instance.scroll.y;
-//       }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-//       getBoundingClientRect() {
-//         return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-//       },
-//       // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-//       pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
-//     });
-
-//     ScrollTrigger.addEventListener("refresh", () => this.lmS.update());
-
-// // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-// ScrollTrigger.refresh();
-
-
-
 
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
         .timeline({
           scrollTrigger: {
             trigger: el,
+            scroller: ".smooth-scroll",
             start: "20% center",
             end: "bottom center",
             toggleActions: "restart none none reset",
@@ -180,6 +162,7 @@ export default {
       .timeline({
         scrollTrigger: {
           trigger: ".synopsis",
+          scroller: ".smooth-scroll",
           start: "top bottom",
           toggleActions: "restart none none reset",
           scrub: true
@@ -192,6 +175,7 @@ export default {
       .timeline({
         scrollTrigger: {
           trigger: ".end",
+          scroller: ".smooth-scroll",
           start: "top center",
           toggleActions: "restart reset resume reset"
         }
@@ -202,7 +186,8 @@ export default {
       .timeline({
         scrollTrigger: {
           trigger: ".denouement",
-          start: "20% bottom ",
+          scroller: ".smooth-scroll",
+          start: "bottom bottom ",
           toggleActions: "play none none reset",
           markers: true
         }

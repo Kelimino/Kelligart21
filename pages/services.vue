@@ -1,98 +1,100 @@
 <template>
-  <div id="service" data-scroll-container class="smooth-scroll">
-    <section class="intro panel">
-      <div class="back"></div>
-      <p>L'esprit</p>
-      <h1>
-        <span class="One">Collectif</span>
-        <span class="Two">Analytique</span>
-        <span class="Three">Créatif</span>
-      </h1>
-      <p>est l'outil le plus puissant d'un Designer</p>
-    </section>
-    <section class="service-footer">
-      <p>
-        Quelques exemples d'étude de cas pour comprendre mon approche et
-        connaitre ma méthode
-      </p>
-      <nuxt-link to="projets" class="btnMain"
-        ><span>Découvrez mes projets</span></nuxt-link
-      >
-    </section>
-
-    <section class="expertise">
-      <ul class="backlist">
-        <li>
-          <img
-            v-for="(poster, index) in graphisme"
-            class="graphisme"
-            :key="index"
-            :src="poster.path"
-            alt="poster"
-          />
-        </li>
-        <li>
-          <img
-            v-for="(poster, index) in web"
-            class="web"
-            :key="index"
-            :src="poster.path"
-            alt="poster"
-          />
-        </li>
-        <li>
-          <img
-            v-for="(poster, index) in graphisme2"
-            class="graphisme"
-            :key="index"
-            :src="poster.path"
-            alt="poster"
-          />
-        </li>
-        <li>
-          <img
-            v-for="(poster, index) in web2"
-            class="web"
-            :key="index"
-            :src="poster.path"
-            alt="poster"
-          />
-        </li>
-        <li>
-          <img
-            v-for="(poster, index) in graphisme3"
-            class="graphisme"
-            :key="index"
-            :src="poster.path"
-            alt="poster"
-          />
-        </li>
-      </ul>
-
-      <ul class="list-expertise">
-        <li
-          v-for="(domain, index) in expertise"
-          :key="index"
-          :class="domain.class"
+  <div>
+    <div id="service" data-scroll-container class="smooth-scroll">
+      <section class="intro panel">
+        <div class="back"></div>
+        <p>L'esprit</p>
+        <h1>
+          <span class="One">Collectif</span>
+          <span class="Two">Analytique</span>
+          <span class="Three">Créatif</span>
+        </h1>
+        <p>est l'outil le plus puissant d'un Designer</p>
+      </section>
+      <section class="service-footer">
+        <p>
+          Quelques exemples d'étude de cas pour comprendre mon approche et
+          connaitre ma méthode
+        </p>
+        <nuxt-link to="projets" class="btnMain"
+          ><span>Découvrez mes projets</span></nuxt-link
         >
-          <h2>{{ domain.name }}</h2>
-          <h3>{{ domain.span }}</h3>
-          <p>{{ domain.description }}</p>
-        </li>
-      </ul>
-    </section>
+      </section>
+
+      <section class="expertise">
+        <ul class="backlist">
+          <li>
+            <img
+              v-for="(poster, index) in graphisme"
+              class="graphisme"
+              :key="index"
+              :src="poster.path"
+              alt="poster"
+            />
+          </li>
+          <li>
+            <img
+              v-for="(poster, index) in web"
+              class="web"
+              :key="index"
+              :src="poster.path"
+              alt="poster"
+            />
+          </li>
+          <li>
+            <img
+              v-for="(poster, index) in graphisme2"
+              class="graphisme"
+              :key="index"
+              :src="poster.path"
+              alt="poster"
+            />
+          </li>
+          <li>
+            <img
+              v-for="(poster, index) in web2"
+              class="web"
+              :key="index"
+              :src="poster.path"
+              alt="poster"
+            />
+          </li>
+          <li>
+            <img
+              v-for="(poster, index) in graphisme3"
+              class="graphisme"
+              :key="index"
+              :src="poster.path"
+              alt="poster"
+            />
+          </li>
+        </ul>
+
+        <ul class="list-expertise">
+          <li
+            v-for="(domain, index) in expertise"
+            :key="index"
+            :class="domain.class"
+          >
+            <h2>{{ domain.name }}</h2>
+            <h3>{{ domain.span }}</h3>
+            <p>{{ domain.description }}</p>
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
 </template>
 
 <script>
-import locomotive from "~/mixins/locomotive.js";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-export default {
-  mixins: [locomotive],
+import { smoothScroll } from "~/mixins/smoothScroll.js";
 
+export default {
+  mixins: [smoothScroll],
   head() {
     return {
       title: "Mes services",
@@ -257,8 +259,6 @@ export default {
       ]
     };
   },
-
-  methods: {},
   mounted() {
     gsap
       .timeline({ repeat: -1, yoyo: true })
@@ -312,6 +312,7 @@ export default {
         scrollTrigger: {
           trigger: ".expertise .DF",
           start: "bottom bottom",
+          scroller: ".smooth-scroll",
           toggleActions: "restart none none reset"
         }
       })
