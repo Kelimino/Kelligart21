@@ -151,7 +151,6 @@ export default {
 
     this.titleEffect = gsap
       .timeline({
-        delay: 3
       })
       .to(".about-link ", { color: "#0D1317" })
       .from(".intro h1 span ", { y: "2em" })

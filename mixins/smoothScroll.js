@@ -10,21 +10,26 @@ export const smoothScroll = {
       x: null
     };
   },
+  watch: {
+    $route() {
+      scrollX.update();
+    }
+  },
   mounted: function () {
-    const locoScroll = new locomotiveScroll({
+    const scrollX = new locomotiveScroll({
       el: document.querySelector(".smooth-scroll"),
       smooth: true
     });
 
-    this.x = locoScroll;
+    this.x = scrollX;
 
-    locoScroll.on("scroll", ScrollTrigger.update);
+    scrollX.on("scroll", ScrollTrigger.update);
 
     ScrollTrigger.scrollerProxy(".smooth-scroll", {
       scrollTop(value) {
         return arguments.length
-          ? locoScroll.scrollTo(value, 0, 0)
-          : locoScroll.scroll.instance.scroll.y;
+          ? scrollX.scrollTo(value, 0, 0)
+          : scrollX.scroll.instance.scroll.y;
       },
       getBoundingClientRect() {
         return {
@@ -38,12 +43,13 @@ export const smoothScroll = {
         ? "transform"
         : "fixed"
     });
-
-    // --- scrollTrigger update, do not move this --- //
-
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    ScrollTrigger.addEventListener("refresh", () => scrollX.update());
     ScrollTrigger.refresh();
     
+  },
+  destroyed() {
+    scrollX.destroy();
+    console.log(this);
   },
   methods: {
     scrollMeTo(target, duration) {
