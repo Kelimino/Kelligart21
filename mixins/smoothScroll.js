@@ -1,5 +1,9 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  gsap
+} from "gsap";
+import {
+  ScrollTrigger
+} from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import locomotiveScroll from "locomotive-scroll";
@@ -16,40 +20,40 @@ export const smoothScroll = {
     }
   },
   mounted: function () {
-    const scrollX = new locomotiveScroll({
-      el: document.querySelector(".smooth-scroll"),
-      smooth: true
-    });
 
-    this.x = scrollX;
+        const scrollX = new locomotiveScroll({
+          el: document.querySelector(".smooth-scroll"),
+          smooth: true
+        });
+        this.x = scrollX;
 
-    scrollX.on("scroll", ScrollTrigger.update);
+        scrollX.on("scroll", ScrollTrigger.update);
 
-    ScrollTrigger.scrollerProxy(".smooth-scroll", {
-      scrollTop(value) {
-        return arguments.length
-          ? scrollX.scrollTo(value, 0, 0)
-          : scrollX.scroll.instance.scroll.y;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight
-        };
-      },
-      pinType: document.querySelector(".smooth-scroll").style.transform
-        ? "transform"
-        : "fixed"
-    });
-    ScrollTrigger.addEventListener("refresh", () => scrollX.update());
-    ScrollTrigger.refresh();
-    
+        ScrollTrigger.scrollerProxy(".smooth-scroll", {
+          scrollTop(value) {
+            return arguments.length ?
+              scrollX.scrollTo(value, 0, 0) :
+              scrollX.scroll.instance.scroll.y;
+          },
+          getBoundingClientRect() {
+            return {
+              top: 0,
+              left: 0,
+              width: window.innerWidth,
+              height: window.innerHeight
+            };
+          },
+          pinType: document.querySelector(".smooth-scroll").style.transform ?
+            "transform" :
+            "fixed"
+        });
+        ScrollTrigger.addEventListener("refresh", () => scrollX.update());
+        ScrollTrigger.refresh();
+
+
   },
   destroyed() {
-    scrollX.destroy();
-    console.log(this);
+    this.scrollX.destroy();
   },
   methods: {
     scrollMeTo(target, duration) {

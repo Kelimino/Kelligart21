@@ -33,7 +33,7 @@ export default {
   plugins: [
     {
       src: "~/plugins/locomotive.js",
-      mode: "client"
+      ssr: false
     }
   ],
 
