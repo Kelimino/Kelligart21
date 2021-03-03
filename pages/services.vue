@@ -1,5 +1,5 @@
 <template>
-  <div id="service">
+  <div id="service" data-scroll-container class="smooth-scroll">
     <section class="intro panel">
       <div class="back"></div>
       <p>L'esprit</p>
@@ -11,7 +11,10 @@
       <p>est l'outil le plus puissant d'un Designer</p>
     </section>
     <section class="service-footer">
-      <p>Quelques exemples d'étude de cas pour comprendre mon approche et connaitre ma méthode</p>
+      <p>
+        Quelques exemples d'étude de cas pour comprendre mon approche et
+        connaitre ma méthode
+      </p>
       <nuxt-link to="projets" class="btnMain"
         ><span>Découvrez mes projets</span></nuxt-link
       >
@@ -82,11 +85,14 @@
 </template>
 
 <script>
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import locomotive from "~/mixins/locomotive.js";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
+  mixins: [locomotive],
+
   head() {
     return {
       title: "Mes services",
@@ -252,8 +258,7 @@ export default {
     };
   },
 
-  methods: {
-  },
+  methods: {},
   mounted() {
     gsap
       .timeline({ repeat: -1, yoyo: true })
@@ -302,7 +307,7 @@ export default {
       .to(".intro", { height: "0%", ease: "power4.out", duration: 1 }, "-=0.5")
       .to(".about-link", { color: " #FFF " });
 
-  gsap
+    gsap
       .timeline({
         scrollTrigger: {
           trigger: ".expertise .DF",

@@ -92,51 +92,15 @@
 </template>
 
 <script>
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import locomotive from "~/mixins/locomotive.js";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
-  data() {
-    return {};
-  },
-  methods: {
-    handleAnimation: function(anim) {
-      this.anim = anim;
-    }
-  },
+  mixins: [locomotive],
 
   mounted() {
-    const locoScroll = new this.locomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
-      smooth: true,
-      smoothMobile: true,
-      lerp: 0.07
-    });
-
-    locoScroll.on("scroll", ScrollTrigger.update);
-    ScrollTrigger.scrollerProxy("[data-scroll-container]", {
-      scrollTop(value) {
-        return arguments.length
-          ? locoScroll.scrollTo(value, 0, 0)
-          : locoScroll.scroll.instance.scroll.y;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight
-        };
-      },
-      pinType: document.querySelector("[data-scroll-container]").style.transform
-        ? "transform"
-        : "fixed"
-    });
-
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    ScrollTrigger.refresh();
-
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
         .timeline({
@@ -228,11 +192,6 @@ export default {
       .set(".denouement", { paddingBottom: "7em" })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", { autoAlpha: 0 }, "<");
-  },
-
-  destroyed() {
-    this.locoScroll.destroy();
-    window.removeEventListener("resize", this.onLmsResize);
   }
 };
 </script>
