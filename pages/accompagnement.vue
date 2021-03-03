@@ -92,14 +92,13 @@
 </template>
 
 <script>
-import gsap  from "gsap";
-import ScrollTrigger  from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     handleAnimation: function(anim) {
@@ -108,8 +107,7 @@ export default {
   },
 
   mounted() {
-
-      const locoScroll = new this.locomotiveScroll({
+    const locoScroll = new this.locomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
       smoothMobile: true,
@@ -232,11 +230,9 @@ export default {
       .to(".titlePin", { autoAlpha: 0 }, "<");
   },
 
-    destroyed() {
+  destroyed() {
     this.locoScroll.destroy();
     window.removeEventListener("resize", this.onLmsResize);
-  },
-
-
+  }
 };
 </script>
