@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <Nav />
     <Nuxt />
     <loader v-if="loading"/>

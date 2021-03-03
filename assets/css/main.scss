@@ -4,17 +4,16 @@ $main: #0d1317;
 $primary: #3451be;
 $secondary: #f0efec;
 
-html {
-  height: 100%;
-  width: 100%;
-  font-size: 20px;
-  scroll-behavior: smooth;
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  height: 100%;
-  background: ghostwhite;
-  overflow-x: hidden;
+#js-scroll {
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .page-enter-active,
@@ -450,22 +449,6 @@ nav {
       }
       100% {
         background-position: 0% 50%;
-      }
-    }
-
-    .earth-anim {
-      position: absolute;
-      overflow: hidden;
-      width: 30%;
-      display: none;
-
-      z-index: -1;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%) scale(2);
-
-      svg {
-        width: 50%;
       }
     }
 

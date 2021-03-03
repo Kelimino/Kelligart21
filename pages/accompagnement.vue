@@ -15,12 +15,6 @@
           <h1><span>nous sommes tous</span></h1>
           <h2><span>Designers</span></h2>
           <p>Je vous accompagne dans cette aventure collective et créative</p>
-          <div class="earth-anim">
-            <lottie
-              :options="animationsOptions.earth"
-              v-on:animCreated="handleAnimation"
-            />
-          </div>
         </section>
 
         <section class="synopsis panel">
@@ -101,22 +95,10 @@
 import gsap  from "gsap";
 import ScrollTrigger  from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-import lottie from "vue-lottie/src/lottie.vue";
-import * as earth from "@/assets/animation/earth.json";
 
 export default {
-  components: {
-    lottie
-  },
   data() {
     return {
-      animationsOptions: {
-        earth: {
-          animationData: earth.default,
-          autoplay: true,
-          loop: true
-        }
-      }
     };
   },
   methods: {
@@ -124,9 +106,10 @@ export default {
       this.anim = anim;
     }
   },
+
   mounted() {
 
-    const locoScroll = new this.locomotiveScroll({
+      const locoScroll = new this.locomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
       smoothMobile: true,
@@ -247,6 +230,13 @@ export default {
       .set(".denouement", { paddingBottom: "7em" })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", { autoAlpha: 0 }, "<");
-  }
+  },
+
+    destroyed() {
+    this.locoScroll.destroy();
+    window.removeEventListener("resize", this.onLmsResize);
+  },
+
+
 };
 </script>
