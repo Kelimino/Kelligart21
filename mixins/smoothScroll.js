@@ -21,39 +21,39 @@ export const smoothScroll = {
   },
   mounted: function () {
 
-        const scrollX = new locomotiveScroll({
-          el: document.querySelector(".smooth-scroll"),
-          smooth: true
-        });
-        this.x = scrollX;
+    const scrollX = new locomotiveScroll({
+      el: document.querySelector(".smooth-scroll"),
+      smooth: true
+    });
 
-        scrollX.on("scroll", ScrollTrigger.update);
+    this.x = scrollX;
 
-        ScrollTrigger.scrollerProxy(".smooth-scroll", {
-          scrollTop(value) {
-            return arguments.length ?
-              scrollX.scrollTo(value, 0, 0) :
-              scrollX.scroll.instance.scroll.y;
-          },
-          getBoundingClientRect() {
-            return {
-              top: 0,
-              left: 0,
-              width: window.innerWidth,
-              height: window.innerHeight
-            };
-          },
-          pinType: document.querySelector(".smooth-scroll").style.transform ?
-            "transform" :
-            "fixed"
-        });
-        ScrollTrigger.addEventListener("refresh", () => scrollX.update());
-        ScrollTrigger.refresh();
+    scrollX.on("scroll", ScrollTrigger.update);
 
 
+    ScrollTrigger.scrollerProxy(".smooth-scroll", {
+      scrollTop(value) {
+        return arguments.length ?
+          scrollX.scrollTo(value, 0, 0) :
+          scrollX.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight
+        };
+      },
+      pinType: document.querySelector(".smooth-scroll").style.transform ?
+        "transform" : "fixed"
+    });
+    ScrollTrigger.addEventListener("refresh", () => scrollX.update());
+    ScrollTrigger.refresh();
   },
+
   destroyed() {
-    this.scrollX.destroy();
+    scrollX.destroy();
   },
   methods: {
     scrollMeTo(target, duration) {
