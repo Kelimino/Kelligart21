@@ -4,17 +4,12 @@ $main: #0d1317;
 $primary: #3451be;
 $secondary: #f0efec;
 
-html{
-  height:100%;
-  scroll-behavior: smooth;
-
-}
+html,
 body {
-  height:100%;
-  margin: 0;
+  height: 100%;
   padding: 0;
+  margin: 0;
 }
-
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.5s;
@@ -485,6 +480,7 @@ nav {
         top: 10%;
         transform: translateX(-50%);
         width: 100%;
+        opacity: 1;
       }
     }
     p {
@@ -666,14 +662,13 @@ nav {
 }
 
 #service {
-
-
   .expertise {
     background: $main;
     width: 100%;
     padding: 10em 0;
     overflow: hidden;
     z-index: 2;
+    height: 100%;
 
     .backlist {
       transform: rotate(-20deg) translate(-50%, -50%);
@@ -920,13 +915,13 @@ nav {
 #projets {
   height: 100vh;
   background: linear-gradient(
-    45deg,
-    rgba(13, 19, 23, 0.95),
-    rgba(13, 19, 23, 1)
-  ),
-  url("~@/assets/img/projet-back.png");
-background-size: cover;
-background-position: center center;
+      45deg,
+      rgba(13, 19, 23, 0.95),
+      rgba(13, 19, 23, 1)
+    ),
+    url("~@/assets/img/projet-back.png");
+  background-size: cover;
+  background-position: center center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -939,15 +934,14 @@ background-position: center center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top:8em;
+    margin-top: 8em;
   }
 
   .swiper-wrapper {
     height: auto;
   }
   .swiper-slide-active {
-
-    transform: scale(1.1) ;
+    transform: scale(1.1);
 
     .content {
       opacity: 1 !important;
@@ -962,18 +956,14 @@ background-position: center center;
       }
     }
 
-    a{
+    a {
       overflow: hidden;
       width: 100%;
 
-      img{
+      img {
         opacity: 1;
       }
-
-
     }
-
-
   }
   .swiper-slide {
     padding-top: 1em;
@@ -989,8 +979,7 @@ background-position: center center;
       text-align: center;
       opacity: 0.3;
     }
-    a{
-
+    a {
       text-decoration: none;
     }
 

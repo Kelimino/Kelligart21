@@ -1,19 +1,17 @@
 <template>
   <div>
+    <section class="intro panel">
+      <div class="back"></div>
+      <p>L'esprit</p>
+      <h1>
+        <span class="One">Collectif</span>
+        <span class="Two">Analytique</span>
+        <span class="Three">Créatif</span>
+      </h1>
+      <p>est l'outil le plus puissant d'un Designer</p>
+    </section>
 
-          <section class="intro panel">
-        <div class="back"></div>
-        <p>L'esprit</p>
-        <h1>
-          <span class="One">Collectif</span>
-          <span class="Two">Analytique</span>
-          <span class="Three">Créatif</span>
-        </h1>
-        <p>est l'outil le plus puissant d'un Designer</p>
-      </section>
-
-    <div id="service" class="smooth-scroll">
-
+    <div id="service">
       <section class="service-footer">
         <p>
           Quelques exemples d'étude de cas pour comprendre mon approche et
@@ -24,7 +22,7 @@
         >
       </section>
 
-      <section class="expertise" >
+      <section class="expertise">
         <ul class="backlist">
           <li>
             <img
@@ -93,10 +91,10 @@
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-import locomotive from "~/mixins/locomotive.js";
+// import locomotive from "~/mixins/locomotive.js";
 
 export default {
-  mixins: [locomotive],
+  // mixins: [locomotive],
   head() {
     return {
       title: "Mes services",
@@ -262,8 +260,6 @@ export default {
     };
   },
   mounted() {
-
-    // this.$nextTick(() => {
     gsap
       .timeline({ repeat: -1, yoyo: true })
       .to(".backlist .graphisme", {
@@ -311,18 +307,15 @@ export default {
       .to(".intro", { height: "0%", ease: "power4.out", duration: 1 }, "-=0.5")
       .to(".about-link", { color: " #FFF " });
 
-    gsap
+    this.endAnim = gsap
       .timeline({
         scrollTrigger: {
           trigger: ".expertise .DF",
           start: "bottom bottom",
-          toggleActions: "restart none none reset"
+          toggleActions: "play none none reset"
         }
       })
       .to(".expertise", { y: "-400px", duration: 1.5, ease: "power4.out" });
-
-    // })
-
   }
 };
 </script>

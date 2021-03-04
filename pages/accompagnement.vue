@@ -1,115 +1,106 @@
 <template>
-  <div>
-    <div id="accompagnement" data-scroll-container class="smooth-scroll">
-      <section class="end">
-        <p>
-          Un ensemble d'expertises pour que vous puissez identifier vos besoins
-        </p>
-        <nuxt-link to="services" class="btnMain"
-          ><span>Découvrez mes expertises</span></nuxt-link
-        >
+  <div id="accompagnement">
+    <section class="end">
+      <p>
+        Un ensemble d'expertises pour que vous puissez identifier vos besoins
+      </p>
+      <nuxt-link to="services" class="btnMain"
+        ><span>Découvrez mes expertises</span></nuxt-link
+      >
+    </section>
+
+    <div class="story">
+      <section class="intro panel">
+        <h1><span>nous sommes tous</span></h1>
+        <h2><span>Designers</span></h2>
+        <p>Je vous accompagne dans cette aventure collective et créative</p>
       </section>
 
-      <div class="story">
-        <section class="intro panel">
-          <h1><span>nous sommes tous</span></h1>
-          <h2><span>Designers</span></h2>
-          <p>Je vous accompagne dans cette aventure collective et créative</p>
-        </section>
-
-        <section class="synopsis panel" data-scroll-section>
-          <div class="img-wrap">
-            <img src="~/assets/img/story1.jpg" alt="img " />
-          </div>
-          <h5 data-scroll data-scroll-speed="1">01</h5>
-          <h4 data-scroll data-scroll-speed="1">Synopsis</h4>
-          <h3 data-scroll data-scroll-speed="2">
-            Tout commence par une histoire où l’utilisateur en est le principal
-            protagoniste, dans un univers où son expérience est le fil
-            conducteur de votre scénario
-          </h3>
-          <p class="question" data-scroll data-scroll-speed="3">
-            Qui est votre héros ?
-          </p>
-        </section>
-        <section class="univers panel">
-          <div class="img-wrap">
-            <img src="~/assets/img/story2.jpg" alt="img " />
-          </div>
-          <h5>02</h5>
-          <h4>Univers</h4>
-          <h3>
-            Dans votre univers, il va découvrir un nouveau monde à appréhender.
-            L'aimera t-il ?
-          </h3>
-          <p class="question">À quoi ressemble votre univers ?</p>
-        </section>
-        <section class="declenchement panel">
-          <div class="img-wrap">
-            <img src="~/assets/img/story3.jpg" alt="img " />
-          </div>
-          <h5>03</h5>
-          <h4>Déclenchement</h4>
-          <h3>
-            Le héros débarque dans votre monde avec des attentes, motivé à
-            poursuivre sa quête
-          </h3>
-          <p class="question">
-            Pourquoi le héros arrive t-il dans votre monde ?
-          </p>
-        </section>
-        <section class="aventure panel">
-          <div class="img-wrap">
-            <img src="~/assets/img/story5.jpg" alt="img " />
-          </div>
-          <h5>04</h5>
-          <h4>Aventure</h4>
-          <h3>
-            Son aventure séquentielle, va le mener sur différentes étapes. Un
-            parcours itératif qu'il va naviguer. Surmonter des obstacles,
-            trouver des opportuntiés pour s'orienter et réussir son but
-          </h3>
-          <p class="question">Quel sera son parcours, que recherche t'il ?</p>
-        </section>
-        <section
-          class="denouement panel"
-          data-scroll
-          data-scroll-call="triggerEnd()"
-        >
-          <div class="img-wrap">
-            <img src="~/assets/img/story4.jpg" alt="img " />
-          </div>
-          <h5>05</h5>
-          <h4>Dénouement</h4>
-          <h3>
-            Une fois la mission accomplie ou même en cas d'échec, le héros en
-            sortira grandit, reviendra t-il ?
-          </h3>
-          <p class="question">Quelle est son expérience finale ?</p>
-        </section>
-      </div>
-      <div class="titlePin">Nous sommes tous <span>Designers</span></div>
+      <section class="synopsis panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story1.jpg" alt="img " />
+        </div>
+        <h5>01</h5>
+        <h4>Synopsis</h4>
+        <h3>
+          Tout commence par une histoire où l’utilisateur en est le principal
+          protagoniste, dans un univers où son expérience est le fil conducteur
+          de votre scénario
+        </h3>
+        <p class="question">
+          Qui est votre héros ?
+        </p>
+      </section>
+      <section class="univers panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story2.jpg" alt="img " />
+        </div>
+        <h5>02</h5>
+        <h4>Univers</h4>
+        <h3>
+          Dans votre univers, il va découvrir un nouveau monde à appréhender.
+          L'aimera t-il ?
+        </h3>
+        <p class="question">À quoi ressemble votre univers ?</p>
+      </section>
+      <section class="declenchement panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story3.jpg" alt="img " />
+        </div>
+        <h5>03</h5>
+        <h4>Déclenchement</h4>
+        <h3>
+          Le héros débarque dans votre monde avec des attentes, motivé à
+          poursuivre sa quête
+        </h3>
+        <p class="question">
+          Pourquoi le héros arrive t-il dans votre monde ?
+        </p>
+      </section>
+      <section class="aventure panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story5.jpg" alt="img " />
+        </div>
+        <h5>04</h5>
+        <h4>Aventure</h4>
+        <h3>
+          Son aventure séquentielle, va le mener sur différentes étapes. Un
+          parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver
+          des opportuntiés pour s'orienter et réussir son but
+        </h3>
+        <p class="question">Quel sera son parcours, que recherche t'il ?</p>
+      </section>
+      <section class="denouement panel">
+        <div class="img-wrap">
+          <img src="~/assets/img/story4.jpg" alt="img " />
+        </div>
+        <h5>05</h5>
+        <h4>Dénouement</h4>
+        <h3>
+          Une fois la mission accomplie ou même en cas d'échec, le héros en
+          sortira grandit, reviendra t-il ?
+        </h3>
+        <p class="question">Quelle est son expérience finale ?</p>
+      </section>
     </div>
+    <div class="titlePin">Nous sommes tous <span>Designers</span></div>
   </div>
 </template>
 
 <script>
-import locomotive from "~/mixins/locomotive.js";
+// import locomotive from "~/mixins/locomotive.js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
-  mixins: [locomotive],
+  // mixins: [locomotive],
   mounted() {
-    // this.$nextTick ( () => {
-
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
         .timeline({
           scrollTrigger: {
             trigger: el,
-            scroller: ".smooth-scroll",
             start: "20% center",
             end: "bottom center",
             toggleActions: "restart none none reset",
@@ -153,7 +144,7 @@ export default {
     });
 
     this.titleEffect = gsap
-      .timeline({})
+      .timeline({ delay: 4 })
       .to(".about-link ", { color: "#0D1317" })
       .from(".intro h1 span ", { y: "2em" })
       .from(".intro h2 span ", { y: "2em" }, "<")
@@ -163,7 +154,6 @@ export default {
       .timeline({
         scrollTrigger: {
           trigger: ".synopsis",
-          scroller: ".smooth-scroll",
           start: "top bottom",
           toggleActions: "restart none none reset",
           scrub: true
@@ -176,7 +166,6 @@ export default {
       .timeline({
         scrollTrigger: {
           trigger: ".end",
-          scroller: ".smooth-scroll",
           start: "top center",
           toggleActions: "restart reset resume reset"
         }
@@ -187,7 +176,6 @@ export default {
       .timeline({
         scrollTrigger: {
           trigger: ".denouement",
-          scroller: ".smooth-scroll",
           start: "bottom bottom ",
           toggleActions: "play none none reset",
           markers: true
@@ -196,8 +184,6 @@ export default {
       .set(".denouement", { paddingBottom: "7em" })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", { autoAlpha: 0 }, "<");
-
-    // });
   }
 };
 </script>
