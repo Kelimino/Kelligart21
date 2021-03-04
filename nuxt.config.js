@@ -13,26 +13,26 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel:"stylesheet",  href:"https://fonts.googleapis.com/css2?family=Catamaran:wght@800&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,800;1,200;1,300;1,400&display=swap"}
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Catamaran:wght@800&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,800;1,200;1,300;1,400&display=swap' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    //smooth scroll
+    // smooth scroll
     '@/assets/css/scroll.css',
-    //resest css meyerweb
+    // resest css meyerweb
     '@/assets/css/reset.css',
-    //gobal css compile
+    // gobal css compile
     '@/assets/css/main.css',
-    //main css file sass
+    // main css file sass
     '@/assets/css/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {
-      src: "~/plugins/locomotive.js",
+      src: '~/plugins/locomotive.js',
       ssr: false
     }
   ],
@@ -48,11 +48,10 @@ export default {
   modules: [
   ],
 
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [
-      "gsap",
+      'gsap'
     ]
   }
-};
+}

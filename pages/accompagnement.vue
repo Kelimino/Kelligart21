@@ -22,13 +22,15 @@
             <img src="~/assets/img/story1.jpg" alt="img " />
           </div>
           <h5 data-scroll data-scroll-speed="1">01</h5>
-          <h4 data-scroll data-scroll-speed="1" >Synopsis</h4>
-          <h3 data-scroll data-scroll-speed="2" >
+          <h4 data-scroll data-scroll-speed="1">Synopsis</h4>
+          <h3 data-scroll data-scroll-speed="2">
             Tout commence par une histoire où l’utilisateur en est le principal
             protagoniste, dans un univers où son expérience est le fil
             conducteur de votre scénario
           </h3>
-          <p class="question" data-scroll data-scroll-speed="3">Qui est votre héros ?</p>
+          <p class="question" data-scroll data-scroll-speed="3">
+            Qui est votre héros ?
+          </p>
         </section>
         <section class="univers panel">
           <div class="img-wrap">
@@ -100,6 +102,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   mixins: [locomotive],
   mounted() {
+    // this.$nextTick ( () => {
 
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
@@ -150,8 +153,7 @@ export default {
     });
 
     this.titleEffect = gsap
-      .timeline({
-      })
+      .timeline({})
       .to(".about-link ", { color: "#0D1317" })
       .from(".intro h1 span ", { y: "2em" })
       .from(".intro h2 span ", { y: "2em" }, "<")
@@ -194,6 +196,8 @@ export default {
       .set(".denouement", { paddingBottom: "7em" })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", { autoAlpha: 0 }, "<");
+
+    // });
   }
 };
 </script>

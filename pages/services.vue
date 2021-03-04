@@ -262,6 +262,8 @@ export default {
     };
   },
   mounted() {
+
+    // this.$nextTick(() => {
     gsap
       .timeline({ repeat: -1, yoyo: true })
       .to(".backlist .graphisme", {
@@ -318,6 +320,9 @@ export default {
         }
       })
       .to(".expertise", { y: "-400px", duration: 1.5, ease: "power4.out" });
+
+    // })
+
   }
 };
 </script>

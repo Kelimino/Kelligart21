@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "babel-eslint": "^10.1.0",
     "core-js": "^3.8.3",
     "fib": "^0.0.1",
     "gsap": "^3.6.0",
@@ -27,6 +28,7 @@
     "vue-smooth-scrollbar": "^0.1.2"
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config": "^5.0.0",
     "eslint": "^7.19.0",
     "eslint-plugin-vue": "^7.5.0"
   }
