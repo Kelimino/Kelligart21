@@ -228,7 +228,7 @@ export default {
           class: "UX",
           // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
-            "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et process choisis"
+            "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et des process adaptés"
         },
         {
           name: "Design d'Interfaces",
