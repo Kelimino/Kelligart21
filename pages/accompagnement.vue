@@ -177,8 +177,7 @@ export default {
         scrollTrigger: {
           trigger: ".denouement",
           start: "bottom bottom ",
-          toggleActions: "play none none reset",
-          markers: true
+          toggleActions: "play none none reset"
         }
       })
       .set(".denouement", { paddingBottom: "7em" })
