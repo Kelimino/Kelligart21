@@ -92,13 +92,13 @@
 </template>
 
 <script>
-import {smoothScroll} from "~/mixins/smoothScroll.js";
+import locomotive from "~/mixins/locomotive.js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
-  mixins: [ smoothScroll],
+  mixins: [locomotive],
   mounted() {
 
     gsap.utils.toArray(".panel").forEach(function(el) {

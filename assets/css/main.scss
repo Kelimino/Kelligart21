@@ -623,48 +623,50 @@ nav {
 
 /*-----Service -----*/
 
-#service {
-  .intro {
-    background: $main;
-    height: 100vh;
+.intro {
+  background: $main;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 5;
+  transform-origin: top;
+
+  h1 {
+    position: relative;
+    font-family: $title;
+    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-width: 2px;
+    color: transparent;
+    text-transform: uppercase;
+    font-size: 6em;
+    overflow: hidden;
+    height: 0.9em;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 5;
-    transform-origin: top;
 
-    h1 {
-      position: relative;
-      font-family: $title;
-      -webkit-text-stroke-color: #fff;
-      -webkit-text-stroke-width: 2px;
-      color: transparent;
-      text-transform: uppercase;
-      font-size: 6em;
-      overflow: hidden;
-      height: 0.9em;
-      width: 100%;
-
-      span {
-        position: absolute;
-        left: 50%;
-        bottom: -20%;
-        transform: translateX(-50%);
-        opacity: 0;
-      }
-    }
-
-    p {
-      font-family: $text;
-      font-style: italic;
-      font-size: 1em;
-      color: $secondary;
-      margin: 1em auto;
+    span {
+      position: absolute;
+      left: 50%;
+      bottom: -20%;
+      transform: translateX(-50%);
+      opacity: 0;
     }
   }
+
+  p {
+    font-family: $text;
+    font-style: italic;
+    font-size: 1em;
+    color: $secondary;
+    margin: 1em auto;
+  }
+}
+
+#service {
+
 
   .expertise {
     background: $main;

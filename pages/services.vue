@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div id="service" class="smooth-scroll">
-      <section class="intro panel">
+
+          <section class="intro panel">
         <div class="back"></div>
         <p>L'esprit</p>
         <h1>
@@ -11,6 +11,9 @@
         </h1>
         <p>est l'outil le plus puissant d'un Designer</p>
       </section>
+
+    <div id="service" class="smooth-scroll">
+
       <section class="service-footer">
         <p>
           Quelques exemples d'étude de cas pour comprendre mon approche et
@@ -90,10 +93,10 @@
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-import { smoothScroll } from "~/mixins/smoothScroll.js";
+import locomotive from "~/mixins/locomotive.js";
 
 export default {
-  mixins: [smoothScroll],
+  mixins: [locomotive],
   head() {
     return {
       title: "Mes services",
