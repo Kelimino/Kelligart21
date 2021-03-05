@@ -1,9 +1,9 @@
 <template>
-  <div class="swiper-container" ref="swipCont">
+  <div ref="swipCont" class="swiper-container">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-      <div class="swiper-slide" v-for="(projet, index) in projets" :key="index" >
+      <div v-for="(projet, index) in projets" :key="index" class="swiper-slide">
         <nuxt-link :to="projet.href">
           <img :src="projet.path" alt="projet image" />
           <div class="content">
@@ -70,9 +70,6 @@ export default {
     };
   },
 
-  methods: {
-  },
-
   mounted() {
     this.swiper = new Swiper(".swiper-container", {
       effect: "EffectFlip",
@@ -100,9 +97,10 @@ export default {
       gsap.to(".swiper-slide", { scale: 0.9 });
     });
     this.swiper.on("touchEnd ", function() {
-      gsap.to(".swiper-slide", { scale: 1 })
-      
+      gsap.to(".swiper-slide", { scale: 1 });
     });
-  }
+  },
+
+  methods: {}
 };
 </script>

@@ -2,7 +2,7 @@
   <div>
     <Nav />
     <Nuxt />
-    <loader v-if="loading" />
+    <Loader v-if="loading" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 import Loader from "/components/loader";
 import Nav from "/components/nav";
 export default {
-  name: "app",
+  name: "App",
   components: {
     Nav,
     Loader

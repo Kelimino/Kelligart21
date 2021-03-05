@@ -1,8 +1,8 @@
 <template>
   <div id="accueil">
     <section class="bienvenue panel">
-  <button @click="videoPause">Pause</button>
-      <video class="back-video" width="320" height="240" ref="video">
+      <button @click="videoPause">Pause</button>
+      <video ref="video" class="back-video" width="320" height="240">
         <source :src="video" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -27,32 +27,22 @@ export default {
     };
   },
 
-  methods: {
-
-    videoPause: function (){
-   this.$refs.video.pause();
-    },
-  },
-
   mounted() {
-  //   //function declaration
-  // function greet(){
-  // console.log("bonjour")
-  // }
-  //     //function expression que lon met dans une variable
-  // const speak = function(name, time){
-  // console.log('good'+ (time) + (name) )
-  //   };
+    //   //function declaration
+    // function greet(){
+    // console.log("bonjour")
+    // }
+    //     //function expression que lon met dans une variable
+    // const speak = function(name, time){
+    // console.log('good'+ (time) + (name) )
+    //   };
 
-  //   //function évoquée 
-  //   speak();
-  //   greet()
-
-
-
+    //   //function évoquée
+    //   speak();
+    //   greet()
 
     let vid = document.querySelector(".back-video");
-    vid.pause()
+    vid.pause();
 
     this.titleEffect = gsap
       .timeline({})
@@ -61,11 +51,18 @@ export default {
       .from(".bienvenue h2 span ", { y: "2em" }, "<")
       .to(".bienvenue h1 span ", { y: "0em", duration: 1.5 })
       .to(".bienvenue h2 span ", { y: "0em", duration: 1.5 }, "<")
-      .add( function(){ 
-    vid.play() }, "<=0.5" )
-    .to(".bienvenue h1 span ", { y: "-2em" })
-    .to(".bienvenue h2 span ", { y: "-2em" }, "<")
-    .to(".back-video", { scale: 2, duration: 2})
+      .add(function() {
+        vid.play();
+      }, "<=0.5")
+      .to(".bienvenue h1 span ", { y: "-2em" })
+      .to(".bienvenue h2 span ", { y: "-2em" }, "<")
+      .to(".back-video", { scale: 2, duration: 2 });
+  },
+
+  methods: {
+    videoPause: function() {
+      this.$refs.video.pause();
+    }
   }
 };
 </script>

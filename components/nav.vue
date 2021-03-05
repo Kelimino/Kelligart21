@@ -3,14 +3,14 @@
     <footer id="draggable">
       <nav class="mainNav">
         <ul>
-          <li v-on:mouseover="animLogo" v-on:mouseleave="endLogo">
+          <li @mouseover="animLogo" @mouseleave="endLogo">
             <nuxt-link to="/" class="logo">
               <lottie
                 class="logo"
                 :width="65"
                 :height="65"
                 :options="animationsOptions.logo"
-                v-on:animCreated="handleAnimation"
+                @animCreated="handleAnimation"
             /></nuxt-link>
           </li>
           <li>
@@ -64,6 +64,12 @@ export default {
       }
     };
   },
+
+  mounted() {
+    Draggable.create("#draggable", {
+      bounds: document.querySelector("body")
+    });
+  },
   methods: {
     handleAnimation: function(anim) {
       this.anim = anim;
@@ -78,12 +84,6 @@ export default {
       this.anim.setDirection(-1);
       this.anim.play();
     }
-  },
-
-  mounted() {
-    Draggable.create("#draggable",{
-      bounds: document.querySelector("body"),
-    })
   }
 };
 </script>
