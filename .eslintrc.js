@@ -1,33 +1,23 @@
 module.exports = {
   root: true,
   env: {
-    browser: true,
-    node: true
-  },
-  parserOptions: {
-    parser: 'babel-eslint'
-    // parser: '@typescript-eslint/parser'
+    node: true,
+    browser: true
   },
   extends: [
-    'plugin:vue/recommended',
-    'eslint:recommended',
-    // 'prettier/vue',
-    'plugin:prettier/recommended'
+    "plugin:vue/recommended",
+    "eslint:recommended",
+    "plugin:prettier/recommended"
   ],
-  // required to lint *.vue files
-  plugins: ['vue'],
-  // add your custom rules here
   rules: {
-    semi: [2, 'never'],
-    'no-console': 'off',
-    'vue/max-attributes-per-line': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        htmlWhitespaceSensitivity: 'ignore',
-        semi: false,
-        singleQuote: true
-      }
-    ]
+    "vue/component-name-in-template-casing": ["error", "PascalCase"],
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+  },
+  globals: {
+    $nuxt: true
+  },
+  parserOptions: {
+    parser: "babel-eslint"
   }
-}
+};

@@ -1,31 +1,34 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'kellig21',
+    title: "kellig21",
     htmlAttrs: {
-      lang: 'en'
+      lang: "en"
     },
-    meta: [{
-        charset: 'utf-8'
+    meta: [
+      {
+        charset: "utf-8"
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: ''
+        hid: "description",
+        name: "description",
+        content: ""
       }
     ],
-    link: [{
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico'
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
       },
       {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Catamaran:wght@800&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,800;1,200;1,300;1,400&display=swap'
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css2?family=Catamaran:wght@800&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,800;1,200;1,300;1,400&display=swap"
       }
     ]
   },
@@ -35,18 +38,20 @@ export default {
     // smooth scroll
     // '@/assets/css/scroll.css',
     // resest css meyerweb
-    '@/assets/css/reset.css',
+    "@/assets/css/reset.css",
     // gobal css compile
-    '@/assets/css/main.css',
+    "@/assets/css/main.css",
     // main css file sass
-    '@/assets/css/main.scss'
+    "@/assets/css/main.scss"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{
-    src: '~/plugins/locomotive.js',
-    ssr: false
-  }],
+  plugins: [
+    {
+      src: "~/plugins/locomotive.js",
+      ssr: false
+    }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -59,17 +64,17 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['gsap'],
+    transpile: ["gsap"],
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
-          enforce: 'pre',
+          enforce: "pre",
           test: /\.(js|vue|ts)$/,
-          loader: 'eslint-loader',
+          loader: "eslint-loader",
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   }
-}
+};
