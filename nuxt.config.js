@@ -42,7 +42,9 @@ export default {
     // gobal css compile
     "@/assets/css/main.css",
     // main css file sass
-    "@/assets/css/main.scss"
+    "@/assets/css/main.scss",
+    // tailwind css file sass
+    "@/assets/css/tailwind.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -72,7 +74,10 @@ export default {
           enforce: "pre",
           test: /\.(js|vue|ts)$/,
           loader: "eslint-loader",
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
+          options: {
+            fix: true
+          }
         });
       }
     }
