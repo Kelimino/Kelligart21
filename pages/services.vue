@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="intro panel">
-      <div class="back"></div>
+      <div class="back" />
       <p>L'esprit</p>
       <h1>
         <span class="One">Collectif</span>
@@ -17,9 +17,9 @@
           Quelques exemples d'étude de cas pour comprendre mon approche et
           connaitre ma méthode
         </p>
-        <nuxt-link to="projets" class="btnMain"
-          ><span>Découvrez mes projets</span></nuxt-link
-        >
+        <nuxt-link to="projets" class="btnMain">
+          <span>Découvrez mes projets</span>
+        </nuxt-link>
       </section>
 
       <section class="expertise">
@@ -27,8 +27,8 @@
           <li>
             <img
               v-for="(poster, index) in graphisme"
-              class="graphisme"
               :key="index"
+              class="graphisme"
               :src="poster.path"
               alt="poster"
             />
@@ -36,8 +36,8 @@
           <li>
             <img
               v-for="(poster, index) in web"
-              class="web"
               :key="index"
+              class="web"
               :src="poster.path"
               alt="poster"
             />
@@ -45,8 +45,8 @@
           <li>
             <img
               v-for="(poster, index) in graphisme2"
-              class="graphisme"
               :key="index"
+              class="graphisme"
               :src="poster.path"
               alt="poster"
             />
@@ -54,8 +54,8 @@
           <li>
             <img
               v-for="(poster, index) in web2"
-              class="web"
               :key="index"
+              class="web"
               :src="poster.path"
               alt="poster"
             />
@@ -63,8 +63,8 @@
           <li>
             <img
               v-for="(poster, index) in graphisme3"
-              class="graphisme"
               :key="index"
+              class="graphisme"
               :src="poster.path"
               alt="poster"
             />
@@ -94,119 +94,112 @@ gsap.registerPlugin(ScrollTrigger);
 // import locomotive from "~/mixins/locomotive.js";
 
 export default {
-  // mixins: [locomotive],
-  head() {
-    return {
-      title: "Mes services",
-      meta: [{ name: "description", content: "Cest ma page de services" }]
-    };
-  },
   data() {
     return {
       graphisme: [
         {
-          path: require("@/assets/img/tiles/poster3.png")
+          path: require("@/assets/img/tiles/poster3.png"),
         },
         {
-          path: require("@/assets/img/tiles/poster2.jpg")
+          path: require("@/assets/img/tiles/poster2.jpg"),
         },
         {
-          path: require("@/assets/img/tiles/poster1.jpg")
+          path: require("@/assets/img/tiles/poster1.jpg"),
         },
         {
-          path: require("@/assets/img/tiles/poster4.jpg")
-        }
+          path: require("@/assets/img/tiles/poster4.jpg"),
+        },
       ],
       graphisme2: [
         {
-          path: require("@/assets/img/tiles/poster7.png")
+          path: require("@/assets/img/tiles/poster7.png"),
         },
 
         {
-          path: require("@/assets/img/tiles/poster8.png")
+          path: require("@/assets/img/tiles/poster8.png"),
         },
 
         {
-          path: require("@/assets/img/tiles/poster5.png")
+          path: require("@/assets/img/tiles/poster5.png"),
         },
         {
-          path: require("@/assets/img/tiles/poster6.png")
+          path: require("@/assets/img/tiles/poster6.png"),
         },
         {
-          path: require("@/assets/img/tiles/mural1.jpeg")
+          path: require("@/assets/img/tiles/mural1.jpeg"),
         },
         {
-          path: require("@/assets/img/tiles/poster9.png")
-        }
+          path: require("@/assets/img/tiles/poster9.png"),
+        },
       ],
       graphisme3: [
         {
-          path: require("@/assets/img/tiles/poster1.jpg")
+          path: require("@/assets/img/tiles/poster1.jpg"),
         },
         {
-          path: require("@/assets/img/tiles/poster4.jpg")
+          path: require("@/assets/img/tiles/poster4.jpg"),
         },
         {
-          path: require("@/assets/img/tiles/mural2.jpeg")
+          path: require("@/assets/img/tiles/mural2.jpeg"),
         },
         {
-          path: require("@/assets/img/tiles/poster6.png")
-        }
+          path: require("@/assets/img/tiles/poster6.png"),
+        },
       ],
       web: [
         {
-          path: require("@/assets/img/tiles/web6.png")
+          path: require("@/assets/img/tiles/web6.png"),
         },
         {
-          path: require("@/assets/img/tiles/web5.png")
+          path: require("@/assets/img/tiles/web5.png"),
         },
         {
-          path: require("@/assets/img/tiles/web1.png")
+          path: require("@/assets/img/tiles/web1.png"),
         },
         {
-          path: require("@/assets/img/tiles/web3.png")
+          path: require("@/assets/img/tiles/web3.png"),
         },
         {
-          path: require("@/assets/img/tiles/web7.png")
+          path: require("@/assets/img/tiles/web7.png"),
         },
         {
-          path: require("@/assets/img/tiles/web8.png")
+          path: require("@/assets/img/tiles/web8.png"),
         },
         {
-          path: require("@/assets/img/tiles/web9.png")
+          path: require("@/assets/img/tiles/web9.png"),
         },
         {
-          path: require("@/assets/img/tiles/web10.png")
+          path: require("@/assets/img/tiles/web10.png"),
         },
         {
-          path: require("@/assets/img/tiles/web11.png")
+          path: require("@/assets/img/tiles/web11.png"),
         },
         {
-          path: require("@/assets/img/tiles/web12.png")
+          path: require("@/assets/img/tiles/web12.png"),
         },
         {
-          path: require("@/assets/img/tiles/web13.jpg")
-        }
+          path: require("@/assets/img/tiles/web13.jpg"),
+        },
       ],
       web2: [
         {
-          path: require("@/assets/img/tiles/web2.jpg")
+          path: require("@/assets/img/tiles/web2.jpg"),
         },
         {
-          path: require("@/assets/img/tiles/web4.png")
+          path: require("@/assets/img/tiles/web4.png"),
         },
         {
-          path: require("@/assets/img/tiles/web1.png")
+          path: require("@/assets/img/tiles/web1.png"),
         },
         {
-          path: require("@/assets/img/tiles/web14.jpg")
+          path: require("@/assets/img/tiles/web14.jpg"),
         },
         {
-          path: require("@/assets/img/tiles/web15.jpg")
+          path: require("@/assets/img/tiles/web15.jpg"),
         },
         {
-          path: require("@/assets/img/tiles/web16.png")
-        }
+          path: require("@/assets/img/tiles/web16.png"),
+        },
       ],
 
       expertise: [
@@ -217,7 +210,7 @@ export default {
           class: "DA",
           // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
-            "Prendre des idées afin de les matérialiser en véritable positionnement de marque, une image désirable avec un message mémorable"
+            "Prendre des idées afin de les matérialiser en véritable positionnement de marque, une image désirable avec un message mémorable",
         },
         {
           name: "Expérience Utilisateur",
@@ -226,7 +219,7 @@ export default {
           class: "UX",
           // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
-            "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et des process adaptés"
+            "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et des process adaptés",
         },
         {
           name: "Design d'Interfaces",
@@ -235,7 +228,7 @@ export default {
           class: "UI",
           // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
-            "Concevoir & décliner des interfaces digitales cohérentes selon des codes graphiques & des règles fonctionnelles définies"
+            "Concevoir & décliner des interfaces digitales cohérentes selon des codes graphiques & des règles fonctionnelles définies",
         },
         {
           name: "Communication Visuelle",
@@ -244,7 +237,7 @@ export default {
           class: "CV",
           // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
-            "Valoriser et communiquer votre identité de marque sur différentes plateformes et supports"
+            "Valoriser et communiquer votre identité de marque sur différentes plateformes et supports",
         },
 
         {
@@ -254,9 +247,16 @@ export default {
           class: "DF",
           // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
-            "Développer les interfaces de votre projet, créer une expérience intéractive et immersive, tout en veillant à sa performance technique"
-        }
-      ]
+            "Développer les interfaces de votre projet, créer une expérience intéractive et immersive, tout en veillant à sa performance technique",
+        },
+      ],
+    };
+  },
+  // mixins: [locomotive],
+  head() {
+    return {
+      title: "Mes services",
+      meta: [{ name: "description", content: "Cest ma page de services" }],
     };
   },
   mounted() {
@@ -264,13 +264,13 @@ export default {
       .timeline({ repeat: -1, yoyo: true })
       .to(".backlist .graphisme", {
         y: "30%",
-        duration: 20
+        duration: 20,
       })
       .to(
         ".backlist .web",
         {
           y: "-10%",
-          duration: 20
+          duration: 20,
         },
         "<"
       );
@@ -283,7 +283,7 @@ export default {
         y: 0,
         duration: 0.6,
         color: "#F0EFEC",
-        ease: "power3.out"
+        ease: "power3.out",
       })
       .to(".One", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
       .to(".Two", {
@@ -291,7 +291,7 @@ export default {
         y: 0,
         duration: 0.6,
         color: "#F0EFEC",
-        ease: "power3.out"
+        ease: "power3.out",
       })
       .to(".Two", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
       .to(".Three", {
@@ -299,7 +299,7 @@ export default {
         y: 0,
         duration: 0.6,
         color: "#F0EFEC",
-        ease: "power3.out"
+        ease: "power3.out",
       })
       .to(".Three", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
       .to(".intro h1", { display: "none" })
@@ -312,10 +312,10 @@ export default {
         scrollTrigger: {
           trigger: ".expertise .DF",
           start: "bottom bottom",
-          toggleActions: "play none none reset"
-        }
+          toggleActions: "play none none reset",
+        },
       })
       .to(".expertise", { y: "-400px", duration: 1.5, ease: "power4.out" });
-  }
+  },
 };
 </script>
