@@ -1262,7 +1262,7 @@
 
 "@nuxtjs/eslint-config@^5.0.0":
   version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-config/-/eslint-config-5.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-config/-/eslint-config-5.0.0.tgz#d66143ee4ada9d944de0bfbe2d7e4693a2e20d60"
   integrity sha512-xoi0CPpFj4hOTz5xMiqGK314276gOmI+8W+3tgybqsKiKQBFXe1IOUjHzsuGqkS44iGy+GmmrwA387ojvKnhkQ==
   dependencies:
     eslint-config-standard "^16.0.1"
