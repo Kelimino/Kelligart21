@@ -92,7 +92,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   // mixins: [locomotive],
   mounted() {
-    gsap.utils.toArray(".panel").forEach(function (el) {
+    gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
         .timeline({
           scrollTrigger: {
@@ -100,8 +100,8 @@ export default {
             start: "20% center",
             end: "bottom center",
             toggleActions: "restart none none reset",
-            scrub: true,
-          },
+            scrub: true
+          }
         })
         .set(".panel .question", { autoAlpha: 0 })
         .from(el, { autoAlpha: 0, scale: 0.8 })
@@ -124,7 +124,7 @@ export default {
           autoAlpha: 0,
           y: 0,
           duration: 3,
-          ease: "power4.inOut",
+          ease: "power4.inOut"
         })
         .to(
           ".img-wrap",
@@ -152,8 +152,8 @@ export default {
           trigger: ".synopsis",
           start: "top bottom",
           toggleActions: "restart none none reset",
-          scrub: true,
-        },
+          scrub: true
+        }
       })
       .to(".titlePin", { autoAlpha: 0.1 })
       .to(".about-link ", { color: "#FFF" }, "<");
@@ -163,8 +163,8 @@ export default {
         scrollTrigger: {
           trigger: ".end",
           start: "top center",
-          toggleActions: "restart reset resume reset",
-        },
+          toggleActions: "restart reset resume reset"
+        }
       })
       .to(".end", { autoAlpha: 1, scale: 1, duration: 0.2 });
 
@@ -173,12 +173,12 @@ export default {
         scrollTrigger: {
           trigger: ".denouement",
           start: "bottom bottom ",
-          toggleActions: "play none none reset",
-        },
+          toggleActions: "play none none reset"
+        }
       })
       .set(".denouement", { paddingBottom: "7em" })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
       .to(".titlePin", { autoAlpha: 0 }, "<");
-  },
+  }
 };
 </script>
