@@ -19,13 +19,17 @@
     "node-sass": "^5.0.0",
     "nuxt": "^2.14.12",
     "sass-loader": "^10.1.1",
-    "scrollmagic": "^2.0.8",
     "smooth-scrollbar": "^8.6.0",
     "swiper": "^6.4.15",
     "vue-lottie": "^0.2.1"
   },
   "devDependencies": {
-    "eslint": "^7.19.0",
-    "eslint-plugin-vue": "^7.5.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.7.0",
+    "prettier": "^1.19.1"
   }
 }
