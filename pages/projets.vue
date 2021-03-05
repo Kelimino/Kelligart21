@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   components: {
-    slider
-  }
+    slider,
+  },
 };
 </script>
