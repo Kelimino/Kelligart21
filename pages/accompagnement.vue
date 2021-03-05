@@ -123,6 +123,7 @@ export default {
         .to(".panel h3", {
           autoAlpha: 0,
           y: 0,
+
           duration: 3,
           ease: "power4.inOut"
         })
