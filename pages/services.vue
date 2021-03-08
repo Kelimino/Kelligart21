@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="intro panel">
+    <section class="introservice panel">
       <div class="back" />
       <p>L'esprit</p>
       <h1>
@@ -302,9 +302,13 @@ export default {
         ease: "power3.out"
       })
       .to(".Three", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
-      .to(".intro h1", { display: "none" })
-      .to(".intro p", { autoAlpha: 0, y: -10 }, "-=1")
-      .to(".intro", { height: "0%", ease: "power4.out", duration: 1 }, "-=0.5")
+      .to(".introservice h1", { display: "none" })
+      .to(".introservice p", { autoAlpha: 0, y: -10 }, "-=1")
+      .to(
+        ".introservice",
+        { height: "0%", ease: "power4.out", duration: 1 },
+        "-=0.5"
+      )
       .to(".about-link", { color: " #FFF " });
 
     this.endAnim = gsap

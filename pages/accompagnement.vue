@@ -4,7 +4,7 @@
       <p>
         Un ensemble d'expertises pour que vous puissez identifier vos besoins
       </p>
-      <nuxt-link to="services">
+      <nuxt-link to="services" class="btnMain">
         <span>Découvrez mes expertises</span>
       </nuxt-link>
     </section>
@@ -141,7 +141,7 @@ export default {
     });
 
     this.titleEffect = gsap
-      .timeline({ delay: 4 })
+      .timeline({})
       .to(".about-link ", { color: "#0D1317" })
       .from(".intro h1 span ", { y: "2em" })
       .from(".intro h2 span ", { y: "2em" }, "<")
