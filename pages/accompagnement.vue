@@ -4,7 +4,7 @@
       <p>
         Un ensemble d'expertises pour que vous puissez identifier vos besoins
       </p>
-      <nuxt-link to="services" class="btnMain">
+      <nuxt-link to="services">
         <span>Découvrez mes expertises</span>
       </nuxt-link>
     </section>
