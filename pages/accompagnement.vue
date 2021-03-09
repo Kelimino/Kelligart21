@@ -179,7 +179,13 @@ export default {
       })
       .set(".denouement", { paddingBottom: "7em" })
       .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
-      .to(".titlePin", { autoAlpha: 0 }, "<");
+      .to(".titlePin", { autoAlpha: 0 }, "<")
+      .add(function() {
+        setTimeout(() => {
+          // eslint-disable-next-line prettier/prettier
+          this.$router.push({ path: '/projets' });
+        }, 2000);
+      });
   }
 };
 </script>

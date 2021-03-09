@@ -1,6 +1,7 @@
 <template>
   <div id="laforet" class="work">
     <nav><nuxt-link to="projets">Projets</nuxt-link></nav>
+
     <div class="horizontal">
       <section class="intro">
         <h1>Laforêt</h1>
@@ -80,10 +81,10 @@ export default {
       x: () => -(container.offsetWidth - innerWidth),
       ease: "none",
       scrollTrigger: {
-        trigger: "#laforet",
+        trigger: container,
         start: "top top",
-        pin: true,
         invalidateOnRefresh: true,
+        pin: true,
         scrub: 1,
         end: () => "+=" + (container.offsetWidth - innerWidth)
       }

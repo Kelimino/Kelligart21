@@ -1,34 +1,33 @@
 @import './assets/css/variable.scss';
 
-#laforet{
 
-    .intro {
-    background: $primary;
-  }
-
+.work {
+position: relative;
 .horizontal{
-  height: 80%;
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 80%;
+  top: 0%;
+  left: 0%;
   white-space: nowrap;
-}
 
-section {
-  height: 100vh;
+  section {
+  height: 100%;
   width: 100vw;
   display: inline-flex;
 }
-
 }
 
-.work {
+
+
+
+
   .intro {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    background: $primary;
 
     h1 {
       font-family: $title;
