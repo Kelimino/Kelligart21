@@ -55,7 +55,7 @@ export default {
           nom: "Accompagnement",
           description: "Méthode et process de travail",
           href: "/accompagnement",
-          path: require("@/assets/img/projet-back.png")
+          path: require("@/assets/img/acomp-back.png")
         },
         {
           nom: "Expertise",

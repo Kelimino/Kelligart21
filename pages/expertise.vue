@@ -243,11 +243,11 @@ export default {
       .from(
         ".p-second",
         {
-          y: -20,
+          y: 20,
           autoAlpha: 0,
           ease: "Power3.easeOut"
         },
-        "+=1"
+        "+=0.8"
       );
 
     //BACK TILE ANIMATION

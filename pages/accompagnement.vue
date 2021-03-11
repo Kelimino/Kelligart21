@@ -5,15 +5,14 @@
     >
       <transition appear mode="out-in" @enter="enterTitle()">
         <h1 class="font-title flex flex-col">
-          <span class="font-text text-primary text-7xl font-light italic"
+          <span class="Nst font-text text-primary text-7xl font-light italic"
             >Nous sommes tous</span
           ><span
-            class="font-title text-primary text-12xl font-extrabold mt-6 uppercase"
+            class="Dsg transform translate-y-0 font-title text-primary text-12xl font-extrabold mt-6 uppercase"
             >Designers
           </span>
         </h1>
       </transition>
-
       <transition appear mode="out-in" @enter="enterText()">
         <p class="font-text text-main text-base mt-6">
           Je vous accompagne dans cette aventure collective et créative
@@ -61,7 +60,7 @@
           class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden"
         >
           <h3
-            class="font-text text-primary transform uppercase text-6xl italic"
+            class="font-text text-primary transform uppercase text-6xl font-light italic"
           >
             {{ story.question }}
           </h3>
@@ -173,12 +172,31 @@ export default {
   //
   mounted() {
     // gsap.utils.toArray(".panel").forEach(function(el) {
+    let text = document.querySelector(".Dsg");
+    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
   },
 
   methods: {
     enterTitle: function() {
-      gsap.from("h1 span", { autoAlpha: 0, y: -20, duration: 1, stagger: 1 });
+      this.$nextTick(function() {
+        let TGB = gsap.timeline({});
+        TGB.from(".Nst", {
+          autoAlpha: 0,
+          y: -20,
+          duration: 1
+        }).from(".Dsg span ", {
+          autoAlpha: 0,
+          color: "#2d344d",
+          y: -50,
+          duration: 4,
+          stagger: {
+            each: 0.1,
+            from: "center"
+          }
+        });
+      });
     },
+
     enterText: function() {
       gsap.from("p", { autoAlpha: 0, y: -20, duration: 1, delay: 2 });
     }
