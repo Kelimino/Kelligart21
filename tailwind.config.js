@@ -18,6 +18,9 @@ module.exports = {
       fontFamily: {
         title: ["Crimson Text", "serif"],
         text: ["Nunito", "sans-serif"]
+      },
+      fontSize: {
+        "12xl": "10rem"
       }
     }
   },
