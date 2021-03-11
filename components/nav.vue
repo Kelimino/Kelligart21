@@ -2,7 +2,7 @@
   <div>
     <header class="relative z-40">
       <div
-        class="logo absolute top-5 left-10 z-50 cursor-pointer"
+        class="logo fixed top-5 left-10 z-50 cursor-pointer"
         @mouseover="animLogo"
         @mouseleave="endLogo"
       >
@@ -15,24 +15,43 @@
         />
       </div>
       <div
-        class="menu w-3/12 bg-white h-screen fixed p-12 flex flex-col justify-center z-30"
+        class="contact fixed top-10 right-10 z-50 cursor-pointer bg-primary rounded-full w-14 h-14 flex justify-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="#FFF"
+          class=" w-6"
+        >
+          <path
+            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+          />
+        </svg>
+      </div>
+      <div
+        class="legal fixed bottom-10 right-10 z-50 font-text text-primary font-semibold text-xs  "
+      >
+        Folio'20 © Kelligart
+      </div>
+      <div
+        class="menu w-screen md:w-5/12 lg:w-3/12 bg-white  h-screen fixed p-12 flex flex-col justify-center z-30"
       >
         <nav class="mainNav">
           <ul class="font-title text-primary font-semibold text-xl">
-            <li class="mb-2">
+            <li class="closeNav mb-2">
               <nuxt-link to="/">Accueil</nuxt-link>
             </li>
-            <li class="mb-2">
+            <li class="closeNav  mb-2">
               <nuxt-link to="accompagnement">Accompagnement</nuxt-link>
             </li>
 
-            <li class="mb-2">
+            <li class="closeNav  mb-2">
               <nuxt-link to="expertise">Expertise</nuxt-link>
             </li>
-            <li class="mb-2">
+            <li class="closeNav  mb-2">
               <nuxt-link to="projets">Projets</nuxt-link>
             </li>
-            <li class="mb-2">
+            <li class="closeNav  mb-2">
               <nuxt-link to="about">À propos</nuxt-link>
             </li>
           </ul>
@@ -42,7 +61,7 @@
             <a class="font-text text-md text-main">bonjour[a]kelligart.com</a>
           </div>
           <ul class="flex justify-items-center items-center mt-3  ">
-            <li class=" mr-3 font-title font-bold text-xl text-main ">
+            <li class="closeNav  mr-3 font-title font-bold text-xl text-main ">
               <a
                 href="https://www.facebook.com/kelligart/"
                 target="_blank"
@@ -50,7 +69,7 @@
                 >Fb</a
               >
             </li>
-            <li class=" mr-3 font-title font-bold text-xl text-main ">
+            <li class="closeNav  mr-3 font-title font-bold text-xl text-main ">
               <a
                 href="https://www.linkedin.com/in/kelligart"
                 target="_blank"
@@ -58,7 +77,7 @@
                 >In</a
               >
             </li>
-            <li class=" mr-3 font-title font-bold text-xl text-main ">
+            <li class="closeNav  mr-3 font-title font-bold text-xl text-main ">
               <a
                 href="https://www.behance.net/kelligart"
                 target="_blank"
@@ -66,7 +85,7 @@
                 >Be</a
               >
             </li>
-            <li class=" mr-3 font-title font-bold text-xl text-main ">
+            <li class="closeNav  mr-3 font-title font-bold text-xl text-main ">
               <a
                 href="https://dribbble.com/Kelligart"
                 target="_blank"
@@ -74,7 +93,7 @@
                 >Dr</a
               >
             </li>
-            <li class=" mr-3 font-title font-bold text-xl text-main">
+            <li class="closeNav  mr-3 font-title font-bold text-xl text-main">
               <a
                 href="https://codepen.io/kelligart"
                 target="_blank"
@@ -121,6 +140,7 @@ export default {
   },
 
   mounted() {
+    //TOGGLE MENU----------
     var tween = gsap.timeline({});
     tween
       .from(".menu", {
@@ -158,6 +178,14 @@ export default {
     function openNav() {
       tween.reversed() ? tween.play() : tween.reverse();
     }
+
+    //CLOSEMENU----------
+    let Close = document.querySelectorAll(".closeNav");
+    Close.forEach(function(el) {
+      el.addEventListener("click", function() {
+        tween.reversed() ? tween.play() : tween.reverse();
+      });
+    });
   },
 
   methods: {

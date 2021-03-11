@@ -3,7 +3,11 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-      <div v-for="(projet, index) in projets" :key="index" class="swiper-slide">
+      <div
+        v-for="(projet, index) in projets"
+        :key="index"
+        class="swiper-slide border-8 border-indigo-600 bg-black"
+      >
         <nuxt-link :to="projet.href">
           <img :src="projet.path" alt="projet image" />
           <div class="content">
