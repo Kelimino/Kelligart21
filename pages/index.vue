@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-back h-screen w-full flex flex-col justify-center">
+  <div class="h-screen w-full flex flex-col justify-center">
     <section class="bienvenue w-8/12 mx-auto">
       <h1 class="font-title flex flex-col line">
         <span class="font-text text-primary text-7xl font-light italic"

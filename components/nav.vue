@@ -31,7 +31,7 @@
       <div
         class="legal fixed bottom-10 right-10 z-50 font-text text-primary font-semibold text-xs  "
       >
-        Folio'20 © Kelligart
+        Folio'21 © Kelligart
       </div>
       <div
         class="menu w-screen md:w-5/12 lg:w-3/12 bg-white  h-screen fixed p-12 flex flex-col justify-center z-30"

@@ -4,9 +4,14 @@
       <div
         v-for="(page, index) in pages"
         :key="index"
-        class="swiper-slide relative "
+        class="swiper-slide relative overflow-hidden"
       >
-        <nuxt-link :to="page.href" class="p-20">
+        <nuxt-link :to="page.href" class="p-20  ">
+          <img
+            :src="page.path"
+            alt="page image"
+            class="absolute object-cover w-full h-full top-0 left-0"
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -21,7 +26,7 @@
               d="M5 10l7-7m0 0l7 7m-7-7v18"
             />
           </svg>
-          <div class="content-page">
+          <div class="content-page z-10 relative">
             <h2 class="font-title text-primary text-2xl font-bold">
               {{ page.nom }}
             </h2>
@@ -29,11 +34,6 @@
               {{ page.description }}
             </p>
           </div>
-          <img
-            :src="page.path"
-            alt="page image"
-            class="absolute object-cover hidden "
-          />
         </nuxt-link>
       </div>
     </div>
@@ -54,26 +54,26 @@ export default {
         {
           nom: "Accompagnement",
           description: "Méthode et process de travail",
-          href: "/accompagenement"
-          //   path: require("@/assets/img.png")
+          href: "/accompagnement",
+          path: require("@/assets/img/projet-back.png")
         },
         {
           nom: "Expertise",
-          description: "Domaines & outils de prédilections",
-          href: "/expertise"
-          //   path: require("@/assets/img.png")
+          description: "Domaines & prestations",
+          href: "/expertise",
+          path: require("@/assets/img/projet-back.png")
         },
         {
           nom: "Projets",
           description: "Étude de cas & réalisations",
-          href: "/projets"
-          //   path: require("@/assets/img.png")
+          href: "/projets",
+          path: require("@/assets/img/projet-back.png")
         },
         {
           nom: "A propos",
-          description: "Parcours & expériences",
-          href: "/about"
-          //   path: require("@/assets/img.png")
+          description: "Personnalité & expériences",
+          href: "/about",
+          path: require("@/assets/img/projet-back.png")
         }
       ]
     };

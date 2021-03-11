@@ -1,16 +1,68 @@
 <template>
-  <div id="accompagnement">
-    <section class="end">
-      <p>
-        Un ensemble d'expertises pour que vous puissez identifier vos besoins
+  <div id="accompagnement" class="h-screen">
+    <section
+      class="couverture w-8/12 mx-auto h-full flex flex-col text-center justify-center items-center"
+    >
+      <h1 class="font-title flex flex-col line">
+        <span class="font-text text-primary text-7xl font-light italic"
+          >Nous sommes tous</span
+        ><span
+          class="font-title text-primary text-12xl font-extrabold mt-6 uppercase"
+          >Designers
+        </span>
+      </h1>
+      <p class="font-text text-main text-base mt-6">
+        Je vous accompagne dans cette aventure collective et créative
       </p>
-      <nuxt-link to="services" class="btnMain">
-        <span>Découvrez mes expertises</span>
-      </nuxt-link>
     </section>
 
-    <div class="story">
-      <section class="intro panel">
+    <div class="story h-full">
+      <section v-for="(story, index) in stories" :key="index" class="h-full">
+        <div class="pages grid grid-cols-2 h-5/6">
+          <div
+            class="illustration border border-solid border-primary border-opacity-30 flex justify-center items-center relative"
+          >
+            <p
+              class="absolute top-5 left-5 font-title text-primary text-xl font-bold"
+            >
+              01
+            </p>
+            <div class="imgwrap w-1/2 h-2/3 mx-auto relative">
+              <img
+                :src="story.path"
+                alt="illustration"
+                class="absolute object-cover w-full h-full"
+              />
+            </div>
+          </div>
+          <div
+            class="chapitre border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative p-40 text-left"
+          >
+            <p
+              class="absolute top-5 left-5 font-title text-primary text-xl font-bold"
+            >
+              02
+            </p>
+            <h2 class="font-title text-primary text-2xl font-bold">
+              {{ story.titre }}
+            </h2>
+            <h4 class="font-text text-main text-base mt-3">
+              {{ story.texte }}
+            </h4>
+          </div>
+        </div>
+
+        <div
+          class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden"
+        >
+          <h3
+            class="font-text text-primary transform uppercase text-6xl italic"
+          >
+            {{ story.question }}
+          </h3>
+        </div>
+      </section>
+      <!-- <section class="intro panel">
         <h1><span>nous sommes tous</span></h1>
         <h2><span>Designers</span></h2>
         <p>Je vous accompagne dans cette aventure collective et créative</p>
@@ -77,9 +129,8 @@
           sortira grandit, reviendra t-il ?
         </h3>
         <p class="question">Quelle est son expérience finale ?</p>
-      </section>
+      </section> -->
     </div>
-    <div class="titlePin">Nous sommes tous <span>Designers</span></div>
   </div>
 </template>
 
@@ -92,104 +143,31 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   // mixins: [locomotive],
   scrollToTop: true,
+
+  data() {
+    return {
+      stories: [
+        {
+          titre: "Synopsis",
+          texte:
+            "Tout commence par une histoire où l’utilisateur en est le principal protagoniste dans un univers où son expérience est le fil conducteur de votre scénario",
+          path: require("@/assets/img/projet-back.png"),
+          question: "Qui est votre héros ?"
+        },
+        {
+          titre: "Univers",
+          texte:
+            "Dans votre univers, il va découvrir un nouveau monde à appréhender. L'aimera t-il ?",
+          path: require("@/assets/img/projet-back.png"),
+          question: "À quoi ressemble votre univers ?"
+        }
+      ]
+    };
+  },
+
+  //
   mounted() {
-    gsap.utils.toArray(".panel").forEach(function(el) {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: el,
-            start: "20% center",
-            end: "bottom center",
-            toggleActions: "restart none none reset",
-            scrub: true
-          }
-        })
-        .set(".panel .question", { autoAlpha: 0 })
-        .from(el, { autoAlpha: 0, scale: 0.8 })
-        .from(".panel h3", { autoAlpha: 0, y: 50, duration: 0.6 })
-        .to(".panel h3", { autoAlpha: 1, y: 0, duration: 3 })
-        .fromTo(
-          ".img-wrap",
-          { y: 50 },
-          { y: -50, duration: 30, autoAlpha: 1, ease: "power4.inOut" },
-          "<"
-        )
-        .fromTo(
-          ".img-wrap img",
-          { y: 70 },
-          { y: -100, duration: 30, autoAlpha: 0.5, ease: "power4.inOut" },
-          "<"
-        )
-
-        .to(".panel h3", {
-          autoAlpha: 0,
-          y: 0,
-
-          duration: 3,
-          ease: "power4.inOut"
-        })
-        .to(
-          ".img-wrap",
-          { autoAlpha: 0, duration: 3, ease: "power4.inOut" },
-          "<"
-        )
-        .fromTo(
-          ".panel .question",
-          { autoAlpha: 0, y: 20 },
-          { autoAlpha: 1, y: 20, ease: "power4.inOut" },
-          "<"
-        );
-    });
-
-    this.titleEffect = gsap
-      .timeline({})
-      .to(".about-link ", { color: "#0D1317" })
-      .from(".intro h1 span ", { y: "2em" })
-      .from(".intro h2 span ", { y: "2em" }, "<")
-      .fromTo(".intro p ", { autoAlpha: 0 }, { autoAlpha: 1 });
-
-    this.tl2 = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".synopsis",
-          start: "top bottom",
-          toggleActions: "restart none none reset",
-          scrub: true
-        }
-      })
-      .to(".titlePin", { autoAlpha: 0.1 })
-      .to(".about-link ", { color: "#FFF" }, "<");
-
-    this.endTl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".end",
-          start: "top center",
-          toggleActions: "restart reset resume reset"
-        }
-      })
-      .to(".end", { autoAlpha: 1, scale: 1, duration: 0.2 });
-
-    this.endAnim = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".denouement",
-          start: "bottom bottom ",
-          toggleActions: "play none none reset"
-        }
-      })
-      .set(".denouement", { paddingBottom: "7em" })
-      .to(".story", { y: "-400px", duration: 1.5, ease: "power4.out" })
-      .to(".titlePin", { autoAlpha: 0 }, "<")
-      .add(function() {
-        setTimeout(() => {
-          // eslint-disable-next-line prettier/prettier
-          this.$router.push({name: 'projets',
-            path: "/projets",
-            component: "pages/projet.vue"
-          });
-        }, 2000);
-      });
+    // gsap.utils.toArray(".panel").forEach(function(el) {
   }
 };
 </script>

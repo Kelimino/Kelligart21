@@ -1,89 +1,73 @@
 <template>
-  <div>
-    <section class="introservice panel">
-      <div class="back" />
-      <p>L'esprit</p>
-      <h1>
-        <span class="One">Collectif</span>
-        <span class="Two">Analytique</span>
-        <span class="Three">Créatif</span>
-      </h1>
-      <p>est l'outil le plus puissant d'un Designer</p>
-    </section>
-
-    <div id="service">
-      <section class="service-footer">
-        <p>
-          Quelques exemples d'étude de cas pour comprendre mon approche et
-          connaitre ma méthode
-        </p>
-        <nuxt-link to="projets" class="btnMain">
-          <span>Découvrez mes projets</span>
-        </nuxt-link>
-      </section>
-
-      <section class="expertise">
-        <ul class="backlist">
-          <li>
-            <img
-              v-for="(poster, index) in graphisme"
-              :key="index"
-              class="graphisme"
-              :src="poster.path"
-              alt="poster"
-            />
-          </li>
-          <li>
-            <img
-              v-for="(poster, index) in web"
-              :key="index"
-              class="web"
-              :src="poster.path"
-              alt="poster"
-            />
-          </li>
-          <li>
-            <img
-              v-for="(poster, index) in graphisme2"
-              :key="index"
-              class="graphisme"
-              :src="poster.path"
-              alt="poster"
-            />
-          </li>
-          <li>
-            <img
-              v-for="(poster, index) in web2"
-              :key="index"
-              class="web"
-              :src="poster.path"
-              alt="poster"
-            />
-          </li>
-          <li>
-            <img
-              v-for="(poster, index) in graphisme3"
-              :key="index"
-              class="graphisme"
-              :src="poster.path"
-              alt="poster"
-            />
-          </li>
-        </ul>
-
-        <ul class="list-expertise">
-          <li
+  <div id="expertise">
+    <section class="expertise grid grid-cols-3">
+      <div class=" relative list-expertise  col-span-2">
+        <div
+          class="expertise-wrapper absolute overflow-auto top-0 left-0 h-full flex flex-col items-end   "
+        >
+          <section
+            class="introexpertise w-5/6 h-5/6 flex flex-col items-start justify-center"
+          >
+            <p class="font-text text-main text-base">L'esprit</p>
+            <h1
+              class="font-title text-primary text-6xl font-bold flex flex-col my-6"
+            >
+              <span class="mb-3">Collectif,</span>
+              <span class="mb-3">Analytique,</span>
+              <span class="mb-3">Créatif,</span>
+            </h1>
+            <p class="font-text text-main text-base">
+              est l'outil le plus puissant d'un Designer
+            </p>
+          </section>
+          <section
             v-for="(domain, index) in expertise"
             :key="index"
             :class="domain.class"
+            class="skill relative w-5/6 mb-40 py-36 border-b border-solid border-primary border-opacity-30 overflow-hidden  "
           >
-            <h2>{{ domain.name }}</h2>
-            <h3>{{ domain.span }}</h3>
-            <p>{{ domain.description }}</p>
+            <h2 class="font-title text-primary text-6xl font-bold">
+              {{ domain.name }}
+            </h2>
+
+            <h3 class="font-text text-main text-base mt-3 w-4/5">
+              {{ domain.description }}
+            </h3>
+            <p
+              class="font-text text-primary transform uppercase text-6xl italic absolute bottom-5 inline-flex whitespace-nowrap"
+            >
+              {{ domain.span }}
+            </p>
+          </section>
+        </div>
+      </div>
+      <div class="back-expertise col-span-1 h-full overflow-hidden">
+        <ul class="backlist flex row relative h-screen">
+          <li class="w-1/2 mr-2 ">
+            <div class="graphisme w-full mb-2 block transform -translate-y-1/4">
+              <img
+                v-for="(poster, index) in graphisme"
+                :key="index"
+                class=" w-full mb-2 block"
+                :src="poster.path"
+                alt="poster"
+              />
+            </div>
+          </li>
+          <li class="w-1/2 mr-2 ">
+            <div class="web w-full mb-2 block transform -translate-y-2/4">
+              <img
+                v-for="(poster, index) in web"
+                :key="index"
+                class=" w-full h-auto mb-2 block"
+                :src="poster.path"
+                alt="poster"
+              />
+            </div>
           </li>
         </ul>
-      </section>
-    </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -109,9 +93,7 @@ export default {
         },
         {
           path: require("@/assets/img/tiles/poster4.jpg")
-        }
-      ],
-      graphisme2: [
+        },
         {
           path: require("@/assets/img/tiles/poster7.png")
         },
@@ -131,20 +113,6 @@ export default {
         },
         {
           path: require("@/assets/img/tiles/poster9.png")
-        }
-      ],
-      graphisme3: [
-        {
-          path: require("@/assets/img/tiles/poster1.jpg")
-        },
-        {
-          path: require("@/assets/img/tiles/poster4.jpg")
-        },
-        {
-          path: require("@/assets/img/tiles/mural2.jpeg")
-        },
-        {
-          path: require("@/assets/img/tiles/poster6.png")
         }
       ],
       web: [
@@ -180,17 +148,6 @@ export default {
         },
         {
           path: require("@/assets/img/tiles/web13.jpg")
-        }
-      ],
-      web2: [
-        {
-          path: require("@/assets/img/tiles/web2.jpg")
-        },
-        {
-          path: require("@/assets/img/tiles/web4.png")
-        },
-        {
-          path: require("@/assets/img/tiles/web1.png")
         },
         {
           path: require("@/assets/img/tiles/web14.jpg")
@@ -264,63 +221,19 @@ export default {
     gsap
       .timeline({ repeat: -1, yoyo: true })
       .to(".backlist .graphisme", {
-        y: "30%",
-        duration: 20
+        y: -50,
+        duration: 30,
+        ease: "Power2.easeOut"
       })
       .to(
         ".backlist .web",
         {
-          y: "-10%",
-          duration: 20
+          y: 50,
+          duration: 30,
+          ease: "Power2.easeOut"
         },
         "<"
       );
-
-    gsap
-      .timeline({})
-      .set("h1 span", { y: 100 })
-      .to(".One", {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.6,
-        color: "#F0EFEC",
-        ease: "power3.out"
-      })
-      .to(".One", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
-      .to(".Two", {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.6,
-        color: "#F0EFEC",
-        ease: "power3.out"
-      })
-      .to(".Two", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
-      .to(".Three", {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.6,
-        color: "#F0EFEC",
-        ease: "power3.out"
-      })
-      .to(".Three", { y: -100, color: "transparent", autoAlpha: 0 }, "+=0.5")
-      .to(".introservice h1", { display: "none" })
-      .to(".introservice p", { autoAlpha: 0, y: -10 }, "-=1")
-      .to(
-        ".introservice",
-        { height: "0%", ease: "power4.out", duration: 1 },
-        "-=0.5"
-      )
-      .to(".about-link", { color: " #FFF " });
-
-    this.endAnim = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".expertise .DF",
-          start: "bottom bottom",
-          toggleActions: "play none none reset"
-        }
-      })
-      .to(".expertise", { y: "-400px", duration: 1.5, ease: "power4.out" });
   }
 };
 </script>
