@@ -1,14 +1,14 @@
 <template>
   <div id="expertise">
     <section class="expertise grid grid-cols-3">
-      <div class=" relative list-expertise  col-span-2">
+      <div class=" relative list-expertise h-screen  col-span-2   ">
         <div
-          class="expertise-wrapper absolute overflow-auto top-0 left-0 h-full flex flex-col items-end   "
+          class="list-wrapper absolute overflow-auto top-0 right-0 h-full flex flex-col items-end "
         >
           <section
-            class="introexpertise w-5/6 h-5/6 flex flex-col items-start justify-center"
+            class="introexpertise w-5/6 min-h-full  flex flex-col items-start justify-center"
           >
-            <p class="font-text text-main text-base">L'esprit</p>
+            <p class="p-first font-text text-main text-base">L'esprit</p>
             <h1
               class="font-title text-primary text-6xl font-bold flex flex-col my-6"
             >
@@ -16,7 +16,7 @@
               <span class="mb-3">Analytique,</span>
               <span class="mb-3">Créatif,</span>
             </h1>
-            <p class="font-text text-main text-base">
+            <p class="p-second outil font-text text-main text-base">
               est l'outil le plus puissant d'un Designer
             </p>
           </section>
@@ -24,48 +24,52 @@
             v-for="(domain, index) in expertise"
             :key="index"
             :class="domain.class"
-            class="skill relative w-5/6 mb-40 py-36 border-b border-solid border-primary border-opacity-30 overflow-hidden  "
+            class="skill relative w-5/6 min-h-60% mb-20 py-36 border-b border-solid border-primary border-opacity-30 overflow-hidden  "
           >
             <h2 class="font-title text-primary text-6xl font-bold">
               {{ domain.name }}
             </h2>
 
-            <h3 class="font-text text-main text-base mt-3 w-4/5">
+            <h3 class="font-text text-main text-base mt-3 w-3/5">
               {{ domain.description }}
             </h3>
             <p
-              class="font-text text-primary transform uppercase text-6xl italic absolute bottom-5 inline-flex whitespace-nowrap"
+              class="font-text text-primary transform uppercase text-6xl font-light italic absolute bottom-5 inline-flex whitespace-nowrap"
             >
               {{ domain.span }}
             </p>
           </section>
         </div>
       </div>
-      <div class="back-expertise col-span-1 h-full overflow-hidden">
-        <ul class="backlist flex row relative h-screen">
-          <li class="w-1/2 mr-2 ">
-            <div class="graphisme w-full mb-2 block transform -translate-y-1/4">
-              <img
-                v-for="(poster, index) in graphisme"
-                :key="index"
-                class=" w-full mb-2 block"
-                :src="poster.path"
-                alt="poster"
-              />
-            </div>
-          </li>
-          <li class="w-1/2 mr-2 ">
-            <div class="web w-full mb-2 block transform -translate-y-2/4">
-              <img
-                v-for="(poster, index) in web"
-                :key="index"
-                class=" w-full h-auto mb-2 block"
-                :src="poster.path"
-                alt="poster"
-              />
-            </div>
-          </li>
-        </ul>
+      <div class="back-expertise relative col-span-1 h-full overflow-hidden">
+        <div class="back-wrapper absolute top-0 right-0 h-full ">
+          <ul class="backlist flex row relative h-screen">
+            <li class="w-1/2 mr-2 ">
+              <div
+                class="graphisme w-full mb-2 block transform -translate-y-1/4"
+              >
+                <img
+                  v-for="(poster, index) in graphisme"
+                  :key="index"
+                  class=" w-full mb-2 block"
+                  :src="poster.path"
+                  alt="poster"
+                />
+              </div>
+            </li>
+            <li class="w-1/2 mr-2 ">
+              <div class="web w-full mb-2 block transform -translate-y-2/4">
+                <img
+                  v-for="(poster, index) in web"
+                  :key="index"
+                  class=" w-full h-auto mb-2 block"
+                  :src="poster.path"
+                  alt="poster"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </div>
@@ -75,7 +79,6 @@
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-// import locomotive from "~/mixins/locomotive.js";
 
 export default {
   scrollToTop: true,
@@ -191,7 +194,7 @@ export default {
         {
           name: "Communication Visuelle",
           span:
-            "Graphisme - Illustration - Stationnary - Pao - Réseaux sociaux - Motion Design",
+            "Graphisme - Illustration - Supports marketing - Publicité - Pao - Réseaux sociaux - Motion Design",
           class: "CV",
           // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
@@ -218,18 +221,48 @@ export default {
     };
   },
   mounted() {
+    //TITLE INTRO ANIMATION
+
+    let inT = gsap.timeline({ delay: 0.3 });
+    inT
+      .from(".p-first", {
+        y: -20,
+        autoAlpha: 0,
+        ease: "Power3.easeOut"
+      })
+      .from(
+        ".introexpertise h1 span",
+        {
+          autoAlpha: 0,
+          y: -20,
+          skewX: -10,
+          stagger: 1
+        },
+        "+=0.5"
+      )
+      .from(
+        ".p-second",
+        {
+          y: -20,
+          autoAlpha: 0,
+          ease: "Power3.easeOut"
+        },
+        "+=0.5"
+      );
+
+    //BACK TILE ANIMATION
     gsap
       .timeline({ repeat: -1, yoyo: true })
-      .to(".backlist .graphisme", {
-        y: -50,
-        duration: 30,
+      .to(".graphisme", {
+        y: "-50%",
+        duration: 20,
         ease: "Power2.easeOut"
       })
       .to(
-        ".backlist .web",
+        ".web",
         {
-          y: 50,
-          duration: 30,
+          y: "50%",
+          duration: 70,
           ease: "Power2.easeOut"
         },
         "<"

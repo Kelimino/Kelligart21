@@ -167,6 +167,7 @@ export default {
         {
           autoAlpha: 0,
           x: -20,
+
           stagger: 0.1
         },
         "<"
