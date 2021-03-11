@@ -1,68 +1,34 @@
 <template>
-  <div id="accueil">
-    <section class="bienvenue panel">
-      <button @click="videoPause">Pause</button>
-      <video ref="video" class="back-video" width="320" height="240">
-        <source :src="video" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      <h1><span>Directeur artistique</span></h1>
-      <h2><span>&amp; creative designer </span></h2>
-
-      <p>skip intro</p>
+  <div class="bg-back h-screen w-full">
+    <section class="bienvenue">
+      <h1>
+        <span>Directeur artistique</span><span>&amp; creative designer </span>
+      </h1>
+      <p>
+        Bonjour, je m’appelle Kellig, un peu comme Kellogg’s©, votre bol complet
+        pour la journée ;)
+      </p>
+    </section>
+    <section>
+      <div class="pageswiper">
+        <h3>Que voulez-vous savoir ?</h3>
+        <sliderHome />
+      </div>
     </section>
   </div>
 </template>
 
 <script>
-import { gsap } from "gsap";
+import sliderHome from "/components/sliderHome";
 
 export default {
+  components: {
+    sliderHome
+  },
   data() {
-    return {
-      showImg: true,
-
-      video: require("@/assets/animation/video.mp4")
-    };
+    return {};
   },
 
-  mounted() {
-    //   //function declaration
-    // function greet(){
-    // console.log("bonjour")
-    // }
-    //     //function expression que lon met dans une variable
-    // const speak = function(name, time){
-    // console.log('good'+ (time) + (name) )
-    //   };
-
-    //   //function évoquée
-    //   speak();
-    //   greet()
-
-    let vid = document.querySelector(".back-video");
-    vid.pause();
-
-    this.titleEffect = gsap
-      .timeline({})
-      .to(".about-link ", { color: "#FFF" })
-      .from(".bienvenue h1 span ", { y: "2em" })
-      .from(".bienvenue h2 span ", { y: "2em" }, "<")
-      .to(".bienvenue h1 span ", { y: "0em", duration: 1.5 })
-      .to(".bienvenue h2 span ", { y: "0em", duration: 1.5 }, "<")
-      .add(function() {
-        vid.play();
-      }, "<=0.5")
-      .to(".bienvenue h1 span ", { y: "-2em" })
-      .to(".bienvenue h2 span ", { y: "-2em" }, "<")
-      .to(".back-video", { scale: 2, duration: 2 });
-  },
-
-  methods: {
-    videoPause: function() {
-      this.$refs.video.pause();
-    }
-  }
+  mounted() {}
 };
 </script>

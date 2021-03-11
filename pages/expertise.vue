@@ -94,6 +94,7 @@ gsap.registerPlugin(ScrollTrigger);
 // import locomotive from "~/mixins/locomotive.js";
 
 export default {
+  scrollToTop: true,
   data() {
     return {
       graphisme: [

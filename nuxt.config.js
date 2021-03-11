@@ -27,10 +27,20 @@ export default {
       },
       {
         rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css2?family=Catamaran:wght@800&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,800;1,200;1,300;1,400&display=swap"
+        href: "https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,400;1,600;1,800;1,900&display=swap"
       }
     ]
+  },
+  router: {
+    scrollBehavior(to) {
+      if (to.hash) {
+        return window.scrollTo({
+          top: document.querySelector(to.hash).offsetTop + window.innerHeight,
+          behavior: "smooth"
+        });
+      }
+      return window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

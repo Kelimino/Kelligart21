@@ -91,6 +91,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   // mixins: [locomotive],
+  scrollToTop: true,
   mounted() {
     gsap.utils.toArray(".panel").forEach(function(el) {
       gsap
@@ -183,7 +184,10 @@ export default {
       .add(function() {
         setTimeout(() => {
           // eslint-disable-next-line prettier/prettier
-          this.$router.push({ path: '/projets' });
+          this.$router.push({name: 'projets',
+            path: "/projets",
+            component: "pages/projet.vue"
+          });
         }, 2000);
       });
   }

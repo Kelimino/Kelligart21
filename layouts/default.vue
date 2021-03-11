@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <Nuxt />
+    <Nuxt :class="[isActive ? 'dark-mode-on' : 'dark-mode-off']" />
     <Loader v-if="loading" />
   </div>
 </template>
@@ -15,10 +15,12 @@ export default {
     Nav,
     Loader
   },
-
-  data: () => ({
-    loading: true
-  }),
+  data() {
+    return {
+      loading: true,
+      isActive: false
+    };
+  },
   mounted() {
     setTimeout(() => {
       this.loading = false;

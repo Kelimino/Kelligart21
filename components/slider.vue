@@ -1,5 +1,5 @@
 <template>
-  <div ref="swipCont" class="swiper-container">
+  <div ref="swipCont" class="swiper-container swiper-projet">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
@@ -71,7 +71,7 @@ export default {
   },
 
   mounted() {
-    this.swiper = new Swiper(".swiper-container", {
+    this.swiper = new Swiper(".swiper-projet", {
       effect: "EffectFlip",
       flipEffect: {
         slideShadows: false
