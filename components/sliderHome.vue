@@ -22,7 +22,7 @@
             />
           </svg>
           <div class="content-page">
-            <h2 class="font-title text-primary text-xl font-bold">
+            <h2 class="font-title text-primary text-2xl font-bold">
               {{ page.nom }}
             </h2>
             <p class="font-text text-main text-base mt-3 ">

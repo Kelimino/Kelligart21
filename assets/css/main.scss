@@ -9,22 +9,25 @@ body {
   padding: 0;
 }
 
-.swiper-home{
-
-
-  .swiper-slide{
-
-
-    svg{
-
+.swiper-home {
+  .swiper-slide {
+    svg {
       width: 24px;
       height: 24px;
+      opacity: 0;
+      transition: all 0.2s ease-in;
     }
 
-    border: solid 1px  rgba($color: $primary, $alpha: 0.5);
+    border: solid 1px rgba($color: $primary, $alpha: 0.5);
     padding: 2em;
 
- 
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+
+      background: $skin;
+    }
   }
 }
 /*-----Toggle Dark Thème-----*/
