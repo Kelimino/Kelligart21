@@ -247,17 +247,21 @@ export default {
           autoAlpha: 0,
           ease: "Power3.easeOut"
         },
-        "+=0.5"
+        "+=1"
       );
 
     //BACK TILE ANIMATION
     gsap
       .timeline({ repeat: -1, yoyo: true })
-      .to(".graphisme", {
-        y: "-50%",
-        duration: 20,
-        ease: "Power2.easeOut"
-      })
+      .to(
+        ".graphisme",
+        {
+          y: "-50%",
+          duration: 20,
+          ease: "Power2.easeOut"
+        },
+        "<"
+      )
       .to(
         ".web",
         {

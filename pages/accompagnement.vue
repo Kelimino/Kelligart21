@@ -3,17 +3,22 @@
     <section
       class="couverture w-8/12 mx-auto h-full flex flex-col text-center justify-center items-center"
     >
-      <h1 class="font-title flex flex-col line">
-        <span class="font-text text-primary text-7xl font-light italic"
-          >Nous sommes tous</span
-        ><span
-          class="font-title text-primary text-12xl font-extrabold mt-6 uppercase"
-          >Designers
-        </span>
-      </h1>
-      <p class="font-text text-main text-base mt-6">
-        Je vous accompagne dans cette aventure collective et créative
-      </p>
+      <transition appear mode="out-in" @enter="enterTitle()">
+        <h1 class="font-title flex flex-col">
+          <span class="font-text text-primary text-7xl font-light italic"
+            >Nous sommes tous</span
+          ><span
+            class="font-title text-primary text-12xl font-extrabold mt-6 uppercase"
+            >Designers
+          </span>
+        </h1>
+      </transition>
+
+      <transition appear mode="out-in" @enter="enterText()">
+        <p class="font-text text-main text-base mt-6">
+          Je vous accompagne dans cette aventure collective et créative
+        </p>
+      </transition>
     </section>
 
     <div class="story h-full">
@@ -168,6 +173,15 @@ export default {
   //
   mounted() {
     // gsap.utils.toArray(".panel").forEach(function(el) {
+  },
+
+  methods: {
+    enterTitle: function() {
+      gsap.from("h1 span", { autoAlpha: 0, y: -20, duration: 1, stagger: 1 });
+    },
+    enterText: function() {
+      gsap.from("p", { autoAlpha: 0, y: -20, duration: 1, delay: 2 });
+    }
   }
 };
 </script>
