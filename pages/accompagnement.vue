@@ -35,7 +35,7 @@
               <img
                 :src="story.path"
                 alt="illustration"
-                class="absolute object-cover w-full h-full"
+                class="absolute  top-0 left-0 object-cover w-full h-full"
               />
             </div>
           </div>
@@ -83,7 +83,7 @@ export default {
           class: "synopsis",
           texte:
             "Tout commence par une histoire où l’utilisateur en est le principal protagoniste dans un univers où son expérience est le fil conducteur de votre scénario",
-          path: require("@/assets/img/projet-back.png"),
+          path: require("@/assets/animation/test.gif"),
           question: "Qui est votre héros ?"
         },
         {
@@ -134,6 +134,9 @@ export default {
       const Number = document.createElement("span");
       page.appendChild(Number);
       Number.textContent = "00";
+      Array.from(Number).forEach(function(Nb, i) {
+        for (i = 0; i < Nb.lenght; i++);
+      });
     });
   },
 
