@@ -109,16 +109,30 @@ body {
 
   }
 
-
-
-
-
 }
-.introexpertise{
 
-  height: 100%;
-  clear: both;
+/*-----STROY BLOCKSe-----*/
+
+.page{
+
+  span{
+
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-family: $title;
+    font-weight: bold;
+    color: $primary;
+    font-size: small;
+  }
 }
+.univers, .aventure{
+
+  .illustration{
+    order: 2;
+  }
+}
+
 /*-----Toggle Dark Thème-----*/
 
 // .toggledark {
