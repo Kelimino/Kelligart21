@@ -8,23 +8,23 @@ body {
   margin: 0;
   padding: 0;
 }
+
 ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
 
 .swiper-home {
   .swiper-slide {
     transition: all 0.6s ease-in-out;
-    .content-page{
-
-      h2,p{
+    .content-page {
+      h2,
+      p {
         transition: all 0.2s ease-in;
       }
     }
 
-    img{
-
+    img {
       opacity: 0;
       transition: all 3s ease-in-out;
     }
@@ -42,81 +42,66 @@ body {
       background: $main;
 
       .content-page {
-
-        h2,p{
-
-          color: #FFF;
-
+        h2,
+        p {
+          color: #fff;
         }
-
-        
       }
       svg {
         opacity: 1;
       }
 
-      img{
-
-      opacity: 0.3;
-      transform: scale(1.1);
-    }
+      img {
+        opacity: 0.3;
+        transform: scale(1.1);
+      }
     }
   }
 }
-.brainAnim{
-
+.brainAnim {
   filter: blur(1.5rem);
-  width: 50%;
   mix-blend-mode: lighten;
-  animation: Anim 20s infinite  cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
+  opacity: 0.5;
+  animation: Anim 15s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-@keyframes Anim{
-
-  0%{
-
+@keyframes Anim {
+  0% {
     transform: rotate(0deg);
     opacity: 0.2;
-    right: -20%;
-    bottom: -20%;
   }
-    100%{
-
+  100% {
     transform: rotate(360deg);
-    opacity: 0.4;
-    bottom: -20%;
-    right: -20%;
+    opacity: 0.3;
   }
 }
-.skill{
+.skill {
   min-height: 60%;
 
-  &:hover{
-
-        p {
-          animation: loop 10s linear infinite;
-        }
-        @keyframes loop {
-          0% {
-            transform: translateX(0%, 0);
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(calc(-100% + 15%));
-            opacity: 1;
-          }
-        }
-
+  &:hover {
+    p {
+      animation: loop 10s linear infinite;
+    }
+    @keyframes loop {
+      0% {
+        transform: translateX(0%, 0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(calc(-100% + 15%));
+        opacity: 1;
+      }
+    }
   }
-
 }
 
-/*-----STROY BLOCKSe-----*/
+/*-----STORY BLOCKS-----*/
 
-.page{
+body {
+  counter-reset: my-sec-counter;
+}
 
-  span{
-
+.page {
+  span {
     position: absolute;
     top: 5%;
     left: 5%;
@@ -126,10 +111,66 @@ body {
     font-size: small;
   }
 }
-.univers, .aventure{
 
-  .illustration{
+.univers,
+.aventure {
+  .illustration {
     order: 2;
+  }
+}
+.Dsg {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.I-anim {
+  position: relative;
+
+  &:before {
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    display: block;
+    background: url("@/assets/icons/bulb.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 36.4%;
+    margin: 0;
+    animation: bgIdea 0.4s ease-in 1s forwards ;
+    opacity: 0;
+  }
+  @keyframes bgIdea {
+    0% {
+      opacity: 0;
+      top: 18%;
+    }
+    100% {
+      opacity: 1;
+      top: 12%;
+
+    }
+  }
+
+
+  span {
+    display: block;
+
+    &:nth-child(4) {
+      transform-origin: 60% 62%;
+      animation: Idea 1.5s ease-in-out forwards ;
+    }
+    @keyframes Idea {
+      0% {
+        transform: scaleY(1);
+      }
+      75% {
+        transform: scaleY(0.2);
+      }
+
+      100% {
+       transform: scaleY(0.5);
+      }
+    }
   }
 }
 

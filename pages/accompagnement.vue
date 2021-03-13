@@ -35,7 +35,7 @@
               <img
                 :src="story.path"
                 alt="illustration"
-                class="absolute  top-0 left-0 object-cover w-full h-full"
+                class="absolute top-0 left-0 object-cover w-full h-full"
               />
             </div>
           </div>
@@ -82,23 +82,23 @@ export default {
           titre: "Synopsis",
           class: "synopsis",
           texte:
-            "Tout commence par une histoire où l’utilisateur en est le principal protagoniste dans un univers où son expérience est le fil conducteur de votre scénario",
-          path: require("@/assets/animation/test.gif"),
+            "Tout commence par une histoire où l’utilisateur en est le principal protagoniste dans un univers où son expérience est le fil conducteur de votre scénario. Une équipe pluridisciplinaire rénuie pour écrire cette chronique",
+          path: require("@/assets/animation/synopsis.png"),
           question: "Qui est votre héros ?"
         },
         {
           titre: "Univers",
           class: "univers",
           texte:
-            "Dans votre univers, il va découvrir un nouveau monde à appréhender. L'aimera t-il ?",
-          path: require("@/assets/img/projet-back.png"),
+            "Un monde nouveau qu'il va découvrir et appréhender avec une certaine supposition, basée sur ses expériences passées. Votre univers est le reflet de votre raison d'être. L'aimera t-il ?",
+          path: require("@/assets/animation/univers.png"),
           question: "À quoi ressemble votre univers ?"
         },
         {
           titre: "Déclenchement",
           class: "declenchement",
           texte:
-            "Le héros débarque dans votre monde avec des attentes, motivé à poursuivre sa quête",
+            "Le héros arrive avec une quête à accomplir, une idée en tête, une attente singulière émanant d'un problème à résoudre. La réussite de sa mission est étroitement liée à la pertinence de vos actions. ",
           path: require("@/assets/img/projet-back.png"),
           question: "Pourquoi est-il là ?"
         },
@@ -106,7 +106,7 @@ export default {
           titre: "Aventure",
           class: "aventure",
           texte:
-            "Son aventure séquentielle, va le mener sur différentes étapes. Un parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver des opportuntiés pour s'orienter et réussir son but",
+            "Son aventure séquentielle va le mener sur différentes étapes. Un parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver des opportuntiés pour s'orienter et réussir ses objectifs",
           path: require("@/assets/img/projet-back.png"),
           question: "Que recherche t'il ?"
         },
@@ -114,7 +114,7 @@ export default {
           titre: "Dénouement",
           class: "denouement",
           texte:
-            "Une fois la mission accomplie ou même en cas d'échec, le héros en sortira grandit, reviendra t-il ?",
+            "Une fois la mission accomplie ou même en cas d'échec, le héros en sortira grandit, différent, avec un sentiment basé sur son expérience, reviendra t-il ?",
           path: require("@/assets/img/projet-back.png"),
           question: "Quelle est son expérience finale ?"
         }
@@ -130,39 +130,54 @@ export default {
 
     let pages = document.querySelectorAll(".page");
 
-    Array.from(pages).forEach(function(page) {
+    Array.from(pages).forEach(page => {
       const Number = document.createElement("span");
       page.appendChild(Number);
-      Number.textContent = "00";
-      Array.from(Number).forEach(function(Nb, i) {
-        for (i = 0; i < Nb.lenght; i++);
-      });
+      Number.textContent = "0";
+      for (let i = 0; i < Number.length; i++) console.log(Number);
+
+      // Array.from(Number).forEach(() => {
+      //   Number.textContent = parseInt(Number.textContent) + 1;
+      // });
     });
   },
 
   methods: {
     enterTitle: function() {
       this.$nextTick(function() {
+        let Title = document.querySelector(".Dsg");
+        let Brain = document.querySelector(".brain");
         let TGB = gsap.timeline({});
-        TGB.from(".Nst", {
-          autoAlpha: 0,
-          y: -20,
-          duration: 1
-        }).from(".Dsg span ", {
-          autoAlpha: 0,
-          color: "#2d344d",
-          y: -50,
-          duration: 4,
-          stagger: {
-            each: 0.1,
-            from: "center"
-          }
-        });
+        TGB.set(".brain img", {
+          top: "50%",
+          left: "50%"
+        })
+          .add(function() {
+            Brain.classList.add("BrainAnim");
+          })
+          .from(".Nst", {
+            autoAlpha: 0,
+            y: -20,
+            duration: 1
+          })
+          .from(".Dsg span ", {
+            autoAlpha: 0,
+            color: "#000",
+            y: -50,
+            duration: 1.5,
+            stagger: {
+              each: 0.1,
+              from: "center"
+            }
+          })
+          .add(function() {
+            Title.classList.add("I-anim");
+          }, "-=0.5");
       });
     },
 
     enterText: function() {
-      gsap.from("p", { autoAlpha: 0, y: -20, duration: 1, delay: 2 });
+      gsap.from("p", { autoAlpha: 0, scale: 0.9, duration: 1, delay: 4.5 });
     }
   }
 };
