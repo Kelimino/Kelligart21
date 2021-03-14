@@ -177,14 +177,28 @@ export default {
     document.querySelector(".logo").addEventListener("click", openNav);
 
     function openNav() {
-      tween.reversed() ? tween.play() : tween.reverse();
+      if (!tween.reversed()) {
+        tween
+          .play()
+          .timeScale(2)
+          .reverse();
+      } else {
+        tween.reverse().timeScale(0.8);
+      }
     }
 
     //CLOSEMENU----------
     let Close = document.querySelectorAll(".closeNav");
     Close.forEach(function(el) {
       el.addEventListener("click", function() {
-        tween.reversed() ? tween.play() : tween.reverse();
+        if (!tween.reversed()) {
+          tween
+            .play()
+            .timeScale(2)
+            .reverse();
+        } else {
+          tween.reverse().timeScale(0.8);
+        }
       });
     });
   },

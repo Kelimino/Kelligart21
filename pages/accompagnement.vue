@@ -55,7 +55,7 @@
           class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden"
         >
           <h3
-            class="font-text text-primary transform uppercase text-6xl font-light italic"
+            class=" absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-4xl font-light italic"
           >
             {{ story.question }}
           </h3>
@@ -99,7 +99,7 @@ export default {
           class: "declenchement",
           texte:
             "Le héros arrive avec une quête à accomplir, une idée en tête, une attente singulière émanant d'un problème à résoudre. La réussite de sa mission est étroitement liée à la pertinence de vos actions. ",
-          path: require("@/assets/img/projet-back.png"),
+          path: require("@/assets/animation/declenchement.png"),
           question: "Pourquoi est-il là ?"
         },
         {
@@ -107,7 +107,7 @@ export default {
           class: "aventure",
           texte:
             "Son aventure séquentielle va le mener sur différentes étapes. Un parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver des opportuntiés pour s'orienter et réussir ses objectifs",
-          path: require("@/assets/img/projet-back.png"),
+          path: require("@/assets/animation/aventure.png"),
           question: "Que recherche t'il ?"
         },
         {
@@ -115,7 +115,7 @@ export default {
           class: "denouement",
           texte:
             "Une fois la mission accomplie ou même en cas d'échec, le héros en sortira grandit, différent, avec un sentiment basé sur son expérience, reviendra t-il ?",
-          path: require("@/assets/img/projet-back.png"),
+          path: require("@/assets/animation/denouement.png"),
           question: "Quelle est son expérience finale ?"
         }
       ]
@@ -128,17 +128,12 @@ export default {
     let text = document.querySelector(".Dsg");
     text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
 
-    let pages = document.querySelectorAll(".page");
+    const pages = document.querySelectorAll(".page");
 
-    Array.from(pages).forEach(page => {
-      const Number = document.createElement("span");
-      page.appendChild(Number);
-      Number.textContent = "0";
-      for (let i = 0; i < Number.length; i++) console.log(Number);
-
-      // Array.from(Number).forEach(() => {
-      //   Number.textContent = parseInt(Number.textContent) + 1;
-      // });
+    Array.from(pages).forEach((page, index) => {
+      const numberNode = document.createElement("span");
+      numberNode.textContent = index + 1;
+      page.appendChild(numberNode);
     });
   },
 
@@ -146,20 +141,16 @@ export default {
     enterTitle: function() {
       this.$nextTick(function() {
         let Title = document.querySelector(".Dsg");
-        let Brain = document.querySelector(".brain");
+        // let Brain = document.querySelector(".brain");
         let TGB = gsap.timeline({});
-        TGB.set(".brain img", {
-          top: "50%",
-          left: "50%"
+        // TGB.add(function() {
+        //   Brain.classList.add("BrainAnim");
+        // })
+        TGB.from(".Nst", {
+          autoAlpha: 0,
+          y: -20,
+          duration: 1
         })
-          .add(function() {
-            Brain.classList.add("BrainAnim");
-          })
-          .from(".Nst", {
-            autoAlpha: 0,
-            y: -20,
-            duration: 1
-          })
           .from(".Dsg span ", {
             autoAlpha: 0,
             color: "#000",

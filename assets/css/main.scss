@@ -61,17 +61,19 @@ body {
 .brainAnim {
   filter: blur(1.5rem);
   mix-blend-mode: lighten;
-  opacity: 0.5;
-  animation: Anim 15s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0.2;
+  top: "40%";
+          left: "40%";
+          width: 80%;
+  animation: Anim 15s infinite linear forwards;
 }
 @keyframes Anim {
   0% {
     transform: rotate(0deg);
-    opacity: 0.2;
   }
   100% {
     transform: rotate(360deg);
-    opacity: 0.3;
+
   }
 }
 .skill {
@@ -108,7 +110,7 @@ body {
     font-family: $title;
     font-weight: bold;
     color: $primary;
-    font-size: small;
+    font-size: medium;
   }
 }
 

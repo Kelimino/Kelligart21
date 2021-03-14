@@ -1,20 +1,24 @@
 <template>
-  <div class="loader">
+  <div
+    class="loaderwrap absolute top-0 left-0 w-full h-full p-0 m-0 z-50 bg-primary"
+  >
     <div>
       <img src="" alt="" class="logo" />
       <div>
         <lottie
-          class="loader"
+          class="loader absolute top-5 left-5 "
           :width="50"
           :height="50"
           :options="animationsOptions.loader"
         />
 
-        <div class="countdown">
-          <div class="count numb1">1</div>
-          <div class="count numb2">2</div>
-          <div class="count numb3">3</div>
-          <div class="count soleil">Soleil</div>
+        <div
+          class="countdown absolute top-10 left-24 flex justify-center items-center"
+        >
+          <div class="count text-white mr-2 font-text">1</div>
+          <div class="count text-white mr-2 font-text">2</div>
+          <div class="count text-white mr-2 font-text">3</div>
+          <div class="count text-white mr-2 font-text">Soleil</div>
         </div>
       </div>
     </div>
@@ -45,55 +49,25 @@ export default {
   },
 
   mounted() {
-    gsap
-      .timeline({ repeat: -1 })
-      .set(".count", { autoAlpha: 0, y: 20 })
-      .fromTo(
+    let Loader = gsap.timeline({ duration: 4 });
+    Loader.fromTo(
+      ".loaderwrap",
+      { width: "0%" },
+      { width: "100%", duration: 1.4, ease: "Power1.easeOut" }
+    )
+      .from(
         ".count",
-        { autoAlpha: 1, stagger: 0.4 },
-        { autoAlpha: 0, y: -20, stagger: 0.4, duration: 1 }
-      );
+        {
+          x: -5,
+          autoAlpha: 0,
+          stagger: {
+            each: 0.3,
+            ease: "power2.inOut"
+          }
+        },
+        "+=0.5"
+      )
+      .to(".loaderwrap", { width: "0%", transformOrigin: "right" }, "+=1");
   }
 };
 </script>
-<style scoped>
-.loader {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10000;
-  background: #0d1317;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #fff;
-}
-
-.loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.countdown {
-  position: relative;
-  font-family: "Nunito", sans-serif;
-  color: #f0efec;
-  margin-top: 5em;
-  overflow: hidden;
-  width: 5em;
-  height: 2em;
-}
-
-.count {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-}
-</style>

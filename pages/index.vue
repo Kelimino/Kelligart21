@@ -26,7 +26,6 @@
 
 <script>
 import sliderHome from "/components/sliderHome";
-// import { gsap } from "gsap";
 export default {
   components: {
     sliderHome
@@ -35,12 +34,6 @@ export default {
     return {};
   },
 
-  mounted() {
-    // let BAnim = gsap.timeline({});
-    // BAnim.to(".brain img", {
-    //   right: "-5%",
-    //   bottom: "-5%"
-    // });
-  }
+  mounted() {}
 };
 </script>

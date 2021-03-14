@@ -1,6 +1,6 @@
 <template>
   <div class=" bg-back">
-    <div
+    <!-- <div
       class="brain fixed z-0 top-0 left-0 flex justify-center w-full h-full overflow-hidden pointer-events-none"
     >
       <img
@@ -13,7 +13,7 @@
         alt="brain"
         class="brainAnim w-2/4 absolute transform -translate-x-1/2 -translate-y-1/2 origin-center "
       />
-    </div>
+    </div> -->
     <Nav />
     <Nuxt :class="[isActive ? 'dark-mode-on' : 'dark-mode-off']" />
     <Loader v-if="loading" />
@@ -38,7 +38,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loading = false;
-    }, 3000);
+    }, 5000);
   }
 };
 </script>
