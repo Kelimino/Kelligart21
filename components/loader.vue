@@ -1,6 +1,6 @@
 <template>
   <div
-    class="loaderwrap absolute top-0 left-0 w-full h-full p-0 m-0 z-50 bg-primary"
+    class="loaderwrap fixed top-0 w-full left-0 h-full p-0 m-0 z-50 bg-primary"
   >
     <div>
       <img src="" alt="" class="logo" />
@@ -52,9 +52,15 @@ export default {
     let Loader = gsap.timeline({ duration: 4 });
     Loader.fromTo(
       ".loaderwrap",
-      { width: "0%" },
-      { width: "100%", duration: 1.4, ease: "Power1.easeOut" }
+      { xPercent: -100 },
+      {
+        transformOrigin: "left",
+        xPercent: 0,
+        duration: 1,
+        ease: "Power1.easeOut"
+      }
     )
+      .from(".loader", { autoAlpha: 0 })
       .from(
         ".count",
         {
@@ -67,7 +73,15 @@ export default {
         },
         "+=0.5"
       )
-      .to(".loaderwrap", { width: "0%", transformOrigin: "right" }, "+=1");
+      .to(
+        ".loaderwrap",
+        {
+          transformOrigin: "right",
+          xPercent: 100,
+          duration: 0.7
+        },
+        "+=1"
+      );
   }
 };
 </script>
