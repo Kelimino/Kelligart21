@@ -18,6 +18,7 @@
         <h3 class=" w-8/12 mx-auto font-title text-primary text-2xl font-bold">
           Que voulez-vous savoir ?
         </h3>
+
         <sliderHome />
       </div>
     </section>
@@ -33,7 +34,6 @@ export default {
   data() {
     return {};
   },
-
   mounted() {}
 };
 </script>
