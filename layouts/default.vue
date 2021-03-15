@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-back h-screen">
+  <div class="bg-back">
     <Nav />
     <transition
       mode="out-in"
@@ -31,24 +31,20 @@ export default {
   mounted() {},
   methods: {
     beforeEnter: el => {
-      console.log(el, "beforeEnter");
       el.style.transform = "translateY(3%)";
       el.style.opacity = "0";
       el.style.transition = "all 0.6s ease-out";
     },
     enter: el => {
-      console.log(el, "enter");
       el.style.transform = "translateY(0%)";
       el.style.opacity = "1";
       el.style.transition = "all 0.6s ease-out";
     },
     beforeLeave: el => {
-      console.log(el, "beforeleave");
       el.style.opacity = "0";
       el.style.transition = "all 0.3s ease-in";
     },
     leave: (el, done) => {
-      console.log("leave");
       let Transition = gsap.timeline({
         repeat: 0,
         yoyo: true,
