@@ -52,7 +52,7 @@
         </div>
 
         <div
-          class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden"
+          class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden bg-back"
         >
           <h3
             class=" absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-4xl font-light italic"
@@ -141,22 +141,26 @@ export default {
     enterTitle: function() {
       this.$nextTick(function() {
         let Title = document.querySelector(".Dsg");
-        let TGB = gsap.timeline({});
+        let TGB = gsap.timeline({ delay: 0.3 });
         TGB.from(".Nst", {
           autoAlpha: 0,
           y: -20,
           duration: 1
         })
-          .from(".Dsg span ", {
-            autoAlpha: 0,
-            color: "#000",
-            y: -50,
-            duration: 1.5,
-            stagger: {
-              each: 0.1,
-              from: "center"
-            }
-          })
+          .from(
+            ".Dsg span ",
+            {
+              autoAlpha: 0,
+              color: "#000",
+              y: -50,
+              duration: 1.5,
+              stagger: {
+                each: 0.1,
+                from: "center"
+              }
+            },
+            "+=0.5"
+          )
           .add(function() {
             Title.classList.add("I-anim");
           }, "-=0.5");

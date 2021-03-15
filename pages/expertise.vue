@@ -1,10 +1,8 @@
 <template>
   <div id="expertise">
-    <section class="expertise grid grid-cols-3">
-      <div class=" relative list-expertise h-screen  col-span-2   ">
-        <div
-          class="list-wrapper absolute overflow-auto top-0 right-0 h-full flex flex-col items-end "
-        >
+    <section class="expertise relative  grid grid-cols-3">
+      <div class="list-expertise h-screen  col-span-2   ">
+        <div class="list-wrapper h-full flex flex-col items-end ">
           <section
             class="introexpertise w-5/6 min-h-full  flex flex-col items-start justify-center"
           >
@@ -41,8 +39,10 @@
           </section>
         </div>
       </div>
-      <div class="back-expertise relative col-span-1 h-full overflow-hidden">
-        <div class="back-wrapper absolute top-0 right-0 h-full ">
+      <div
+        class="back-expertise fixed top-0 right-0 w-2/6 col-span-1 h-screen overflow-hidden"
+      >
+        <div class="back-wrapper h-full ">
           <ul class="backlist flex row relative h-screen">
             <li class="w-1/2 mr-2 ">
               <div
@@ -86,80 +86,83 @@ export default {
     return {
       graphisme: [
         {
-          path: require("@/assets/img/tiles/poster3.png")
-        },
-        {
-          path: require("@/assets/img/tiles/poster2.jpg")
+          path: require("@/assets/img/tiles/web14.jpg")
         },
         {
           path: require("@/assets/img/tiles/poster1.jpg")
         },
         {
+          path: require("@/assets/img/tiles/web1.png")
+        },
+        {
+          path: require("@/assets/img/tiles/poster2.jpg")
+        },
+        {
+          path: require("@/assets/img/tiles/web2.jpg")
+        },
+        {
+          path: require("@/assets/img/tiles/poster3.png")
+        },
+
+        {
+          path: require("@/assets/img/tiles/web3.png")
+        },
+
+        {
           path: require("@/assets/img/tiles/poster4.jpg")
         },
         {
-          path: require("@/assets/img/tiles/poster7.png")
-        },
-
-        {
-          path: require("@/assets/img/tiles/poster8.png")
-        },
-
-        {
-          path: require("@/assets/img/tiles/poster5.png")
-        },
-        {
-          path: require("@/assets/img/tiles/poster6.png")
+          path: require("@/assets/img/tiles/web4.png")
         },
         {
           path: require("@/assets/img/tiles/mural1.jpeg")
         },
         {
-          path: require("@/assets/img/tiles/poster9.png")
+          path: require("@/assets/img/tiles/web5.png")
+        },
+        {
+          path: require("@/assets/img/tiles/poster5.png")
+        },
+        {
+          path: require("@/assets/img/tiles/web6.png")
         }
       ],
       web: [
         {
-          path: require("@/assets/img/tiles/web6.png")
-        },
-        {
-          path: require("@/assets/img/tiles/web5.png")
-        },
-        {
-          path: require("@/assets/img/tiles/web1.png")
-        },
-        {
-          path: require("@/assets/img/tiles/web3.png")
-        },
-        {
           path: require("@/assets/img/tiles/web7.png")
+        },
+        {
+          path: require("@/assets/img/tiles/poster6.png")
         },
         {
           path: require("@/assets/img/tiles/web8.png")
         },
         {
+          path: require("@/assets/img/tiles/poster7.png")
+        },
+        {
           path: require("@/assets/img/tiles/web9.png")
+        },
+        {
+          path: require("@/assets/img/tiles/poster8.png")
         },
         {
           path: require("@/assets/img/tiles/web10.png")
         },
         {
+          path: require("@/assets/img/tiles/poster9.png")
+        },
+        {
           path: require("@/assets/img/tiles/web11.png")
+        },
+        {
+          path: require("@/assets/img/tiles/mural2.jpeg")
         },
         {
           path: require("@/assets/img/tiles/web12.png")
         },
         {
           path: require("@/assets/img/tiles/web13.jpg")
-        },
-        {
-          path: require("@/assets/img/tiles/web14.jpg")
-        },
-        {
-          path: require("@/assets/img/tiles/web15.jpg")
-        },
-        {
-          path: require("@/assets/img/tiles/web16.png")
         }
       ],
 
@@ -223,41 +226,42 @@ export default {
   mounted() {
     //TITLE INTRO ANIMATION
 
-    let inT = gsap.timeline({ delay: 1.5 });
+    let inT = gsap.timeline({});
     inT
       .from(".p-first", {
         y: -20,
         autoAlpha: 0,
         ease: "Power3.easeOut"
       })
-      .from(
-        ".introexpertise h1 span",
-        {
-          autoAlpha: 0,
-          y: -20,
-          skewX: -10,
-          stagger: 1
-        },
-        "+=0.5"
-      )
-      .from(
-        ".p-second",
-        {
-          y: 20,
-          autoAlpha: 0,
-          ease: "Power3.easeOut"
-        },
-        "+=0.8"
-      );
+      .from(".introexpertise h1 span", {
+        autoAlpha: 0,
+        y: -20,
+        skewX: -10,
+        stagger: {
+          each: 1
+        }
+      })
+      .from(".p-second", {
+        y: 20,
+        autoAlpha: 0,
+        ease: "Power3.easeOut"
+      });
 
     //BACK TILE ANIMATION
-    gsap
-      .timeline({ repeat: -1, yoyo: true })
+    var backTile = gsap.timeline({
+      repeat: -1,
+      yoyo: true,
+      scrollTrigger: {
+        trigger: ".introexpertise",
+        start: "80% center"
+      }
+    });
+    backTile
       .to(
         ".graphisme",
         {
           y: "-50%",
-          duration: 20,
+          duration: 40,
           ease: "Power2.easeOut"
         },
         "<"
@@ -266,7 +270,7 @@ export default {
         ".web",
         {
           y: "50%",
-          duration: 70,
+          duration: 40,
           ease: "Power2.easeOut"
         },
         "<"

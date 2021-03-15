@@ -1,7 +1,14 @@
 <template>
-  <div class="bg-back">
+  <div class="bg-back h-screen">
     <Nav />
-    <transition mode="out-in" appear :css="false" @leave="leave">
+    <transition
+      mode="out-in"
+      :css="false"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @before-leave="beforeLeave"
+      @leave="leave"
+    >
       <router-view :key="$route.path" />
     </transition>
     <Loader />
@@ -23,6 +30,23 @@ export default {
   },
   mounted() {},
   methods: {
+    beforeEnter: el => {
+      console.log(el, "beforeEnter");
+      el.style.transform = "translateY(3%)";
+      el.style.opacity = "0";
+      el.style.transition = "all 0.6s ease-out";
+    },
+    enter: el => {
+      console.log(el, "enter");
+      el.style.transform = "translateY(0%)";
+      el.style.opacity = "1";
+      el.style.transition = "all 0.6s ease-out";
+    },
+    beforeLeave: el => {
+      console.log(el, "beforeleave");
+      el.style.opacity = "0";
+      el.style.transition = "all 0.3s ease-in";
+    },
     leave: (el, done) => {
       console.log("leave");
       let Transition = gsap.timeline({
@@ -54,7 +78,7 @@ export default {
           ".count",
           {
             stagger: {
-              each: 0.1
+              each: 0.05
             },
 
             y: 5,
@@ -70,7 +94,7 @@ export default {
         )
         .to(".count", {
           stagger: {
-            each: 0.1
+            each: 0.05
           },
           y: -20,
           autoAlpha: 0
@@ -78,12 +102,14 @@ export default {
         .to(".content-wrap", {
           transformOrigin: "top",
           height: "0vh",
-          top: -100
+          top: -100,
+          autoAlpha: 0
         })
         .to(".loader", {
           transformOrigin: "top",
           height: "0vh",
           top: -100,
+          autoAlpha: 0,
           onComplete: done
         });
 
