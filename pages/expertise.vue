@@ -1,8 +1,8 @@
 <template>
   <div id="expertise" class="h-screen">
-    <section class="expertise h-full grid grid-cols-3">
-      <div class="list-expertise col-span-2   ">
-        <div class="list-wrapper h-screen flex flex-col items-end ">
+    <section class="expertise relative grid grid-cols-3">
+      <div class="list-expertise col-span-2">
+        <div class="list-wrapper h-screen flex flex-col items-end">
           <section
             class="introexpertise w-5/6 min-h-full  flex flex-col items-start justify-center"
           >

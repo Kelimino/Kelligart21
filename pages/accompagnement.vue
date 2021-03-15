@@ -20,11 +20,11 @@
       </transition>
     </section>
 
-    <div class="story h-full">
+    <div class="story">
       <section
         v-for="(story, index) in stories"
         :key="index"
-        class="h-full"
+        class="h-screen"
         :class="story.class"
       >
         <div class="page-wrapper grid grid-cols-2 h-5/6">
@@ -62,6 +62,9 @@
         </div>
       </section>
     </div>
+    <section class="h-1/2">
+      <nuxt-link to="expertise">Expertise</nuxt-link>
+    </section>
   </div>
 </template>
 
@@ -144,7 +147,7 @@ export default {
         let TGB = gsap.timeline({ delay: 0.3 });
         TGB.from(".Nst", {
           autoAlpha: 0,
-          y: -20,
+          y: 10,
           duration: 1
         })
           .from(
@@ -168,7 +171,7 @@ export default {
     },
 
     enterText: function() {
-      gsap.from("p", { autoAlpha: 0, scale: 0.9, duration: 1, delay: 4.5 });
+      gsap.from("p", { autoAlpha: 0, scale: 0.9, duration: 1, delay: 5 });
     }
   }
 };
