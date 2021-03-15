@@ -1,24 +1,27 @@
 <template>
-  <div
-    class="loaderwrap fixed top-0 w-0 left-0 h-full p-0 m-0 z-50 bg-primary overflow-hidden"
-  >
-    <div>
-      <img src="" alt="" class="logo" />
-      <div>
-        <lottie
-          class="loader absolute top-5 left-5"
-          :width="50"
-          :height="50"
-          :options="animationsOptions.loader"
-        />
-
-        <div
-          class="countdown absolute top-10 left-24 flex justify-center items-center"
-        >
-          <div class="count text-white mr-2 font-text">1</div>
-          <div class="count text-white mr-2 font-text">2</div>
-          <div class="count text-white mr-2 font-text">3</div>
-          <div class="count text-white mr-2 font-text">Soleil</div>
+  <div class="loader fixed w-full h-0 p-0 m-0 z-50 bg-white ">
+    <div
+      class="content-wrap fixed w-full h-0 bg-primary flex justify-center items-center "
+    >
+      <div class="countdown flex flex-col justify-center items-center">
+        <div class="count text-white font-text">1</div>
+        <div class="count text-white font-text">2</div>
+        <div class="count text-white font-text">3</div>
+        <div class="count w-10 h-10 flex justify-center items-center ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#FFF"
+          >
+            <path
+              stroke="#FFF"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -26,24 +29,11 @@
 </template>
 
 <script>
-import lottie from "vue-lottie/src/lottie.vue";
-import * as loader from "@/assets/animation/loader.json";
 export default {
   name: "Loader",
-  components: {
-    lottie
-  },
 
   data() {
-    return {
-      animationsOptions: {
-        loader: {
-          animationData: loader.default,
-          autoplay: true,
-          loop: true
-        }
-      }
-    };
+    return {};
   },
 
   mounted() {}

@@ -4,7 +4,7 @@
       <div
         v-for="(page, index) in pages"
         :key="index"
-        class="swiper-slide relative overflow-hidden"
+        class="swiper-slide relative overflow-hidden bg-white"
       >
         <nuxt-link :to="page.href" class="p-20  ">
           <img

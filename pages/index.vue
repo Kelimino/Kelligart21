@@ -18,7 +18,6 @@
         <h3 class=" w-8/12 mx-auto font-title text-primary text-2xl font-bold">
           Que voulez-vous savoir ?
         </h3>
-
         <sliderHome />
       </div>
     </section>
@@ -27,6 +26,7 @@
 
 <script>
 import sliderHome from "/components/sliderHome";
+
 export default {
   components: {
     sliderHome

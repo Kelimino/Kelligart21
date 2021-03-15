@@ -223,7 +223,7 @@ export default {
   mounted() {
     //TITLE INTRO ANIMATION
 
-    let inT = gsap.timeline({ delay: 0.3 });
+    let inT = gsap.timeline({ delay: 1.5 });
     inT
       .from(".p-first", {
         y: -20,

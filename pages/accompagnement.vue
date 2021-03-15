@@ -14,7 +14,7 @@
         </h1>
       </transition>
       <transition appear mode="out-in" @enter="enterText()">
-        <p class="font-text text-main text-base mt-6">
+        <p class="font-text text-main text-base">
           Je vous accompagne dans cette aventure collective et créative
         </p>
       </transition>
@@ -141,11 +141,7 @@ export default {
     enterTitle: function() {
       this.$nextTick(function() {
         let Title = document.querySelector(".Dsg");
-        // let Brain = document.querySelector(".brain");
         let TGB = gsap.timeline({});
-        // TGB.add(function() {
-        //   Brain.classList.add("BrainAnim");
-        // })
         TGB.from(".Nst", {
           autoAlpha: 0,
           y: -20,

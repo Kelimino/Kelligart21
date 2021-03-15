@@ -1,17 +1,8 @@
 <template>
-  <div class=" bg-back">
+  <div class="bg-back">
     <Nav />
-    <transition
-      appear
-      mode="out-in"
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @after-enter="afterEnter"
-      @before-leave="beforeLeave"
-      @leave="leave"
-      @after-leave="afterLeave"
-    >
-      <Nuxt :class="[isActive ? 'dark-mode-on' : 'dark-mode-off']" />
+    <transition mode="out-in" appear :css="false" @leave="leave">
+      <router-view :key="$route.path" />
     </transition>
     <Loader />
   </div>
@@ -28,65 +19,78 @@ export default {
     Loader
   },
   data() {
-    return {
-      isActive: false
-    };
+    return {};
   },
   mounted() {},
-
   methods: {
-    beforeEnter: () => {
-      console.log("beforeEnter");
-    },
-    enter: () => {
-      console.log("Enter");
-    },
-    afterEnter: () => {
-      console.log("afterEnter");
-    },
-    beforeLeave: () => {
-      console.log("beforeLeave");
-    },
     leave: (el, done) => {
       console.log("leave");
-      let Loader = gsap.timeline({ duration: 4 });
-      Loader.fromTo(
-        ".loaderwrap",
-        { xPercent: -100, width: 0 },
-        {
-          transformOrigin: "left",
-          width: 100,
-          xPercent: 0,
-          duration: 1,
-          ease: "Power1.easeOut"
-        }
-      )
-        .from(".loader", { autoAlpha: 0 })
-        .from(
+      let Transition = gsap.timeline({
+        repeat: 0,
+        yoyo: true,
+        onComplete: Done
+      });
+      Transition.progress(0)
+        .play()
+        .fromTo(
+          ".loader",
+          { bottom: 0, height: "0vh" },
+          {
+            transformOrigin: "bottom",
+            top: 0,
+            height: "100vh"
+          }
+        )
+        .fromTo(
+          ".content-wrap",
+          { bottom: 0, height: "0vh" },
+          {
+            transformOrigin: "bottom",
+            top: 0,
+            height: "100vh"
+          }
+        )
+        .fromTo(
           ".count",
           {
-            x: -5,
-            autoAlpha: 0,
             stagger: {
-              each: 0.3,
-              ease: "power2.inOut"
-            }
+              each: 0.1
+            },
+
+            y: 5,
+            autoAlpha: 0
           },
-          "+=0.5"
-        )
-        .to(
-          ".loaderwrap",
           {
-            transformOrigin: "right",
-            xPercent: 100,
-            duration: 0.7,
-            onComplete: done
+            stagger: {
+              each: 0.1
+            },
+            y: 0,
+            autoAlpha: 1
+          }
+        )
+        .to(".count", {
+          stagger: {
+            each: 0.1
           },
-          "+=1"
-        );
-    },
-    afterLeave: () => {
-      console.log("afterLeave");
+          y: -20,
+          autoAlpha: 0
+        })
+        .to(".content-wrap", {
+          transformOrigin: "top",
+          height: "0vh",
+          top: -100
+        })
+        .to(".loader", {
+          transformOrigin: "top",
+          height: "0vh",
+          top: -100,
+          onComplete: done
+        });
+
+      function Done() {
+        Transition.pause();
+        Transition.progress(0);
+      }
     }
   }
 };
