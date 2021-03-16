@@ -31,7 +31,7 @@
       <div
         class="legal fixed bottom-10 right-10 z-50 font-text text-primary font-semibold text-xs  "
       >
-        Folio'21 © Kelligart
+        <nuxt-link to="/legal">Folio'21 © Kelligart</nuxt-link>
       </div>
       <div
         class="menu w-screen md:w-5/12 lg:w-3/12 bg-white  h-screen fixed p-12 flex flex-col justify-center z-30"
@@ -61,7 +61,7 @@
             <a class="font-text text-md text-main">bonjour[a]kelligart.com</a>
           </div>
           <ul class="flex justify-items-center items-center mt-3  ">
-            <li class="closeNav  mr-3 font-title font-bold text-xl text-main ">
+            <li class="closeNav  mr-3 font-title font-bold text-xl text-main">
               <a
                 href="https://www.facebook.com/kelligart/"
                 target="_blank"

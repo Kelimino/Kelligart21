@@ -12,7 +12,22 @@ body {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
+.contactnav{
 
+  ul{
+
+    li{
+      border-bottom: solid 1px transparent;
+      transition: all 0.2s linear;
+
+      &:hover{
+
+        border-bottom: solid 1px $primary;
+        color: $primary;
+      }
+    }
+  }
+}
 .swiper-home {
   .swiper-slide {
     transition: all 0.6s ease-in-out;
@@ -68,6 +83,10 @@ body {
 }
 
 .swiper-projet{
+  .swiper-wrapper{
+
+    height: 50%;
+  }
 
   .swiper-slide{
     img{
@@ -95,6 +114,19 @@ body {
         transform: translateY(0em);
       }
     }
+  }
+}
+.robodico{
+
+  img{
+    display: none;
+  }
+  video{
+
+  width: 150%    !important;
+  height: auto   !important;
+  object-fit: cover;
+  overflow: 20px;
   }
 }
 /*-----EXPERTISE TEXT ANIM-----*/
