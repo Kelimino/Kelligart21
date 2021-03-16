@@ -1,10 +1,40 @@
 <template>
   <div id="expertise" class="h-screen">
-    <section class="expertise relative grid grid-cols-3">
-      <div class="list-expertise col-span-2">
-        <div class="list-wrapper h-screen flex flex-col items-end">
+    <div
+      class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden"
+    >
+      <div class="back-wrapper">
+        <ul class="backlist flex row">
+          <li class="w-1/2 mr-2 ">
+            <div class="graphisme w-full mb-2 block transform -translate-y-1/4">
+              <img
+                v-for="(poster, index) in graphisme"
+                :key="index"
+                class=" w-full mb-2 block"
+                :src="poster.path"
+                alt="poster"
+              />
+            </div>
+          </li>
+          <li class="w-1/2 mr-2 ">
+            <div class="web w-full mb-2 block transform -translate-y-2/4">
+              <img
+                v-for="(poster, index) in web"
+                :key="index"
+                class=" w-full h-auto mb-2 block"
+                :src="poster.path"
+                alt="poster"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <section class="expertise grid grid-cols-3 h-full">
+      <div class="list-expertise h-screen col-span-2 overflow-auto pb-10">
+        <div class="list-wrapper flex flex-col items-end ">
           <section
-            class="introexpertise w-5/6 min-h-full  flex flex-col items-start justify-center"
+            class="introexpertise w-5/6 min-h-full h-screen  flex flex-col items-start justify-center"
           >
             <p class="p-first font-text text-main text-base">L'esprit</p>
             <h1
@@ -37,38 +67,6 @@
               {{ domain.span }}
             </p>
           </section>
-        </div>
-      </div>
-      <div
-        class="back-expertise fixed top-0 right-0 w-2/6 col-span-1 h-screen overflow-hidden"
-      >
-        <div class="back-wrapper h-full ">
-          <ul class="backlist flex row relative h-screen">
-            <li class="w-1/2 mr-2 ">
-              <div
-                class="graphisme w-full mb-2 block transform -translate-y-1/4"
-              >
-                <img
-                  v-for="(poster, index) in graphisme"
-                  :key="index"
-                  class=" w-full mb-2 block"
-                  :src="poster.path"
-                  alt="poster"
-                />
-              </div>
-            </li>
-            <li class="w-1/2 mr-2 ">
-              <div class="web w-full mb-2 block transform -translate-y-2/4">
-                <img
-                  v-for="(poster, index) in web"
-                  :key="index"
-                  class=" w-full h-auto mb-2 block"
-                  :src="poster.path"
-                  alt="poster"
-                />
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
@@ -250,12 +248,7 @@ export default {
     //BACK TILE ANIMATION
     var backTile = gsap.timeline({
       repeat: -1,
-      yoyo: true,
-      scrollTrigger: {
-        trigger: ".introexpertise",
-        start: "80% center",
-        markers: true
-      }
+      yoyo: true
     });
     backTile
       .to(

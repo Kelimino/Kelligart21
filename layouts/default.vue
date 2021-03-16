@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-back h-screen">
+  <div class="bg-back ">
     <Nav />
     <transition
       mode="out-in"
