@@ -1,18 +1,36 @@
 <template>
-  <div ref="swipCont" class="swiper-container swiper-projet">
+  <div ref="swipCont" class="swiper-container swiper-projet h-screen ">
     <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper h-1/2 my-auto ">
       <!-- Slides -->
       <div
         v-for="(projet, index) in projets"
         :key="index"
-        class="swiper-slide border-8 border-indigo-600 bg-black"
+        class="swiper-slide h-full flex flex-col justify-center items-center"
       >
-        <nuxt-link :to="projet.href">
-          <img :src="projet.path" alt="projet image" />
-          <div class="content">
-            <h2 data-swiper-parallax-y="-10">{{ projet.nom }}</h2>
-            <p data-swiper-parallax-y="-10">{{ projet.description }}</p>
+        <!-- border-r border-primary border-solid border-opacity-30 -->
+        <nuxt-link :to="projet.href" class="flex flex-col items-start">
+          <div class="img-wrapper h-2/5 w-full overflow-hidden">
+            <img
+              :src="projet.path"
+              alt="projet image"
+              class="object-cover h-full w-full"
+            />
+          </div>
+
+          <div
+            class="content p-5"
+            data-swiper-parallax-opacity="0.7"
+            data-swiper-parallax="-70"
+            data-swiper-parallay="50"
+          >
+            <span class="font-text text-primary text-xs">{{ projet.nb }}</span>
+            <h2 class="font-title text-primary text-6xl font-bold my-5">
+              {{ projet.nom }}
+            </h2>
+            <p class="font-text text-main text-base mt-3 w-2/3">
+              {{ projet.description }}
+            </p>
           </div>
         </nuxt-link>
       </div>
@@ -42,33 +60,37 @@ export default {
     return {
       projets: [
         {
+          nb: "PRO",
           nom: "Laforet",
           class: "projet",
-          description: "Refont du site Immobilier",
+          description: "Refonte du site Immobilier",
           href: "/laforet",
-          path: require("@/assets/img/tiles/web16.png")
+          path: require("@/assets/img/slider/laforet.png")
         },
         {
-          nom: "Goall",
+          nb: "PERSO",
+          nom: "Spotr",
           class: "projet",
           description:
-            "Design concept sur une plateforme de streaming de football",
+            "Design concept pour une plateforme de streaming de football",
           href: "/goall",
-          path: require("@/assets/img/tiles/web16.png")
+          path: require("@/assets/img/slider/robodico.png")
         },
         {
+          nb: "PERSO",
           nom: "Star",
           class: "projet",
-          description: "Design concept sur une application de transport",
+          description: "Redesign concept pour une application de transport",
           href: "/star",
-          path: require("@/assets/img/tiles/web16.png")
+          path: require("@/assets/img/slider/robodico.png")
         },
         {
-          nom: "Design",
+          nb: "PERSO",
+          nom: "Robodico",
           class: "projet",
-          description: "Article sur le design digital",
-          href: "/design",
-          path: require("@/assets/img/tiles/web16.png")
+          description: "Le dictionnaire de tous les robots",
+          href: "/robodico",
+          path: require("@/assets/img/slider/robodico.png")
         }
       ]
     };
@@ -76,22 +98,13 @@ export default {
 
   mounted() {
     this.swiper = new Swiper(".swiper-projet", {
-      effect: "EffectFlip",
-      flipEffect: {
-        slideShadows: false
-      },
-
+      direction: "horizontal",
       loop: true,
-      slidesPerView: "auto",
+      slidesPerView: "3",
       centeredSlides: true,
-      spaceBetween: 20,
-      resistanceRatio: 0.5,
-      longSwipes: true,
-      longSwipesRatio: 0.5,
-      touchRatio: 5,
+      spaceBetween: 10,
       speed: 1000,
       parallax: true,
-      direction: "horizontal",
       mousewheel: {
         enable: true
       }
@@ -103,6 +116,26 @@ export default {
     this.swiper.on("touchEnd ", function() {
       gsap.to(".swiper-slide", { scale: 1 });
     });
+    this.swiper.on("slideNextTransitionStart", function() {
+      gsap.fromTo(
+        ".swiper-slide",
+        { skewX: 5, ease: "Power2.easeOut" },
+        { skewX: 0 }
+      );
+    });
+    this.swiper.on("slidePrevTransitionStart", function() {
+      gsap.fromTo(
+        ".swiper-slide",
+        { skewX: -5, ease: "Power2.easeOut" },
+        { skewX: 0 }
+      );
+    });
+    // this.swiper.on("slideChangeTransitionEnd ", function() {
+    //   gsap.to(".swiper-slide", { autoAlpha: 0.5 });
+    // });
+    // this.swiper.on("slideChangeTransitionStart ", function() {
+    //   gsap.to(".swiper-slide", { autoAlpha: 1 });
+    // });
   },
 
   methods: {}

@@ -24,7 +24,7 @@
       <section
         v-for="(story, index) in stories"
         :key="index"
-        class="h-screen"
+        class=" storyblock h-screen"
         :class="story.class"
       >
         <div class="page-wrapper grid grid-cols-2 h-5/6">
@@ -52,7 +52,7 @@
         </div>
 
         <div
-          class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden bg-back"
+          class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden bg-back transition-all ease-in-out"
         >
           <h3
             class=" absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-4xl font-light italic"
@@ -127,7 +127,20 @@ export default {
 
   //
   mounted() {
-    // gsap.utils.toArray(".panel").forEach(function(el) {
+    gsap.utils.toArray(".page").forEach(el => {
+      let Qa = gsap.timeline({
+        scrollTrigger: {
+          trigger: el,
+          start: "60% center",
+          scrub: true,
+          markers: true,
+          toggleActions: "play restart play reset"
+        }
+      });
+
+      Qa.fromTo(".question h3", { x: 1000 }, { x: -1000 });
+    });
+
     let text = document.querySelector(".Dsg");
     text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
 

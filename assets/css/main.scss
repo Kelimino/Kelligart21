@@ -66,6 +66,37 @@ body {
 
   }
 }
+
+.swiper-projet{
+
+  .swiper-slide{
+    img{
+
+        transition: all 4s ease-in-out;
+      }
+      p{
+
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        transform: translateY(0.5em);
+
+
+      }
+
+    &:hover{
+
+      img{
+
+        transform: scale(1.2);
+      }
+
+      p{
+        opacity: 1;
+        transform: translateY(0em);
+      }
+    }
+  }
+}
 /*-----EXPERTISE TEXT ANIM-----*/
 .skill {
   min-height: 60%;
@@ -94,6 +125,7 @@ body {
 }
 
 .page {
+
   span {
     position: absolute;
     top: 5%;
