@@ -12,6 +12,25 @@ body {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
+.navlinks {
+  pointer-events: none;
+}
+
+.navlinks > * {
+  cursor: pointer;
+  pointer-events: auto;
+  transition: 300ms opacity;
+}
+
+.navlinks:hover > * {
+  opacity: 0.5 !important;
+}
+
+.navlinks:hover > *:hover {
+  opacity: 1 !important;
+}
+
+
 .contactnav{
 
   ul{

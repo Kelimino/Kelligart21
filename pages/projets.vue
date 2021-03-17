@@ -33,9 +33,11 @@
           />
         </g>
       </svg>
-      <p class=" text-main font-text ">
-        Hold &amp; drag
-      </p>
+      <transition mode="out-in" :css="false" @leave="leave">
+        <p class=" text-main font-text ">
+          Hold &amp; drag
+        </p>
+      </transition>
     </div>
     <slider />
   </div>
@@ -43,11 +45,23 @@
 
 <script>
 import slider from "/components/slider";
+import { gsap } from "gsap";
 export default {
   components: {
     slider
   },
 
-  methods: {}
+  methods: {
+    leave: function(el, done) {
+      console.log(el);
+      alert("hey");
+      gsap.to(el, {
+        color: "red",
+        scaleX: 100,
+        duration: 1,
+        onComplete: done
+      });
+    }
+  }
 };
 </script>

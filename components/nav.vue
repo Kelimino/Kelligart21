@@ -37,7 +37,7 @@
         class="menu w-screen md:w-5/12 lg:w-3/12 bg-white  h-screen fixed p-12 flex flex-col justify-center z-30"
       >
         <nav class="mainNav">
-          <ul class="font-title text-primary font-semibold text-xl">
+          <ul class="navlinks font-title text-primary font-semibold text-xl">
             <li class="closeNav mb-2">
               <nuxt-link to="/">Accueil</nuxt-link>
             </li>

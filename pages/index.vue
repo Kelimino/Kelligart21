@@ -18,9 +18,7 @@
         <h3 class=" w-8/12 mx-auto font-title text-primary text-2xl font-bold">
           Que voulez-vous savoir ?
         </h3>
-        <transition mode="out-in" :css="false" @leave="leave">
-          <sliderHome />
-        </transition>
+        <sliderHome />
       </div>
     </section>
     <Loader />
