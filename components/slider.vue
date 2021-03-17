@@ -33,9 +33,11 @@
               <span class="font-text text-primary text-xs">{{
                 projet.nb
               }}</span>
-              <h2 class="font-title text-primary text-6xl font-bold my-5">
-                {{ projet.nom }}
-              </h2>
+              <transition appear mode="out-in" @leave="leave">
+                <h2 class="font-title text-primary text-6xl font-bold my-5">
+                  {{ projet.nom }}
+                </h2>
+              </transition>
               <p class="font-text text-main text-base mt-3 w-4/6">
                 {{ projet.description }}
               </p>
@@ -203,6 +205,20 @@ export default {
   },
 
   methods: {
+    leave(el, done) {
+      console.log(el + "leave");
+      alert("heyyey");
+      gsap.timeline().to(
+        ".content h2",
+        {
+          color: "red",
+          ease: "expo.inOut",
+          duration: 1,
+          onComplete: done
+        },
+        0
+      );
+    },
     playVideo: function() {
       this.$refs.video.play();
       alert("play");
