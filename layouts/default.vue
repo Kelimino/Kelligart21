@@ -4,9 +4,9 @@
     <transition
       mode="out-in"
       :css="false"
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @before-leave="beforeLeave"
+      @before-enter="beforeEnterPage"
+      @enter="enterPage"
+      @before-leave="beforeLeavePage"
     >
       <router-view :key="$route.path" />
     </transition>
@@ -26,17 +26,17 @@ export default {
   },
   mounted() {},
   methods: {
-    beforeEnter: el => {
+    beforeEnterPage: el => {
       el.style.transform = "translateY(3%)";
       el.style.opacity = "0";
       el.style.transition = "all 0.6s ease-out";
     },
-    enter: el => {
+    enterPage: el => {
       el.style.transform = "translateY(0%)";
       el.style.opacity = "1";
       el.style.transition = "all 0.6s ease-out";
     },
-    beforeLeave: el => {
+    beforeLeavePage: el => {
       el.style.opacity = "0";
       el.style.transition = "all 0.3s ease-in";
     }
