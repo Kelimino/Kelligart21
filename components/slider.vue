@@ -12,7 +12,6 @@
           class="swiper-slide h-full flex flex-col justify-center items-center"
           :class="projet.class"
         >
-          <!-- border-r border-primary border-solid border-opacity-30 -->
           <nuxt-link :to="projet.href" class="h-full flex flex-col items-start">
             <div class="img-wrapper h-2/3 w-full overflow-hidden">
               <img
@@ -33,11 +32,11 @@
               <span class="font-text text-primary text-xs">{{
                 projet.nb
               }}</span>
-              <transition appear mode="out-in" @leave="leave">
-                <h2 class="font-title text-primary text-6xl font-bold my-5">
-                  {{ projet.nom }}
-                </h2>
-              </transition>
+
+              <h2 class="font-title text-primary text-6xl font-bold my-5">
+                {{ projet.nom }}
+              </h2>
+
               <p class="font-text text-main text-base mt-3 w-4/6">
                 {{ projet.description }}
               </p>
@@ -205,20 +204,6 @@ export default {
   },
 
   methods: {
-    leave(el, done) {
-      console.log(el + "leave");
-      alert("heyyey");
-      gsap.timeline().to(
-        ".content h2",
-        {
-          color: "red",
-          ease: "expo.inOut",
-          duration: 1,
-          onComplete: done
-        },
-        0
-      );
-    },
     playVideo: function() {
       this.$refs.video.play();
       alert("play");
