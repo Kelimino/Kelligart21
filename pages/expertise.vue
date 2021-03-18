@@ -240,8 +240,9 @@ export default {
         }
       })
       .from(".p-second", {
-        y: 20,
         autoAlpha: 0,
+        scale: 0.9,
+        duration: 1,
         ease: "Power3.easeOut"
       });
 

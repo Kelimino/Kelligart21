@@ -174,7 +174,7 @@ export default {
                 from: "center"
               }
             },
-            "+=0.5"
+            "+=0.2"
           )
           .add(function() {
             Title.classList.add("I-anim");
