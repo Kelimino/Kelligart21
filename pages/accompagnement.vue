@@ -1,71 +1,73 @@
 <template>
-  <div id="accompagnement" class="h-screen">
-    <section
-      class="couverture w-8/12 mx-auto h-full flex flex-col text-center justify-center items-center"
-    >
-      <transition appear mode="out-in" @enter="enterTitle()">
-        <h1 class="font-title flex flex-col">
-          <span class="Nst font-text text-primary text-7xl font-light italic"
-            >Nous sommes tous</span
-          ><span
-            class="Dsg transform translate-y-0 font-title text-primary text-12xl font-extrabold mt-6 uppercase"
-            >Designers
-          </span>
-        </h1>
-      </transition>
-      <transition appear mode="out-in" @enter="enterText()">
-        <p class="font-text text-main text-base">
-          Je vous accompagne dans cette aventure collective et créative
-        </p>
-      </transition>
-    </section>
-
-    <div class="story">
+  <transition appear mode="out-in" :css="false" @leave="leaveAccom">
+    <div id="accompagnement" class="h-screen">
       <section
-        v-for="(story, index) in stories"
-        :key="index"
-        class=" storyblock h-screen"
-        :class="story.class"
+        class="couverture w-8/12 mx-auto h-full flex flex-col text-center justify-center items-center"
       >
-        <div class="page-wrapper grid grid-cols-2 h-5/6">
-          <div
-            class="page illustration border border-solid border-primary border-opacity-30 flex justify-center items-center relative"
-          >
-            <div class="imgwrap w-1/2 h-2/3 mx-auto relative">
-              <img
-                :src="story.path"
-                alt="illustration"
-                class="absolute top-0 left-0 object-cover w-full h-full"
-              />
+        <transition appear mode="out-in" @enter="enterTitle()">
+          <h1 class="font-title flex flex-col">
+            <span class="Nst font-text text-primary text-7xl font-light italic"
+              >Nous sommes tous</span
+            ><span
+              class="Dsg transform translate-y-0 font-title text-primary text-12xl font-extrabold mt-6 uppercase"
+              >Designers
+            </span>
+          </h1>
+        </transition>
+        <transition appear mode="out-in" @enter="enterText()">
+          <p class="font-text text-main text-base">
+            Je vous accompagne dans cette aventure collective et créative
+          </p>
+        </transition>
+      </section>
+
+      <div class="story">
+        <section
+          v-for="(story, index) in stories"
+          :key="index"
+          class=" storyblock h-screen"
+          :class="story.class"
+        >
+          <div class="page-wrapper grid grid-cols-2 h-5/6">
+            <div
+              class="page illustration border border-solid border-primary border-opacity-30 flex justify-center items-center relative"
+            >
+              <div class="imgwrap w-1/2 h-2/3 mx-auto relative">
+                <img
+                  :src="story.path"
+                  alt="illustration"
+                  class="absolute top-0 left-0 object-cover w-full h-full"
+                />
+              </div>
+            </div>
+            <div
+              class="page chapitre border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative p-40 text-left"
+            >
+              <h2 class="font-title text-primary text-2xl font-bold">
+                {{ story.titre }}
+              </h2>
+              <h4 class="font-text text-main text-base mt-3">
+                {{ story.texte }}
+              </h4>
             </div>
           </div>
-          <div
-            class="page chapitre border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative p-40 text-left"
-          >
-            <h2 class="font-title text-primary text-2xl font-bold">
-              {{ story.titre }}
-            </h2>
-            <h4 class="font-text text-main text-base mt-3">
-              {{ story.texte }}
-            </h4>
-          </div>
-        </div>
 
-        <div
-          class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden bg-back transition-all ease-in-out"
-        >
-          <h3
-            class=" absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-4xl font-light italic"
+          <div
+            class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden bg-back transition-all ease-in-out"
           >
-            {{ story.question }}
-          </h3>
-        </div>
+            <h3
+              class=" absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-4xl font-light italic"
+            >
+              {{ story.question }}
+            </h3>
+          </div>
+        </section>
+      </div>
+      <section class="h-1/2">
+        <nuxt-link to="expertise">Expertise</nuxt-link>
       </section>
     </div>
-    <section class="h-1/2">
-      <nuxt-link to="expertise">Expertise</nuxt-link>
-    </section>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -153,6 +155,9 @@ export default {
   },
 
   methods: {
+    leaveAccom: function(el) {
+      console.log(el + "Leave accompagnement");
+    },
     enterTitle: function() {
       this.$nextTick(function() {
         let Title = document.querySelector(".Dsg");
