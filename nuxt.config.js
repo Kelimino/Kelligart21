@@ -33,6 +33,66 @@ export default {
     ]
   },
   router: {
+    routes: [
+      {
+        name: "index",
+        path: "/",
+        component: "pages/index.vue"
+      },
+      {
+        name: "projets",
+        path: "/projets",
+        component: "pages/projets/index.vue"
+      },
+      {
+        name: "laforet",
+        path: "/projets/laforet",
+        component: "pages/projets/laforet.vue"
+      }
+      ,
+      {
+        name: "spall",
+        path: "/projets/spall",
+        component: "pages/projets/spall.vue"
+      }
+      ,
+      {
+        name: "graphisme",
+        path: "/projets/graphisme",
+        component: "pages/projets/graphisme.vue"
+      }
+      ,
+      {
+        name: "lamotte",
+        path: "/projets/lamotte",
+        component: "pages/projets/lamotte.vue"
+      }
+      ,
+      {
+        name: "logo",
+        path: "/projets/logo",
+        component: "pages/projets/logo.vue"
+      }
+      ,
+      {
+        name: "robodico",
+        path: "/projets/robodico",
+        component: "pages/projets/robodico.vue"
+      }
+      ,
+      {
+        name: "stars",
+        path: "/projets/stars",
+        component: "pages/projets/stars.vue"
+      }
+      ,
+      {
+        name: "theatre",
+        path: "/projets/theatre",
+        component: "pages/projets/theatre.vue"
+      }
+    ],
+
     scrollBehavior(to) {
       if (to.hash) {
         return window.scrollTo({

@@ -1,6 +1,6 @@
 <template>
   <div id="laforet" class="work">
-    <nav><nuxt-link to="projets">Projets</nuxt-link></nav>
+    <nav><nuxt-link to="/projets">Projets</nuxt-link></nav>
 
     <div class="horizontal">
       <section class="intro">

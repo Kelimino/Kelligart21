@@ -65,7 +65,7 @@ export default {
           nom: "Laforet",
           class: "projet",
           description: "Refonte du site Immobilier",
-          href: "/laforet",
+          href: "/projets/laforet",
           path: require("@/assets/img/slider/laforet.png")
         },
         {
@@ -74,7 +74,7 @@ export default {
           class: "projet",
           description:
             "Design concept pour une plateforme de streaming de sports",
-          href: "/goall",
+          href: "/projets/spall",
           path: require("@/assets/img/slider/laforet.png")
         },
         {
@@ -83,7 +83,7 @@ export default {
           class: "robodico",
           description:
             "Petit site pour tous les robots fictifs de notre enfance",
-          href: "/robodico",
+          href: "/projets/robodico",
           path: require("@/assets/video/robodico.mp4")
         },
         {
@@ -92,7 +92,7 @@ export default {
           class: "projet",
           description:
             "Redesign concept pour l'application de transport de la ville de Rennes",
-          href: "/stars",
+          href: "/projets/stars",
           path: require("@/assets/img/slider/laforet.png")
         },
         {
@@ -100,7 +100,7 @@ export default {
           nom: "Graphisme",
           class: "projet",
           description: "Une sélection de réalisations graphiques",
-          href: "/graphisme",
+          href: "/projets/graphisme",
           path: require("@/assets/img/slider/laforet.png")
         },
         {
@@ -108,7 +108,7 @@ export default {
           nom: "Webdesign",
           class: "projet",
           description: "Une sélection de webdesign préférés",
-          href: "/webdesign",
+          href: "/projets/webdesign",
           path: require("@/assets/img/slider/laforet.png")
         },
         {
@@ -116,7 +116,7 @@ export default {
           nom: "Théâtre",
           class: "projet",
           description: "D.A & scénographie @Pistarckle Theater  ",
-          href: "/theatre",
+          href: "/projets/theatre",
           path: require("@/assets/img/slider/laforet.png")
         },
         {
@@ -124,7 +124,7 @@ export default {
           nom: "Logos",
           class: "projet",
           description: "Collections de logos",
-          href: "/logo",
+          href: "/projets/logo",
           path: require("@/assets/img/slider/laforet.png")
         }
       ]
