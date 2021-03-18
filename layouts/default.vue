@@ -8,6 +8,7 @@
       @before-enter="beforeEnterPage"
       @enter="enterPage"
       @before-leave="beforeLeavePage"
+      @leave="LeavePage"
     >
       <router-view :key="$route.path" />
     </transition>

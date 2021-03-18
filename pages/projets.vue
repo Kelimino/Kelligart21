@@ -33,9 +33,15 @@
           />
         </g>
       </svg>
-      <p class=" text-main font-text ">
-        Hold &amp; drag
-      </p>
+      <transition
+        name="custom-classes-transition"
+        enter-active-class="enterIn"
+        leave-active-class="leaveOut"
+      >
+        <p class=" text-main font-text ">
+          Hold &amp; drag
+        </p>
+      </transition>
     </div>
     <slider />
   </div>
@@ -56,3 +62,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+.enterIn {
+  background: blue;
+}
+.leaveOut {
+  background: green;
+}
+</style>
