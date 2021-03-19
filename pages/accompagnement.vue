@@ -78,6 +78,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   // mixins: [locomotive],
+  name: "Accompagnement",
   scrollToTop: true,
 
   data() {
@@ -133,7 +134,7 @@ export default {
       let Qa = gsap.timeline({
         scrollTrigger: {
           trigger: el,
-          start: "70% center",
+          start: "80% center",
           scrub: true,
           toggleActions: "play restart play reset"
         }

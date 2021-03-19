@@ -32,6 +32,7 @@
 import sliderHome from "/components/sliderHome";
 
 export default {
+  name: "Accueil",
   components: {
     sliderHome
   },

@@ -1,13 +1,14 @@
 <template>
-  <div id="laforet" class="work">
-    <nav><nuxt-link to="/projets">Projets</nuxt-link></nav>
-
-    <div class="horizontal">
-      <section class="intro">
+  <div id="laforet" class="work relative h-screen p-0 m-0">
+    <nuxt-link class="fixed top-16 left-32 z-50" to="/projets"
+      >Projets</nuxt-link
+    >
+    <div class="horizontal h-full flex flex-wrap flex-col">
+      <section class="intro h-full w-1/2 flex bg-pink-500">
         <h1>Laforêt</h1>
         <p>Site immobilier</p>
       </section>
-      <section class="scope">
+      <section class="scope h-full w-1/2 flex bg-gray-800">
         <div class="context">
           <ul>
             <li><span>Client</span>Groupe Laforêt</li>
@@ -21,7 +22,7 @@
         </div>
       </section>
 
-      <section class="methode">
+      <section class="methode h-full w-1/2 flex bg-red-800">
         <div class="problème">
           <h2>Un site viellisant</h2>
           <ul>
@@ -39,12 +40,12 @@
           </ul>
         </div>
       </section>
-      <section class="feeback">
+      <section class="feeback h-full w-1/2 flex bg-yellow-700">
         <h2>Un projet d'équipe passionant</h2>
         <p>Retour sur le projet</p>
       </section>
 
-      <section class="screen">
+      <section class="screen h-full w-1/2 flex bg-red-200">
         <div>
           <img src="" alt="" />
           <p>Description du rendu</p>
@@ -59,7 +60,7 @@
         </div>
       </section>
 
-      <section class="next">
+      <section class="next w-full">
         <nuxt-link to="goall">
           <h3>Goall</h3>
           <p>Design concept sur une plateforme de streaming</p></nuxt-link
@@ -76,17 +77,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   mounted() {
-    let container = document.querySelector(".horizontal");
-    gsap.to(container, {
-      x: () => -(container.offsetWidth - innerWidth),
+    let sections = gsap.utils.toArray("section");
+
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
       ease: "none",
       scrollTrigger: {
-        trigger: container,
-        start: "top top",
-        invalidateOnRefresh: true,
+        trigger: ".horizontal",
         pin: true,
         scrub: 1,
-        end: () => "+=" + (container.offsetWidth - innerWidth)
+        snap: 1 / (sections.length - 1),
+        end: () => "+=" + document.querySelector(".horizontal").offsetWidth
       }
     });
   }

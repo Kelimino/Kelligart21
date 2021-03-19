@@ -79,6 +79,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
+  name: "Expertise",
   scrollToTop: true,
   data() {
     return {
