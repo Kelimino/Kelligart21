@@ -42,17 +42,17 @@
               <nuxt-link to="/">Accueil</nuxt-link>
             </li>
             <li class="closeNav  mb-2">
-              <nuxt-link to="accompagnement">Accompagnement</nuxt-link>
+              <nuxt-link to="/accompagnement">Accompagnement</nuxt-link>
             </li>
 
             <li class="closeNav  mb-2">
-              <nuxt-link to="expertise">Expertise</nuxt-link>
+              <nuxt-link to="/expertise">Expertise</nuxt-link>
             </li>
             <li class="closeNav  mb-2">
               <nuxt-link to="/projets">Projets</nuxt-link>
             </li>
             <li class="closeNav  mb-2">
-              <nuxt-link to="about">À propos</nuxt-link>
+              <nuxt-link to="/about">À propos</nuxt-link>
             </li>
           </ul>
         </nav>

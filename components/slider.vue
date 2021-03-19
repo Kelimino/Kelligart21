@@ -182,7 +182,7 @@ export default {
     });
 
     this.swiper.on("touchMove", function() {
-      gsap.to(".swiper-slide", { scale: 0.9 });
+      gsap.to(".swiper-slide", { scale: 0.8 });
     });
     this.swiper.on("touchEnd ", function() {
       gsap.to(".swiper-slide", { scale: 1 });
@@ -201,17 +201,6 @@ export default {
         { skewX: 0 }
       );
     });
-  },
-
-  methods: {
-    playVideo: function() {
-      this.$refs.video.play();
-      alert("play");
-    },
-    stopVideo: function() {
-      this.$refs.video.pause();
-      console.log(this.$refs.video + "out");
-    }
   }
 };
 </script>

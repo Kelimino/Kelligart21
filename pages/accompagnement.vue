@@ -112,7 +112,7 @@ export default {
           titre: "Aventure",
           class: "aventure",
           texte:
-            "Son aventure séquentielle va le mener sur différentes étapes. Un parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver des opportuntiés pour s'orienter et réussir ses objectifs",
+            "Son aventure séquentielle va le mener sur différentes étapes. Un parcours itératif qu'il va naviguer. Surmonter des obstacles, trouver des opportuntiés pour s'orienter et réussir ses objectifs.",
           path: require("@/assets/animation/aventure.png"),
           question: "Que recherche t'il ?"
         },
