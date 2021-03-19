@@ -19,8 +19,8 @@
         /></svg
       >Projets</nuxt-link
     >
-    <div class="container-scroll h-screen flex flex-nowrap">
-      <section class="panel intro h-full flex">
+    <div class="container-scroll h-screen flex flex-col flex-wrap">
+      <section class="panel intro w-full h-full flex">
         <div
           class="content-wrapper w-2/3 flex flex-col justify-center items-center"
         >
@@ -54,20 +54,25 @@
           class="w-1/3 h-auto object-cover object-top"
         />
       </section>
-      <section class="panel scope h-full w-2/3 flex">
-        <div class="enjeux">
+      <section
+        class="panel scope h-full w-2/3 flex justify-center items-center"
+      >
+        <div class="enjeux w-2/3  flex flex-col justify-start">
           <h2 class="font-title text-primary text-2xl font-bold">
             Un enjeux digital important
           </h2>
           <p class="font-text text-main text-base mt-3">
-            Description de l'enjeux du projet
+            Dans un marché immobilier saturé et compétitif, il ezt vital d'avoir
+            une présence digitale et appliquer l'expérience utilisateur
           </p>
         </div>
       </section>
 
       <section class="panel methode h-full w-1/2 flex bg-red-800">
         <div class="problème">
-          <h2>Un site viellisant</h2>
+          <h2 class="font-title text-primary text-8xl font-bold">
+            Un site WebApp
+          </h2>
           <ul>
             <li></li>
             <li></li>
@@ -119,23 +124,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
+  name: "Laforet",
   mounted() {
     this.$nextTick(() => {
-      let sections = gsap.utils.toArray(".panel");
-
-      gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
+      let container = document.querySelector(".container-scroll");
+      // let sections = gsap.utils.toArray(".panel");
+      gsap.to(container, {
+        x: () =>
+          -(container.scrollWidth - document.documentElement.clientWidth) +
+          "px",
         ease: "none",
         scrollTrigger: {
-          horizontal: true,
-          trigger: ".container-scroll",
+          trigger: container,
+          invalidateOnRefresh: true,
           pin: true,
-          pinSpacing: false,
+          // pinSpacing: false,
           scrub: 1,
-          snap: 1 / (sections.length - 1),
-          // base vertical scrolling on how wide the container is so it feels more natural.
-          end: () =>
-            "+=" + document.querySelector(".container-scroll").offsetWidth
+          // snap: 1 / (sections.length - 1),
+          end: () => "+=" + container.offsetWidth
         }
       });
     });
