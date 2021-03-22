@@ -1,8 +1,8 @@
 <template>
   <transition appear mode="in-out" :css="false" @enter="enterTitle">
-    <div id="accompagnement" class="h-screen">
+    <div id="accompagnement">
       <section
-        class="couverture w-8/12 mx-auto h-full flex flex-col text-center justify-center items-center"
+        class="couverture w-8/12 mx-auto h-screen flex flex-col text-center justify-center items-center"
       >
         <h1 class="font-title flex flex-col">
           <span class="Nst font-text text-primary text-7xl font-light italic"
@@ -22,27 +22,28 @@
         </p>
       </section>
 
-      <div class="story">
+      <div class="story w-4/6 mx-auto">
         <section
           v-for="(story, index) in stories"
           :key="index"
           class=" storyblock h-screen"
           :class="story.class"
         >
-          <div class="page-wrapper grid grid-cols-2 h-5/6">
+          <div class="page-wrapper grid grid-cols-2 h-5/6 bg-white">
+            <div class="cover bg-primary h-full absolute"></div>
             <div
               class="page illustration border border-solid border-primary border-opacity-30 flex justify-center items-center relative"
             >
-              <div class="imgwrap w-1/2 h-2/3 mx-auto relative">
+              <div class="imgwrap w-5/6 h-5/6 mx-auto relative">
                 <img
                   :src="story.path"
                   alt="illustration"
-                  class="absolute top-0 left-0 object-cover w-full h-full"
+                  class="absolute top-0 left-0 object-contain w-full h-full"
                 />
               </div>
             </div>
             <div
-              class="page chapitre border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative p-40 text-left"
+              class="page chapitre border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative p-20 text-left"
             >
               <h2 class="font-title text-primary text-2xl font-bold">
                 {{ story.titre }}
@@ -54,7 +55,7 @@
           </div>
 
           <div
-            class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden bg-back transition-all ease-in-out"
+            class="question relative h-1/6 overflow-x-visible bg-back transition-all ease-in-out"
           >
             <h3
               class=" absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-5xl font-light italic"
@@ -167,7 +168,7 @@
           ></div>
         </div>
       </section>
-      <section class="h-2/3 box-border">
+      <section class="h-96 box-border">
         <nuxt-link
           to="expertise"
           class="expertise-link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
@@ -177,19 +178,19 @@
               v-show="upHere"
               src="@/assets/img/projet-back.png"
               alt="expertise"
-              class="absolute top-1/2 left-1/2 w-1/2 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50 "
+              class="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50 "
             />
           </transition>
           <h2 class="text-main text-sm text-center mb-5">
-            Découvrez mes expertises
+            Découvrez mes expertises : domaines &amp; prestations
           </h2>
           <h3
             class="text-primary text-6xl inline-flex font-title mr-5 whitespace-nowrap"
             @mouseover="upHere = true"
             @mouseleave="upHere = false"
           >
-            Direction Artistique - Experience Utilisateur - Design d'Interfaces
-            - Communication Visuelle - Developpement Front
+            Direction Artistique - Expérience Utilisateur - Design d'Interfaces
+            - Communication Visuelle - Développement Front
           </h3>
         </nuxt-link>
       </section>
@@ -267,8 +268,9 @@ export default {
           toggleActions: "play restart play reset"
         }
       });
-
-      Qa.fromTo(".question h3", { x: 1000 }, { x: -1000 });
+      Qa.fromTo(".question h3", { x: 1500 }, { x: -1500, duration: 6 }).to(el, {
+        autoAlpha: 0
+      });
     });
 
     let text = document.querySelector(".Dsg");
@@ -292,22 +294,30 @@ export default {
       }
     });
     boardAnim
-      .from(".screen", { autoAlpha: 0, duration: 0.2 }, "<")
-      .from(".brainstorming ", { autoAlpha: 0, duration: 0.2 })
-      .from(".research li", {
-        autoAlpha: 0,
-        y: 10,
-        stagger: {
-          each: 0.5
-        }
-      })
-      .from(".create li", {
-        autoAlpha: 0,
-        y: 10,
-        stagger: {
-          each: 0.5
-        }
-      });
+      .from(".screen", { autoAlpha: 0, duration: 0.2 })
+      .from(".brainstorming ", { autoAlpha: 0, duration: 0.2 }, "+=0.5")
+      .from(
+        ".research li",
+        {
+          autoAlpha: 0,
+          y: 10,
+          stagger: {
+            each: 0.5
+          }
+        },
+        "+=0.5"
+      )
+      .from(
+        ".create li",
+        {
+          autoAlpha: 0,
+          y: 10,
+          stagger: {
+            each: 0.5
+          }
+        },
+        "+=1"
+      );
   },
 
   methods: {

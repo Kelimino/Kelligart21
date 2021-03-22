@@ -8,7 +8,7 @@
           <ul class="backlist flex row">
             <li class="w-1/2 mr-2 ">
               <div
-                class="graphisme w-full mb-2 block transform -translate-y-1/4"
+                class="graphisme w-full mb-2 block transform origin-bottom -translate-y-3/4"
               >
                 <img
                   v-for="(poster, index) in graphisme"
@@ -20,7 +20,7 @@
               </div>
             </li>
             <li class="w-1/2 mr-2 ">
-              <div class="web w-full mb-2 block transform -translate-y-2/4">
+              <div class="web w-full mb-2 block">
                 <img
                   v-for="(poster, index) in web"
                   :key="index"
@@ -274,8 +274,8 @@ export default {
       .to(
         ".graphisme",
         {
-          y: "-50%",
-          duration: 40,
+          yPercent: 50,
+          duration: 100,
           ease: "Power2.easeOut"
         },
         "<"
@@ -283,8 +283,8 @@ export default {
       .to(
         ".web",
         {
-          y: "50%",
-          duration: 40,
+          yPercent: -50,
+          duration: 100,
           ease: "Power2.easeOut"
         },
         "<"
