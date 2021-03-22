@@ -40,9 +40,9 @@
             <h1
               class="font-title text-primary text-6xl font-bold flex flex-col my-6"
             >
-              <span class="mb-3">Collectif,</span>
-              <span class="mb-3">Analytique,</span>
-              <span class="mb-3">Créatif,</span>
+              <span class="mb-3">Collectif</span>
+              <span class="mb-3">Analytique</span>
+              <span class="mb-3">Créatif</span>
             </h1>
             <p class="p-second outil font-text text-main text-base">
               est l'outil le plus puissant d'un Designer
