@@ -84,7 +84,7 @@
             >
               <h2 class="text-md text-white mb-5">
                 Ensemble, grâce à l'intelligence collective et avec des méthodes
-                adpatées, on va pouvoir co-concevoir cette histoire
+                adaptées, on va pouvoir co-concevoir votre histoire
               </h2>
               <div class="method grid grid-cols-3 w-full">
                 <div class="brainstorming flex justify-end h-full">
@@ -270,7 +270,7 @@ export default {
           toggleActions: "play restart play reset"
         }
       });
-      Qa.fromTo(".question h3", { x: 1500 }, { x: -1500, duration: 6 }).to(el, {
+      Qa.fromTo(".question h3", { xPercent: 250 }, { xPercent: -250 }).to(el, {
         autoAlpha: 0
       });
     });

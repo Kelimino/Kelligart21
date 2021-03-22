@@ -79,9 +79,20 @@
         </div>
       </section>
       <section
-        class="illustration w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+        class="DA-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
       >
-        <div class="DA-img w-1/2 h-1/2 rounded overflow-hidden">
+        <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
+          <img
+            src="@/assets/animation/DA.png"
+            alt=" direction artistique"
+            class="object-cover h-full"
+          />
+        </div>
+      </section>
+      <section
+        class="UX-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+      >
+        <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
           <img
             src="@/assets/animation/DA.png"
             alt=" direction artistique"
@@ -268,6 +279,10 @@ export default {
       });
 
     //BACK TILE ANIMATION
+
+    // gsap.utils.toArray(".skill").forEach(() => {
+    // })
+
     let backTile = gsap.timeline({
       repeat: -1,
       yoyo: true,
@@ -297,14 +312,29 @@ export default {
       );
 
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
-    let slideIn = gsap.timeline({
+    let slideInDa = gsap.timeline({
       scrollTrigger: {
         trigger: ".DA",
         start: "top center",
+        end: "bottom center",
         toggleActions: "play reverse play reverse"
       }
     });
-    slideIn.to(".illustration", {
+    slideInDa.to(".DA-img", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
+    });
+
+    let slideInUx = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".UX",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideInUx.to(".UX-img", {
       x: 0,
       duration: 0.5,
       ease: "Power2.ease-In"
