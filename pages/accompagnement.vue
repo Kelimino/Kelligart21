@@ -26,7 +26,7 @@
         <section
           v-for="(story, index) in stories"
           :key="index"
-          class=" storyblock h-screen"
+          class="storyblock h-screen"
           :class="story.class"
         >
           <div class="page-wrapper grid grid-cols-2 h-5/6 bg-white">
@@ -58,7 +58,7 @@
             class="question relative h-1/6 overflow-x-visible bg-back transition-all ease-in-out"
           >
             <h3
-              class=" absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-5xl font-light italic"
+              class="absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-5xl font-light italic"
             >
               {{ story.question }}
             </h3>
@@ -68,16 +68,16 @@
       <section class="board h-screen flex justify-center items-center">
         <div class="board-wrapper relative w-full h-full">
           <div
-            class="bucket absolute right-44 bottom-24 border-4 border-primary border-solid w-16 h-20 rounded "
+            class="bucket absolute right-44 bottom-24 border-4 border-primary border-solid w-16 h-20 rounded"
           ></div>
           <div
-            class="pen absolute right-48 bottom-24 bg-primary border-solid w-2 h-28 rounded transform rotate-6 "
+            class="pen absolute right-48 bottom-24 bg-primary border-solid w-2 h-28 rounded transform rotate-6"
           ></div>
           <div
-            class="pen absolute right-52 bottom-24 bg-primary border-solid w-2 h-28 rounded transform -rotate-6 "
+            class="pen absolute right-52 bottom-24 bg-primary border-solid w-2 h-28 rounded transform -rotate-6"
           ></div>
           <div
-            class="laptop absolute w-2/3 h-2/3 top-1/2 left-1/2 p-2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md "
+            class="laptop absolute w-2/3 h-2/3 top-1/2 left-1/2 p-2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md"
           >
             <div
               class="screen w-full h-full flex flex-col justify-around items-center bg-white bg-opacity-20"
@@ -86,8 +86,8 @@
                 Ensemble, grâce à l'intelligence collective et avec des méthodes
                 adpatées, on va pouvoir co-concevoir cette histoire
               </h2>
-              <div class="method grid grid-cols-3 w-full  ">
-                <div class=" brainstorming flex justify-end h-full">
+              <div class="method grid grid-cols-3 w-full">
+                <div class="brainstorming flex justify-end h-full">
                   <img
                     src="@/assets/animation/brainstorming.png"
                     alt="img brainstorming"
@@ -102,7 +102,7 @@
                     <h3 class="font-title text-primary text-xl font-bold">
                       Connaître
                     </h3>
-                    <p class="font-text text-main text-base ">
+                    <p class="font-text text-main text-base">
                       Définir le périmètre du projet
                     </p>
                   </li>
@@ -112,7 +112,7 @@
                     <h3 class="font-title text-primary text-xl font-bold">
                       Comprendre
                     </h3>
-                    <p class="font-text text-main text-base ">
+                    <p class="font-text text-main text-base">
                       Expliquer l’enjeux du projet
                     </p>
                   </li>
@@ -122,19 +122,19 @@
                     <h3 class="font-title text-primary text-xl font-bold">
                       Analyser
                     </h3>
-                    <p class="font-text text-main text-base ">
+                    <p class="font-text text-main text-base">
                       Rechercher et synthétiser les données
                     </p>
                   </li>
                 </ul>
-                <ul class=" create flex flex-col justify-start items-start">
+                <ul class="create flex flex-col justify-start items-start">
                   <li
                     class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
                   >
                     <h3 class="font-title text-primary text-xl font-bold">
                       Identifier
                     </h3>
-                    <p class="font-text text-main text-base ">
+                    <p class="font-text text-main text-base">
                       Poser les problématiques à résoudre
                     </p>
                   </li>
@@ -144,7 +144,7 @@
                     <h3 class="font-title text-primary text-xl font-bold">
                       Créer
                     </h3>
-                    <p class="font-text text-main text-base ">
+                    <p class="font-text text-main text-base">
                       Inventer et concevoir des solutions
                     </p>
                   </li>
@@ -154,7 +154,7 @@
                     <h3 class="font-title text-primary text-xl font-bold">
                       Évaluer
                     </h3>
-                    <p class="font-text text-main text-base ">
+                    <p class="font-text text-main text-base">
                       Tester &amp; décider les concepts
                     </p>
                   </li>
@@ -164,11 +164,15 @@
           </div>
 
           <div
-            class="pad absolute w-5/6 h-5 bottom-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md "
+            class="pad absolute w-5/6 h-5 bottom-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md"
           ></div>
         </div>
       </section>
-      <section class="h-96 box-border">
+      <section
+        class="h-96 box-border"
+        @mouseover="upHere = true"
+        @mouseleave="upHere = false"
+      >
         <nuxt-link
           to="expertise"
           class="expertise-link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
@@ -178,7 +182,7 @@
               v-show="upHere"
               src="@/assets/img/projet-back.png"
               alt="expertise"
-              class="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50 "
+              class="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50"
             />
           </transition>
           <h2 class="text-main text-sm text-center mb-5">
@@ -186,8 +190,6 @@
           </h2>
           <h3
             class="text-primary text-6xl inline-flex font-title mr-5 whitespace-nowrap"
-            @mouseover="upHere = true"
-            @mouseleave="upHere = false"
           >
             Direction Artistique - Expérience Utilisateur - Design d'Interfaces
             - Communication Visuelle - Développement Front

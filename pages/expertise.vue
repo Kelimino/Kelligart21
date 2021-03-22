@@ -6,25 +6,25 @@
       >
         <div class="back-wrapper">
           <ul class="backlist flex row">
-            <li class="w-1/2 mr-2 ">
+            <li class="w-1/2 mr-2">
               <div
                 class="graphisme w-full mb-2 block transform origin-bottom -translate-y-3/4"
               >
                 <img
                   v-for="(poster, index) in graphisme"
                   :key="index"
-                  class=" w-full mb-2 block"
+                  class="w-full mb-2 block"
                   :src="poster.path"
                   alt="poster"
                 />
               </div>
             </li>
-            <li class="w-1/2 mr-2 ">
+            <li class="w-1/2 mr-2">
               <div class="web w-full mb-2 block">
                 <img
                   v-for="(poster, index) in web"
                   :key="index"
-                  class=" w-full h-auto mb-2 block"
+                  class="w-full h-auto mb-2 block"
                   :src="poster.path"
                   alt="poster"
                 />
@@ -35,9 +35,9 @@
       </div>
       <section class="expertise grid grid-cols-3">
         <div class="list-expertise col-span-2 pb-10">
-          <div class="list-wrapper flex flex-col items-end ">
+          <div class="list-wrapper flex flex-col items-end">
             <section
-              class="introexpertise w-5/6 min-h-full h-screen  flex flex-col items-start justify-center"
+              class="introexpertise w-5/6 min-h-full h-screen flex flex-col items-start justify-center"
             >
               <p class="p-first font-text text-main text-base">L'esprit</p>
               <h1
@@ -60,7 +60,7 @@
               v-for="(domain, index) in expertise"
               :key="index"
               :class="domain.class"
-              class="skill relative w-5/6 min-h-60% mb-20 py-36 border-b border-solid border-primary border-opacity-30 overflow-hidden  "
+              class="skill relative w-5/6 min-h-60% mb-20 py-36 border-b border-solid border-primary border-opacity-30 overflow-hidden"
             >
               <h2 class="font-title text-primary text-6xl font-bold">
                 {{ domain.name }}
@@ -79,9 +79,15 @@
         </div>
       </section>
       <section
-        class="illustration w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full"
+        class="illustration w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
       >
-        <div class="DA-img bg-white h-full "></div>
+        <div class="DA-img w-1/2 h-1/2 rounded overflow-hidden">
+          <img
+            src="@/assets/animation/DA.png"
+            alt=" direction artistique"
+            class="object-cover h-full"
+          />
+        </div>
       </section>
     </div>
   </transition>
