@@ -47,8 +47,13 @@
                 <span class="mb-3">Analytique</span>
                 <span class="mb-3">Créatif</span>
               </h1>
-              <p class="p-second outil font-text text-main text-base">
+              <p class="p-second outil font-text text-main text-base flex">
                 est l'outil le plus puissant d'un Designer
+                <img
+                  src="@/assets/icons/brain.svg"
+                  alt="bol de céreales "
+                  class="h-6 ml-3"
+                />
               </p>
             </section>
             <section

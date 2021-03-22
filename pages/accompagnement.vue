@@ -12,8 +12,13 @@
             >Designers
           </span>
         </h1>
-        <p class="font-text text-main text-base">
+        <p class="font-text text-main text-base flex">
           Je vous accompagne dans cette aventure collective et créative
+          <img
+            src="@/assets/icons/chair.svg"
+            alt="bol de céreales "
+            class="h-6 ml-3"
+          />
         </p>
       </section>
 
@@ -162,28 +167,30 @@
           ></div>
         </div>
       </section>
-      <section class="h-1/2">
+      <section class="h-2/3 box-border">
         <nuxt-link
           to="expertise"
-          class="expertise-link h-full relative flex flex-col justify-center box-border"
-          @mouseover="upHere = true"
-          @mouseleave="upHere = false"
+          class="expertise-link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
         >
+          <transition name="fadeImg">
+            <img
+              v-show="upHere"
+              src="@/assets/img/projet-back.png"
+              alt="expertise"
+              class="absolute top-1/2 left-1/2 w-1/2 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50 "
+            />
+          </transition>
           <h2 class="text-main text-sm text-center mb-5">
             Découvrez mes expertises
           </h2>
           <h3
             class="text-primary text-6xl inline-flex font-title mr-5 whitespace-nowrap"
+            @mouseover="upHere = true"
+            @mouseleave="upHere = false"
           >
             Direction Artistique - Experience Utilisateur - Design d'Interfaces
             - Communication Visuelle - Developpement Front
           </h3>
-          <img
-            v-show="upHere"
-            src="@/assets/img/projet-back.png"
-            alt="expertise"
-            class="absolute top-0 left-0 w-1/2"
-          />
         </nuxt-link>
       </section>
     </div>
@@ -291,14 +298,14 @@ export default {
         autoAlpha: 0,
         y: 10,
         stagger: {
-          each: 0.2
+          each: 0.5
         }
       })
       .from(".create li", {
         autoAlpha: 0,
         y: 10,
         stagger: {
-          each: 0.2
+          each: 0.5
         }
       });
   },

@@ -15,9 +15,14 @@
             >&amp; Creative Designer
           </span>
         </h1>
-        <p class="font-text text-main text-base mt-6">
+        <p class="font-text text-main text-base mt-6 flex">
           Bonjour, je m’appelle Kellig, un peu comme Kellogg’s©,<br />
           votre bol complet pour la journée ;)
+          <img
+            src="@/assets/icons/cereal.svg"
+            alt="bol de céreales "
+            class="h-6 ml-3"
+          />
         </p>
       </section>
       <section class="mt-20">
