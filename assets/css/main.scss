@@ -252,19 +252,18 @@ body {
   }
 }
 
-
-.slide-fade-enter-active {
-  transition: all .3s ease;
+/*-----EXPERTISE LINKS ANIMATION-----*/
+.expertise-link h3 {
+  animation: linksMove 10s linear infinite;
+  
 }
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  background: red;
-  width: 300px;
-  height: 300px;
+@keyframes linksMove {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translateX(calc(-100% + 15%));
+  }
 }
 /*-----Toggle Dark Thème-----*/
 

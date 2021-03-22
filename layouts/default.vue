@@ -1,16 +1,7 @@
 <template>
   <div class="bg-back ">
     <Nav />
-    <transition
-      mode="out-in"
-      :css="false"
-      :duration="1000"
-      @before-enter="beforeEnterPage"
-      @enter="enterPage"
-      @before-leave="beforeLeavePage"
-    >
-      <router-view :key="$route.path" />
-    </transition>
+    <router-view :key="$route.path" />
   </div>
 </template>
 
@@ -24,22 +15,6 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
-  methods: {
-    beforeEnterPage: el => {
-      el.style.transform = "translateY(3%)";
-      el.style.opacity = "0";
-      el.style.transition = "all 0.6s ease-out";
-    },
-    enterPage: el => {
-      el.style.transform = "translateY(0%)";
-      el.style.opacity = "1";
-      el.style.transition = "all 0.6s ease-out";
-    },
-    beforeLeavePage: el => {
-      el.style.opacity = "0";
-      el.style.transition = "all 0.3s ease-in";
-    }
-  }
+  mounted() {}
 };
 </script>

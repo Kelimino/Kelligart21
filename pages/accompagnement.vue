@@ -1,24 +1,20 @@
 <template>
-  <transition appear mode="out-in" :css="false" @leave="leaveAccom">
+  <transition appear mode="in-out" :css="false" @enter="enterTitle">
     <div id="accompagnement" class="h-screen">
       <section
         class="couverture w-8/12 mx-auto h-full flex flex-col text-center justify-center items-center"
       >
-        <transition appear mode="out-in" @enter="enterTitle()">
-          <h1 class="font-title flex flex-col">
-            <span class="Nst font-text text-primary text-7xl font-light italic"
-              >Nous sommes tous</span
-            ><span
-              class="Dsg transform translate-y-0 font-title text-primary text-12xl font-extrabold mt-6 uppercase"
-              >Designers
-            </span>
-          </h1>
-        </transition>
-        <transition appear mode="out-in" @enter="enterText()">
-          <p class="font-text text-main text-base">
-            Je vous accompagne dans cette aventure collective et créative
-          </p>
-        </transition>
+        <h1 class="font-title flex flex-col">
+          <span class="Nst font-text text-primary text-7xl font-light italic"
+            >Nous sommes tous</span
+          ><span
+            class="Dsg transform translate-y-0 font-title text-primary text-12xl font-extrabold mt-6 uppercase"
+            >Designers
+          </span>
+        </h1>
+        <p class="font-text text-main text-base">
+          Je vous accompagne dans cette aventure collective et créative
+        </p>
       </section>
 
       <div class="story">
@@ -56,15 +52,139 @@
             class="question border border-solid relative h-1/6 border-primary border-opacity-30 overflow-hidden bg-back transition-all ease-in-out"
           >
             <h3
-              class=" absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-4xl font-light italic"
+              class=" absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-5xl font-light italic"
             >
               {{ story.question }}
             </h3>
           </div>
         </section>
       </div>
+      <section class="board h-screen flex justify-center items-center">
+        <div class="board-wrapper relative w-full h-full">
+          <div
+            class="bucket absolute right-44 bottom-24 border-4 border-primary border-solid w-16 h-20 rounded "
+          ></div>
+          <div
+            class="pen absolute right-48 bottom-24 bg-primary border-solid w-2 h-28 rounded transform rotate-6 "
+          ></div>
+          <div
+            class="pen absolute right-52 bottom-24 bg-primary border-solid w-2 h-28 rounded transform -rotate-6 "
+          ></div>
+          <div
+            class="laptop absolute w-2/3 h-2/3 top-1/2 left-1/2 p-2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md "
+          >
+            <div
+              class="screen w-full h-full flex flex-col justify-around items-center bg-white bg-opacity-20"
+            >
+              <h2 class="text-md text-white mb-5">
+                Ensemble, grâce à l'intelligence collective et avec des méthodes
+                adpatées, on va pouvoir co-concevoir cette histoire
+              </h2>
+              <div class="method grid grid-cols-3 w-full  ">
+                <div class=" brainstorming flex justify-end h-full">
+                  <img
+                    src="@/assets/animation/brainstorming.png"
+                    alt="img brainstorming"
+                  />
+                </div>
+                <ul
+                  class="research flex flex-col justify-start items-start ml-5"
+                >
+                  <li
+                    class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  >
+                    <h3 class="font-title text-primary text-xl font-bold">
+                      Connaître
+                    </h3>
+                    <p class="font-text text-main text-base ">
+                      Définir le périmètre du projet
+                    </p>
+                  </li>
+                  <li
+                    class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  >
+                    <h3 class="font-title text-primary text-xl font-bold">
+                      Comprendre
+                    </h3>
+                    <p class="font-text text-main text-base ">
+                      Expliquer l’enjeux du projet
+                    </p>
+                  </li>
+                  <li
+                    class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  >
+                    <h3 class="font-title text-primary text-xl font-bold">
+                      Analyser
+                    </h3>
+                    <p class="font-text text-main text-base ">
+                      Rechercher et synthétiser les données
+                    </p>
+                  </li>
+                </ul>
+                <ul class=" create flex flex-col justify-start items-start">
+                  <li
+                    class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  >
+                    <h3 class="font-title text-primary text-xl font-bold">
+                      Identifier
+                    </h3>
+                    <p class="font-text text-main text-base ">
+                      Poser les problématiques à résoudre
+                    </p>
+                  </li>
+                  <li
+                    class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  >
+                    <h3 class="font-title text-primary text-xl font-bold">
+                      Créer
+                    </h3>
+                    <p class="font-text text-main text-base ">
+                      Inventer et concevoir des solutions
+                    </p>
+                  </li>
+                  <li
+                    class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  >
+                    <h3 class="font-title text-primary text-xl font-bold">
+                      Évaluer
+                    </h3>
+                    <p class="font-text text-main text-base ">
+                      Tester &amp; décider les concepts
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="pad absolute w-5/6 h-5 bottom-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md "
+          ></div>
+        </div>
+      </section>
       <section class="h-1/2">
-        <nuxt-link to="expertise">Expertise</nuxt-link>
+        <nuxt-link
+          to="expertise"
+          class="expertise-link h-full relative flex flex-col justify-center box-border"
+          @mouseover="upHere = true"
+          @mouseleave="upHere = false"
+        >
+          <h2 class="text-main text-sm text-center mb-5">
+            Découvrez mes expertises
+          </h2>
+          <h3
+            class="text-primary text-6xl inline-flex font-title mr-5 whitespace-nowrap"
+          >
+            Direction Artistique - Experience Utilisateur - Design d'Interfaces
+            - Communication Visuelle - Developpement Front
+          </h3>
+          <img
+            v-show="upHere"
+            src="@/assets/img/projet-back.png"
+            alt="expertise"
+            class="absolute top-0 left-0 w-1/2"
+          />
+        </nuxt-link>
       </section>
     </div>
   </transition>
@@ -83,6 +203,7 @@ export default {
 
   data() {
     return {
+      upHere: false,
       stories: [
         {
           titre: "Synopsis",
@@ -153,12 +274,36 @@ export default {
       numberNode.textContent = index + 1;
       page.appendChild(numberNode);
     });
+
+    let boardAnim = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".board",
+        pin: ".board",
+        scrub: 1,
+        start: "top top",
+        end: "+=1000"
+      }
+    });
+    boardAnim
+      .from(".screen", { autoAlpha: 0, duration: 0.2 }, "<")
+      .from(".brainstorming ", { autoAlpha: 0, duration: 0.2 })
+      .from(".research li", {
+        autoAlpha: 0,
+        y: 10,
+        stagger: {
+          each: 0.2
+        }
+      })
+      .from(".create li", {
+        autoAlpha: 0,
+        y: 10,
+        stagger: {
+          each: 0.2
+        }
+      });
   },
 
   methods: {
-    leaveAccom: function(el) {
-      console.log(el + "Leave accompagnement");
-    },
     enterTitle: function() {
       this.$nextTick(function() {
         let Title = document.querySelector(".Dsg");
@@ -184,12 +329,13 @@ export default {
           )
           .add(function() {
             Title.classList.add("I-anim");
-          }, "-=0.5");
+          }, "-=0.5")
+          .from(
+            ".couverture p",
+            { autoAlpha: 0, scale: 0.9, duration: 1 },
+            "+=1"
+          );
       });
-    },
-
-    enterText: function() {
-      gsap.from("p", { autoAlpha: 0, scale: 0.9, duration: 1, delay: 5 });
     }
   }
 };

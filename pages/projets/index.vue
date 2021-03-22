@@ -1,5 +1,11 @@
 <template>
-  <transition appear mode="out-in" :css="false" @leave="leavePro">
+  <transition
+    appear
+    mode="out-in"
+    :css="false"
+    @before-enter="beforeEnterPage"
+    @enter="enterPage"
+  >
     <div id="projets relative ">
       <div
         class="slideNav absolute top-16 left-1/2 transform -translate-x-1/2 flex justify-center opacity-50 "
@@ -38,33 +44,34 @@
           Hold &amp; drag
         </p>
       </div>
-      <slider />
+      <transition appear mode="out-in" :css="false" @before-leave="leavePro">
+        <slider />
+      </transition>
     </div>
   </transition>
 </template>
 
 <script>
 import slider from "/components/slider";
-import { gsap } from "gsap";
 export default {
   components: {
     slider
   },
   methods: {
-    leavePro: function(el, done) {
+    beforeEnterPage: el => {
+      el.style.transform = "translateY(3%)";
+      el.style.opacity = "0";
+      el.style.transition = "all 0.6s ease-out";
+    },
+    enterPage: (el, done) => {
+      el.style.transform = "translateY(0%)";
+      el.style.opacity = "1";
+      el.style.transition = "all 0.6s ease-out";
+      done();
+    },
+    leavePro: function(done) {
       console.log("Leave projet");
-      const bye = gsap.timeline();
-      bye.to(
-        ".barControl",
-        {
-          scaleX: 1.2,
-          scaleY: 1.2,
-          background: "red",
-          ease: "expo.inOut",
-          onComplete: done
-        },
-        0
-      );
+      done();
     }
   }
 };

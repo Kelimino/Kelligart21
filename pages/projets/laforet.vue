@@ -25,10 +25,10 @@
           class="content-wrapper w-2/3 flex flex-col justify-center items-center"
         >
           <div class="content flex flex-col justify-center items-start">
-            <h1 class="font-title text-primary text-6xl font-bold">Laforêt</h1>
-            <h2 class="font-text text-primary uppercase italic text-xl mt-3">
+            <h2 class="font-title text-primary text-6xl font-bold">Laforêt</h2>
+            <h1 class="font-text text-primary uppercase italic text-xl mt-3">
               Refonte du site immobilier Laforêt
-            </h2>
+            </h1>
             <p class="font-text text-main text-base mt-10 w-2/3">
               Un beau projet d'équipe réalisé à temps en 14 sprints
             </p>

@@ -1,76 +1,85 @@
 <template>
-  <div id="expertise" class="h-screen">
-    <div
-      class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden"
-    >
-      <div class="back-wrapper">
-        <ul class="backlist flex row">
-          <li class="w-1/2 mr-2 ">
-            <div class="graphisme w-full mb-2 block transform -translate-y-1/4">
-              <img
-                v-for="(poster, index) in graphisme"
-                :key="index"
-                class=" w-full mb-2 block"
-                :src="poster.path"
-                alt="poster"
-              />
-            </div>
-          </li>
-          <li class="w-1/2 mr-2 ">
-            <div class="web w-full mb-2 block transform -translate-y-2/4">
-              <img
-                v-for="(poster, index) in web"
-                :key="index"
-                class=" w-full h-auto mb-2 block"
-                :src="poster.path"
-                alt="poster"
-              />
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <section class="expertise grid grid-cols-3 h-full">
-      <div class="list-expertise h-screen col-span-2 overflow-auto pb-10">
-        <div class="list-wrapper flex flex-col items-end ">
-          <section
-            class="introexpertise w-5/6 min-h-full h-screen  flex flex-col items-start justify-center"
-          >
-            <p class="p-first font-text text-main text-base">L'esprit</p>
-            <h1
-              class="font-title text-primary text-6xl font-bold flex flex-col my-6"
-            >
-              <span class="mb-3">Collectif</span>
-              <span class="mb-3">Analytique</span>
-              <span class="mb-3">Créatif</span>
-            </h1>
-            <p class="p-second outil font-text text-main text-base">
-              est l'outil le plus puissant d'un Designer
-            </p>
-          </section>
-          <section
-            v-for="(domain, index) in expertise"
-            :key="index"
-            :class="domain.class"
-            class="skill relative w-5/6 min-h-60% mb-20 py-36 border-b border-solid border-primary border-opacity-30 overflow-hidden  "
-          >
-            <h2 class="font-title text-primary text-6xl font-bold">
-              {{ domain.name }}
-            </h2>
-
-            <h3 class="font-text text-main text-base mt-3 w-3/5">
-              {{ domain.description }}
-            </h3>
-            <p
-              class="font-text text-primary transform uppercase text-6xl font-light italic absolute bottom-5 inline-flex whitespace-nowrap"
-            >
-              {{ domain.span }}
-            </p>
-          </section>
+  <transition appear mode="out-in" :css="false" @leave="leaveEx">
+    <div id="expertise">
+      <div
+        class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden"
+      >
+        <div class="back-wrapper">
+          <ul class="backlist flex row">
+            <li class="w-1/2 mr-2 ">
+              <div
+                class="graphisme w-full mb-2 block transform -translate-y-1/4"
+              >
+                <img
+                  v-for="(poster, index) in graphisme"
+                  :key="index"
+                  class=" w-full mb-2 block"
+                  :src="poster.path"
+                  alt="poster"
+                />
+              </div>
+            </li>
+            <li class="w-1/2 mr-2 ">
+              <div class="web w-full mb-2 block transform -translate-y-2/4">
+                <img
+                  v-for="(poster, index) in web"
+                  :key="index"
+                  class=" w-full h-auto mb-2 block"
+                  :src="poster.path"
+                  alt="poster"
+                />
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-    </section>
-  </div>
+      <section class="expertise grid grid-cols-3">
+        <div class="list-expertise col-span-2 pb-10">
+          <div class="list-wrapper flex flex-col items-end ">
+            <section
+              class="introexpertise w-5/6 min-h-full h-screen  flex flex-col items-start justify-center"
+            >
+              <p class="p-first font-text text-main text-base">L'esprit</p>
+              <h1
+                class="font-title text-primary text-6xl font-bold flex flex-col my-6"
+              >
+                <span class="mb-3">Collectif</span>
+                <span class="mb-3">Analytique</span>
+                <span class="mb-3">Créatif</span>
+              </h1>
+              <p class="p-second outil font-text text-main text-base">
+                est l'outil le plus puissant d'un Designer
+              </p>
+            </section>
+            <section
+              v-for="(domain, index) in expertise"
+              :key="index"
+              :class="domain.class"
+              class="skill relative w-5/6 min-h-60% mb-20 py-36 border-b border-solid border-primary border-opacity-30 overflow-hidden  "
+            >
+              <h2 class="font-title text-primary text-6xl font-bold">
+                {{ domain.name }}
+              </h2>
+
+              <h3 class="font-text text-main text-base mt-3 w-3/5">
+                {{ domain.description }}
+              </h3>
+              <p
+                class="font-text text-primary transform uppercase text-6xl font-light italic absolute bottom-5 inline-flex whitespace-nowrap"
+              >
+                {{ domain.span }}
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
+      <section
+        class="illustration w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full"
+      >
+        <div class="DA-img bg-white h-full "></div>
+      </section>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -248,9 +257,13 @@ export default {
       });
 
     //BACK TILE ANIMATION
-    var backTile = gsap.timeline({
+    let backTile = gsap.timeline({
       repeat: -1,
-      yoyo: true
+      yoyo: true,
+      scrollTrigger: {
+        trigger: "introexpertise",
+        start: "top top"
+      }
     });
     backTile
       .to(
@@ -271,6 +284,26 @@ export default {
         },
         "<"
       );
+
+    //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
+    let slideIn = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".DA",
+        start: "top center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideIn.to(".illustration", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
+    });
+  },
+  methods: {
+    leaveEx: function(el, done) {
+      console.log(el);
+      done();
+    }
   }
 };
 </script>
