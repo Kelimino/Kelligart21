@@ -8,7 +8,7 @@
   >
     <div id="projets relative ">
       <div
-        class="slideNav absolute top-16 left-1/2 transform -translate-x-1/2 flex justify-center opacity-50 "
+        class="slideNav absolute bottom-10 left-1/2 transform -translate-x-1/2 flex justify-center opacity-50 "
       >
         <svg
           id="Layer_1"
@@ -44,9 +44,7 @@
           Hold &amp; drag
         </p>
       </div>
-      <transition appear mode="out-in" :css="false" @before-leave="leavePro">
-        <slider />
-      </transition>
+      <slider />
     </div>
   </transition>
 </template>

@@ -9,6 +9,7 @@
         <div
           v-for="(projet, index) in projets"
           :key="index"
+          ref="projet"
           class="swiper-slide h-full flex flex-col justify-center items-center"
           :class="projet.class"
         >
@@ -19,7 +20,15 @@
                 alt="projet image"
                 class="object-cover h-full w-full"
               />
-              <video ref="video" width="500px" height="auto" loop>
+              <video
+                ref="videos"
+                width="500px"
+                height="auto"
+                loop
+                muted="muted"
+                onmouseover="this.play()"
+                onmouseout="this.pause();this.currentTime=0;"
+              >
                 <source :src="projet.path" type="video/mp4" />
               </video>
             </div>
@@ -63,7 +72,7 @@ export default {
         {
           nb: "PRO",
           nom: "Laforet",
-          class: "projet",
+          class: "laforet video",
           description: "Refonte du site Immobilier",
           href: "/projets/laforet",
           path: require("@/assets/video/laforet.mp4")
@@ -80,7 +89,7 @@ export default {
         {
           nb: "PERSO",
           nom: "Robodico",
-          class: "robodico",
+          class: "robodico video",
           description:
             "Petit site pour tous les robots fictifs de notre enfance",
           href: "/projets/robodico",
@@ -157,16 +166,6 @@ export default {
     //   swiper = initSwiper(direction);
     //   swiper.slideTo(slideIndex, 0);
     // });
-
-    let robodico = document.querySelector(".robodico");
-    let video = document.querySelector(".robodico video");
-
-    robodico.addEventListener("mouseenter", () => {
-      video.play();
-    });
-    robodico.addEventListener("mouseleave", () => {
-      video.pause();
-    });
 
     this.swiper = new Swiper(".swiper-projet", {
       direction: "horizontal",

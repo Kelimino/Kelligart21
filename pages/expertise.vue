@@ -79,7 +79,7 @@
         </div>
       </section>
       <section
-        class="h-footer box-border overflow-hidden"
+        class="h-footer z-40 box-border overflow-hidden bg-gradient-to-t from-blue-200 to-transparent"
         @mouseover="upHere = true"
         @mouseleave="upHere = false"
       >

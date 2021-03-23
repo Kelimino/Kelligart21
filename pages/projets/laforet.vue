@@ -55,36 +55,87 @@
         />
       </section>
       <section
-        class="panel scope h-full w-2/3 flex justify-center items-center"
+        class="panel scope h-full w-1/3 flex justify-center items-center bg-white"
       >
         <div class="enjeux w-2/3  flex flex-col justify-start">
           <h2 class="font-title text-primary text-2xl font-bold">
             Un enjeux digital important
           </h2>
           <p class="font-text text-main text-base mt-3">
-            Dans un marché immobilier saturé et compétitif, il ezt vital d'avoir
-            une présence digitale et appliquer l'expérience utilisateur
+            Dans un marché immobilier saturé et compétitif, il est vital d'avoir
+            une bonne présence digitale et d'optimiser l'expérience utilisateur
           </p>
         </div>
       </section>
 
-      <section class="panel methode h-full w-1/2 flex bg-red-800">
-        <div class="problème">
-          <h2 class="font-title text-primary text-8xl font-bold">
-            Un site WebApp
+      <section class="panel methode h-full p-20 grid grid-cols-2">
+        <div class="probleme">
+          <img
+            src="@/assets/img/projet/laforet.png"
+            alt="old laforet"
+            class=" h-48 w-1/3 object-cover object-top mb-10"
+          />
+          <h2 class="font-title text-primary text-2xl font-bold w-5/6">
+            Un site pas à la hauteur de leur renommée
           </h2>
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+          <ul class="mt-10">
+            <li class="font-text text-main text-base mt-3 flex justif-start">
+              <img
+                src="@/assets/icons/sad.svg"
+                alt="sad"
+                class=" h-6  mr-5"
+              />Une navigation peu intuitive et osbolète
+            </li>
+            <li class="font-text text-main text-base mt-3 flex justif-start">
+              <img
+                src="@/assets/icons/sad.svg"
+                alt="sad"
+                class=" h-6  mr-5"
+              />Une image de marque pas assez affirmée
+            </li>
+            <li class="font-text text-main text-base mt-3 flex justif-start">
+              <img
+                src="@/assets/icons/sad.svg"
+                alt="sad"
+                class=" h-6  mr-5"
+              />Une expérience un peu terne
+            </li>
           </ul>
         </div>
-        <div class="solution">
-          <h2>Un site type webapp</h2>
-          <ul>
-            <li><span>Client</span>Groupe Laforêt</li>
-            <li><span>Rôle</span> UX &amp; UI Designer</li>
-            <li><span>Date</span> 2019</li>
+        <div class="solution ml-20">
+          <img
+            src="@/assets/img/projet/old-laforet.png"
+            alt="old laforet"
+            class=" h-48 w-1/3 object-cover object-top mb-10"
+          />
+          <h2 class="font-title text-primary text-2xl font-bold w-5/6">
+            Un site type webapp qui reprend certains codes de plateformes
+            connues
+          </h2>
+          <ul class="mt-10">
+            <li class="font-text text-main text-base mt-3 flex justif-start">
+              <img
+                src="@/assets/icons/happy.svg"
+                alt="happy"
+                class=" h-6  mr-5"
+              />Un site fluide et performant : SPA, navigation adaptée...
+            </li>
+            <li class="font-text text-main text-base mt-3 flex justif-start">
+              <img
+                src="@/assets/icons/happy.svg"
+                alt="happy"
+                class=" h-6  mr-5"
+              />Une image de marque valorisée : visuel immersifs, espace
+              blanc...
+            </li>
+            <li class="font-text text-main text-base mt-3 flex justif-start">
+              <img
+                src="@/assets/icons/happy.svg"
+                alt="happy"
+                class=" h-6  mr-5"
+              />Un experience personnalisée : Des fonctionnalités, partage,
+              visualisation...
+            </li>
           </ul>
         </div>
       </section>
