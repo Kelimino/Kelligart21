@@ -55,7 +55,7 @@
           </div>
         </div>
         <img
-          src="@/assets/img/projet/laforet.png"
+          src="@/assets/img/projet/laforet/laforet.png"
           alt="laforet"
           class="w-1/3 h-auto object-cover object-top"
         />
@@ -69,7 +69,11 @@
           </h2>
           <p class="font-text text-white text-base mt-3">
             Dans un marché immobilier saturé et compétitif, il est vital d'avoir
-            une bonne présence digitale et d'optimiser l'expérience utilisateur
+            une bonne présence digitale et d'optimiser l'expérience
+            utilisateur.<br /><br />
+            L'essort des agences 100% en ligne et des marketplaces peturbe les
+            agences traditionnelles qui doivent rivaliser et s'adapter aux
+            nouvelles utilisations.
           </p>
         </div>
       </section>
@@ -77,7 +81,7 @@
       <section class="panel methode h-full p-20 grid grid-cols-2">
         <div class="probleme">
           <img
-            src="@/assets/img/projet/old-laforet.png"
+            src="@/assets/img/projet/laforet/old-laforet.png"
             alt="old laforet"
             class=" h-80 w-full object-cover object-top mb-10"
           />
@@ -110,13 +114,12 @@
         </div>
         <div class="solution ml-20">
           <img
-            src="@/assets/img/projet/laforet-home.png"
+            src="@/assets/img/projet/laforet/laforet-home.png"
             alt="old laforet"
             class=" h-80  w-full object-cover object-top mb-10"
           />
           <h2 class="font-title text-primary text-2xl font-bold w-5/6">
-            Un site type webapp qui reprend certains codes de plateformes
-            connues
+            Un site type avec certains codes de webapp
           </h2>
           <ul class="mt-10">
             <li class="font-text text-main text-base mt-3 flex justif-start">
@@ -145,23 +148,66 @@
           </ul>
         </div>
       </section>
-      <section class="panel feeback h-full w-1/2 flex bg-yellow-700">
-        <h2>Un projet d'équipe passionant</h2>
-        <p>Retour sur le projet</p>
+      <section
+        class="panel feeback h-full w-1/3 flex justify-center items-center p-6 bg-white "
+      >
+        <h2 class="font-title text-primary text-8xl font-bold uppercase ">
+          le diable est dans le détail
+        </h2>
       </section>
 
-      <section class=" panel screen h-full w-1/2 flex bg-red-200">
-        <div>
-          <img src="" alt="" />
-          <p>Description du rendu</p>
+      <section
+        class=" panel screen h-full w-2/3 flex flex-row items-center flex-wrap p-10"
+      >
+        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+          <img
+            src="@/assets/img/projet/laforet/search.png"
+            alt="filtre"
+            class="w-full h-28 object-cover object-center"
+          />
+          <p class="font-text text-main text-base mt-3 p-3">
+            Un module de recherche simple, essentiel
+          </p>
         </div>
-        <div>
-          <img src="" alt="" />
-          <p>Description du rendu</p>
+        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+          <img
+            src="@/assets/img/projet/laforet/list.png"
+            alt="filtre"
+            class="w-full h-28 object-cover object-center"
+          />
+          <p class="font-text text-main text-base mt-3 p-3">
+            Une mise en avant des exclusivités Laforêt
+          </p>
         </div>
-        <div>
-          <img src="" alt="" />
-          <p>Description du rendu</p>
+        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+          <img
+            src="@/assets/img/projet/laforet/filter.png"
+            alt="filtre"
+            class="w-full h-28 object-cover object-left"
+          />
+          <p class="font-text text-main text-base mt-3 p-3">
+            Un module de filtres catégorisé selon leur pertinences
+          </p>
+        </div>
+        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+          <img
+            src="@/assets/img/projet/laforet/glance.png"
+            alt="filtre"
+            class="w-full h-28 object-cover object-top"
+          />
+          <p class="font-text text-main text-base mt-3 p-3">
+            Des options de visualisation plus rapide
+          </p>
+        </div>
+        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+          <img
+            src="@/assets/img/projet/laforet/product.png"
+            alt="filtre"
+            class="w-full h-28 object-cover object-center"
+          />
+          <p class="font-text text-main text-base mt-3 p-3">
+            Une page produit claire et immersive
+          </p>
         </div>
       </section>
 
