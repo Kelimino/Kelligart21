@@ -66,7 +66,7 @@ export default {
           class: "projet",
           description: "Refonte du site Immobilier",
           href: "/projets/laforet",
-          path: require("@/assets/img/slider/laforet.png")
+          path: require("@/assets/video/laforet.mp4")
         },
         {
           nb: "PERSO",

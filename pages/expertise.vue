@@ -8,7 +8,7 @@
           <ul class="backlist flex row">
             <li class="w-1/2 mr-2">
               <div
-                class="graphisme w-full mb-2 block transform origin-bottom -translate-y-3/4"
+                class="graphisme w-full mb-2 block transform origin-top -translate-y-3/4"
               >
                 <img
                   v-for="(poster, index) in graphisme"
@@ -34,7 +34,7 @@
         </div>
       </div>
       <section class="expertise grid grid-cols-3">
-        <div class="list-expertise col-span-2 pb-10">
+        <div class="list-expertise col-span-2 pb-20">
           <div class="list-wrapper flex flex-col items-end">
             <section
               class="introexpertise w-5/6 min-h-full h-screen flex flex-col items-start justify-center"
@@ -79,6 +79,35 @@
         </div>
       </section>
       <section
+        class="h-footer box-border overflow-hidden"
+        @mouseover="upHere = true"
+        @mouseleave="upHere = false"
+      >
+        <nuxt-link
+          to="/projets"
+          class="projets-link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
+        >
+          <transition name="fadeImg">
+            <img
+              v-show="upHere"
+              src="@/assets/img/projet-back.png"
+              alt="projets"
+              class="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50"
+            />
+          </transition>
+          <h2 class="text-main text-sm text-center mb-5">
+            Découvrez mes projets : Étude de cas &amp; réalisations
+          </h2>
+          <h3
+            class="text-primary text-6xl inline-flex font-title mr-5 whitespace-nowrap"
+          >
+            Webdesign - Graphisme - UX Design - Branding - Set Design - Logos -
+            Peinture - Poster
+          </h3>
+        </nuxt-link>
+      </section>
+
+      <section
         class="DA-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
       >
         <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
@@ -91,6 +120,41 @@
       </section>
       <section
         class="UX-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+      >
+        <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
+          <img
+            src="@/assets/animation/DA.png"
+            alt=" direction artistique"
+            class="object-cover h-full"
+          />
+        </div>
+      </section>
+      <section
+        class="UI-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+      >
+        <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
+          <img
+            src="@/assets/animation/DA.png"
+            alt=" direction artistique"
+            class="object-cover h-full"
+          />
+        </div>
+      </section>
+
+      <section
+        class="CV-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+      >
+        <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
+          <img
+            src="@/assets/animation/DA.png"
+            alt=" direction artistique"
+            class="object-cover h-full"
+          />
+        </div>
+      </section>
+
+      <section
+        class="DF-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
       >
         <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
           <img
@@ -119,7 +183,7 @@ export default {
           path: require("@/assets/img/tiles/web14.jpg")
         },
         {
-          path: require("@/assets/img/tiles/poster1.jpg")
+          path: require("@/assets/img/tiles/poster3.png")
         },
         {
           path: require("@/assets/img/tiles/web1.png")
@@ -131,7 +195,7 @@ export default {
           path: require("@/assets/img/tiles/web2.jpg")
         },
         {
-          path: require("@/assets/img/tiles/poster3.png")
+          path: require("@/assets/img/tiles/poster1.jpg")
         },
 
         {
@@ -142,7 +206,7 @@ export default {
           path: require("@/assets/img/tiles/poster4.jpg")
         },
         {
-          path: require("@/assets/img/tiles/web4.png")
+          path: require("@/assets/img/tiles/web12.png")
         },
         {
           path: require("@/assets/img/tiles/mural1.jpeg")
@@ -189,7 +253,7 @@ export default {
           path: require("@/assets/img/tiles/mural2.jpeg")
         },
         {
-          path: require("@/assets/img/tiles/web12.png")
+          path: require("@/assets/img/tiles/web4.png")
         },
         {
           path: require("@/assets/img/tiles/web13.jpg")
@@ -296,7 +360,7 @@ export default {
         ".graphisme",
         {
           yPercent: 50,
-          duration: 100,
+          duration: 120,
           ease: "Power2.easeOut"
         },
         "<"
@@ -305,7 +369,7 @@ export default {
         ".web",
         {
           yPercent: -50,
-          duration: 100,
+          duration: 120,
           ease: "Power2.easeOut"
         },
         "<"
@@ -339,10 +403,51 @@ export default {
       duration: 0.5,
       ease: "Power2.ease-In"
     });
+
+    let slideInUi = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".UI",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideInUi.to(".UI-img", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
+    });
+
+    let slideInCv = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".CV",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideInCv.to(".CV-img", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
+    });
+
+    let slideInDf = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".DF",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideInDf.to(".DF-img", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
+    });
   },
   methods: {
     leaveEx: function(el, done) {
-      console.log(el);
       done();
     }
   }

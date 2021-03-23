@@ -21,6 +21,9 @@ module.exports = {
       },
       fontSize: {
         "12xl": "10rem"
+      },
+      height: {
+        footer: "400px"
       }
     }
   },

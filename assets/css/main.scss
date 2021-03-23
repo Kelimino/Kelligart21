@@ -253,7 +253,7 @@ body {
 }
 
 /*-----EXPERTISE LINKS ANIMATION-----*/
-.expertise-link h3 {
+.expertise-link h3{
   animation: linksMove 10s linear infinite;
   
 }
@@ -266,6 +266,19 @@ body {
   }
 }
 
+.projets-link h3{
+  animation: linksMove 10s linear infinite;
+  
+}
+@keyframes linksMove {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translateX(calc(-100% + 55%));
+  }
+}
+
 .fadeImg-enter-active,
 .fadeImg-leave-active {
     transition: all 1.2s;
@@ -274,7 +287,7 @@ body {
 .fadeImg-enter,
 .fadeImg-leave-to {
     opacity: 0;
-    transform:  translate(-50%, -50%) scale(0.9);
+    transform:  translate(-50%, 20%) scale(0.9);
     transform-origin: center;
 }
 /*-----Toggle Dark Thème-----*/

@@ -1,10 +1,10 @@
 <template>
   <transition
-    appear
     mode="out-in"
     :css="false"
-    @before-enter="beforeEnterPage"
-    @enter="enterPage"
+    @before-enter="beforeEnterProjet"
+    @enter="enterProjet"
+    @leave="leaveProjet"
   >
     <div id="projets relative ">
       <div
@@ -58,19 +58,19 @@ export default {
     slider
   },
   methods: {
-    beforeEnterPage: el => {
-      el.style.transform = "translateY(3%)";
+    beforeEnterProjet: el => {
+      el.style.transform = "translateY(5%)";
       el.style.opacity = "0";
       el.style.transition = "all 0.6s ease-out";
     },
-    enterPage: (el, done) => {
+    enterProjet: (el, done) => {
       el.style.transform = "translateY(0%)";
       el.style.opacity = "1";
       el.style.transition = "all 0.6s ease-out";
       done();
     },
-    leavePro: function(done) {
-      console.log("Leave projet");
+    leaveProjet: function(el, done) {
+      el.style.opacity = "0";
       done();
     }
   }

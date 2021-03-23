@@ -1,5 +1,5 @@
 <template>
-  <transition appear mode="in-out" :css="false" @enter="enterTitle">
+  <transition appear :css="false" mode="out-in" @enter="enterTitle">
     <div id="accompagnement">
       <section
         class="couverture w-8/12 mx-auto h-screen flex flex-col text-center justify-center items-center"
@@ -55,10 +55,10 @@
           </div>
 
           <div
-            class="question relative h-1/6 overflow-x-visible bg-back transition-all ease-in-out"
+            class="question relative h-1/6 overflow-x-visible transition-all ease-in-out"
           >
             <h3
-              class="absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-5xl font-light italic"
+              class="absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-5xl font-light italic bg-primary bg-opacity-10 p-5"
             >
               {{ story.question }}
             </h3>
@@ -169,7 +169,7 @@
         </div>
       </section>
       <section
-        class="h-96 box-border"
+        class=" h-footer box-border overflow-hidden"
         @mouseover="upHere = true"
         @mouseleave="upHere = false"
       >
@@ -258,9 +258,10 @@ export default {
       ]
     };
   },
-
-  //
   mounted() {
+    let xTo = document.querySelector(".story").offsetWidth;
+    console.log(xTo);
+
     gsap.utils.toArray(".page").forEach(el => {
       let Qa = gsap.timeline({
         scrollTrigger: {
@@ -270,7 +271,7 @@ export default {
           toggleActions: "play restart play reset"
         }
       });
-      Qa.fromTo(".question h3", { xPercent: 250 }, { xPercent: -250 }).to(el, {
+      Qa.fromTo(".question h3", { x: xTo }, { x: -xTo }).to(el, {
         autoAlpha: 0
       });
     });
@@ -359,3 +360,16 @@ export default {
   }
 };
 </script>
+<style scoped>
+.left-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.left-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.left-fade-enter, .left-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+</style>
