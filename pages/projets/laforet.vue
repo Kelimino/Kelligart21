@@ -212,7 +212,7 @@
       </section>
 
       <section class=" panel next w-full">
-        <nuxt-link to="goall">
+        <nuxt-link to="/projets/spall">
           <h3>Goall</h3>
           <p>Design concept sur une plateforme de streaming</p></nuxt-link
         >
