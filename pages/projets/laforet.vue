@@ -19,6 +19,12 @@
         /></svg
       >Projets</nuxt-link
     >
+    <a
+      href="https://www.laforet.com/"
+      target="_blank"
+      class="fixed bottom-10 left-10 z-50 w-20 h-20 p-4 cursor-pointer bg-primary rounded-full flex justify-center text-base text-white"
+      ><img src="@/assets/icons/laptop.svg" alt="site internet"
+    /></a>
     <div class="container-scroll h-screen flex flex-col flex-wrap">
       <section class="panel intro w-full h-full flex">
         <div
@@ -49,19 +55,19 @@
           </div>
         </div>
         <img
-          src="@/assets/img/projet/Laforêt.png"
+          src="@/assets/img/projet/laforet.png"
           alt="laforet"
           class="w-1/3 h-auto object-cover object-top"
         />
       </section>
       <section
-        class="panel scope h-full w-1/3 flex justify-center items-center bg-white"
+        class="panel scope h-full w-1/3 flex justify-center items-center bg-primary"
       >
         <div class="enjeux w-2/3  flex flex-col justify-start">
-          <h2 class="font-title text-primary text-2xl font-bold">
+          <h2 class="font-title text-white text-2xl font-bold">
             Un enjeux digital important
           </h2>
-          <p class="font-text text-main text-base mt-3">
+          <p class="font-text text-white text-base mt-3">
             Dans un marché immobilier saturé et compétitif, il est vital d'avoir
             une bonne présence digitale et d'optimiser l'expérience utilisateur
           </p>
@@ -71,9 +77,9 @@
       <section class="panel methode h-full p-20 grid grid-cols-2">
         <div class="probleme">
           <img
-            src="@/assets/img/projet/laforet.png"
+            src="@/assets/img/projet/old-laforet.png"
             alt="old laforet"
-            class=" h-48 w-1/3 object-cover object-top mb-10"
+            class=" h-80 w-full object-cover object-top mb-10"
           />
           <h2 class="font-title text-primary text-2xl font-bold w-5/6">
             Un site pas à la hauteur de leur renommée
@@ -104,9 +110,9 @@
         </div>
         <div class="solution ml-20">
           <img
-            src="@/assets/img/projet/old-laforet.png"
+            src="@/assets/img/projet/laforet-home.png"
             alt="old laforet"
-            class=" h-48 w-1/3 object-cover object-top mb-10"
+            class=" h-80  w-full object-cover object-top mb-10"
           />
           <h2 class="font-title text-primary text-2xl font-bold w-5/6">
             Un site type webapp qui reprend certains codes de plateformes
@@ -125,7 +131,7 @@
                 src="@/assets/icons/happy.svg"
                 alt="happy"
                 class=" h-6  mr-5"
-              />Une image de marque valorisée : visuel immersifs, espace
+              />Une image de marque valorisée : visuels immersifs, espace
               blanc...
             </li>
             <li class="font-text text-main text-base mt-3 flex justif-start">
@@ -133,7 +139,7 @@
                 src="@/assets/icons/happy.svg"
                 alt="happy"
                 class=" h-6  mr-5"
-              />Un experience personnalisée : Des fonctionnalités, partage,
+              />Un experience personnalisée : fonctionnalités de partage, de
               visualisation...
             </li>
           </ul>
