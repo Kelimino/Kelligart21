@@ -166,7 +166,7 @@
             class="w-full h-40 object-cover object-center"
           />
           <p class="font-text text-main text-base mt-3 p-3">
-            Un module de recherche simple, essentiel
+            Un module de recherche simple, juste l'essentiel
           </p>
         </div>
         <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
@@ -176,7 +176,7 @@
             class="w-full h-40 object-cover object-center"
           />
           <p class="font-text text-main text-base mt-3 p-3">
-            Une mise en avant des exclusivités Laforêt
+            Un listing à cartes hiérarchisé et personnalisé
           </p>
         </div>
         <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
@@ -186,7 +186,7 @@
             class="w-full h-40 object-cover object-left"
           />
           <p class="font-text text-main text-base mt-3 p-3">
-            Un module de filtres catégorisé selon leur pertinences
+            Un module de filtres catégorisés selon leur pertinences
           </p>
         </div>
         <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
@@ -228,6 +228,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "Laforet",
+  beforeMount() {
+    ScrollTrigger.refresh();
+  },
   mounted() {
     this.$nextTick(() => {
       let container = document.querySelector(".container-scroll");
