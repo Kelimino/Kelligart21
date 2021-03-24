@@ -1,7 +1,7 @@
 <template>
   <div class=" bg-back">
     <Nav />
-    <transition appear mode="out-in" :css="false" @leave="Leave">
+    <transition appear mode="out-in" :css="false" @before-enter="beforeEnter">
       <router-view :key="$route.path" />
     </transition>
     <Loader />
@@ -23,7 +23,7 @@ export default {
   },
   mounted() {},
   methods: {
-    Leave: (el, done) => {
+    beforeEnter: () => {
       let Transition = gsap.timeline({
         delay: 0.2,
         repeat: 0,
@@ -84,8 +84,7 @@ export default {
           transformOrigin: "top",
           height: "0vh",
           top: -100,
-          autoAlpha: 0,
-          onComplete: done
+          autoAlpha: 0
         });
       function Done() {
         Transition.pause();

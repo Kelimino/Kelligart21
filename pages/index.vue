@@ -55,16 +55,12 @@ export default {
         opacity: 0.5,
         ease: "none"
       })
-      .to(
-        ".sliderHome",
-        {
-          scale: 1,
-          autoAlpha: 1,
-          ease: "Power2.easeIn",
-          duration: 1
-        },
-        "<"
-      );
+      .to(".sliderHome", {
+        scale: 1,
+        autoAlpha: 1,
+        ease: "Power2.easeIn",
+        duration: 1
+      });
   }
 };
 </script>

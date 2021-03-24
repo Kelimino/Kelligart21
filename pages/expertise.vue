@@ -8,7 +8,7 @@
           <ul class="backlist flex row">
             <li class="w-1/2 mr-2">
               <div
-                class="graphisme w-full mb-2 block transform origin-top -translate-y-3/4"
+                class="graphisme w-full mb-2 block transform origin-bottom -translate-y-3/4"
               >
                 <img
                   v-for="(poster, index) in graphisme"
@@ -345,15 +345,22 @@ export default {
     //BACK TILE ANIMATION
     let backTile = gsap.timeline({
       repeat: -1,
-      yoyo: true
+      yoyo: true,
+      onComplete: Done,
+      ScrollTrigger: {
+        trigger: ".introexpertise",
+        start: "top top"
+      }
     });
     backTile
+      .progress(0)
+      .play()
       .to(
         ".graphisme",
         {
           yPercent: 50,
           duration: 120,
-          ease: "Power2.easeOut"
+          ease: "none"
         },
         "<"
       )
@@ -362,10 +369,14 @@ export default {
         {
           yPercent: -50,
           duration: 120,
-          ease: "Power2.easeOut"
+          ease: "none"
         },
         "<"
       );
+    function Done() {
+      backTile.pause();
+      backTile.progress(0);
+    }
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     let slideInDa = gsap.timeline({
       scrollTrigger: {
