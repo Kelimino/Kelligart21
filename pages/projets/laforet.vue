@@ -228,9 +228,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "Laforet",
-  beforeMount() {
-    ScrollTrigger.refresh();
-  },
   mounted() {
     this.$nextTick(() => {
       let container = document.querySelector(".container-scroll");

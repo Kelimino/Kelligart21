@@ -1,19 +1,24 @@
 <template>
-  <div ref="swipCont" class="swiper-home swiper-container mt-5">
+  <div ref="swipCont" class="swiper-home swiper-container mt-5 h-full w-full">
     <div class="swiper-wrapper">
       <div
         v-for="(page, index) in pages"
         :key="index"
-        class="swiper-slide relative overflow-hidden p-8 bg-white"
+        class="swiper-slide relative overflow-hidden  h-full bg-main "
       >
-        <nuxt-link :to="page.href" class="p-20  ">
+        <nuxt-link
+          :to="page.href"
+          class="h-full flex flex-col justify-end items-center"
+        >
           <img
             :src="page.path"
             alt="page image"
-            class="absolute object-cover w-full h-full top-0 left-0"
+            class="absolute object-cover w-full h-full top-0 left-0 opacity-0"
           />
-          <div class="content-page z-10 relative">
-            <h2 class="font-title text-primary text-4xl font-bold">
+          <div
+            class="content-page w-full h-full pb-10 z-10 relative text-center flex flex-col justify-end items-center bg-gradient-to-t from-back "
+          >
+            <h2 class="font-title text-primary text-5xl font-bold">
               {{ page.nom }}
             </h2>
             <p class="font-text text-main text-base mt-3 ">
@@ -47,7 +52,7 @@ export default {
           nom: "Expertise",
           description: "Domaines & prestations",
           href: "/expertise",
-          path: require("@/assets/img/acomp-back.png")
+          path: require("@/assets/img/projet-back.png")
         },
         {
           nom: "Projets",
@@ -69,8 +74,7 @@ export default {
     this.swiper = new Swiper(".swiper-home", {
       loop: true,
       slidesPerView: "3",
-      spaceBetween: 10,
-      centeredSlides: true,
+      spaceBetween: 100,
       resistanceRatio: 0.5,
       longSwipes: true,
       longSwipesRatio: 0.5,
