@@ -343,10 +343,6 @@ export default {
       });
 
     //BACK TILE ANIMATION
-
-    // gsap.utils.toArray(".skill").forEach(() => {
-    // })
-
     let backTile = gsap.timeline({
       repeat: -1,
       yoyo: true,
@@ -451,6 +447,10 @@ export default {
       duration: 0.5,
       ease: "Power2.ease-In"
     });
+  },
+
+  beforeDestroy() {
+    this.backTile.pause().kill();
   },
   methods: {
     leaveEx: function(el, done) {

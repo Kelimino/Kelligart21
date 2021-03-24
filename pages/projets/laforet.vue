@@ -248,6 +248,9 @@ export default {
         }
       });
     });
+  },
+  beforeDestroy() {
+    this.gsap.pause().kill();
   }
 };
 </script>
