@@ -79,7 +79,7 @@
         </div>
       </section>
       <section
-        class="h-footer z-40 box-border overflow-hidden bg-gradient-to-t from-blue-200 to-transparent"
+        class="h-footer z-40 box-border overflow-hidden"
         @mouseover="upHere = true"
         @mouseleave="upHere = false"
       >
@@ -353,9 +353,12 @@ export default {
       scrollTrigger: {
         trigger: "introexpertise",
         start: "top top"
-      }
+      },
+      onComplete: Done
     });
     backTile
+      .progress(0)
+      .play()
       .to(
         ".graphisme",
         {
@@ -374,7 +377,10 @@ export default {
         },
         "<"
       );
-
+    function Done() {
+      backTile.pause();
+      backTile.progress(0);
+    }
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     let slideInDa = gsap.timeline({
       scrollTrigger: {

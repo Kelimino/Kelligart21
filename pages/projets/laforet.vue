@@ -157,53 +157,53 @@
       </section>
 
       <section
-        class=" panel screen h-full w-2/3 flex flex-row items-center flex-wrap p-10"
+        class=" panel screen h-full w-full flex flex-row items-center flex-wrap p-10"
       >
-        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
           <img
             src="@/assets/img/projet/laforet/search.png"
             alt="filtre"
-            class="w-full h-28 object-cover object-center"
+            class="w-full h-40 object-cover object-center"
           />
           <p class="font-text text-main text-base mt-3 p-3">
             Un module de recherche simple, essentiel
           </p>
         </div>
-        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
           <img
             src="@/assets/img/projet/laforet/list.png"
             alt="filtre"
-            class="w-full h-28 object-cover object-center"
+            class="w-full h-40 object-cover object-center"
           />
           <p class="font-text text-main text-base mt-3 p-3">
             Une mise en avant des exclusivités Laforêt
           </p>
         </div>
-        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
           <img
             src="@/assets/img/projet/laforet/filter.png"
             alt="filtre"
-            class="w-full h-28 object-cover object-left"
+            class="w-full h-40 object-cover object-left"
           />
           <p class="font-text text-main text-base mt-3 p-3">
             Un module de filtres catégorisé selon leur pertinences
           </p>
         </div>
-        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
           <img
             src="@/assets/img/projet/laforet/glance.png"
             alt="filtre"
-            class="w-full h-28 object-cover object-top"
+            class="w-full h-40 object-cover object-top"
           />
           <p class="font-text text-main text-base mt-3 p-3">
             Des options de visualisation plus rapide
           </p>
         </div>
-        <div class="ui w-60 h-60 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
           <img
             src="@/assets/img/projet/laforet/product.png"
             alt="filtre"
-            class="w-full h-28 object-cover object-center"
+            class="w-full h-40 object-cover object-center"
           />
           <p class="font-text text-main text-base mt-3 p-3">
             Une page produit claire et immersive

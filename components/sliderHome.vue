@@ -4,7 +4,7 @@
       <div
         v-for="(page, index) in pages"
         :key="index"
-        class="swiper-slide relative overflow-hidden p-8"
+        class="swiper-slide relative overflow-hidden p-8 bg-white"
       >
         <nuxt-link :to="page.href" class="p-20  ">
           <img
@@ -40,22 +40,26 @@ export default {
         {
           nom: "Accompagnement",
           description: "Méthode et process de travail",
-          href: "/accompagnement"
+          href: "/accompagnement",
+          path: require("@/assets/img/acomp-back.png")
         },
         {
           nom: "Expertise",
           description: "Domaines & prestations",
-          href: "/expertise"
+          href: "/expertise",
+          path: require("@/assets/img/acomp-back.png")
         },
         {
           nom: "Projets",
           description: "Étude de cas & réalisations",
-          href: "/projets"
+          href: "/projets",
+          path: require("@/assets/img/acomp-back.png")
         },
         {
           nom: "A propos",
           description: "Personnalité & expériences",
-          href: "/about"
+          href: "/about",
+          path: require("@/assets/img/acomp-back.png")
         }
       ]
     };
@@ -65,6 +69,7 @@ export default {
     this.swiper = new Swiper(".swiper-home", {
       loop: true,
       slidesPerView: "3",
+      spaceBetween: 10,
       centeredSlides: true,
       resistanceRatio: 0.5,
       longSwipes: true,
