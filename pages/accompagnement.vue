@@ -171,7 +171,7 @@
       @mouseleave="upHere = false"
     >
       <nuxt-link
-        to="expertise"
+        to="/expertise"
         class="expertise-link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
         <transition name="fadeImg">
