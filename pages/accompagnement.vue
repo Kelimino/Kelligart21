@@ -20,50 +20,50 @@
         />
       </p>
     </section>
-
-    <div class="story w-4/6 mx-auto">
-      <section
-        v-for="(story, index) in stories"
-        :key="index"
-        class="storyblock h-screen"
-        :class="story.class"
-      >
-        <div class="page-wrapper grid grid-cols-2 h-5/6 bg-white">
-          <div class="cover bg-primary h-full absolute"></div>
-          <div
-            class="page illustration border border-solid border-primary border-opacity-30 flex justify-center items-center relative"
-          >
-            <div class="imgwrap w-5/6 h-5/6 mx-auto relative">
-              <img
-                :src="story.path"
-                alt="illustration"
-                class="absolute top-0 left-0 object-contain w-full h-full"
-              />
+    <div class="story-wrapper w-full overflow-x-hidden ">
+      <div class="story w-4/6 mx-auto">
+        <section
+          v-for="(story, index) in stories"
+          :key="index"
+          class="storyblock h-screen"
+          :class="story.class"
+        >
+          <div class="page-wrapper grid grid-cols-2 h-5/6 bg-white">
+            <div class="cover bg-primary h-full absolute"></div>
+            <div
+              class="page illustration border border-solid border-primary border-opacity-30 flex justify-center items-center relative"
+            >
+              <div class="imgwrap w-5/6 h-5/6 mx-auto relative">
+                <img
+                  :src="story.path"
+                  alt="illustration"
+                  class="absolute top-0 left-0 object-contain w-full h-full"
+                />
+              </div>
+            </div>
+            <div
+              class="page chapitre border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative p-20 text-left"
+            >
+              <h2 class="font-title text-primary text-2xl font-bold">
+                {{ story.titre }}
+              </h2>
+              <h4 class="font-text text-main text-base mt-3">
+                {{ story.texte }}
+              </h4>
             </div>
           </div>
-          <div
-            class="page chapitre border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative p-20 text-left"
-          >
-            <h2 class="font-title text-primary text-2xl font-bold">
-              {{ story.titre }}
-            </h2>
-            <h4 class="font-text text-main text-base mt-3">
-              {{ story.texte }}
-            </h4>
-          </div>
-        </div>
 
-        <div
-          class="question relative h-1/6 overflow-x-visible transition-all ease-in-out"
-        >
-          <h3
-            class="absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-5xl font-light italic bg-primary bg-opacity-10 p-5"
-          >
-            {{ story.question }}
-          </h3>
-        </div>
-      </section>
+          <div class="question  relative h-1/6 transition-all ease-in-out">
+            <h3
+              class="absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-5xl font-light italic bg-primary bg-opacity-10 p-5"
+            >
+              {{ story.question }}
+            </h3>
+          </div>
+        </section>
+      </div>
     </div>
+
     <section class="board h-screen flex justify-center items-center">
       <div class="board-wrapper relative w-full h-full">
         <div
@@ -284,8 +284,6 @@ export default {
       }, "-=0.5")
       .from(".couverture p", { autoAlpha: 0, scale: 0.9, duration: 1 }, "+=1");
 
-    let xTo = document.querySelector(".story").offsetWidth;
-
     gsap.utils.toArray(".page").forEach(el => {
       let Qa = gsap.timeline({
         scrollTrigger: {
@@ -295,7 +293,7 @@ export default {
           toggleActions: "play restart play reset"
         }
       });
-      Qa.fromTo(".question h3", { x: xTo }, { x: -xTo }).to(el, {
+      Qa.fromTo(".question h3", { x: 1000 }, { x: -1000 }).to(el, {
         autoAlpha: 0
       });
     });
