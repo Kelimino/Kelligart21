@@ -4,7 +4,7 @@
       <div
         v-for="(page, index) in pages"
         :key="index"
-        class="swiper-slide relative overflow-hidden bg-white"
+        class="swiper-slide relative overflow-hidden p-8"
       >
         <nuxt-link :to="page.href" class="p-20  ">
           <img
@@ -12,22 +12,8 @@
             alt="page image"
             class="absolute object-cover w-full h-full top-0 left-0"
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            class="absolute top-5 right-5 transform rotate-45"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              stroke="#3451be"
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
           <div class="content-page z-10 relative">
-            <h2 class="font-title text-primary text-2xl font-bold">
+            <h2 class="font-title text-primary text-4xl font-bold">
               {{ page.nom }}
             </h2>
             <p class="font-text text-main text-base mt-3 ">
@@ -54,26 +40,22 @@ export default {
         {
           nom: "Accompagnement",
           description: "Méthode et process de travail",
-          href: "/accompagnement",
-          path: require("@/assets/img/acomp-back.png")
+          href: "/accompagnement"
         },
         {
           nom: "Expertise",
           description: "Domaines & prestations",
-          href: "/expertise",
-          path: require("@/assets/img/projet-back.png")
+          href: "/expertise"
         },
         {
           nom: "Projets",
           description: "Étude de cas & réalisations",
-          href: "/projets",
-          path: require("@/assets/img/projet-back.png")
+          href: "/projets"
         },
         {
           nom: "A propos",
           description: "Personnalité & expériences",
-          href: "/about",
-          path: require("@/assets/img/projet-back.png")
+          href: "/about"
         }
       ]
     };

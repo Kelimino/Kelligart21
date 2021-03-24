@@ -1,7 +1,7 @@
 <template>
   <div id="laforet">
     <nuxt-link
-      class="fixed top-16 left-40 z-50 flex justify-center text-primary"
+      class="fixed top-16 left-40 z-30 flex justify-center text-primary"
       to="/projets"
       ><svg
         xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@
     <a
       href="https://www.laforet.com/"
       target="_blank"
-      class="fixed bottom-10 left-10 z-50 w-20 h-20 p-4 cursor-pointer bg-primary rounded-full flex justify-center text-base text-white"
+      class="fixed bottom-10 left-10 z-30 w-20 h-20 p-4 cursor-pointer bg-primary rounded-full flex justify-center text-base text-white"
       ><img src="@/assets/icons/laptop.svg" alt="site internet"
     /></a>
     <div class="container-scroll h-screen flex flex-col flex-wrap">
