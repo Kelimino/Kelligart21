@@ -345,16 +345,9 @@ export default {
     //BACK TILE ANIMATION
     let backTile = gsap.timeline({
       repeat: -1,
-      yoyo: true,
-      scrollTrigger: {
-        trigger: "introexpertise",
-        start: "top top"
-      },
-      onComplete: Done
+      yoyo: true
     });
     backTile
-      .progress(0)
-      .play()
       .to(
         ".graphisme",
         {
@@ -373,10 +366,6 @@ export default {
         },
         "<"
       );
-    function Done() {
-      backTile.pause();
-      backTile.progress(0);
-    }
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     let slideInDa = gsap.timeline({
       scrollTrigger: {
