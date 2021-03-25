@@ -183,11 +183,10 @@ export default {
   },
 
   head: {
-    title: "Kelligart, Directeur Artistique & creative Designer",
+    title: "Kelligart, Directeur Artistique & Creative Designer",
     meta: [
       {
-        hid: "description",
-        name: "Directeur Artistique & creative Designer",
+        name: "Directeur Artistique & Creative Designer",
         content: "Portfolio de Kellig jourdren, designer basé à Rennes"
       }
     ]

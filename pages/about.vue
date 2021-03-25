@@ -7,6 +7,16 @@
 
 <script>
 export default {
-  name: "About"
+  name: "About",
+  head: {
+    titleTemplate: "%s - À propos",
+    meta: [
+      {
+        name: "À propos",
+        content:
+          "Kelligart, kellig jourdren, Directeur Artistique & Creative Designer basé à Rennes "
+      }
+    ]
+  }
 };
 </script>

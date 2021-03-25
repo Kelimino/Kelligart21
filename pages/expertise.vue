@@ -352,9 +352,9 @@ export default {
     titleTemplate: "%s - Expertise",
     meta: [
       {
-        hid: "description",
-        name: "Directeur Artistique & creative Designer",
-        content: "Portfolio de Kellig jourdren, designer basé à Rennes"
+        name: "Expertise",
+        content:
+          "Direction Artistique, Expérience utilisateur, Design d'interfaces, Communication Visuelle, Développement Front "
       }
     ]
   },

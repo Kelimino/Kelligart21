@@ -62,6 +62,15 @@ export default {
       console.log("leaveProjet");
       done();
     }
+  },
+  head: {
+    titleTemplate: "%s - Projets",
+    meta: [
+      {
+        name: "Projets",
+        content: "UX Design, Webdesign, Graphisme, logo, Théâtre, Peinture "
+      }
+    ]
   }
 };
 </script>
