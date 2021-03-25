@@ -222,8 +222,9 @@ export default {
       .from(".navitem ", {
         autoAlpha: 0,
         y: 20,
-        stagger: 0.1
-      });
+        stagger: 0.2
+      }),
+      "-=0.5";
     tween.reversed(true);
 
     document.querySelector(".logo").addEventListener("click", openNav);

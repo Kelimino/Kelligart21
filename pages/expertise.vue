@@ -79,8 +79,8 @@
     </section>
     <section
       class="h-footer z-40 box-border overflow-hidden"
-      @mouseover="upHere = true"
-      @mouseleave="upHere = false"
+      @mouseover="onHover = true"
+      @mouseleave="onHover = false"
     >
       <nuxt-link
         to="/projets"
@@ -88,7 +88,7 @@
       >
         <transition name="fadeImg">
           <img
-            v-show="upHere"
+            v-show="onHover"
             src="@/assets/img/projet-back.png"
             alt="projets"
             class="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50"
@@ -174,8 +174,48 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   name: "Expertise",
   scrollToTop: true,
+
+  transition: {
+    mode: "out-in",
+    css: false,
+    beforeEnter() {
+      console.log("beforeEnterExpertise");
+    },
+    enter(el, done) {
+      //TITLE INTRO ANIMATION
+      console.log("enterexpertise");
+      let inT = gsap.timeline({});
+      inT
+        .from(".p-first", {
+          y: -20,
+          autoAlpha: 0,
+          ease: "Power3.easeOut"
+        })
+        .from(".introexpertise h1 span", {
+          autoAlpha: 0,
+          y: -20,
+          skewX: -10,
+          stagger: {
+            each: 1
+          }
+        })
+        .from(".p-second", {
+          autoAlpha: 0,
+          scale: 0.9,
+          duration: 1,
+          ease: "Power3.easeOut",
+          onComplete: done
+        });
+
+      done();
+    },
+    leave(el, done) {
+      done();
+    }
+  },
   data() {
     return {
+      onHover: false,
       graphisme: [
         {
           path: require("@/assets/img/tiles/web14.jpg")
@@ -315,30 +355,6 @@ export default {
     };
   },
   mounted() {
-    //TITLE INTRO ANIMATION
-
-    let inT = gsap.timeline({});
-    inT
-      .from(".p-first", {
-        y: -20,
-        autoAlpha: 0,
-        ease: "Power3.easeOut"
-      })
-      .from(".introexpertise h1 span", {
-        autoAlpha: 0,
-        y: -20,
-        skewX: -10,
-        stagger: {
-          each: 1
-        }
-      })
-      .from(".p-second", {
-        autoAlpha: 0,
-        scale: 0.9,
-        duration: 1,
-        ease: "Power3.easeOut"
-      });
-
     //BACK TILE ANIMATION
     let backTile = gsap.timeline({
       repeat: -1,
@@ -444,10 +460,6 @@ export default {
       duration: 0.5,
       ease: "Power2.ease-In"
     });
-  },
-
-  beforeDestroy() {
-    this.backTile.pause().kill();
   }
 };
 </script>

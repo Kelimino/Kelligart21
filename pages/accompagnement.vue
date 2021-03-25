@@ -192,6 +192,53 @@ export default {
   name: "Accompagnement",
   scrollToTop: true,
 
+  transition: {
+    mode: "out-in",
+    css: false,
+    beforeEnter() {
+      console.log("beforeEnterAccompagnement");
+    },
+    enter(el, done) {
+      let text = document.querySelector(".Dsg");
+      text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+      let Title = document.querySelector(".Dsg");
+      let TGB = gsap.timeline({ delay: 0.3 });
+      TGB.from(".Nst", {
+        autoAlpha: 0,
+        y: 10,
+        duration: 1
+      })
+        .from(
+          ".Dsg span ",
+          {
+            autoAlpha: 0,
+            color: "#000",
+            y: -50,
+            duration: 1.5,
+            stagger: {
+              each: 0.1,
+              from: "center"
+            }
+          },
+          "+=0.2"
+        )
+        .add(function() {
+          Title.classList.add("I-anim");
+        }, "-=0.5")
+        .from(
+          ".couverture p",
+          { autoAlpha: 0, scale: 0.9, duration: 1 },
+          "+=1"
+        );
+
+      done();
+    },
+    leave(el, done) {
+      done();
+    }
+  },
+
   data() {
     return {
       upHere: false,
@@ -240,35 +287,6 @@ export default {
     };
   },
   mounted() {
-    let text = document.querySelector(".Dsg");
-    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
-
-    let Title = document.querySelector(".Dsg");
-    let TGB = gsap.timeline({ delay: 0.3 });
-    TGB.from(".Nst", {
-      autoAlpha: 0,
-      y: 10,
-      duration: 1
-    })
-      .from(
-        ".Dsg span ",
-        {
-          autoAlpha: 0,
-          color: "#000",
-          y: -50,
-          duration: 1.5,
-          stagger: {
-            each: 0.1,
-            from: "center"
-          }
-        },
-        "+=0.2"
-      )
-      .add(function() {
-        Title.classList.add("I-anim");
-      }, "-=0.5")
-      .from(".couverture p", { autoAlpha: 0, scale: 0.9, duration: 1 }, "+=1");
-
     gsap.utils.toArray(".page").forEach(el => {
       let Qa = gsap.timeline({
         scrollTrigger: {
@@ -328,16 +346,3 @@ export default {
   }
 };
 </script>
-<style scoped>
-.left-fade-enter-active {
-  transition: all 0.3s ease;
-}
-.left-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.left-fade-enter, .left-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
-</style>

@@ -29,7 +29,7 @@
     </section>
 
     <section
-      class="absolute bottom-0 left-0 w-full flex justify-center items-center "
+      class="absolute bottom-0 left-0 w-full flex justify-center items-center opacity-50 "
     >
       <ul class="flex justify-center items-center ">
         <li class="list-none mr-3 w-48 h-64 overflow-hidden">
@@ -83,22 +83,103 @@
         </li>
       </ul>
     </section>
+    <Loader />
   </div>
 </template>
 
 <script>
 import { gsap } from "gsap";
+import Loader from "/components/loader";
 export default {
   name: "Accueil",
-  data() {
-    return {};
+
+  components: {
+    Loader
   },
-  mounted() {
-    let introIndex = gsap.timeline({ repeat: 0 });
-    introIndex
-      .from(".bienvenue h1", { y: 20, autoAlpha: 0 })
-      .from(".bienvenue p", { y: 20, autoAlpha: 0 })
-      .from(".accompagnement-link", { y: 20, autoAlpha: 0 });
+  transition: {
+    mode: "out-in",
+    css: false,
+    beforeEnter() {
+      console.log("beforeEnterHome");
+    },
+    enter(el, done) {
+      let introIndex = gsap.timeline({ repeat: 0 });
+      introIndex
+        .from(".bienvenue h1", { y: 20, autoAlpha: 0 })
+        .from(".bienvenue p", { y: 20, autoAlpha: 0 })
+        .from(".accompagnement-link", { y: 20, autoAlpha: 0 });
+      done();
+    },
+    leave(el, done) {
+      console.log("leaveHome");
+      let Transition = gsap.timeline({
+        delay: 0.2,
+        repeat: 0,
+        yoyo: true,
+        onComplete: Done
+      });
+      Transition.progress(0)
+        .play()
+        .fromTo(
+          ".loader",
+          { bottom: 0, height: "0vh" },
+          {
+            transformOrigin: "bottom",
+            top: 0,
+            height: "100vh"
+          }
+        )
+        .fromTo(
+          ".content-wrap",
+          { bottom: 0, height: "0vh" },
+          {
+            transformOrigin: "bottom",
+            top: 0,
+            height: "100vh"
+          }
+        )
+        .fromTo(
+          ".count",
+          {
+            stagger: {
+              each: 0.05
+            },
+            y: 5,
+            autoAlpha: 0
+          },
+          {
+            stagger: {
+              each: 0.1
+            },
+            y: 0,
+            autoAlpha: 1
+          }
+        )
+        .to(".count", {
+          stagger: {
+            each: 0.05
+          },
+          y: -20,
+          autoAlpha: 0
+        })
+        .to(".content-wrap", {
+          transformOrigin: "top",
+          height: "0vh",
+          top: -100,
+          autoAlpha: 0
+        })
+        .to(".loader", {
+          transformOrigin: "top",
+          height: "0vh",
+          top: -100,
+          autoAlpha: 0,
+          onComplete: done
+        });
+      function Done() {
+        Transition.pause();
+        Transition.progress(0);
+      }
+    }
   }
 };
 </script>
