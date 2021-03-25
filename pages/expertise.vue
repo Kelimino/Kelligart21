@@ -184,7 +184,7 @@ export default {
     enter(el, done) {
       //TITLE INTRO ANIMATION
       console.log("enterexpertise");
-      let inT = gsap.timeline({ delay: 0.3 });
+      let inT = gsap.timeline({ delay: 0.5 });
       inT
         .from(".p-first", {
           y: -20,

@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen  flex flex-col justify-center relative ">
+  <div class="h-screen flex flex-col justify-center relative">
     <section
-      class="bienvenue w-8/12 h-full mx-auto flex flex-col justify-center items-center z-10 "
+      class="bienvenue w-8/12 h-full mx-auto flex flex-col justify-center items-center z-10"
     >
       <h1 class="font-title flex flex-col justify-center items-center">
         <span class="font-text text-primary text-7xl font-light italic"
@@ -29,9 +29,9 @@
     </section>
 
     <section
-      class="absolute bottom-0 left-0 w-full flex justify-center items-center opacity-50 "
+      class="absolute bottom-0 left-0 w-full flex justify-center items-center opacity-50"
     >
-      <ul class="flex justify-center items-center ">
+      <ul class="flex justify-center items-center">
         <li class="list-none mr-3 w-48 h-64 overflow-hidden">
           <img
             src="@/assets/img/tiles/web1.png"
@@ -99,9 +99,7 @@ export default {
   transition: {
     mode: "out-in",
     css: false,
-    beforeEnter() {
-      console.log("beforeEnterHome");
-    },
+    beforeEnter() {},
     enter(el, done) {
       let introIndex = gsap.timeline({ repeat: 0 });
       introIndex
@@ -111,7 +109,6 @@ export default {
       done();
     },
     leave(el, done) {
-      console.log("leaveHome");
       let Transition = gsap.timeline({
         delay: 0.2,
         repeat: 0,
@@ -172,12 +169,12 @@ export default {
           transformOrigin: "top",
           height: "0vh",
           top: -100,
-          autoAlpha: 0,
-          onComplete: done
+          autoAlpha: 0
         });
       function Done() {
         Transition.pause();
         Transition.progress(0);
+        done();
       }
     }
   },

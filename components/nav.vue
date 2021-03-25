@@ -16,8 +16,10 @@
       </div>
       <div
         class="contact fixed top-10 right-10 z-50 cursor-pointer bg-primary rounded-full w-14 h-14 flex justify-center"
+        @click="openContact"
       >
         <svg
+          v-if="open"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="#FFF"
@@ -25,6 +27,21 @@
         >
           <path
             d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+          />
+        </svg>
+        <svg
+          v-else
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          stroke="#FFF"
+          fill="none"
+          class="w-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
           />
         </svg>
       </div>
@@ -200,6 +217,7 @@ export default {
   },
   data() {
     return {
+      open: true,
       animationsOptions: {
         logo: {
           animationData: logo.default,
@@ -257,6 +275,9 @@ export default {
   },
 
   methods: {
+    openContact: function() {
+      this.open = !this.open;
+    },
     handleAnimation: function(anim) {
       this.anim = anim;
     },

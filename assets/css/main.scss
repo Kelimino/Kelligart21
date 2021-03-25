@@ -29,68 +29,56 @@ body {
   opacity: 1 !important;
 }
 
-
-.contactnav{
-
-  ul{
-
-    li{
+.contactnav {
+  ul {
+    li {
       border-bottom: solid 1px transparent;
       transition: all 0.2s linear;
 
-      &:hover{
-
+      &:hover {
         border-bottom: solid 1px $primary;
         color: $primary;
       }
     }
   }
 }
-.swiper-projet{
-  .swiper-wrapper{
-
+.swiper-projet {
+  .swiper-wrapper {
     height: 50%;
   }
 
-  .swiper-slide{
-    img{
+  .swiper-slide {
+    img {
+      transition: all 4s ease-in-out;
+    }
+    p {
+      transition: all 0.5s ease-in-out;
+      opacity: 0;
+      transform: translateY(0.5em);
+    }
 
-        transition: all 4s ease-in-out;
-      }
-      p{
-
-        transition: all 0.5s ease-in-out;
-        opacity: 0;
-        transform: translateY(0.5em);
-
-
-      }
-
-    &:hover{
-
-      img{
-
+    &:hover {
+      img {
         transform: scale(1.2);
       }
 
-      p{
+      p {
         opacity: 1;
         transform: translateY(0em);
       }
     }
   }
 }
-.robodico, .laforet{
-
-  img{
+.robodico,
+.laforet {
+  img {
     display: none;
   }
-  video{
-
-  width: 150%    !important;
-  height: auto   !important;
-  object-fit: cover;
-  overflow: 20px;
+  video {
+    width: 150% !important;
+    height: auto !important;
+    object-fit: cover;
+    overflow: 20px;
   }
 }
 /*-----EXPERTISE TEXT ANIM-----*/
@@ -121,7 +109,6 @@ body {
 }
 
 .page {
-
   span {
     position: absolute;
     top: 5%;
@@ -159,7 +146,7 @@ body {
     transform: translate(-50%, -50%);
     left: 36.4%;
     margin: 0;
-    animation: bgIdea 0.4s ease-in 1s forwards ;
+    animation: bgIdea 0.4s ease-in 1s forwards;
     opacity: 0;
   }
   @keyframes bgIdea {
@@ -170,17 +157,15 @@ body {
     100% {
       opacity: 1;
       top: 12%;
-
     }
   }
-
 
   span {
     display: block;
 
     &:nth-child(4) {
       transform-origin: 60% 62%;
-      animation: Idea 1.5s ease-in-out forwards ;
+      animation: Idea 1.5s ease-in-out forwards;
     }
     @keyframes Idea {
       0% {
@@ -191,47 +176,45 @@ body {
       }
 
       100% {
-       transform: scaleY(0.5);
+        transform: scaleY(0.5);
       }
     }
   }
 }
 
 /*-----EXPERTISE LINKS ANIMATION-----*/
-.expertise-link h3{
+.expertise-link h3 {
   animation: linksMove 10s linear infinite;
-  
 }
 @keyframes linksMove {
   0% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   100% {
-      transform: translateX(calc(-100% + 35%));
+    transform: translateX(calc(-100% + 35%));
   }
 }
 
-.projets-link h3{
+.projets-link h3 {
   animation: linksMove 10s linear infinite;
-  
 }
 @keyframes linksMove {
   0% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   100% {
-      transform: translateX(calc(-100% + 55%));
+    transform: translateX(calc(-100% + 55%));
   }
 }
 
 .fadeImg-enter-active,
 .fadeImg-leave-active {
-    transition: all 1.2s;
+  transition: all 1.2s;
 }
 
 .fadeImg-enter,
 .fadeImg-leave-to {
-    opacity: 0;
-    transform:  translate(-50%, 20%) scale(0.9);
-    transform-origin: center;
+  opacity: 0;
+  transform: translate(-50%, 20%) scale(0.9);
+  transform-origin: center;
 }

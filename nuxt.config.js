@@ -94,8 +94,6 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    // smooth scroll
-    // '@/assets/css/scroll.css',
     // resest css meyerweb
     "@/assets/css/reset.css",
     // gobal css compile
@@ -108,10 +106,6 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    {
-      src: "~/plugins/locomotive.js",
-      ssr: false
-    }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
