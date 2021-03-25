@@ -63,14 +63,16 @@ export default {
       done();
     }
   },
-  head: {
-    titleTemplate: "%s - Projets",
-    meta: [
-      {
-        name: "Projets",
-        content: "UX Design, Webdesign, Graphisme, logo, Théâtre, Peinture "
-      }
-    ]
+  head() {
+    return {
+      titleTemplate: "%s - Projets",
+      meta: [
+        {
+          name: "Projets",
+          content: "UX Design, Webdesign, Graphisme, logo, Théâtre, Peinture "
+        }
+      ]
+    };
   }
 };
 </script>

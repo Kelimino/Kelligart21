@@ -182,14 +182,16 @@ export default {
     }
   },
 
-  head: {
-    title: "Kelligart, Directeur Artistique & Creative Designer",
-    meta: [
-      {
-        name: "Directeur Artistique & Creative Designer",
-        content: "Portfolio de Kellig jourdren, designer basé à Rennes"
-      }
-    ]
+  head() {
+    return {
+      titleTemplate: " %s - Accueil",
+      meta: [
+        {
+          name: "Directeur Artistique & Creative Designer",
+          content: "Portfolio de Kellig jourdren, designer basé à Rennes"
+        }
+      ]
+    };
   }
 };
 </script>

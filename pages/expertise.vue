@@ -348,15 +348,17 @@ export default {
       ]
     };
   },
-  head: {
-    titleTemplate: "%s - Expertise",
-    meta: [
-      {
-        name: "Expertise",
-        content:
-          "Direction Artistique, Expérience utilisateur, Design d'interfaces, Communication Visuelle, Développement Front "
-      }
-    ]
+  head() {
+    return {
+      titleTemplate: "%s - Expertise",
+      meta: [
+        {
+          name: "Expertise",
+          content:
+            "Direction Artistique, Expérience utilisateur, Design d'interfaces, Communication Visuelle, Développement Front "
+        }
+      ]
+    };
   },
   mounted() {
     //BACK TILE ANIMATION

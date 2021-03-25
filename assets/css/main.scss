@@ -1,4 +1,3 @@
-@import "./assets/css/work.scss";
 @import "./assets/css/variable.scss";
 
 html,
@@ -236,39 +235,3 @@ body {
     transform:  translate(-50%, 20%) scale(0.9);
     transform-origin: center;
 }
-/*-----Toggle Dark Thème-----*/
-
-// .toggledark {
-//   position: fixed;
-//   top: 8%;
-//   right: 7%;
-//   z-index: 10;
-//   border: 0;
-//   background: none;
-//   font-family: $text;
-//   cursor: pointer;
-
-//   &:after {
-//     display: block;
-//     content: "";
-//     position: absolute;
-//     right: -25px;
-//     top: 0px;
-//     width: 20px;
-//     height: 20px;
-//     border-radius: 50%;
-//     background: #fff;
-//     border: solid 3px #000d2e;
-//   }
-// }
-// .dark-on {
-//   color: #fff;
-
-//   &:after{
-
-//     background: #000d2e;
-//     border: solid 2px #fff;
-
-//   }
-
-// }

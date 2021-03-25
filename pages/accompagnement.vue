@@ -286,15 +286,17 @@ export default {
       ]
     };
   },
-  head: {
-    titleTemplate: "%s - Accompagnement",
-    meta: [
-      {
-        name: "Accompagnement",
-        content:
-          "Tout commence par une histoire où l’utilisateur en est le principal protagoniste dans un univers où son expérience est le fil conducteur de votre scénario"
-      }
-    ]
+  head() {
+    return {
+      titleTemplate: " %s - Accompagnement",
+      meta: [
+        {
+          name: "Accompagnement",
+          content:
+            "Tout commence par une histoire où l’utilisateur en est le principal protagoniste dans un univers où son expérience est le fil conducteur de votre scénario"
+        }
+      ]
+    };
   },
   mounted() {
     gsap.utils.toArray(".page").forEach(el => {
