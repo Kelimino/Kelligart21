@@ -122,7 +122,7 @@ export default {
         .play()
         .fromTo(
           ".loader",
-          { bottom: 0, height: "0vh" },
+          { bottom: 0, height: "0vh", display: "block" },
           {
             transformOrigin: "bottom",
             top: 0,
@@ -180,6 +180,17 @@ export default {
         Transition.progress(0);
       }
     }
+  },
+
+  head: {
+    title: "Kelligart, Directeur Artistique & creative Designer",
+    meta: [
+      {
+        hid: "description",
+        name: "Directeur Artistique & creative Designer",
+        content: "Portfolio de Kellig jourdren, designer basé à Rennes"
+      }
+    ]
   }
 };
 </script>

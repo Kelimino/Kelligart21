@@ -184,7 +184,7 @@ export default {
     enter(el, done) {
       //TITLE INTRO ANIMATION
       console.log("enterexpertise");
-      let inT = gsap.timeline({});
+      let inT = gsap.timeline({ delay: 0.3 });
       inT
         .from(".p-first", {
           y: -20,
@@ -348,11 +348,15 @@ export default {
       ]
     };
   },
-  head() {
-    return {
-      title: "Mes services",
-      meta: [{ name: "description", content: "Cest ma page de services" }]
-    };
+  head: {
+    titleTemplate: "%s - Expertise",
+    meta: [
+      {
+        hid: "description",
+        name: "Directeur Artistique & creative Designer",
+        content: "Portfolio de Kellig jourdren, designer basé à Rennes"
+      }
+    ]
   },
   mounted() {
     //BACK TILE ANIMATION
