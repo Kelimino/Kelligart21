@@ -67,15 +67,6 @@
     <section class="board h-screen flex justify-center items-center">
       <div class="board-wrapper relative w-full h-full">
         <div
-          class="bucket absolute right-44 bottom-24 border-4 border-primary border-solid w-16 h-20 rounded"
-        ></div>
-        <div
-          class="pen absolute right-48 bottom-24 bg-primary border-solid w-2 h-28 rounded transform rotate-6"
-        ></div>
-        <div
-          class="pen absolute right-52 bottom-24 bg-primary border-solid w-2 h-28 rounded transform -rotate-6"
-        ></div>
-        <div
           class="laptop absolute w-2/3 h-2/3 top-1/2 left-1/2 p-2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md"
         >
           <div
@@ -159,10 +150,6 @@
             </div>
           </div>
         </div>
-
-        <div
-          class="pad absolute w-5/6 h-5 bottom-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md"
-        ></div>
       </div>
     </section>
     <section
@@ -197,13 +184,11 @@
 </template>
 
 <script>
-// import locomotive from "~/mixins/locomotive.js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
-  // mixins: [locomotive],
   name: "Accompagnement",
   scrollToTop: true,
 

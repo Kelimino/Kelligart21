@@ -21,7 +21,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="#FFF"
-          class=" w-6"
+          class="w-6"
         >
           <path
             d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
@@ -29,34 +29,114 @@
         </svg>
       </div>
       <div
-        class="legal fixed bottom-10 right-10 z-50 font-text text-primary font-semibold text-xs  "
+        class="legal fixed bottom-10 right-10 z-50 font-text text-primary font-semibold text-xs"
       >
         <nuxt-link to="/legal">Folio'21 © Kelligart</nuxt-link>
       </div>
       <div
-        class="menu w-screen md:w-5/12 lg:w-3/12 bg-white  h-screen fixed p-12 flex flex-col justify-center z-30"
+        class="menu w-screen bg-back  h-screen fixed flex flex-col justify-center z-30 p-10"
       >
-        <nav class="mainNav">
-          <ul class="navlinks font-title text-primary font-semibold text-xl">
-            <li class="closeNav mb-2">
-              <nuxt-link to="/">Accueil</nuxt-link>
-            </li>
-            <li class="closeNav  mb-2">
-              <nuxt-link to="/accompagnement">Accompagnement</nuxt-link>
-            </li>
-
-            <li class="closeNav  mb-2">
-              <nuxt-link to="/expertise">Expertise</nuxt-link>
-            </li>
-            <li class="closeNav  mb-2">
-              <nuxt-link to="/projets">Projets</nuxt-link>
-            </li>
-            <li class="closeNav  mb-2">
-              <nuxt-link to="/about">À propos</nuxt-link>
-            </li>
-          </ul>
+        <nav class="mainNav h-full flex justify-center items-center">
+          <div class="navlinks h-2/3 grid grid-cols-4 gap-4">
+            <div
+              class="navitem closeNav h-full bg-white rounded overflow-hidden"
+            >
+              <nuxt-link
+                to="/accompagnement"
+                class="h-full flex flex-col justify-between"
+              >
+                <img
+                  src="~@/assets/animation/synopsis.png"
+                  alt="accompagnement"
+                  class="h-2/3 w-full object-cover object-top"
+                />
+                <div
+                  class="link-content h-1/3 p-5 flex flex-col justify-start items-start"
+                >
+                  <h2 class="font-title text-primary text-2xl font-bold">
+                    Accompagnement
+                  </h2>
+                  <p class="font-text text-main text-base mt-3">
+                    Méthode et process de travail
+                  </p>
+                </div>
+              </nuxt-link>
+            </div>
+            <div
+              class="navitem closeNav h-full bg-white rounded overflow-hidden"
+            >
+              <nuxt-link
+                to="/expertise"
+                class="h-full flex flex-col justify-between"
+              >
+                <img
+                  src="~@/assets/animation/synopsis.png"
+                  alt="expertise"
+                  class="h-2/3 w-full object-cover object-top"
+                />
+                <div
+                  class="link-content h-1/3 p-5 flex flex-col justify-start items-start"
+                >
+                  <h2 class="font-title text-primary text-2xl font-bold">
+                    Expertise
+                  </h2>
+                  <p class="font-text text-main text-base mt-3">
+                    Domaines &amp; prestations
+                  </p>
+                </div>
+              </nuxt-link>
+            </div>
+            <div
+              class="navitem closeNav h-full bg-white rounded overflow-hidden"
+            >
+              <nuxt-link
+                to="/projets"
+                class="h-full flex flex-col justify-between"
+              >
+                <img
+                  src="~@/assets/animation/synopsis.png"
+                  alt="projets"
+                  class="h-2/3 w-full object-cover object-top"
+                />
+                <div
+                  class="link-content h-1/3 p-5 flex flex-col justify-start items-start"
+                >
+                  <h2 class="font-title text-primary text-2xl font-bold">
+                    Projets
+                  </h2>
+                  <p class="font-text text-main text-base mt-3">
+                    Étude de cas &amp; réalisations
+                  </p>
+                </div>
+              </nuxt-link>
+            </div>
+            <div
+              class="navitem closeNav h-full bg-white rounded overflow-hidden"
+            >
+              <nuxt-link
+                to="/about"
+                class="h-full flex flex-col justify-between"
+              >
+                <img
+                  src="~@/assets/animation/synopsis.png"
+                  alt="about"
+                  class="h-2/3 w-full object-cover object-top"
+                />
+                <div
+                  class="link-content h-1/3 p-5 flex flex-col justify-start items-start"
+                >
+                  <h2 class="font-title text-primary text-2xl font-bold">
+                    A propos
+                  </h2>
+                  <p class="font-text text-main text-base mt-3">
+                    Personnalité &amp; expériences
+                  </p>
+                </div>
+              </nuxt-link>
+            </div>
+          </div>
         </nav>
-        <div class="contactnav mt-10">
+        <!-- <div class="contactnav mt-10 flex flex-row justify-center">
           <div>
             <a class="font-text text-md text-main">bonjour[a]kelligart.com</a>
           </div>
@@ -103,15 +183,7 @@
               >
             </li>
           </ul>
-        </div>
-        <div class="setting mt-10 font-text text-md text-main ">
-          <a
-            class="toggledark"
-            :class="[isOn ? 'dark-on' : 'dark-off']"
-            @click="toggleClass()"
-            >Thème</a
-          >
-        </div>
+        </div> -->
       </div>
     </header>
   </div>
@@ -128,7 +200,6 @@ export default {
   },
   data() {
     return {
-      isOn: false,
       animationsOptions: {
         logo: {
           animationData: logo.default,
@@ -148,30 +219,11 @@ export default {
         duration: 1,
         ease: "Power3.easeOut"
       })
-      .from(".mainNav ul li", {
+      .from(".navitem ", {
         autoAlpha: 0,
-        x: -20,
+        y: 20,
         stagger: 0.1
-      })
-      .from(
-        ".contactnav ",
-        {
-          autoAlpha: 0,
-          x: -20,
-          stagger: 0.1
-        },
-        "<"
-      )
-      .from(
-        ".setting ",
-        {
-          autoAlpha: 0,
-          x: -20,
-
-          stagger: 0.1
-        },
-        "<"
-      );
+      });
     tween.reversed(true);
 
     document.querySelector(".logo").addEventListener("click", openNav);
@@ -180,7 +232,7 @@ export default {
       if (!tween.reversed()) {
         tween
           .play()
-          .timeScale(2)
+          .timeScale(1.5)
           .reverse();
       } else {
         tween.reverse().timeScale(0.8);
@@ -194,7 +246,7 @@ export default {
         if (!tween.reversed()) {
           tween
             .play()
-            .timeScale(2)
+            .timeScale(1.5)
             .reverse();
         } else {
           tween.reverse().timeScale(0.8);
