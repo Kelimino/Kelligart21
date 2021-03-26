@@ -170,12 +170,12 @@ export default {
           transformOrigin: "top",
           height: "0vh",
           top: -100,
-          autoAlpha: 0
+          autoAlpha: 0,
+          onComplete: done
         });
       function Done() {
         Transition.pause();
         Transition.progress(0);
-        done();
       }
     }
   },

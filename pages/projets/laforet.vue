@@ -54,11 +54,13 @@
             </ul>
           </div>
         </div>
-        <img
-          src="@/assets/img/projet/laforet/laforet.png"
-          alt="laforet"
-          class="w-1/3 h-auto object-cover object-top"
-        />
+        <div class="w-1/3">
+          <img
+            src="@/assets/img/projet/laforet/laforet.png"
+            alt="laforet"
+            class="imgMain w-full object-cover object-top"
+          />
+        </div>
       </section>
       <section
         class="panel scope h-full w-1/3 flex justify-center items-center bg-primary"
@@ -232,11 +234,7 @@ export default {
     this.$nextTick(() => {
       let container = document.querySelector(".container-scroll");
       // let sections = gsap.utils.toArray(".panel");
-      gsap.to(container, {
-        x: () =>
-          -(container.scrollWidth - document.documentElement.clientWidth) +
-          "px",
-        ease: "none",
+      let Scroll = gsap.timeline({
         scrollTrigger: {
           trigger: container,
           invalidateOnRefresh: true,
@@ -247,6 +245,12 @@ export default {
           end: () => "+=" + container.offsetWidth
         }
       });
+      Scroll.to(container, {
+        x: () =>
+          -(container.scrollWidth - document.documentElement.clientWidth) +
+          "px",
+        ease: "none"
+      }).to(".imgMain", { yPercent: -50 }, "<");
     });
   }
 };
