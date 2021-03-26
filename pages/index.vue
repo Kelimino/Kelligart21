@@ -99,6 +99,7 @@ export default {
   transition: {
     mode: "out-in",
     css: false,
+    appear: true,
     beforeEnter() {},
     enter(el, done) {
       let introIndex = gsap.timeline({ repeat: 0 });

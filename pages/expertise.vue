@@ -105,7 +105,9 @@
         </h3>
       </nuxt-link>
     </section>
-
+    <section
+      class="overlayIntro w-2/6 h-screen fixed z-20 right-0 top-0 bg-back origin-right"
+    ></section>
     <section
       class="DA-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
@@ -205,6 +207,9 @@ export default {
           duration: 1,
           ease: "Power3.easeOut",
           onComplete: done
+        })
+        .to(".overlayIntro", {
+          xPercent: 100
         });
 
       done();
@@ -393,8 +398,7 @@ export default {
         "<"
       );
     function Done() {
-      backTile.pause();
-      backTile.progress(0);
+      backTile.reverse();
     }
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     let slideInDa = gsap.timeline({
