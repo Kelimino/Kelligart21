@@ -139,7 +139,7 @@
         class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
       >
         <lottie
-          class="ui w-full object-contain object-center"
+          class="ui w-5/6 object-cover object-center"
           :options="animationsOptions.ui"
           @animCreated="handleAnimation"
         />
