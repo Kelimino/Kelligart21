@@ -70,9 +70,9 @@
           class="laptop absolute w-2/3 h-2/3 top-1/2 left-1/2 p-2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md"
         >
           <div
-            class="screen w-full h-full flex flex-col justify-around items-center bg-white bg-opacity-20"
+            class="screen w-full h-full flex flex-col justify-around items-center bg-white"
           >
-            <h2 class="text-md text-white mb-5">
+            <h2 class="text-md text-primary mb-5">
               Ensemble, grâce à l'intelligence collective et avec des méthodes
               adaptées, on va pouvoir co-concevoir votre histoire
             </h2>

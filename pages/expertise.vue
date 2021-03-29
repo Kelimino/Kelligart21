@@ -122,7 +122,9 @@
     <section
       class="UX-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
-      <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
+      <div
+        class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden flex justify-center items-center"
+      >
         <img
           src="@/assets/animation/DA.png"
           alt=" direction artistique"
@@ -133,11 +135,13 @@
     <section
       class="UI-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
-      <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
-        <img
-          src="@/assets/animation/DA.png"
-          alt=" direction artistique"
-          class="object-cover h-full"
+      <div
+        class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
+      >
+        <lottie
+          class="ui"
+          :options="animationsOptions.ui"
+          @animCreated="handleAnimation"
         />
       </div>
     </section>
@@ -169,12 +173,19 @@
 </template>
 
 <script>
+import lottie from "vue-lottie/src/lottie.vue";
+import * as ui from "@/assets/animation/UI.json";
+
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "Expertise",
+
+  components: {
+    lottie
+  },
   scrollToTop: true,
 
   transition: {
@@ -221,6 +232,15 @@ export default {
   data() {
     return {
       onHover: false,
+
+      animationsOptions: {
+        ui: {
+          animationData: ui.default,
+          autoplay: true,
+          loop: true
+        }
+      },
+
       graphisme: [
         {
           path: require("@/assets/img/tiles/web14.jpg")
@@ -382,7 +402,7 @@ export default {
       .to(
         ".graphisme",
         {
-          yPercent: 50,
+          yPercent: 30,
           duration: 120,
           ease: "none"
         },
@@ -470,6 +490,11 @@ export default {
       duration: 0.5,
       ease: "Power2.ease-In"
     });
+  },
+  methods: {
+    handleAnimation: function(anim) {
+      this.anim = anim;
+    }
   }
 };
 </script>
