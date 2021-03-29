@@ -22,12 +22,11 @@
               />
               <video
                 ref="videos"
-                width="500px"
-                height="auto"
                 loop
                 muted="muted"
                 onmouseover="this.play()"
                 onmouseout="this.pause();this.currentTime=0;"
+                class=" w-full min-h-full min-w-full h-full object-cover object-center"
               >
                 <source :src="projet.path" type="video/mp4" />
               </video>

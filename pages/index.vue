@@ -29,7 +29,7 @@
     </section>
 
     <section
-      class="absolute bottom-0 left-0 w-full flex justify-center items-center opacity-50"
+      class="absolute overflow-hidden bottom-0 left-0 w-full flex justify-center items-center opacity-50"
     >
       <ul class="flex justify-center items-center">
         <li class="list-none mr-3 w-48 h-64 overflow-hidden">
