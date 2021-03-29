@@ -299,6 +299,9 @@ export default {
     };
   },
   mounted() {
+    let xwidth = document.querySelector("body").offsetWidth;
+    console.log(xwidth);
+
     gsap.utils.toArray(".page").forEach(el => {
       let Qa = gsap.timeline({
         scrollTrigger: {
@@ -308,7 +311,7 @@ export default {
           toggleActions: "play restart play reset"
         }
       });
-      Qa.fromTo(".question h3", { x: 1000 }, { x: -1000 }).to(el, {
+      Qa.fromTo(".question h3", { xPercent: 150 }, { xPercent: -150 }).to(el, {
         autoAlpha: 0
       });
     });
