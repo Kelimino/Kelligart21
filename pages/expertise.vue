@@ -123,12 +123,12 @@
       class="UX-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
       <div
-        class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden flex justify-center items-center"
+        class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
       >
-        <img
-          src="@/assets/animation/DA.png"
-          alt=" direction artistique"
-          class="object-cover h-full"
+        <lottie
+          class="ux w-full object-cover object-center"
+          :options="animationsOptions.ux"
+          @animCreated="handleAnimation"
         />
       </div>
     </section>
@@ -175,6 +175,7 @@
 <script>
 import lottie from "vue-lottie/src/lottie.vue";
 import * as ui from "@/assets/animation/UI.json";
+import * as ux from "@/assets/animation/UX.json";
 
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -237,6 +238,11 @@ export default {
         ui: {
           animationData: ui.default,
           autoplay: true,
+          loop: true
+        },
+        ux: {
+          animationData: ux.default,
+          autoplay: false,
           loop: true
         }
       },
@@ -494,6 +500,7 @@ export default {
   methods: {
     handleAnimation: function(anim) {
       this.anim = anim;
+      this.anim.play();
     }
   }
 };
