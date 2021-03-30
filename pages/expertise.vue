@@ -237,7 +237,7 @@ export default {
       animationsOptions: {
         ui: {
           animationData: ui.default,
-          autoplay: true,
+          autoplay: false,
           loop: true
         },
         ux: {
@@ -249,10 +249,10 @@ export default {
 
       graphisme: [
         {
-          path: require("@/assets/img/tiles/web14.jpg")
+          path: require("@/assets/img/tiles/poster3.png")
         },
         {
-          path: require("@/assets/img/tiles/poster3.png")
+          path: require("@/assets/img/tiles/web14.jpg")
         },
         {
           path: require("@/assets/img/tiles/web1.png")
@@ -284,10 +284,10 @@ export default {
           path: require("@/assets/img/tiles/web5.png")
         },
         {
-          path: require("@/assets/img/tiles/poster5.png")
+          path: require("@/assets/img/tiles/web6.png")
         },
         {
-          path: require("@/assets/img/tiles/web6.png")
+          path: require("@/assets/img/tiles/poster5.png")
         }
       ],
       web: [
@@ -440,7 +440,6 @@ export default {
       duration: 0.5,
       ease: "Power2.ease-In"
     });
-
     let slideInUx = gsap.timeline({
       scrollTrigger: {
         trigger: ".UX",

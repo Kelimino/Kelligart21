@@ -1,5 +1,7 @@
 <template>
-  <div class="h-screen flex flex-col justify-center relative">
+  <div
+    class="h-screen flex flex-col justify-center relative bg-primary bg-opacity-30"
+  >
     <section
       class="bienvenue w-8/12 h-full mx-auto flex flex-col justify-center items-center z-10"
     >
