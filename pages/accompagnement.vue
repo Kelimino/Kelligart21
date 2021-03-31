@@ -198,6 +198,7 @@ export default {
     beforeEnter() {
       console.log("beforeEnterAccompagnement");
     },
+    //TITLE ANIMATION INTRO
     enter(el, done) {
       let text = document.querySelector(".Dsg");
       text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
@@ -299,8 +300,7 @@ export default {
     };
   },
   mounted() {
-    let xwidth = document.querySelector("body").offsetWidth;
-    console.log(xwidth);
+    // EACH PAGE ANIMATION
 
     gsap.utils.toArray(".page").forEach(el => {
       let Qa = gsap.timeline({

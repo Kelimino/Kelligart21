@@ -111,7 +111,7 @@
     <section
       class="DA-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
-      <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
+      <div class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden">
         <img
           src="@/assets/animation/DA.png"
           alt=" direction artistique"
@@ -123,7 +123,7 @@
       class="UX-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
       <div
-        class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
+        class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
       >
         <lottie
           class="ux w-full object-cover object-center"
@@ -136,7 +136,7 @@
       class="UI-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
       <div
-        class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
+        class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
       >
         <lottie
           class="ui w-full object-cover object-center"
@@ -149,7 +149,7 @@
     <section
       class="CV-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
-      <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
+      <div class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden">
         <img
           src="@/assets/animation/DA.png"
           alt=" direction artistique"
@@ -161,7 +161,7 @@
     <section
       class="DF-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
-      <div class="img-wrapper w-1/2 h-1/2 rounded overflow-hidden">
+      <div class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden">
         <img
           src="@/assets/animation/DA.png"
           alt=" direction artistique"
