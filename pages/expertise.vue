@@ -1,6 +1,5 @@
 <template>
   <div id="expertise">
-    <!-- TILES ANIMATION -->
     <div
       class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden"
     >
@@ -33,7 +32,6 @@
         </ul>
       </div>
     </div>
-    <!-- SKILLS WRAPPER-->
     <section class="expertise grid grid-cols-3">
       <div class="list-expertise col-span-2 pb-20">
         <div class="list-wrapper flex flex-col items-end">
@@ -57,8 +55,6 @@
               />
             </p>
           </section>
-
-          <!-- SKILLS LIST-->
           <section
             v-for="(domain, index) in expertise"
             :key="index"
@@ -81,28 +77,6 @@
         </div>
       </div>
     </section>
-    <!-- OVERLAY-->
-    <section
-      class="overlayIntro w-2/6 h-screen fixed z-20 right-0 top-0 bg-back origin-right"
-    ></section>
-    <!-- LOTTIE FILES-->
-    <section
-      class="w-2/6 h-screen fixed z-20 right-0 top-0 flex justify-center items-center bg-white"
-    >
-      <div
-        v-for="(lottie, index) in lotties"
-        :key="index"
-        class="lottie img-wrapper w-2/3 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20"
-      >
-        <lottie
-          :options="lottie.animationData"
-          :class="lottie.class"
-          class="ux w-full object-cover object-center"
-          @animCreated="handleAnimation"
-        />
-      </div>
-    </section>
-    <!-- FOOTER -->
     <section
       class="h-footer z-40 box-border overflow-hidden"
       @mouseover="onHover = true"
@@ -131,11 +105,76 @@
         </h3>
       </nuxt-link>
     </section>
+    <section
+      class="overlayIntro w-2/6 h-screen fixed z-20 right-0 top-0 bg-back origin-right"
+    ></section>
+    <section
+      class="DA-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+    >
+      <div class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden">
+        <img
+          src="@/assets/animation/DA.png"
+          alt=" direction artistique"
+          class="object-cover h-full"
+        />
+      </div>
+    </section>
+    <section
+      class="UX-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+    >
+      <div
+        class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
+      >
+        <lottie
+          class="ux w-full object-cover object-center"
+          :options="animationsOptions.ux"
+          @animCreated="handleAnimation"
+        />
+      </div>
+    </section>
+    <section
+      class="UI-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+    >
+      <div
+        class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
+      >
+        <lottie
+          class="ui w-full object-cover object-center"
+          :options="animationsOptions.ui"
+          @animCreated="handleAnimation"
+        />
+      </div>
+    </section>
+
+    <section
+      class="CV-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+    >
+      <div class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden">
+        <img
+          src="@/assets/animation/DA.png"
+          alt=" direction artistique"
+          class="object-cover h-full"
+        />
+      </div>
+    </section>
+
+    <section
+      class="DF-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
+    >
+      <div class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden">
+        <img
+          src="@/assets/animation/DA.png"
+          alt=" direction artistique"
+          class="object-cover h-full"
+        />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import lottie from "vue-lottie/src/lottie.vue";
+import * as ui from "@/assets/animation/UI.json";
 import * as ux from "@/assets/animation/UX.json";
 
 import { gsap } from "gsap/dist/gsap";
@@ -195,16 +234,19 @@ export default {
     return {
       onHover: false,
 
-      //Lottie files
-      lotties: [
-        {
-          class: "UX",
+      animationsOptions: {
+        ui: {
+          animationData: ui.default,
+          autoplay: false,
+          loop: true
+        },
+        ux: {
           animationData: ux.default,
           autoplay: false,
           loop: true
         }
-      ],
-      //BACK TILES ANIMATION SCROLL
+      },
+
       graphisme: [
         {
           path: require("@/assets/img/tiles/poster3.png")
@@ -286,13 +328,14 @@ export default {
           path: require("@/assets/img/tiles/web13.jpg")
         }
       ],
-      //LIST OF EXPERTISE
+
       expertise: [
         {
           name: "Direction Artistique",
           span:
             "Branding - Charte graphique - Logo - Identité de marque - Campagne marketing - Lancement de produit",
           class: "DA",
+          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "Prendre des idées afin de les matérialiser en véritable positionnement de marque, une image désirable avec un message mémorable"
         },
@@ -301,6 +344,7 @@ export default {
           span:
             "Design thinking - Ateliers de coconception - Design sprint - Interview - Ergonomie Web - Persona",
           class: "UX",
+          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et des process adaptés"
         },
@@ -309,6 +353,7 @@ export default {
           span:
             "Catalogue - Ecommerce - Logiciel - Application - Site évènementiel - Webdesign - Maquettes - Prototypes intéractifs",
           class: "UI",
+          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "Concevoir & décliner des interfaces digitales cohérentes selon des codes graphiques & des règles fonctionnelles définies"
         },
@@ -317,6 +362,7 @@ export default {
           span:
             "Graphisme - Illustration - Supports marketing - Publicité - Pao - Réseaux sociaux - Motion Design",
           class: "CV",
+          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "Valoriser et communiquer votre identité de marque sur différentes plateformes et supports"
         },
@@ -326,6 +372,7 @@ export default {
           span:
             "Framework - Animation - Intéraction - Site Vitrine - Responsive",
           class: "DF",
+          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "Développer les interfaces de votre projet, créer une expérience intéractive et immersive, tout en veillant à sa performance technique"
         }
@@ -380,20 +427,73 @@ export default {
       backTile.reverse();
     }
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
-    gsap.utils.toArray(".skill").forEach(el => {
-      let slideLottie = gsap.timeline({
-        scrollTrigger: {
-          trigger: el,
-          start: "top center",
-          end: "bottom center",
-          toggleActions: "play reverse play reverse"
-        }
-      });
-      slideLottie.to(".UX", {
-        x: 0,
-        duration: 0.5,
-        ease: "Power2.ease-In"
-      });
+    let slideInDa = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".DA",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideInDa.to(".DA-img", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
+    });
+    let slideInUx = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".UX",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideInUx.to(".UX-img", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
+    });
+
+    let slideInUi = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".UI",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideInUi.to(".UI-img", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
+    });
+
+    let slideInCv = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".CV",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideInCv.to(".CV-img", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
+    });
+
+    let slideInDf = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".DF",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    slideInDf.to(".DF-img", {
+      x: 0,
+      duration: 0.5,
+      ease: "Power2.ease-In"
     });
   },
   methods: {
