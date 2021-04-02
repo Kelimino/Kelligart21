@@ -116,6 +116,7 @@
         />
       </div>
     </section>
+
     <section
       class="UX-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
@@ -226,7 +227,6 @@ export default {
   data() {
     return {
       onHover: false,
-
       animationsOptions: {
         ui: {
           animationData: ui.default,
