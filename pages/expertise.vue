@@ -7,7 +7,7 @@
         <ul class="backlist flex row">
           <li class="w-1/2 mr-2">
             <div
-              class="graphisme w-full mb-2 block transform origin-bottom -translate-y-3/4"
+              class="graphisme w-full mb-2 block transform origin-top -translate-y-3/4"
             >
               <img
                 v-for="(poster, index) in graphisme"
@@ -105,9 +105,6 @@
         </h3>
       </nuxt-link>
     </section>
-    <section
-      class="overlayIntro w-2/6 h-screen fixed z-20 right-0 top-0 bg-back origin-right"
-    ></section>
     <section
       class="DA-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
     >
@@ -219,11 +216,7 @@ export default {
           duration: 1,
           ease: "Power3.easeOut",
           onComplete: done
-        })
-        .to(".overlayIntro", {
-          xPercent: 100
         });
-
       done();
     },
     leave(el, done) {
@@ -408,7 +401,7 @@ export default {
       .to(
         ".graphisme",
         {
-          yPercent: 30,
+          yPercent: 50,
           duration: 120,
           ease: "none"
         },
@@ -424,7 +417,7 @@ export default {
         "<"
       );
     function Done() {
-      backTile.reverse();
+      backTile.progress(0).pause();
     }
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     let slideInDa = gsap.timeline({
