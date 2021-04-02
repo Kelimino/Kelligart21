@@ -10,7 +10,7 @@
               class="graphisme w-full mb-2 block transform origin-bottom -translate-y-3/4"
             >
               <img
-                v-for="(poster, index) in graphisme"
+                v-for="(index, poster) in graphisme"
                 :key="index"
                 class="w-full mb-2 block"
                 :src="poster.path"
@@ -21,7 +21,7 @@
           <li class="w-1/2 mr-2">
             <div class="web w-full mb-2 block">
               <img
-                v-for="(poster, index) in web"
+                v-for="(index, poster) in web"
                 :key="index"
                 class="w-full h-auto mb-2 block"
                 :src="poster.path"
