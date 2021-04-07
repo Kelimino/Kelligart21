@@ -55,6 +55,20 @@
           </div>
         </div>
         <div class="w-1/3">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255 425">
+            <defs>
+              <clipPath id="clipIt">
+                <path
+                  class="cls-1"
+                  d="M127.5,424.5C57.74,424.5.77,377.25.51,319.16v-.49h0V106.25C.5,47.94,57.47.5,127.5.5s127,47.44,127,105.75v.92h0v212C254.23,377.25,197.26,424.5,127.5,424.5Z"
+                />
+                <path
+                  d="M127.5,1C197.25,1,254,48.21,254,106.25v1.42h0v210.5h0v1c-.13,28-13.32,54.3-37.14,74.09S161.24,424,127.5,424,62,413.08,38.15,393.25,1.14,347.15,1,319.16V107.67H1v-1.42C1,48.21,57.75,1,127.5,1m0-1C57.08,0,0,47.57,0,106.25c0,.14,0,.28,0,.42H0v212.5H0C.28,377.65,57.25,425,127.5,425S254.72,377.65,255,319.17h0V106.67h0c0-.14,0-.28,0-.42C255,47.57,197.92,0,127.5,0Z"
+                />
+              </clipPath>
+            </defs>
+          </svg> -->
+
           <img
             src="@/assets/img/projet/laforet/laforet.png"
             alt="laforet"
@@ -65,7 +79,7 @@
       <section
         class="panel scope h-full w-1/3 flex justify-center items-center bg-primary"
       >
-        <div class="enjeux w-2/3  flex flex-col justify-start">
+        <div class="enjeux w-2/3 flex flex-col justify-start">
           <h2 class="font-title text-white text-2xl font-bold">
             Un enjeux digital important
           </h2>
@@ -85,32 +99,23 @@
           <img
             src="@/assets/img/projet/laforet/old-laforet.png"
             alt="old laforet"
-            class=" h-80 w-full object-cover object-top mb-10"
+            class="h-80 w-full object-cover object-top mb-10"
           />
           <h2 class="font-title text-primary text-2xl font-bold w-5/6">
             Un site pas à la hauteur de leur renommée
           </h2>
           <ul class="mt-10">
             <li class="font-text text-main text-base mt-3 flex justif-start">
-              <img
-                src="@/assets/icons/sad.svg"
-                alt="sad"
-                class=" h-6  mr-5"
-              />Une navigation peu intuitive et osbolète
+              <img src="@/assets/icons/sad.svg" alt="sad" class="h-6 mr-5" />Une
+              navigation peu intuitive et osbolète
             </li>
             <li class="font-text text-main text-base mt-3 flex justif-start">
-              <img
-                src="@/assets/icons/sad.svg"
-                alt="sad"
-                class=" h-6  mr-5"
-              />Une image de marque pas assez affirmée
+              <img src="@/assets/icons/sad.svg" alt="sad" class="h-6 mr-5" />Une
+              image de marque pas assez affirmée
             </li>
             <li class="font-text text-main text-base mt-3 flex justif-start">
-              <img
-                src="@/assets/icons/sad.svg"
-                alt="sad"
-                class=" h-6  mr-5"
-              />Une expérience un peu terne
+              <img src="@/assets/icons/sad.svg" alt="sad" class="h-6 mr-5" />Une
+              expérience un peu terne
             </li>
           </ul>
         </div>
@@ -118,7 +123,7 @@
           <img
             src="@/assets/img/projet/laforet/laforet-home.png"
             alt="old laforet"
-            class=" h-80  w-full object-cover object-top mb-10"
+            class="h-80 w-full object-cover object-top mb-10"
           />
           <h2 class="font-title text-primary text-2xl font-bold w-5/6">
             Un site type avec certains codes de webapp
@@ -128,14 +133,14 @@
               <img
                 src="@/assets/icons/happy.svg"
                 alt="happy"
-                class=" h-6  mr-5"
+                class="h-6 mr-5"
               />Un site fluide et performant : SPA, navigation adaptée...
             </li>
             <li class="font-text text-main text-base mt-3 flex justif-start">
               <img
                 src="@/assets/icons/happy.svg"
                 alt="happy"
-                class=" h-6  mr-5"
+                class="h-6 mr-5"
               />Une image de marque valorisée : visuels immersifs, espace
               blanc...
             </li>
@@ -143,7 +148,7 @@
               <img
                 src="@/assets/icons/happy.svg"
                 alt="happy"
-                class=" h-6  mr-5"
+                class="h-6 mr-5"
               />Un experience personnalisée : fonctionnalités de partage, de
               visualisation...
             </li>
@@ -151,17 +156,17 @@
         </div>
       </section>
       <section
-        class="panel feeback h-full w-1/3 flex justify-center items-center p-6 bg-white "
+        class="panel feeback h-full w-1/3 flex justify-center items-center p-6 bg-white"
       >
-        <h2 class="font-title text-primary text-8xl font-bold uppercase ">
+        <h2 class="font-title text-primary text-8xl font-bold uppercase">
           le diable est dans le détail
         </h2>
       </section>
 
       <section
-        class=" panel screen h-full w-full flex flex-row items-center flex-wrap p-10"
+        class="panel screen h-full w-full flex flex-row items-center flex-wrap p-10"
       >
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
           <img
             src="@/assets/img/projet/laforet/search.png"
             alt="filtre"
@@ -171,7 +176,7 @@
             Un module de recherche simple, juste l'essentiel
           </p>
         </div>
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
           <img
             src="@/assets/img/projet/laforet/list.png"
             alt="filtre"
@@ -181,7 +186,7 @@
             Un listing à cartes hiérarchisé et personnalisé
           </p>
         </div>
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
           <img
             src="@/assets/img/projet/laforet/filter.png"
             alt="filtre"
@@ -191,7 +196,7 @@
             Un module de filtres catégorisés selon leur pertinences
           </p>
         </div>
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
           <img
             src="@/assets/img/projet/laforet/glance.png"
             alt="filtre"
@@ -201,7 +206,7 @@
             Des options de visualisation plus rapide
           </p>
         </div>
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8 ">
+        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
           <img
             src="@/assets/img/projet/laforet/product.png"
             alt="filtre"
@@ -213,7 +218,7 @@
         </div>
       </section>
 
-      <section class=" panel next w-full">
+      <section class="panel next w-full">
         <nuxt-link to="/projets/spall">
           <h3>Goall</h3>
           <p>Design concept sur une plateforme de streaming</p></nuxt-link
