@@ -105,17 +105,6 @@
         </h3>
       </nuxt-link>
     </section>
-    <section
-      class="DA-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
-    >
-      <div class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden">
-        <img
-          src="@/assets/animation/DA.png"
-          alt=" direction artistique"
-          class="object-cover h-full"
-        />
-      </div>
-    </section>
 
     <section
       class="UX-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
@@ -127,43 +116,6 @@
           class="ux w-full object-cover object-center"
           :options="animationsOptions.ux"
           @animCreated="handleAnimation"
-        />
-      </div>
-    </section>
-    <section
-      class="UI-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
-    >
-      <div
-        class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
-      >
-        <lottie
-          class="ui w-full object-cover object-center"
-          :options="animationsOptions.ui"
-          @animCreated="handleAnimation"
-        />
-      </div>
-    </section>
-
-    <section
-      class="CV-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
-    >
-      <div class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden">
-        <img
-          src="@/assets/animation/DA.png"
-          alt=" direction artistique"
-          class="object-cover h-full"
-        />
-      </div>
-    </section>
-
-    <section
-      class="DF-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
-    >
-      <div class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden">
-        <img
-          src="@/assets/animation/DA.png"
-          alt=" direction artistique"
-          class="object-cover h-full"
         />
       </div>
     </section>
@@ -181,7 +133,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "Expertise",
-
   components: {
     lottie
   },
@@ -418,19 +369,7 @@ export default {
       backTile.progress(0).pause();
     }
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
-    let slideInDa = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".DA",
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play reverse play reverse"
-      }
-    });
-    slideInDa.to(".DA-img", {
-      x: 0,
-      duration: 0.5,
-      ease: "Power2.ease-In"
-    });
+
     let slideInUx = gsap.timeline({
       scrollTrigger: {
         trigger: ".UX",
@@ -440,48 +379,6 @@ export default {
       }
     });
     slideInUx.to(".UX-img", {
-      x: 0,
-      duration: 0.5,
-      ease: "Power2.ease-In"
-    });
-
-    let slideInUi = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".UI",
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play reverse play reverse"
-      }
-    });
-    slideInUi.to(".UI-img", {
-      x: 0,
-      duration: 0.5,
-      ease: "Power2.ease-In"
-    });
-
-    let slideInCv = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".CV",
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play reverse play reverse"
-      }
-    });
-    slideInCv.to(".CV-img", {
-      x: 0,
-      duration: 0.5,
-      ease: "Power2.ease-In"
-    });
-
-    let slideInDf = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".DF",
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play reverse play reverse"
-      }
-    });
-    slideInDf.to(".DF-img", {
       x: 0,
       duration: 0.5,
       ease: "Power2.ease-In"
