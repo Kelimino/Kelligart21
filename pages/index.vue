@@ -179,9 +179,6 @@ export default {
         Transition.pause();
         Transition.progress(0);
       }
-    },
-    afterLeave(el) {
-      el.style.opacity = 0;
     }
   },
 
