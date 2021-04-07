@@ -94,11 +94,11 @@
             class="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50"
           />
         </transition>
-        <h2 class="text-main text-sm text-center mb-5">
-          Découvrez mes projets : Étude de cas &amp; réalisations
+        <h2 class="text-primary text-6xl font-title text-center mb-5">
+          Découvrez mes projets
         </h2>
         <h3
-          class="text-primary text-6xl inline-flex font-title mr-5 whitespace-nowrap"
+          class="text-primary text-3xl inline-flex font-text mt-10 uppercase italic whitespace-nowrap"
         >
           Webdesign - Graphisme - UX Design - Branding - Set Design - Logos -
           Peinture - Poster
