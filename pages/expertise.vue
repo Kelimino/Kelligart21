@@ -228,15 +228,13 @@ export default {
     return {
       onHover: false,
       animationsOptions: {
+        autoplay: false,
+        loop: true,
         ui: {
-          animationData: ui.default,
-          autoplay: false,
-          loop: true
+          animationData: ui.default
         },
         ux: {
-          animationData: ux.default,
-          autoplay: false,
-          loop: true
+          animationData: ux.default
         }
       },
 
@@ -490,9 +488,9 @@ export default {
     });
   },
   methods: {
-    handleAnimation: function(anim) {
-      this.anim = anim;
-      this.anim.play();
+    handleAnimation: function(el) {
+      this.el = el;
+      this.el.play();
     }
   }
 };
