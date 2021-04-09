@@ -100,8 +100,6 @@ export default {
     "@/assets/css/main.css",
     // main css file sass
     "@/assets/css/main.scss",
-    // tailwind css file sass
-    "@/assets/css/tailwind.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
