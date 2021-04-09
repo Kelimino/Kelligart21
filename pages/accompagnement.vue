@@ -20,7 +20,7 @@
         />
       </p>
     </section>
-    <div class="story-wrapper w-full overflow-x-hidden ">
+    <div class="story-wrapper w-full overflow-x-hidden">
       <div class="story w-4/6 mx-auto">
         <section
           v-for="(story, index) in stories"
@@ -53,7 +53,7 @@
             </div>
           </div>
 
-          <div class="question  relative h-1/6 transition-all ease-in-out">
+          <div class="question relative h-1/6 transition-all ease-in-out">
             <h3
               class="absolute inline-flex whitespace-nowrap left-1/2 top-1/2 origin-center transform -translate-x-1/2 -translate-y-1/2 font-text text-primary uppercase text-5xl font-light italic bg-primary bg-opacity-10 p-5"
             >
@@ -153,7 +153,7 @@
       </div>
     </section>
     <section
-      class=" h-footer box-border overflow-hidden"
+      class="h-footer box-border overflow-hidden"
       @mouseover="upHere = true"
       @mouseleave="upHere = false"
     >
