@@ -106,7 +106,7 @@ export default {
   plugins: [
     {
       src: "~/plugins/locomotive.js",
-      ssr: false
+      mode: "client"
     }
   ],
 

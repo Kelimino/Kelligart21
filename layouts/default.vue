@@ -11,12 +11,23 @@
 <script>
 import Nav from "/components/nav";
 import { cursor } from "~/mixins/mouse.js";
-import { scrollY } from "~/mixins/scroll.js";
+// import { scrollY } from "~/mixins/scroll.js";
 export default {
   name: "App",
   components: {
-    Nav
+    Nav,
   },
-  mixins: [cursor, scrollY]
+  mixins: [cursor],
+  data() {
+    return {
+      lmS: null,
+    };
+  },
+  mounted() {
+    this.lmS = new this.locomotiveScroll({
+      el: document.querySelector("#scroll"),
+      smooth: true,
+    });
+  },
 };
 </script>
