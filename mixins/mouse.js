@@ -5,8 +5,8 @@ export const cursor = {
     window.addEventListener("mousemove", cursor);
 
     function cursor(e) {
-      mouseCursor.style.top = e.pageY + "px";
-      mouseCursor.style.left = e.pageX + "px";
+      mouseCursor.style.top = e.clientY + "px";
+      mouseCursor.style.left = e.clientX + "px";
     }
   }
 };

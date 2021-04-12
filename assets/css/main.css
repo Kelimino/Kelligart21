@@ -4,5 +4,5 @@
 
 
 .cursor{
-    @apply: w-5 h-5 border border-primary border-solid absolute transform -translate-x-1/2 -translate-y-1/2 z-50 rounded-full pointer-events-none;
+    @apply: w-5 h-5 border border-primary border-solid fixed transform -translate-x-1/2 -translate-y-1/2 z-50 rounded-full pointer-events-none transition transition-all duration-200;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-back">
+  <div class="bg-back" data-scroll-container>
     <div class="cursor"></div>
     <Nav />
     <Nuxt />
@@ -9,11 +9,12 @@
 <script>
 import Nav from "/components/nav";
 import { cursor } from "~/mixins/mouse.js";
+import { scroll } from "~/mixins/scroll.js";
 export default {
   name: "App",
   components: {
     Nav
   },
-  mixins: [cursor]
+  mixins: [cursor, scroll]
 };
 </script>
