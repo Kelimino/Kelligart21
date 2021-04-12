@@ -4,29 +4,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 import LocomotiveScroll from "locomotive-scroll";
 
-export const scroll = {
-  data() {
-    return {
-      x: null
-    };
-  },
-  mounted: function() {
-    // --- locomotive-scroll init --- //
-
-    const Scroller = new LocomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
+export const scrollY = {
+  mounted() {
+    //INIT SCROLL
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("#scroll"),
       smooth: true
     });
 
-    this.x = Scroller;
-
-    Scroller.on("scroll", ScrollTrigger.update);
-
-    ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+    //SCROLL & GSAP WORK TOGETHER
+    scroll.on("scroll", ScrollTrigger.update);
+    ScrollTrigger.scrollerProxy("#scroll", {
       scrollTop(value) {
         return arguments.length
-          ? Scroller.scrollTo(value, 0, 0)
-          : Scroller.scroll.instance.scroll.y;
+          ? scroll.scrollTo(value, 0, 0)
+          : scroll.scroll.instance.scroll.y;
       },
       getBoundingClientRect() {
         return {
@@ -36,17 +28,12 @@ export const scroll = {
           height: window.innerHeight
         };
       },
-      pinType: document.querySelector("[data-scroll-container]").style.transform
+      pinType: document.querySelector("#scroll").style.transform
         ? "transform"
         : "fixed"
     });
-    ScrollTrigger.addEventListener("refresh", () => Scroller.update());
+
+    ScrollTrigger.addEventListener("refresh", () => scroll.update());
     ScrollTrigger.refresh();
-  },
-  methods: {
-    scrollMeTo(target, duration) {
-      var z = this.x;
-      z.scrollTo(target, duration);
-    }
   }
 };
