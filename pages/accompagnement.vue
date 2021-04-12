@@ -302,6 +302,9 @@ export default {
   mounted() {
     // EACH PAGE ANIMATION
 
+    const pageWidth = document.querySelector(".page").offsetWidth;
+    console.log(pageWidth);
+
     gsap.utils.toArray(".page").forEach(el => {
       let Qa = gsap.timeline({
         scrollTrigger: {
@@ -311,9 +314,11 @@ export default {
           toggleActions: "play restart play reset"
         }
       });
-      Qa.fromTo(".question h3", { xPercent: 150 }, { xPercent: -150 }).to(el, {
-        autoAlpha: 0
-      });
+      Qa.from(".question h3", { x: pageWidth * 2.5 })
+        .to(".question h3", { x: -pageWidth * 2, duration: 10 })
+        .to(el, {
+          autoAlpha: 0
+        });
     });
 
     const pages = document.querySelectorAll(".page");
