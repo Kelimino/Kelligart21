@@ -105,24 +105,31 @@
         </h3>
       </nuxt-link>
     </section>
-    <LottieAnimation path="~/assets/animation/UX.json" />
+    <div
+      class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
+    >
+      <lottie
+        class="ux w-5/6 object-cover object-center"
+        :options="animationsOptions.ux"
+        @animCreated="handleAnimation"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+import lottie from "vue-lottie/src/lottie.vue";
+import * as ux from "assets/animation/UX.json";
 
 export default {
   name: "Expertise",
-
   components: {
-    LottieAnimation
+    lottie
   },
   scrollToTop: true,
-
   transition: {
     mode: "out-in",
     css: false,
@@ -162,6 +169,14 @@ export default {
   },
   data() {
     return {
+      animationsOptions: {
+        autoplay: false,
+        loop: true,
+        ux: {
+          animationData: ux.default
+        }
+      },
+
       onHover: false,
       graphisme: [
         {
@@ -349,6 +364,11 @@ export default {
         console.log("hey");
       });
     });
+  },
+  methods: {
+    handleAnimation: function(anim) {
+      this.anim = anim;
+    }
   }
 };
 </script>

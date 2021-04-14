@@ -99,7 +99,7 @@ export default {
     // gobal css compile
     "@/assets/css/main.css",
     // main css file sass
-    "@/assets/css/main.scss",
+    "@/assets/css/main.scss"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
