@@ -105,14 +105,19 @@
         </h3>
       </nuxt-link>
     </section>
-    <div
-      class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
-    >
-      <lottie
-        class="ux w-5/6 object-cover object-center"
-        :options="animationsOptions.ux"
-        @animCreated="handleAnimation"
-      />
+    <div class="lotties">
+      <div
+        v-for="(lottie, index) in lotties"
+        :key="index"
+        :class="lottie.class"
+      >
+        <lottie
+          :options="lottie.animationData"
+          @:animCreated="handleAnimation"
+        />
+      </div>
+      <!-- <lottie :options="lotties.ux" @:animCreated="handleAnimation" />
+      <lottie :options="lotties.ui" @:animCreated="handleAnimation" /> -->
     </div>
   </div>
 </template>
@@ -123,6 +128,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import lottie from "vue-lottie/src/lottie.vue";
 import * as ux from "assets/animation/UX.json";
+import * as ui from "assets/animation/Ui.json";
 
 export default {
   name: "Expertise",
@@ -169,13 +175,20 @@ export default {
   },
   data() {
     return {
-      animationsOptions: {
-        autoplay: false,
-        loop: true,
-        ux: {
-          animationData: ux.default
+      lotties: [
+        {
+          class: "ux",
+          animationData: ux.default,
+          loop: true,
+          autoplay: false
+        },
+        {
+          class: "ui",
+          animationData: ui.default,
+          loop: true,
+          autoplay: false
         }
-      },
+      ],
 
       onHover: false,
       graphisme: [
