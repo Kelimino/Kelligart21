@@ -105,36 +105,21 @@
         </h3>
       </nuxt-link>
     </section>
-
-    <section
-      class="UX-img w-2/6 h-screen fixed z-20 right-0 top-0 transform translate-x-full flex justify-center items-center bg-white"
-    >
-      <div
-        class="img-wrapper w-2/3 h-1/2 rounded overflow-hidden bg-primary bg-opacity-20 flex justify-center items-center"
-      >
-        <lottie
-          class="ux w-full object-cover object-center"
-          :options="animationsOptions.ux"
-          @animCreated="handleAnimation"
-        />
-      </div>
-    </section>
+    <LottieAnimation path="~/assets/animation/UX.json" />
   </div>
 </template>
 
 <script>
-import lottie from "vue-lottie/src/lottie.vue";
-import * as ui from "@/assets/animation/UI.json";
-import * as ux from "@/assets/animation/UX.json";
-
+import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "Expertise",
+
   components: {
-    lottie
+    LottieAnimation
   },
   scrollToTop: true,
 
@@ -178,17 +163,6 @@ export default {
   data() {
     return {
       onHover: false,
-      animationsOptions: {
-        autoplay: false,
-        loop: true,
-        ui: {
-          animationData: ui.default
-        },
-        ux: {
-          animationData: ux.default
-        }
-      },
-
       graphisme: [
         {
           path: require("@/assets/img/tiles/poster3.png")
@@ -277,7 +251,6 @@ export default {
           span:
             "Branding - Charte graphique - Logo - Identité de marque - Campagne marketing - Lancement de produit",
           class: "DA",
-          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "Prendre des idées afin de les matérialiser en véritable positionnement de marque, une image désirable avec un message mémorable"
         },
@@ -286,7 +259,6 @@ export default {
           span:
             "Design thinking - Ateliers de coconception - Design sprint - Interview - Ergonomie Web - Persona",
           class: "UX",
-          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et des process adaptés"
         },
@@ -295,7 +267,6 @@ export default {
           span:
             "Catalogue - Ecommerce - Logiciel - Application - Site évènementiel - Webdesign - Maquettes - Prototypes intéractifs",
           class: "UI",
-          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "Concevoir & décliner des interfaces digitales cohérentes selon des codes graphiques & des règles fonctionnelles définies"
         },
@@ -304,7 +275,6 @@ export default {
           span:
             "Graphisme - Illustration - Supports marketing - Publicité - Pao - Réseaux sociaux - Motion Design",
           class: "CV",
-          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "Valoriser et communiquer votre identité de marque sur différentes plateformes et supports"
         },
@@ -314,7 +284,6 @@ export default {
           span:
             "Framework - Animation - Intéraction - Site Vitrine - Responsive",
           class: "DF",
-          // picture: require("@/assets/img/tiles/kellig.jpg"),
           description:
             "Développer les interfaces de votre projet, créer une expérience intéractive et immersive, tout en veillant à sa performance technique"
         }
@@ -370,25 +339,16 @@ export default {
     }
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
 
-    let slideInUx = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".UX",
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play reverse play reverse"
-      }
+    gsap.utils.toArray(".skill").forEach(el => {
+      let SkillAnim = gsap.timeline({
+        scrollTrigger: {
+          trigger: el
+        }
+      });
+      SkillAnim.to(el, { autoAlpha: 1 }).add(function() {
+        console.log("hey");
+      });
     });
-    slideInUx.to(".UX-img", {
-      x: 0,
-      duration: 0.5,
-      ease: "Power2.ease-In"
-    });
-  },
-  methods: {
-    handleAnimation: function(el) {
-      this.el = el;
-      this.el.play();
-    }
   }
 };
 </script>
