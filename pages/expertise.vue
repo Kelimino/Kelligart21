@@ -1,7 +1,7 @@
 <template>
   <div id="expertise">
     <div
-      class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden"
+      class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden opacity-50 md:opacity-100"
     >
       <div class="back-wrapper">
         <ul class="backlist flex row">
@@ -59,17 +59,17 @@
             v-for="(domain, index) in expertise"
             :key="index"
             :class="domain.class"
-            class="skill relative w-5/6 min-h-60% mb-20 py-36 border-b border-solid border-primary border-opacity-30 overflow-hidden"
+            class="skill relative w-full pl-5 md:pl-0 md:w-5/6 min-h-60% mb-20 py-36 border-b border-solid border-primary border-opacity-30 overflow-hidden"
           >
-            <h2 class="font-title text-primary text-6xl font-bold">
+            <h2 class="font-title text-primary text-4xl md:text-6xl font-bold">
               {{ domain.name }}
             </h2>
 
-            <h3 class="font-text text-main text-base mt-3 w-3/5">
+            <h3 class="font-text text-main text-base mt-3 w-5/6 md:w-3/5">
               {{ domain.description }}
             </h3>
             <p
-              class="font-text text-primary transform uppercase text-6xl font-light italic absolute bottom-5 inline-flex whitespace-nowrap"
+              class="font-text text-primary transform uppercase text-2xl md:text-6xl font-light italic absolute bottom-5 inline-flex whitespace-nowrap"
             >
               {{ domain.span }}
             </p>

@@ -1,39 +1,43 @@
 <template>
   <div id="accompagnement">
     <section
-      class="couverture w-8/12 mx-auto h-screen flex flex-col text-center justify-center items-center"
+      class="couverture w-full md:w-8/12 p-6 md:-p-0 mx-auto h-screen flex flex-col text-center justify-center items-center"
     >
       <h1 class="font-title flex flex-col">
-        <span class="Nst font-text text-primary text-7xl font-light italic"
+        <span
+          class="Nst font-text text-primary text-2xl md:text-7xl font-light italic"
           >Nous sommes tous</span
         ><span
-          class="Dsg transform translate-y-0 font-title text-primary text-12xl font-extrabold mt-6 uppercase"
+          class="Dsg transform translate-y-0 font-title text-primary text-7xl md:text-12xl font-extrabold mt-6 uppercase"
           >Designers
         </span>
       </h1>
-      <p class="font-text text-main text-base flex">
+      <p
+        class="font-text text-main text-base flex justify-center flex-col mt-10 md:mt-0"
+      >
         Je vous accompagne dans cette aventure collective et créative
         <img
           src="@/assets/icons/chair.svg"
           alt="bol de céreales "
-          class="h-6 ml-3"
+          class="h-6 md:ml-3"
         />
       </p>
     </section>
     <div class="story-wrapper w-full overflow-x-hidden">
-      <div class="story w-4/6 mx-auto">
+      <div class="story w-11/12 md:w-4/6 mx-auto">
         <section
           v-for="(story, index) in stories"
           :key="index"
           class="storyblock h-screen"
           :class="story.class"
         >
-          <div class="page-wrapper grid grid-cols-2 h-5/6 bg-white">
-            <div class="cover bg-primary h-full absolute"></div>
+          <div
+            class="page-wrapper grid md:grid-cols-2 h-full md:h-5/6 bg-white"
+          >
             <div
-              class="page illustration border border-solid border-primary border-opacity-30 flex justify-center items-center relative"
+              class="page illustration h-full md:h-auto border border-solid border-primary border-opacity-30 flex justify-center items-center relative"
             >
-              <div class="imgwrap w-5/6 h-5/6 mx-auto relative">
+              <div class="imgwrap w-5/6 h-full md:h-5/6 mx-auto relative">
                 <img
                   :src="story.path"
                   alt="illustration"
@@ -42,7 +46,7 @@
               </div>
             </div>
             <div
-              class="page chapitre border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative p-20 text-left"
+              class="page chapitre h-1/2 p-10 md:p-20 border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative text-left"
             >
               <h2 class="font-title text-primary text-2xl font-bold">
                 {{ story.titre }}
@@ -67,22 +71,16 @@
     <section class="board h-screen flex justify-center items-center">
       <div class="board-wrapper relative w-full h-full">
         <div
-          class="laptop absolute w-2/3 h-2/3 top-1/2 left-1/2 p-2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md"
+          class="laptop absolute w-11/12 md:w-2/3 h-2/3 top-1/2 left-1/2 p-2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md"
         >
           <div
             class="screen w-full h-full flex flex-col justify-around items-center bg-white"
           >
-            <h2 class="text-md text-primary mb-5">
+            <h2 class="text-md text-primary w-5/6 md:w-full mb-5 text-center">
               Ensemble, grâce à l'intelligence collective et avec des méthodes
               adaptées, on va pouvoir co-concevoir votre histoire
             </h2>
-            <div class="method grid grid-cols-3 w-full">
-              <div class="brainstorming flex justify-end h-full">
-                <img
-                  src="@/assets/animation/brainstorming.png"
-                  alt="img brainstorming"
-                />
-              </div>
+            <div class="method grid grid-cols-2 md:grid-cols-3 w-full">
               <ul class="research flex flex-col justify-start items-start ml-5">
                 <li
                   class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"

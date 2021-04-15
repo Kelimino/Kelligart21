@@ -26,7 +26,7 @@
                 muted="muted"
                 onmouseover="this.play()"
                 onmouseout="this.pause();this.currentTime=0;"
-                class=" w-full min-h-full min-w-full h-full object-cover object-center"
+                class="w-full min-h-full min-w-full h-full object-cover object-center"
               >
                 <source :src="projet.path" type="video/mp4" />
               </video>
@@ -169,13 +169,21 @@ export default {
     this.swiper = new Swiper(".swiper-projet", {
       direction: "horizontal",
       loop: true,
-      slidesPerView: "3",
-      centeredSlides: true,
-      spaceBetween: 10,
       speed: 1000,
       parallax: true,
       mousewheel: {
         enable: true
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: "1",
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: "3",
+          spaceBetween: 10,
+          centeredSlides: true
+        }
       }
     });
 

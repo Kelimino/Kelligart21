@@ -2,7 +2,7 @@
   <div>
     <header class="relative z-40">
       <div
-        class="logo fixed top-5 left-10 z-50 cursor-pointer"
+        class="logo fixed top-2 left-5 md:top-5 md:left-10 z-50 cursor-pointer"
         @mouseover="animLogo"
         @mouseleave="endLogo"
       >
@@ -15,7 +15,7 @@
         />
       </div>
       <div
-        class="contact fixed top-10 right-10 z-50 cursor-pointer bg-primary rounded-full w-14 h-14 flex justify-center"
+        class="contact fixed top-7 right-5 md:top-10 md:right-10 z-50 cursor-pointer bg-primary rounded-full w-10 h-10 md:w-14 md:h-14 flex justify-center"
         @click="openContact"
       >
         <svg
@@ -46,12 +46,12 @@
         </svg>
       </div>
       <div
-        class="legal fixed bottom-10 right-10 z-50 font-text text-primary font-semibold text-xs"
+        class="legal fixed bottom-5 left-1/2 md:bottom-10 md:right-0 z-50 font-text text-primary font-semibold text-xs transform -translate-x-1/2 -translate-y-1/2"
       >
         <nuxt-link to="/legal">Folio'21 © Kelligart</nuxt-link>
       </div>
       <div
-        class="menu w-screen bg-back  h-screen fixed flex flex-col justify-center z-30 p-10"
+        class="menu w-screen bg-back h-screen fixed flex flex-col justify-center z-30 p-10"
       >
         <nav class="mainNav h-full flex justify-center items-center">
           <div class="navlinks h-2/3 grid grid-cols-4 gap-4">
