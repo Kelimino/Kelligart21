@@ -1,7 +1,7 @@
 <template>
   <div id="laforet">
     <nuxt-link
-      class="fixed top-16 left-40 z-30 flex justify-center text-primary"
+      class="fixed top-10 left-28 md:left-40 md:top-16 z-30 flex justify-center text-primary"
       to="/projets"
       ><svg
         xmlns="http://www.w3.org/2000/svg"
@@ -22,13 +22,13 @@
     <a
       href="https://www.laforet.com/"
       target="_blank"
-      class="fixed bottom-10 left-10 z-30 w-20 h-20 p-4 cursor-pointer bg-primary rounded-full flex justify-center text-base text-white"
+      class="fixed left-5 bottom-5 md:bottom-10 md:left-10 z-30 w-20 h-20 p-4 cursor-pointer bg-primary rounded-full flex justify-center text-base text-white"
       ><img src="@/assets/icons/laptop.svg" alt="site internet"
     /></a>
     <div class="container-scroll h-screen flex flex-col flex-wrap">
       <section class="panel intro w-full h-full flex">
         <div
-          class="content-wrapper w-2/3 flex flex-col justify-center items-center"
+          class="content-wrapper w-2/3 flex flex-col justify-center items-center p-5 md:p-0"
         >
           <div class="content flex flex-col justify-center items-start">
             <h2 class="font-title text-primary text-6xl font-bold">Laforêt</h2>
@@ -55,29 +55,15 @@
           </div>
         </div>
         <div class="w-1/3">
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255 425">
-            <defs>
-              <clipPath id="clipIt">
-                <path
-                  class="cls-1"
-                  d="M127.5,424.5C57.74,424.5.77,377.25.51,319.16v-.49h0V106.25C.5,47.94,57.47.5,127.5.5s127,47.44,127,105.75v.92h0v212C254.23,377.25,197.26,424.5,127.5,424.5Z"
-                />
-                <path
-                  d="M127.5,1C197.25,1,254,48.21,254,106.25v1.42h0v210.5h0v1c-.13,28-13.32,54.3-37.14,74.09S161.24,424,127.5,424,62,413.08,38.15,393.25,1.14,347.15,1,319.16V107.67H1v-1.42C1,48.21,57.75,1,127.5,1m0-1C57.08,0,0,47.57,0,106.25c0,.14,0,.28,0,.42H0v212.5H0C.28,377.65,57.25,425,127.5,425S254.72,377.65,255,319.17h0V106.67h0c0-.14,0-.28,0-.42C255,47.57,197.92,0,127.5,0Z"
-                />
-              </clipPath>
-            </defs>
-          </svg> -->
-
           <img
             src="@/assets/img/projet/laforet/laforet.png"
             alt="laforet"
-            class="imgMain w-full object-cover object-top"
+            class="imgMain w-full h-full md:h-auto object-cover object-top"
           />
         </div>
       </section>
       <section
-        class="panel scope h-full w-1/3 flex justify-center items-center bg-primary"
+        class="panel scope h-full w-full md:w-1/3 flex justify-center items-center bg-primary"
       >
         <div class="enjeux w-2/3 flex flex-col justify-start">
           <h2 class="font-title text-white text-2xl font-bold">
@@ -94,17 +80,19 @@
         </div>
       </section>
 
-      <section class="panel methode h-full p-20 grid grid-cols-2">
-        <div class="probleme">
+      <section
+        class="panel methode h-full w- p-20 flex flex-row items-center flex-nowrap md:grid md:grid-cols-2"
+      >
+        <div class="probleme w-full md:w-auto">
           <img
             src="@/assets/img/projet/laforet/old-laforet.png"
             alt="old laforet"
-            class="h-80 w-full object-cover object-top mb-10"
+            class="h-40 md:h-80 w-full object-cover object-top mb-10"
           />
           <h2 class="font-title text-primary text-2xl font-bold w-5/6">
             Un site pas à la hauteur de leur renommée
           </h2>
-          <ul class="mt-10">
+          <ul class="mt-5 md:mt-10">
             <li class="font-text text-main text-base mt-3 flex justif-start">
               <img src="@/assets/icons/sad.svg" alt="sad" class="h-6 mr-5" />Une
               navigation peu intuitive et osbolète
@@ -119,16 +107,16 @@
             </li>
           </ul>
         </div>
-        <div class="solution ml-20">
+        <div class="solution w-full md:w-auto ml-10 md:ml-20">
           <img
             src="@/assets/img/projet/laforet/laforet-home.png"
             alt="old laforet"
-            class="h-80 w-full object-cover object-top mb-10"
+            class="h-40 md:h-80 w-full object-cover object-top mb-10"
           />
           <h2 class="font-title text-primary text-2xl font-bold w-5/6">
             Un site type avec certains codes de webapp
           </h2>
-          <ul class="mt-10">
+          <ul class="mt-5 md:mt-10">
             <li class="font-text text-main text-base mt-3 flex justif-start">
               <img
                 src="@/assets/icons/happy.svg"
@@ -156,7 +144,7 @@
         </div>
       </section>
       <section
-        class="panel feeback h-full w-1/3 flex justify-center items-center p-6 bg-white"
+        class="panel feeback h-full w-full md:w-1/3 flex justify-center items-center p-6 bg-white"
       >
         <h2 class="font-title text-primary text-8xl font-bold uppercase">
           le diable est dans le détail
@@ -247,16 +235,16 @@ export default {
           // pinSpacing: false,
           scrub: 1,
           // snap: 1 / (sections.length - 1),
-          end: () => "+=" + container.offsetWidth
-        }
+          end: () => "+=" + container.offsetWidth,
+        },
       });
       Scroll.to(container, {
         x: () =>
           -(container.scrollWidth - document.documentElement.clientWidth) +
           "px",
-        ease: "none"
+        ease: "none",
       }).to(".imgMain", { yPercent: -50 }, "<");
     });
-  }
+  },
 };
 </script>
