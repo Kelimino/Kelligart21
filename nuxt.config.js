@@ -93,22 +93,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    // resest css meyerweb
-    "@/assets/css/reset.css",
-    // gobal css compile
-    "@/assets/css/main.css",
-    // main css file sass
-    "@/assets/css/main.scss"
-  ],
+  css: ["@/assets/css/reset.css", "@/assets/css/main.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    {
-      src: "~/plugins/locomotive.js",
-      mode: "client"
-    }
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
