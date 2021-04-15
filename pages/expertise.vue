@@ -106,18 +106,14 @@
       </nuxt-link>
     </section>
     <div class="lotties">
-      <div
-        v-for="(lottie, index) in lotties"
-        :key="index"
-        :class="lottie.class"
-      >
+      <div v-for="(lottie, index) in lotties" :key="index">
+        {{ index }}
         <lottie
+          :class="lottie.class"
           :options="lottie.animationData"
           @:animCreated="handleAnimation"
         />
       </div>
-      <!-- <lottie :options="lotties.ux" @:animCreated="handleAnimation" />
-      <lottie :options="lotties.ui" @:animCreated="handleAnimation" /> -->
     </div>
   </div>
 </template>
@@ -175,21 +171,20 @@ export default {
   },
   data() {
     return {
-      lotties: [
-        {
+      lotties: {
+        ux: {
           class: "ux",
           animationData: ux.default,
           loop: true,
           autoplay: false
         },
-        {
+        ui: {
           class: "ui",
           animationData: ui.default,
           loop: true,
           autoplay: false
         }
-      ],
-
+      },
       onHover: false,
       graphisme: [
         {
