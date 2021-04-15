@@ -5,7 +5,7 @@
     >
       <h1 class="font-title flex flex-col">
         <span
-          class="Nst font-text text-primary text-2xl md:text-7xl font-light italic"
+          class="Nst font-text text-primary text-4xl md:text-7xl font-light italic"
           >Nous sommes tous</span
         ><span
           class="Dsg transform translate-y-0 font-title text-primary text-7xl md:text-12xl font-extrabold mt-6 uppercase"
@@ -46,7 +46,7 @@
               </div>
             </div>
             <div
-              class="page chapitre h-1/2 p-10 md:p-20 border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative text-left"
+              class="page chapitre h-1/2 md:h-full p-10 md:p-20 border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative text-left"
             >
               <h2 class="font-title text-primary text-2xl font-bold">
                 {{ story.titre }}

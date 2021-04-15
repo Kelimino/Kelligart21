@@ -24,7 +24,10 @@ module.exports = {
       },
       height: {
         footer: "400px"
-      }
+      },
+      spacing: {
+         '100': '100rem',
+       }
     }
   },
   variants: {

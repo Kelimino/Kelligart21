@@ -81,13 +81,13 @@
       </section>
 
       <section
-        class="panel methode h-full w- p-20 flex flex-row items-center flex-nowrap md:grid md:grid-cols-2"
+        class="panel methode h-full w-100 md:w-auto p-20 flex flex-row items-center flex-nowrap md:grid md:grid-cols-2"
       >
         <div class="probleme w-full md:w-auto">
           <img
             src="@/assets/img/projet/laforet/old-laforet.png"
             alt="old laforet"
-            class="h-40 md:h-80 w-full object-cover object-top mb-10"
+            class="h-80 w-full object-cover object-top mb-10"
           />
           <h2 class="font-title text-primary text-2xl font-bold w-5/6">
             Un site pas à la hauteur de leur renommée
@@ -111,7 +111,7 @@
           <img
             src="@/assets/img/projet/laforet/laforet-home.png"
             alt="old laforet"
-            class="h-40 md:h-80 w-full object-cover object-top mb-10"
+            class="h-80 w-full object-cover object-top mb-10"
           />
           <h2 class="font-title text-primary text-2xl font-bold w-5/6">
             Un site type avec certains codes de webapp
@@ -152,9 +152,11 @@
       </section>
 
       <section
-        class="panel screen h-full w-full flex flex-row items-center flex-wrap p-10"
+        class="panel screen h-full w-auto md:w-full flex flex-row items-center flex-wrap p-10"
       >
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
+        <div
+          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+        >
           <img
             src="@/assets/img/projet/laforet/search.png"
             alt="filtre"
@@ -164,7 +166,9 @@
             Un module de recherche simple, juste l'essentiel
           </p>
         </div>
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
+        <div
+          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+        >
           <img
             src="@/assets/img/projet/laforet/list.png"
             alt="filtre"
@@ -174,7 +178,9 @@
             Un listing à cartes hiérarchisé et personnalisé
           </p>
         </div>
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
+        <div
+          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+        >
           <img
             src="@/assets/img/projet/laforet/filter.png"
             alt="filtre"
@@ -184,7 +190,9 @@
             Un module de filtres catégorisés selon leur pertinences
           </p>
         </div>
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
+        <div
+          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+        >
           <img
             src="@/assets/img/projet/laforet/glance.png"
             alt="filtre"
@@ -194,7 +202,9 @@
             Des options de visualisation plus rapide
           </p>
         </div>
-        <div class="ui w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-8">
+        <div
+          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+        >
           <img
             src="@/assets/img/projet/laforet/product.png"
             alt="filtre"
@@ -206,7 +216,7 @@
         </div>
       </section>
 
-      <section class="panel next w-full">
+      <section class="panel next w-full bg-white">
         <nuxt-link to="/projets/spall">
           <h3>Goall</h3>
           <p>Design concept sur une plateforme de streaming</p></nuxt-link
@@ -235,16 +245,16 @@ export default {
           // pinSpacing: false,
           scrub: 1,
           // snap: 1 / (sections.length - 1),
-          end: () => "+=" + container.offsetWidth,
-        },
+          end: () => "+=" + container.offsetWidth
+        }
       });
       Scroll.to(container, {
         x: () =>
           -(container.scrollWidth - document.documentElement.clientWidth) +
           "px",
-        ease: "none",
+        ease: "none"
       }).to(".imgMain", { yPercent: -50 }, "<");
     });
-  },
+  }
 };
 </script>

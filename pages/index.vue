@@ -1,12 +1,13 @@
 <template>
-  <div
-    class="h-screen flex flex-col justify-center relative bg-primary bg-opacity-30"
-  >
+  <div class="h-screen flex flex-col justify-center relative">
     <section
-      class="bienvenue w-8/12 h-full mx-auto flex flex-col justify-center items-center z-10"
+      class="bienvenue w-full p-5 md:p-0 md:w-8/12 h-full mx-auto flex flex-col justify-center items-center z-10"
     >
-      <h1 class="font-title flex flex-col justify-center items-center">
-        <span class="font-text text-primary text-7xl font-light italic"
+      <h1
+        class="font-title flex flex-col justify-center items-center text-center"
+      >
+        <span
+          class="font-text text-primary text-4xl md:text-7xl font-light italic"
           >Directeur Artistique </span
         ><span class="font-title text-primary text-8xl font-extrabold mt-6"
           >&amp; Creative Designer
@@ -15,8 +16,8 @@
       <p
         class="font-text text-main text-base mt-6 flex justify-end flex-col items-center text-center"
       >
-        Bonjour, je m’appelle Kellig, un peu comme Kellogg’s©,<br />
-        votre bol complet pour la journée ;)
+        Bonjour, je m’appelle Kellig, un peu comme Kellogg’s ©, un bol complet
+        ;)
         <img
           src="@/assets/icons/cereal.svg"
           alt="bol de céreales "
@@ -25,7 +26,7 @@
       </p>
       <nuxt-link
         to="/accompagnement"
-        class="accompagnement-link bg-white p-6 rounded text-base font-semibold text-main mt-10 shadow hover:bg-primary hover:text-white transition-all duration-200"
+        class="accompagnement-link w-full md:w-auto bg-white p-6 rounded text-base text-center font-semibold text-main mt-10 shadow hover:bg-primary hover:text-white transition-all duration-200"
         >Commencer l'expérience</nuxt-link
       >
     </section>

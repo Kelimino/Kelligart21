@@ -36,7 +36,7 @@
       <div class="list-expertise col-span-2 pb-20">
         <div class="list-wrapper flex flex-col items-end">
           <section
-            class="introexpertise w-5/6 min-h-full h-screen flex flex-col items-start justify-center"
+            class="introexpertise w-full md:w-5/6 pl-5 md:pl-0 min-h-full h-screen flex flex-col items-start justify-center"
           >
             <p class="p-first font-text text-main text-base">L'esprit</p>
             <h1
