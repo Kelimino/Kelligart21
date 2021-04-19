@@ -30,62 +30,6 @@
         >Commencer l'expérience</nuxt-link
       >
     </section>
-
-    <section
-      class="absolute overflow-hidden bottom-0 left-0 w-full flex justify-center items-center opacity-50"
-    >
-      <ul class="flex justify-center items-center">
-        <li class="list-none mr-3 w-48 h-64 overflow-hidden">
-          <img
-            src="@/assets/img/tiles/web1.png"
-            alt="poster"
-            class="w-full object-cover object-top"
-          />
-        </li>
-        <li class="list-none mr-3 w-48 h-64 overflow-hidden">
-          <img
-            src="@/assets/img/tiles/poster1.jpg"
-            alt="poster"
-            class="w-full object-cover object-top"
-          />
-        </li>
-        <li class="list-none mr-3 w-48 h-64 overflow-hidden">
-          <img
-            src="@/assets/img/tiles/web14.jpg"
-            alt="poster"
-            class="w-full object-cover object-top"
-          />
-        </li>
-        <li class="list-none mr-3 w-48 h-64 overflow-hidden">
-          <img
-            src="@/assets/img/tiles/poster8.png"
-            alt="poster"
-            class="w-full object-cover object-top"
-          />
-        </li>
-        <li class="list-none mr-3 w-48 h-64 overflow-hidden">
-          <img
-            src="@/assets/img/tiles/web12.png"
-            alt="poster"
-            class="w-full object-cover object-top"
-          />
-        </li>
-        <li class="list-none mr-3 w-48 h-64 overflow-hidden">
-          <img
-            src="@/assets/img/tiles/poster2.jpg"
-            alt="poster"
-            class="w-full object-cover object-top"
-          />
-        </li>
-        <li class="list-none w-48 h-64 overflow-hidden">
-          <img
-            src="@/assets/img/tiles/web13.jpg"
-            alt="poster"
-            class="w-full object-cover object-top"
-          />
-        </li>
-      </ul>
-    </section>
     <Loader />
   </div>
 </template>
@@ -107,7 +51,16 @@ export default {
     enter(el, done) {
       let introIndex = gsap.timeline({ repeat: 0 });
       introIndex
-        .from(".bienvenue h1", { y: 20, autoAlpha: 0 })
+        .from(".bienvenue h1", {
+          y: 20,
+          autoAlpha: 0,
+          clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)"
+        })
+        .to(".bienvenue h1", {
+          y: 0,
+          autoAlpha: 1,
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+        })
         .from(".bienvenue p", { y: 20, autoAlpha: 0 })
         .from(".accompagnement-link", { y: 20, autoAlpha: 0 });
       done();

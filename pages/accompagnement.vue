@@ -164,7 +164,7 @@
             v-show="upHere"
             src="@/assets/img/projet-back.png"
             alt="expertise"
-            class="absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50"
+            class="link absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50"
           />
         </transition>
         <h2 class="text-main text-sm text-center mb-5">

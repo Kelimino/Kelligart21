@@ -1,7 +1,7 @@
 <template>
   <div id="laforet">
     <nuxt-link
-      class="fixed top-10 left-28 md:left-40 md:top-16 z-30 flex justify-center text-primary"
+      class="link fixed top-10 left-28 md:left-40 md:top-16 z-30 flex justify-center text-primary"
       to="/projets"
       ><svg
         xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@
     <a
       href="https://www.laforet.com/"
       target="_blank"
-      class="fixed left-5 bottom-5 md:bottom-10 md:left-10 z-30 w-20 h-20 p-4 cursor-pointer bg-primary rounded-full flex justify-center text-base text-white"
+      class="link fixed left-5 bottom-5 md:bottom-10 md:left-10 z-30 w-20 h-20 p-4 cursor-pointer bg-primary rounded-full flex justify-center text-base text-white"
       ><img src="@/assets/icons/laptop.svg" alt="site internet"
     /></a>
     <div class="container-scroll h-screen flex flex-col flex-wrap">
@@ -217,7 +217,7 @@
       </section>
 
       <section class="panel next w-full bg-white">
-        <nuxt-link to="/projets/spall">
+        <nuxt-link to="/projets/spall" class="link">
           <h3>Goall</h3>
           <p>Design concept sur une plateforme de streaming</p></nuxt-link
         >

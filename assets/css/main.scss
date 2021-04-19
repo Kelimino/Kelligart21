@@ -16,6 +16,12 @@ body {
   pointer-events: none;
 }
 
+.cursor {
+  transition: transform 0.2s linear;
+}
+.link {
+  cursor: none;
+}
 .navlinks > * {
   cursor: pointer;
   pointer-events: auto;
