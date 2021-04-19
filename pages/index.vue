@@ -3,7 +3,9 @@
     <section
       class="bienvenue relative w-full p-5 md:p-0 h-screen mx-auto flex flex-col justify-center items-center z-10"
     >
-      <canvas class="webgl fixed top-0 left-0 outline-none"></canvas>
+      <canvas
+        class="webgl fixed top-0 left-0 w-full h-full outline-none"
+      ></canvas>
       <div class="back-board absolute w-4/6 h-4/6 py-36 bg-white rounded"></div>
       <h1
         class="font-title flex flex-col justify-center items-center text-center"
@@ -32,10 +34,10 @@
 <script>
 import { gsap } from "gsap";
 import Loader from "/components/loader";
-import Three from "~/mixins/three.js";
+import three from "~/mixins/three.js";
 export default {
   name: "Accueil",
-  mixin: [Three],
+  mixin: [three],
 
   components: {
     Loader
