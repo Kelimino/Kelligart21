@@ -52,18 +52,6 @@ export default {
         posArray[i] = (Math.random() - 0.5) * (Math.random() * 5);
       }
 
-      var pCount = particlesCnt;
-      while (pCount--) {
-        var particle = particlesGeometry.vertices[pCount];
-
-        if (particle.position.y < -200) {
-          particle.position.y = 200;
-          particle.velocity.y = 0;
-        }
-        particle.velocity.y -= Math.random() * 0.1;
-        particle.position.addSelf(particle.velocity);
-      }
-
       particlesGeometry.setAttribute(
         "position",
         new Three.BufferAttribute(posArray, 3)
@@ -108,18 +96,17 @@ export default {
       }
 
       const clock = new Three.Clock();
-
       const tick = () => {
         const elapsedTime = clock.getElapsedTime();
         this.particles.rotation.x = -mouseY * (elapsedTime * 0.00008);
         this.particles.rotation.y = -mouseX * (elapsedTime * 0.00008);
 
+        this.renderer.render(this.scene, this.camera);
+
         window.requestAnimationFrame(tick);
       };
 
       tick();
-
-      this.renderer.render(this.scene, this.camera);
     }
   }
 };
