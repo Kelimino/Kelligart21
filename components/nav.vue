@@ -46,11 +46,6 @@
         </svg>
       </div>
       <div
-        class="legal fixed bottom-5 left-1/2 md:bottom-10 md:right-0 z-50 font-text text-primary font-semibold text-xs transform -translate-x-1/2 -translate-y-1/2"
-      >
-        <nuxt-link to="/legal">Folio'21 © Kelligart</nuxt-link>
-      </div>
-      <div
         class="menu w-screen bg-back h-screen fixed flex flex-col justify-center z-30 p-10"
       >
         <nav class="mainNav h-full flex justify-center items-center">

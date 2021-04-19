@@ -307,7 +307,7 @@ export default {
       let Qa = gsap.timeline({
         scrollTrigger: {
           trigger: el,
-          start: "80% bottom",
+          start: "80% center",
           scrub: true,
           toggleActions: "play restart play reset"
         }
