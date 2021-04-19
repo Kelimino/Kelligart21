@@ -61,7 +61,7 @@ export default {
       let introIndex = gsap.timeline({ repeat: 0 });
       introIndex
         .from(".back-board", { clipPath: "inset(0 50% 0 50%)" })
-        .to(".back-board", { clipPath: "inset(0 0 0 0)", duration: 1 })
+        .to(".back-board", { clipPath: "inset(0 0 0 0)", duration: 1.5 })
         .from(
           ".bienvenue h1 span",
           {
@@ -85,7 +85,7 @@ export default {
           clipPath: "inset(0 0 0 0)"
         })
         .from(".bienvenue p", { y: 20, autoAlpha: 0 }, "-=1.5")
-        .from(".accompagnement-link", { y: 20, autoAlpha: 0 });
+        .from(".accompagnement-link", { y: 20, autoAlpha: 0 }, "<=0.5");
       done();
     },
     leave(el, done) {

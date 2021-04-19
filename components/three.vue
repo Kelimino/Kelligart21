@@ -51,6 +51,19 @@ export default {
         posArray[i] = (Math.random() - 0.5) * 5;
         posArray[i] = (Math.random() - 0.5) * (Math.random() * 5);
       }
+
+      var pCount = particlesCnt;
+      while (pCount--) {
+        var particle = particlesGeometry.vertices[pCount];
+
+        if (particle.position.y < -200) {
+          particle.position.y = 200;
+          particle.velocity.y = 0;
+        }
+        particle.velocity.y -= Math.random() * 0.1;
+        particle.position.addSelf(particle.velocity);
+      }
+
       particlesGeometry.setAttribute(
         "position",
         new Three.BufferAttribute(posArray, 3)
@@ -63,15 +76,18 @@ export default {
         sizeAttenuation: true,
         map: flake,
         alphaTest: 0.5,
+        rotation: 100,
         transparent: true
         // blendding: THREE.AdditiveBlending
       });
 
       // Mesh
-
       this.particles = new Three.Points(particlesGeometry, particlesMaterial);
+
+      // Scene
       this.scene.add(this.particles);
 
+      //Render
       this.renderer = new Three.WebGLRenderer({ antialias: true });
       this.renderer.setSize(container.clientWidth, container.clientHeight);
       this.renderer.setClearColor(new Three.Color("#F3F5FB"), 1);
