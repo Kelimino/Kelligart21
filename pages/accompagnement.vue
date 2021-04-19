@@ -307,12 +307,20 @@ export default {
       let Qa = gsap.timeline({
         scrollTrigger: {
           trigger: el,
-          start: "80% center",
+          start: "80% bottom",
           scrub: true,
           toggleActions: "play restart play reset"
         }
       });
-      Qa.from(".question h3", { x: pageWidth * 2.5 })
+      Qa
+        // .from(".illustration", {
+        //   rotationY: -90,
+        //   duration: 0.2,
+        //   transformOrigin: "right",
+        //   ease: "Power2.easeOut"
+        // })
+        //   .to(".illustration", { rotationY: 0 }, "-=0.2")
+        .from(".question h3", { x: pageWidth * 2.5 })
         .to(".question h3", { x: -pageWidth * 2, duration: 10 })
         .to(el, {
           autoAlpha: 0

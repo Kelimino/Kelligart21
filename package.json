@@ -21,6 +21,7 @@
     "sass-loader": "^10.1.1",
     "smooth-scrollbar": "^8.6.0",
     "swiper": "^6.4.15",
+    "three": "^0.127.0",
     "vue-lottie": "^0.2.1",
     "vue-router": "^3.5.1"
   },

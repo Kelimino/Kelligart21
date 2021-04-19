@@ -1,8 +1,10 @@
 <template>
   <div class="h-screen flex flex-col justify-center relative">
     <section
-      class="bienvenue w-full p-5 md:p-0 md:w-8/12 h-full mx-auto flex flex-col justify-center items-center z-10"
+      class="bienvenue relative w-full p-5 md:p-0 h-screen mx-auto flex flex-col justify-center items-center z-10"
     >
+      <canvas class="webgl fixed top-0 left-0 outline-none"></canvas>
+      <div class="back-board absolute w-4/6 h-4/6 py-36 bg-white rounded"></div>
       <h1
         class="font-title flex flex-col justify-center items-center text-center"
       >
@@ -30,8 +32,10 @@
 <script>
 import { gsap } from "gsap";
 import Loader from "/components/loader";
+import Three from "~/mixins/three.js";
 export default {
   name: "Accueil",
+  mixin: [Three],
 
   components: {
     Loader
@@ -44,15 +48,21 @@ export default {
     enter(el, done) {
       let introIndex = gsap.timeline({ repeat: 0 });
       introIndex
-        .from(".bienvenue h1 span", {
-          y: 20,
-          autoAlpha: 0,
-          duration: 1,
-          stagger: {
-            each: 0.1
+        .from(".back-board", { clipPath: "inset(0 50% 0 50%)" })
+        .to(".back-board", { clipPath: "inset(0 0 0 0)", duration: 1 })
+        .from(
+          ".bienvenue h1 span",
+          {
+            y: 20,
+            autoAlpha: 0,
+            duration: 1,
+            stagger: {
+              each: 0.1
+            },
+            clipPath: "inset(100% 0 0 0)"
           },
-          clipPath: "inset(100% 0 0 0)"
-        })
+          "-=1"
+        )
         .to(".bienvenue h1 span", {
           y: 0,
           autoAlpha: 1,
