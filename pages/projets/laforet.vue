@@ -155,7 +155,7 @@
         class="panel screen h-full w-auto md:w-full flex flex-row items-center flex-wrap p-10"
       >
         <div
-          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+          class="ui w-auto md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
         >
           <img
             src="@/assets/img/projet/laforet/search.png"
@@ -167,7 +167,7 @@
           </p>
         </div>
         <div
-          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+          class="ui w-auto md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
         >
           <img
             src="@/assets/img/projet/laforet/list.png"
@@ -179,7 +179,7 @@
           </p>
         </div>
         <div
-          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+          class="ui w-auto md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
         >
           <img
             src="@/assets/img/projet/laforet/filter.png"
@@ -191,7 +191,7 @@
           </p>
         </div>
         <div
-          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+          class="ui w-auto md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
         >
           <img
             src="@/assets/img/projet/laforet/glance.png"
@@ -203,7 +203,7 @@
           </p>
         </div>
         <div
-          class="ui w-1/2 md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
+          class="ui w-auto md:w-80 h-72 bg-white rounded overflow-hidden pb-20 mr-4 md:mr-8 flex-initial"
         >
           <img
             src="@/assets/img/projet/laforet/product.png"
