@@ -19,10 +19,21 @@
         Bonjour, je m’appelle Kellig, un peu comme Kellogg’s ©, un bol complet
         ;)
       </p>
-      <img src="@/assets/icons/path.svg" alt="svg" class="w-60" />
+
       <nuxt-link
         to="/accompagnement"
-        class="accompagnement-link link w-full md:w-auto bg-white p-6 rounded text-base text-center font-semibold text-main mt-10 shadow hover:bg-primary hover:text-white transition-all duration-200"
+        class="accompagnement-link relative link w-full md:w-auto text-base text-center font-bold text-main uppercase mt-16"
+        ><svg
+          viewBox="0 0 401.72 177"
+          class="z-10 w-44 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        >
+          <path
+            class="path"
+            fill="none"
+            stroke="#3451be"
+            stroke-width="2"
+            d="M254.3,17.38a517.45,517.45,0,0,0-59.85,9.7C84.45,51.42-7.61,90.71,1.64,132.5s105.93,55.93,215.93,31.58S409.25,86.12,400,44.33C394.19,18.09,353.9,2.75,297.49,1"
+          /></svg
         >Commencer l'expérience</nuxt-link
       >
     </section>
@@ -166,6 +177,13 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    linkSvg: function() {
+      console.log("hey");
+      const path = document.querySelector(".accompagnement-link svg path ");
+      path.classlist.toggle(".pathAnim");
+    }
   }
 };
 </script>
