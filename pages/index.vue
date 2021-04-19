@@ -19,6 +19,7 @@
         Bonjour, je m’appelle Kellig, un peu comme Kellogg’s ©, un bol complet
         ;)
       </p>
+      <img src="@/assets/icons/path.svg" alt="svg" class="w-60" />
       <nuxt-link
         to="/accompagnement"
         class="accompagnement-link link w-full md:w-auto bg-white p-6 rounded text-base text-center font-semibold text-main mt-10 shadow hover:bg-primary hover:text-white transition-all duration-200"
