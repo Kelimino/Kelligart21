@@ -156,7 +156,7 @@ body {
     }
     100% {
       opacity: 1;
-      top: 12%;
+      top: 0%;
     }
   }
 
@@ -164,7 +164,7 @@ body {
     display: block;
 
     &:nth-child(4) {
-      transform-origin: 60% 62%;
+      transform-origin: 60% 67%;
       animation: Idea 1.5s ease-in-out forwards;
     }
     @keyframes Idea {

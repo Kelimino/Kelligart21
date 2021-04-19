@@ -13,20 +13,13 @@
           >&amp; Creative Designer
         </span>
       </h1>
-      <p
-        class="font-text text-main text-base mt-6 flex justify-end flex-col items-center text-center"
-      >
+      <p class="font-text text-main text-base mt-6 text-center">
         Bonjour, je m’appelle Kellig, un peu comme Kellogg’s ©, un bol complet
         ;)
-        <img
-          src="@/assets/icons/cereal.svg"
-          alt="bol de céreales "
-          class="h-6 mt-3"
-        />
       </p>
       <nuxt-link
         to="/accompagnement"
-        class="accompagnement-link w-full md:w-auto bg-white p-6 rounded text-base text-center font-semibold text-main mt-10 shadow hover:bg-primary hover:text-white transition-all duration-200"
+        class="accompagnement-link link w-full md:w-auto bg-white p-6 rounded text-base text-center font-semibold text-main mt-10 shadow hover:bg-primary hover:text-white transition-all duration-200"
         >Commencer l'expérience</nuxt-link
       >
     </section>
@@ -51,17 +44,25 @@ export default {
     enter(el, done) {
       let introIndex = gsap.timeline({ repeat: 0 });
       introIndex
-        .from(".bienvenue h1", {
+        .from(".bienvenue h1 span", {
           y: 20,
           autoAlpha: 0,
-          clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)"
+          duration: 1,
+          stagger: {
+            each: 0.1
+          },
+          clipPath: "inset(100% 0 0 0)"
         })
-        .to(".bienvenue h1", {
+        .to(".bienvenue h1 span", {
           y: 0,
           autoAlpha: 1,
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+          duration: 1,
+          stagger: {
+            each: 0.1
+          },
+          clipPath: "inset(0 0 0 0)"
         })
-        .from(".bienvenue p", { y: 20, autoAlpha: 0 })
+        .from(".bienvenue p", { y: 20, autoAlpha: 0 }, "-=1.5")
         .from(".accompagnement-link", { y: 20, autoAlpha: 0 });
       done();
     },

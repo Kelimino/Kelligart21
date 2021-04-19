@@ -5,7 +5,7 @@
     >
       <h1 class="font-title flex flex-col">
         <span
-          class="Nst font-text text-primary text-4xl md:text-7xl font-light italic"
+          class="Nst font-text text-primary text-4xl md:text-7xl font-light italic mb-10"
           >Nous sommes tous</span
         ><span
           class="Dsg transform translate-y-0 font-title text-primary text-7xl md:text-12xl font-extrabold mt-6 uppercase"
