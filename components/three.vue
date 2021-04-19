@@ -42,7 +42,7 @@ export default {
 
       // Objects
       const particlesGeometry = new Three.BufferGeometry();
-      const particlesCnt = 500;
+      const particlesCnt = 300;
       const posArray = new Float32Array(particlesCnt * 4);
 
       for (let i = 0; i < particlesCnt * 4; i++) {
@@ -71,6 +71,10 @@ export default {
 
       // Mesh
       this.particles = new Three.Points(particlesGeometry, particlesMaterial);
+
+      // this.particles.rotation.x = Math.random() * 6;
+      // this.particles.rotation.y = Math.random() * 6;
+      // this.particles.rotation.z = Math.random() * 6;
 
       // Scene
       this.scene.add(this.particles);

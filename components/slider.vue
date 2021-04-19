@@ -36,7 +36,7 @@
             </div>
 
             <div
-              class="content p-5 h-1/3"
+              class="content p-5 h-1/3 w-full sm:text-center mx-auto md:text-left"
               data-swiper-parallax-opacity="0.7"
               data-swiper-parallax-x="-70"
             >
@@ -48,7 +48,7 @@
                 {{ projet.nom }}
               </h2>
 
-              <p class="font-text text-main text-base mt-3 w-4/6">
+              <p class="font-text text-main text-base mt-3 w-full md:w-4/6">
                 {{ projet.description }}
               </p>
             </div>
@@ -143,32 +143,6 @@ export default {
   },
 
   mounted() {
-    // let isVertical = false,
-    //   direction = "horizontal";
-    // let swiper = initSwiper(direction);
-
-    // function initSwiper(direction) {
-    //   return new Swiper(".swiper-container", {
-    //     spaceBetween: 50,
-    //     pagination: {
-    //       el: ".swiper-pagination",
-    //       clickable: true
-    //     },
-    //     direction: direction
-    //   });
-    // }
-
-    // let Change = document.querySelector(".changeDirection");
-
-    // Change.addEventListener("click", () => {
-    //   isVertical = !isVertical;
-    //   direction = isVertical ? "vertical" : "horizontal";
-    //   let slideIndex = swiper.activeIndex;
-    //   swiper.destroy(true, true);
-    //   swiper = initSwiper(direction);
-    //   swiper.slideTo(slideIndex, 0);
-    // });
-
     this.swiper = new Swiper(".swiper-projet", {
       direction: "horizontal",
       loop: true,
