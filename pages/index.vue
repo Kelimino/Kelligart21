@@ -4,9 +4,7 @@
       class="bienvenue relative w-full p-5 md:p-0 h-screen mx-auto flex flex-col justify-center items-center z-10"
     >
       <Three />
-      <div
-        class="back-board absolute w-4/6 h-4/6 py-36 bg-white bg-opacity-0 rounded"
-      ></div>
+      <div class="back-board absolute w-4/6 h-4/6 py-36 bg-white rounded"></div>
       <h1
         class="font-title flex flex-col justify-center items-center text-center"
       >

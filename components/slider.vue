@@ -13,7 +13,10 @@
           class="swiper-slide h-full flex flex-col justify-center items-center"
           :class="projet.class"
         >
-          <nuxt-link :to="projet.href" class="h-full flex flex-col items-start">
+          <nuxt-link
+            :to="projet.href"
+            class="link h-full flex flex-col items-start"
+          >
             <div class="img-wrapper h-2/3 w-full overflow-hidden">
               <img
                 :src="projet.path"
