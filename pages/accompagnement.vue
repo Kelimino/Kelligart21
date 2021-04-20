@@ -53,6 +53,8 @@
               </h2>
               <h4 class="font-text text-main text-base mt-3">
                 {{ story.texte }}
+                <br /><br />
+                <em class="mt-3 text-primary italic">{{ story.span }}</em>
               </h4>
             </div>
           </div>
@@ -83,8 +85,13 @@
           class="laptop absolute w-11/12 md:w-2/3 h-2/3 top-1/2 left-1/2 p-2 transform -translate-x-1/2 -translate-y-1/2 bg-primary rounded-md"
         >
           <div
-            class="screen w-full h-full flex flex-col justify-around items-center bg-white"
+            class="screen w-full h-full flex flex-col justify-around items-center bg-white overflow-hidden"
           >
+            <img
+              src="@/assets/img/boardBack.png"
+              alt="board-back"
+              class="absolute top-0 left-0 w-full h-full object-cover object-center opacity-50 p-5"
+            />
             <div class="method grid grid-cols-2 w-full">
               <ul class="research flex flex-col justify-start items-start ml-5">
                 <li
@@ -238,7 +245,9 @@ export default {
           titre: "Synopsis",
           class: "synopsis",
           texte:
-            "Tout commence par une histoire où l’utilisateur en est le principal protagoniste dans un univers où son expérience est le fil conducteur de votre scénario. Une équipe pluridisciplinaire rénuie pour écrire cette chronique",
+            "Tout commence par une histoire où l’utilisateur en est le principal protagoniste dans un univers où son expérience est le fil conducteur de votre scénario.",
+          span:
+            "Une équipe pluridisciplinaire rénuie pour réaliser cette chronique",
           path: require("@/assets/animation/synopsis.png"),
           question: "Qui est votre héros ?"
         },
@@ -246,7 +255,9 @@ export default {
           titre: "Univers",
           class: "univers",
           texte:
-            "Un monde nouveau qu'il va découvrir et appréhender avec une certaine supposition, basée sur ses expériences passées. Votre univers est le reflet de votre raison d'être. L'aimera t-il ?",
+            "Un monde nouveau qu'il va découvrir et appréhender avec une certaine supposition, basée sur ses expériences passées. ",
+          span:
+            "Votre univers est le reflet de votre raison d'être. L'aimera t-il ?",
           path: require("@/assets/animation/univers.png"),
           question: "À quoi ressemble votre univers ?"
         },
@@ -254,7 +265,9 @@ export default {
           titre: "Déclenchement",
           class: "declenchement",
           texte:
-            "Le héros arrive avec une quête à accomplir, une idée en tête, une attente singulière émanant d'un problème à résoudre. La réussite de sa mission est étroitement liée à la pertinence de vos actions. ",
+            "Le héros arrive avec une quête à accomplir, une idée en tête, une attente singulière émanant d'un problème à résoudre.  ",
+          span:
+            "La réponse à ses besoins et ses attentes doit correspondre à votre offre",
           path: require("@/assets/animation/declenchement.png"),
           question: "Pourquoi est-il là ?"
         },
@@ -263,6 +276,8 @@ export default {
           class: "aventure",
           texte:
             "Une aventure séquentielle, un parcours itératif qui va le mener sur différentes étapes. Surmonter des obstacles, trouver des opportuntiés pour s'orienter et réussir ses objectifs.",
+          span:
+            "La réussite de sa mission est étroitement liée à la pertinence de vos actions",
           path: require("@/assets/animation/aventure.png"),
           question: "Que recherche t'il ?"
         },
@@ -270,7 +285,9 @@ export default {
           titre: "Dénouement",
           class: "denouement",
           texte:
-            "Une fois la mission accomplie ou même en cas d'échec, le héros en sortira grandit, différent, avec un sentiment basé sur son expérience, reviendra t-il ?",
+            "Une fois la mission accomplie ou même en cas d'échec, le héros en sortira grandit, différent, avec un sentiment basé sur son ressenti",
+          span:
+            "Son expérience est le résultat de votre rencontre. Reviendra t-il ?",
           path: require("@/assets/animation/denouement.png"),
           question: "Quelle est son expérience finale ?"
         }

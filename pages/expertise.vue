@@ -98,13 +98,16 @@
         </h3>
       </nuxt-link>
     </section>
-    <div class="lotties">
-      <div v-for="(lottie, index) in lotties" :key="index">
-        {{ index }}
+    <div
+      class="lotties fixed z-20 top-0 right-0 w-2/6 h-full flex items-center justify-center"
+    >
+      <div
+        class="lottie-wrapper bg-white h-2/5 w-3/6 transform rotate-3 rounded shadow p-10"
+      >
         <lottie
-          :class="lottie.class"
-          :options="lottie.animationData"
-          @:animCreated="handleAnimation"
+          :options="lotties.ux"
+          class="w-4/6"
+          @animCreated="handleAnimation"
         />
       </div>
     </div>
@@ -117,7 +120,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import lottie from "vue-lottie/src/lottie.vue";
 import * as ux from "assets/animation/UX.json";
-import * as ui from "assets/animation/Ui.json";
+// import * as ui from "assets/animation/Ui.json";
 
 export default {
   name: "Expertise",
@@ -169,14 +172,14 @@ export default {
           class: "ux",
           animationData: ux.default,
           loop: true,
-          autoplay: false
-        },
-        ui: {
-          class: "ui",
-          animationData: ui.default,
-          loop: true,
-          autoplay: false
+          autoplay: true
         }
+        // ui: {
+        //   class: "ui",
+        //   animationData: ui.default,
+        //   loop: true,
+        //   autoplay: false
+        // }
       },
       graphisme: [
         {
@@ -376,12 +379,18 @@ export default {
       }
     });
     circleText
-      .fromTo(".circleText", { scale: 0.9 }, { autoAlpha: 1 })
-      .to(".circleText", { autoAlpha: 1, rotate: "360deg", duration: 10 }, "<");
+      .to(".circleText", { autoAlpha: 1 })
+      .to(".circleText", { rotate: "360deg", duration: 10 }, "<");
   },
   methods: {
     handleAnimation: function(anim) {
       this.anim = anim;
+    },
+    play: function() {
+      this.anim.play();
+    },
+    stop: function() {
+      this.anim.stop();
     }
   }
 };

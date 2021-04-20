@@ -22,7 +22,7 @@
 
       <nuxt-link
         to="/accompagnement"
-        class="accompagnement-link relative link w-full md:w-auto text-base text-center font-bold text-main uppercase mt-16"
+        class="accompagnement-link link relative w-full md:w-auto text-base text-center font-bold text-main uppercase mt-16"
         ><svg
           viewBox="0 0 401.72 177"
           class="z-10 w-44 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
