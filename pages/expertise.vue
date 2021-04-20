@@ -99,13 +99,18 @@
       </nuxt-link>
     </section>
     <div
-      class="lotties fixed z-20 top-0 right-0 w-2/6 h-full flex items-center justify-center"
+      class="lotties fixed z-20 top-0 -right-full w-2/6 h-full flex items-center justify-center transform"
     >
       <div
         class="lottie-wrapper bg-white h-2/5 w-3/6 transform rotate-3 rounded shadow p-10"
       >
         <lottie
           :options="lotties.ux"
+          class="w-4/6"
+          @animCreated="handleAnimation"
+        />
+        <lottie
+          :options="lotties.ui"
           class="w-4/6"
           @animCreated="handleAnimation"
         />
@@ -120,7 +125,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import lottie from "vue-lottie/src/lottie.vue";
 import * as ux from "assets/animation/UX.json";
-// import * as ui from "assets/animation/Ui.json";
+import * as ui from "assets/animation/Ui.json";
 
 export default {
   name: "Expertise",
@@ -173,13 +178,13 @@ export default {
           animationData: ux.default,
           loop: true,
           autoplay: true
+        },
+        ui: {
+          class: "ui",
+          animationData: ui.default,
+          loop: true,
+          autoplay: true
         }
-        // ui: {
-        //   class: "ui",
-        //   animationData: ui.default,
-        //   loop: true,
-        //   autoplay: false
-        // }
       },
       graphisme: [
         {
@@ -360,12 +365,18 @@ export default {
     gsap.utils.toArray(".skill").forEach(el => {
       let SkillAnim = gsap.timeline({
         scrollTrigger: {
-          trigger: el
+          trigger: el,
+          start: "top 80%",
+          end: "bottom center",
+          toggleActions: "play restart play reset"
         }
       });
-      SkillAnim.to(el, { autoAlpha: 1 }).add(function() {
-        console.log("hey");
-      });
+      SkillAnim.from(el, { autoAlpha: 0, y: 20 })
+        .to(el, { autoAlpha: 1 })
+        .to(".lotties", { right: 0, duratio: 1 }, "<")
+        .add(function() {
+          console.log("hey");
+        });
     });
 
     //CIRCLE TEXT ROTATE ANIMATION
