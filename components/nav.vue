@@ -15,7 +15,7 @@
         />
       </div>
       <div
-        class="contact fixed top-7 right-5 md:top-10 md:right-10 cursor-pointer bg-primary rounded-full w-10 h-10 md:w-14 md:h-14 flex justify-center"
+        class="contact fixed top-7 z-50 right-5 md:top-10 md:right-10 cursor-pointer bg-primary rounded-full w-10 h-10 md:w-14 md:h-14 flex justify-center"
         @click="openContact"
       >
         <svg

@@ -366,7 +366,9 @@ export default {
       )
       .to(".board", { background: "transparent" });
 
+    //TITLE ANIMATION ENSEMBLE
     const tl2 = gsap.timeline({
+      delay: 0.5,
       scrollTrigger: {
         trigger: ".ensemble"
       },

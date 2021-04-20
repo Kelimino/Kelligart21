@@ -1,5 +1,10 @@
 <template>
   <div id="expertise">
+    <img
+      src="@/assets/icons/circleText.svg"
+      alt="circle text"
+      class="circleText w-32 fixed top-20 left-40 opacity-0"
+    />
     <div
       class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden opacity-50 md:opacity-100"
     >
@@ -359,6 +364,20 @@ export default {
         console.log("hey");
       });
     });
+
+    //CIRCLE TEXT ROTATE ANIMATION
+
+    const circleText = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".introexpertise",
+        start: "bottom center",
+        end: "10000",
+        scrub: true
+      }
+    });
+    circleText
+      .fromTo(".circleText", { scale: 0.9 }, { autoAlpha: 1 })
+      .to(".circleText", { autoAlpha: 1, rotate: "360deg", duration: 10 }, "<");
   },
   methods: {
     handleAnimation: function(anim) {
