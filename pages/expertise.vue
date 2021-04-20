@@ -77,23 +77,11 @@
         </div>
       </div>
     </section>
-    <section
-      class="h-footer z-40 box-border overflow-hidden"
-      @mouseover="onHover = true"
-      @mouseleave="onHover = false"
-    >
+    <section class="h-footer z-40 box-border overflow-hidden">
       <nuxt-link
         to="/projets"
-        class="projets-link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
+        class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
-        <transition name="fadeImg">
-          <img
-            v-show="onHover"
-            src="@/assets/img/projet-back.png"
-            alt="projets"
-            class="link absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50"
-          />
-        </transition>
         <h2 class="text-primary text-6xl font-title text-center mb-5">
           Découvrez mes projets
         </h2>
@@ -185,7 +173,6 @@ export default {
           autoplay: false
         }
       },
-      onHover: false,
       graphisme: [
         {
           path: require("@/assets/img/tiles/poster3.png")

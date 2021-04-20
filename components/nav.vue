@@ -15,7 +15,7 @@
         />
       </div>
       <div
-        class="contact fixed top-7 right-5 md:top-10 md:right-10 z-50 cursor-pointer bg-primary rounded-full w-10 h-10 md:w-14 md:h-14 flex justify-center"
+        class="contact fixed top-7 right-5 md:top-10 md:right-10 cursor-pointer bg-primary rounded-full w-10 h-10 md:w-14 md:h-14 flex justify-center"
         @click="openContact"
       >
         <svg
@@ -45,157 +45,39 @@
           />
         </svg>
       </div>
-      <div
-        class="menu w-screen bg-back h-screen fixed flex flex-col justify-center z-30 p-10"
-      >
-        <nav class="mainNav h-full flex justify-center items-center">
-          <div class="navlinks h-2/3 grid grid-cols-4 gap-4">
-            <div
-              class="navitem closeNav h-full bg-white rounded overflow-hidden"
-            >
+      <div class="menu w-screen h-32 fixed">
+        <nav class="mainNav h-full flex justify-start items-center px-40">
+          <ul class="navlinks h-full flex flex-row justify-center items-center">
+            <li class="closeNav navitem h-full mr-4 flex items-center">
               <nuxt-link
                 to="/accompagnement"
-                class="h-full flex flex-col justify-between"
-              >
-                <img
-                  src="~@/assets/animation/synopsis.png"
-                  alt="accompagnement"
-                  class="h-2/3 w-full object-cover object-top"
-                />
-                <div
-                  class="link-content h-1/3 p-5 flex flex-col justify-start items-start"
-                >
-                  <h2 class="font-title text-primary text-2xl font-bold">
-                    Accompagnement
-                  </h2>
-                  <p class="font-text text-main text-base mt-3">
-                    Méthode et process de travail
-                  </p>
-                </div>
+                class="h-full text-main text-xs font-bold flex items-center"
+                >Accompagnement
               </nuxt-link>
-            </div>
-            <div
-              class="navitem closeNav h-full bg-white rounded overflow-hidden"
-            >
+            </li>
+            <li class="closeNav navitem h-full mr-4">
               <nuxt-link
                 to="/expertise"
-                class="h-full flex flex-col justify-between"
-              >
-                <img
-                  src="~@/assets/animation/synopsis.png"
-                  alt="expertise"
-                  class="h-2/3 w-full object-cover object-top"
-                />
-                <div
-                  class="link-content h-1/3 p-5 flex flex-col justify-start items-start"
-                >
-                  <h2 class="font-title text-primary text-2xl font-bold">
-                    Expertise
-                  </h2>
-                  <p class="font-text text-main text-base mt-3">
-                    Domaines &amp; prestations
-                  </p>
-                </div>
+                class="h-full text-main text-xs font-bold flex items-center"
+                >Expertise
               </nuxt-link>
-            </div>
-            <div
-              class="navitem closeNav h-full bg-white rounded overflow-hidden"
-            >
+            </li>
+            <li class="closeNav navitem h-full mr-4">
               <nuxt-link
                 to="/projets"
-                class="h-full flex flex-col justify-between"
-              >
-                <img
-                  src="~@/assets/animation/synopsis.png"
-                  alt="projets"
-                  class="h-2/3 w-full object-cover object-top"
-                />
-                <div
-                  class="link-content h-1/3 p-5 flex flex-col justify-start items-start"
-                >
-                  <h2 class="font-title text-primary text-2xl font-bold">
-                    Projets
-                  </h2>
-                  <p class="font-text text-main text-base mt-3">
-                    Étude de cas &amp; réalisations
-                  </p>
-                </div>
+                class="h-full text-main text-xs font-bold flex items-center"
+                >Projets
               </nuxt-link>
-            </div>
-            <div
-              class="navitem closeNav h-full bg-white rounded overflow-hidden"
-            >
+            </li>
+            <li class="closeNav navitem h-full mr-4">
               <nuxt-link
                 to="/about"
-                class="h-full flex flex-col justify-between"
-              >
-                <img
-                  src="~@/assets/animation/synopsis.png"
-                  alt="about"
-                  class="h-2/3 w-full object-cover object-top"
-                />
-                <div
-                  class="link-content h-1/3 p-5 flex flex-col justify-start items-start"
-                >
-                  <h2 class="font-title text-primary text-2xl font-bold">
-                    A propos
-                  </h2>
-                  <p class="font-text text-main text-base mt-3">
-                    Personnalité &amp; expériences
-                  </p>
-                </div>
+                class="h-full text-main text-xs font-bold flex items-center"
+                >À propos
               </nuxt-link>
-            </div>
-          </div>
-        </nav>
-        <!-- <div class="contactnav mt-10 flex flex-row justify-center">
-          <div>
-            <a class="font-text text-md text-main">bonjour[a]kelligart.com</a>
-          </div>
-          <ul class="flex justify-items-center items-center mt-3  ">
-            <li class="closeNav  mr-3 font-title font-bold text-xl text-main">
-              <a
-                href="https://www.facebook.com/kelligart/"
-                target="_blank"
-                alt="facebook"
-                >Fb</a
-              >
-            </li>
-            <li class="closeNav  mr-3 font-title font-bold text-xl text-main ">
-              <a
-                href="https://www.linkedin.com/in/kelligart"
-                target="_blank"
-                alt="Linkedin"
-                >In</a
-              >
-            </li>
-            <li class="closeNav  mr-3 font-title font-bold text-xl text-main ">
-              <a
-                href="https://www.behance.net/kelligart"
-                target="_blank"
-                alt="Behance"
-                >Be</a
-              >
-            </li>
-            <li class="closeNav  mr-3 font-title font-bold text-xl text-main ">
-              <a
-                href="https://dribbble.com/Kelligart"
-                target="_blank"
-                alt="Dribbble"
-                >Dr</a
-              >
-            </li>
-            <li class="closeNav  mr-3 font-title font-bold text-xl text-main">
-              <a
-                href="https://codepen.io/kelligart"
-                target="_blank"
-                alt="Codepen"
-                class="border border-transparent hover:outline-none hover:ring-2 hover:ring-purple-600 hover:border-transparent "
-                >Co</a
-              >
             </li>
           </ul>
-        </div> -->
+        </nav>
       </div>
     </header>
   </div>
@@ -226,17 +108,12 @@ export default {
   mounted() {
     //TOGGLE MENU----------
     var tween = gsap.timeline({});
-    tween
-      .from(".menu", {
-        left: "-100%",
-        duration: 1,
-        ease: "Power3.easeOut"
-      })
-      .from(".navitem ", {
-        autoAlpha: 0,
-        y: 20,
-        stagger: 0.2
-      }),
+    tween.from(".navitem ", {
+      autoAlpha: 0,
+      y: -20,
+      skewY: "-6deg",
+      stagger: 0.2
+    }),
       "-=0.5";
     tween.reversed(true);
 

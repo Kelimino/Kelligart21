@@ -68,6 +68,15 @@
       </div>
     </div>
 
+    <div>
+      <h2
+        class="ensemble text-4xl font-title text-primary w-5/6 md:w-4/6 my-40 text-center mx-auto"
+      >
+        Ensemble, grâce à l'intelligence collective et avec des méthodes
+        adaptées, on va pouvoir co-concevoir votre histoire
+      </h2>
+    </div>
+
     <section class="board h-screen flex justify-center items-center">
       <div class="board-wrapper relative w-full h-full">
         <div
@@ -76,14 +85,10 @@
           <div
             class="screen w-full h-full flex flex-col justify-around items-center bg-white"
           >
-            <h2 class="text-md text-primary w-5/6 md:w-full mb-5 text-center">
-              Ensemble, grâce à l'intelligence collective et avec des méthodes
-              adaptées, on va pouvoir co-concevoir votre histoire
-            </h2>
-            <div class="method grid grid-cols-2 md:grid-cols-3 w-full">
+            <div class="method grid grid-cols-2 w-full">
               <ul class="research flex flex-col justify-start items-start ml-5">
                 <li
-                  class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  class="bg-yellow-200 p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
                 >
                   <h3 class="font-title text-primary text-xl font-bold">
                     Connaître
@@ -93,7 +98,7 @@
                   </p>
                 </li>
                 <li
-                  class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  class="bg-yellow-200 p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
                 >
                   <h3 class="font-title text-primary text-xl font-bold">
                     Comprendre
@@ -103,7 +108,7 @@
                   </p>
                 </li>
                 <li
-                  class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  class="bg-yellow-200 p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
                 >
                   <h3 class="font-title text-primary text-xl font-bold">
                     Analyser
@@ -115,7 +120,7 @@
               </ul>
               <ul class="create flex flex-col justify-start items-start">
                 <li
-                  class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  class="bg-yellow-200 p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
                 >
                   <h3 class="font-title text-primary text-xl font-bold">
                     Identifier
@@ -125,7 +130,7 @@
                   </p>
                 </li>
                 <li
-                  class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  class="bg-yellow-200 p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
                 >
                   <h3 class="font-title text-primary text-xl font-bold">
                     Créer
@@ -135,7 +140,7 @@
                   </p>
                 </li>
                 <li
-                  class="bg-back p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
+                  class="bg-yellow-200 p-3 mb-3 w-60 flex flex-col justify-start items-start rounded-sm"
                 >
                   <h3 class="font-title text-primary text-xl font-bold">
                     Évaluer
@@ -150,23 +155,11 @@
         </div>
       </div>
     </section>
-    <section
-      class="h-footer box-border overflow-hidden"
-      @mouseover="upHere = true"
-      @mouseleave="upHere = false"
-    >
+    <section class="h-footer box-border overflow-hidden">
       <nuxt-link
         to="/expertise"
-        class="expertise-link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
+        class="expertise-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
-        <transition name="fadeImg">
-          <img
-            v-show="upHere"
-            src="@/assets/img/projet-back.png"
-            alt="expertise"
-            class="link absolute top-1/2 left-1/2 w-2/5 transform -translate-x-1/2 -translate-y-1/2 origin-center rounded z-0 opacity-50"
-          />
-        </transition>
         <h2 class="text-main text-sm text-center mb-5">
           Découvrez mes expertises : domaines &amp; prestations
         </h2>
@@ -240,7 +233,6 @@ export default {
 
   data() {
     return {
-      upHere: false,
       stories: [
         {
           titre: "Synopsis",
@@ -329,12 +321,14 @@ export default {
 
     const pages = document.querySelectorAll(".page");
 
+    // ADD PAGINATION
     Array.from(pages).forEach((page, index) => {
       const numberNode = document.createElement("span");
       numberNode.textContent = index + 1;
       page.appendChild(numberNode);
     });
 
+    // BOARD ANIMATION
     let boardAnim = gsap.timeline({
       scrollTrigger: {
         trigger: ".board",
@@ -345,6 +339,7 @@ export default {
       }
     });
     boardAnim
+      .to(".board", { background: "#3451be" })
       .from(".screen", { autoAlpha: 0, duration: 0.2 })
       .from(".brainstorming ", { autoAlpha: 0, duration: 0.2 }, "+=0.5")
       .from(
@@ -368,7 +363,16 @@ export default {
           }
         },
         "+=1"
-      );
+      )
+      .to(".board", { background: "transparent" });
+
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".ensemble"
+      },
+      start: "top center"
+    });
+    tl2.from(".ensemble", { y: 40, autoAlpha: 0, skewY: "6deg", duration: 2 });
   }
 };
 </script>

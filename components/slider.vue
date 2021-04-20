@@ -36,7 +36,7 @@
             </div>
 
             <div
-              class="content p-5 h-1/3 w-full sm:text-center mx-auto md:text-left"
+              class="content p-5 h-1/3 w-full text-center mx-auto md:text-left"
               data-swiper-parallax-opacity="0.7"
               data-swiper-parallax-x="-70"
             >

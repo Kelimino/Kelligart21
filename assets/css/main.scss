@@ -235,19 +235,6 @@ body {
     transform: translateX(calc(-100% + 70%));
   }
 }
-
-.fadeImg-enter-active,
-.fadeImg-leave-active {
-  transition: all 1.2s;
-}
-
-.fadeImg-enter,
-.fadeImg-leave-to {
-  opacity: 0;
-  transform: translate(-50%, 20%) scale(0.9);
-  transform-origin: center;
-}
-
 //LAFORET PROJET
 
 // .imgMain {
