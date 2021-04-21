@@ -56,7 +56,10 @@ body {
   pointer-events: auto;
   transition: 300ms opacity;
 }
-
+.lottie {
+  height: 40% !important;
+  width: 60% !important;
+}
 .navlinks:hover > * {
   opacity: 0.5 !important;
 }
