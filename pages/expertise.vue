@@ -12,7 +12,7 @@
         <ul class="backlist flex row">
           <li class="w-1/2 mr-2">
             <div
-              class="graphisme w-full mb-2 block transform origin-top -translate-y-3/4"
+              class="graphisme w-full mb-2 block transform origin-bottom -translate-y-3/4"
             >
               <img
                 v-for="(poster, index) in graphisme"
@@ -105,17 +105,17 @@
         <lottie
           :options="lotties.da"
           class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 rotate-3 rounded shadow p-10 opacity-0"
-          @animCreated="handleAnimation"
+          @animCreated="handleAnimation()"
         />
         <lottie
           :options="lotties.ux"
           class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 -rotate-3 rounded shadow p-10 opacity-0"
-          @animCreated="handleAnimation"
+          @animCreated="handleAnimation()"
         />
         <lottie
           :options="lotties.ui"
           class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 rotate-3 rounded shadow p-10 opacity-0"
-          @animCreated="handleAnimation"
+          @animCreated="handleAnimation()"
         />
       </div>
     </div>
@@ -181,19 +181,19 @@ export default {
           class: "ux",
           animationData: da.default,
           loop: true,
-          autoplay: true
+          autoplay: false
         },
         ux: {
           class: "ux",
           animationData: ux.default,
           loop: true,
-          autoplay: true
+          autoplay: false
         },
         ui: {
           class: "ui",
           animationData: ui.default,
           loop: true,
-          autoplay: true
+          autoplay: false
         }
       },
       graphisme: [
@@ -378,12 +378,23 @@ export default {
         scrollTrigger: {
           trigger: el,
           start: "top 70%",
-          toggleActions: "play none none reset"
+          toggleActions: "play none none reset",
+          onEnter: () => {
+            this.play();
+          }
         }
       });
       SkillAnim.from(el, { autoAlpha: 0, y: 20 })
         .to(el, { autoAlpha: 1, y: 0 })
-        .to(lotties[i], { right: "-10%", autoAlpha: 1, duration: 1 }, "<");
+        .to(
+          lotties[i],
+          {
+            right: "-10%",
+            autoAlpha: 1,
+            duration: 1
+          },
+          "<"
+        );
     });
 
     //CIRCLE TEXT ROTATE ANIMATION
