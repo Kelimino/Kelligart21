@@ -105,17 +105,27 @@
         <lottie
           :options="lotties.da"
           class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 rotate-3 rounded shadow p-10 opacity-0"
-          @animCreated="handleAnimation()"
+          @animCreated="handleAnimation"
         />
         <lottie
           :options="lotties.ux"
           class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 -rotate-3 rounded shadow p-10 opacity-0"
-          @animCreated="handleAnimation()"
+          @animCreated="handleAnimation"
         />
         <lottie
           :options="lotties.ui"
           class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 rotate-3 rounded shadow p-10 opacity-0"
-          @animCreated="handleAnimation()"
+          @animCreated="handleAnimation"
+        />
+        <lottie
+          :options="lotties.ui"
+          class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 -rotate-3 rounded shadow p-10 opacity-0"
+          @animCreated="handleAnimation"
+        />
+        <lottie
+          :options="lotties.ui"
+          class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 rotate-3 rounded shadow p-10 opacity-0"
+          @animCreated="handleAnimation"
         />
       </div>
     </div>
@@ -370,8 +380,8 @@ export default {
     function Done() {
       backTile.progress(0).pause();
     }
-    //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
 
+    //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     const lotties = document.querySelectorAll(".lottie");
     gsap.utils.toArray(".skill").forEach((el, i) => {
       let SkillAnim = gsap.timeline({
@@ -379,9 +389,7 @@ export default {
           trigger: el,
           start: "top 70%",
           toggleActions: "play none none reset",
-          onEnter: () => {
-            this.play();
-          }
+          onEnter: () => this.playLottie(i)
         }
       });
       SkillAnim.from(el, { autoAlpha: 0, y: 20 })
@@ -394,7 +402,12 @@ export default {
             duration: 1
           },
           "<"
-        );
+        )
+        .call(() => {
+          for (let index = 0; index < lotties.length; index++) {
+            this.playLottie(i);
+          }
+        });
     });
 
     //CIRCLE TEXT ROTATE ANIMATION
@@ -415,10 +428,10 @@ export default {
     handleAnimation: function(anim) {
       this.anim = anim;
     },
-    play: function() {
-      this.anim.play();
+    playLottie: function() {
+      this.anim.play(0);
     },
-    stop: function() {
+    stopLottie: function() {
       this.anim.stop();
     }
   }

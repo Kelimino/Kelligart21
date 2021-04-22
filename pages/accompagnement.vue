@@ -358,7 +358,6 @@ export default {
     boardAnim
       .to(".board", { background: "#3451be" })
       .from(".screen", { autoAlpha: 0, duration: 0.2 })
-      .from(".brainstorming ", { autoAlpha: 0, duration: 0.2 }, "+=0.5")
       .from(
         ".research li",
         {
