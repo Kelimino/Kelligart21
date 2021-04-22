@@ -1,5 +1,8 @@
 <template>
   <div id="expertise">
+    <div
+      class="scrollBar fixed w-1 left-14 top-1/2 bg-primary rounded overflow-hidden"
+    ></div>
     <img
       src="@/assets/icons/circleText.svg"
       alt="circle text"
@@ -112,7 +115,11 @@
           class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 -rotate-3 rounded shadow p-10 opacity-0"
           @animCreated="handleAnimation"
         />
-        <lottie :options="lotties.ui" @animCreated="handleAnimation" />
+        <lottie
+          :options="lotties.ui"
+          class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 -rotate-3 rounded shadow p-10 opacity-0"
+          @animCreated="handleAnimation"
+        />
         <lottie
           :options="lotties.ui"
           class="lottie bg-white absolute top-1/2 -right-full transform -translate-x-1/2 -translate-y-1/2 -rotate-3 rounded shadow p-10 opacity-0"
@@ -140,7 +147,7 @@ import * as da from "assets/animation/DA.json";
 export default {
   name: "Expertise",
   components: {
-    lottie,
+    lottie
   },
   scrollToTop: true,
   transition: {
@@ -157,28 +164,28 @@ export default {
         .from(".p-first", {
           y: -20,
           autoAlpha: 0,
-          ease: "Power3.easeOut",
+          ease: "Power3.easeOut"
         })
         .from(".introexpertise h1 span", {
           autoAlpha: 0,
           y: -20,
           skewX: -10,
           stagger: {
-            each: 1,
-          },
+            each: 1
+          }
         })
         .from(".p-second", {
           autoAlpha: 0,
           scale: 0.9,
           duration: 1,
           ease: "Power3.easeOut",
-          onComplete: done,
+          onComplete: done
         });
       done();
     },
     leave(el, done) {
       done();
-    },
+    }
   },
   data() {
     return {
@@ -187,101 +194,101 @@ export default {
           class: "ux",
           animationData: da.default,
           loop: true,
-          autoplay: false,
+          autoplay: false
         },
         ux: {
           class: "ux",
           animationData: ux.default,
           loop: true,
-          autoplay: false,
+          autoplay: false
         },
         ui: {
           class: "ui",
           animationData: ui.default,
           loop: true,
-          autoplay: false,
-        },
+          autoplay: false
+        }
       },
       graphisme: [
         {
-          path: require("@/assets/img/tiles/poster3.png"),
+          path: require("@/assets/img/tiles/poster3.png")
         },
         {
-          path: require("@/assets/img/tiles/web14.jpg"),
+          path: require("@/assets/img/tiles/web14.jpg")
         },
         {
-          path: require("@/assets/img/tiles/web1.png"),
+          path: require("@/assets/img/tiles/web1.png")
         },
         {
-          path: require("@/assets/img/tiles/poster2.jpg"),
+          path: require("@/assets/img/tiles/poster2.jpg")
         },
         {
-          path: require("@/assets/img/tiles/web2.jpg"),
+          path: require("@/assets/img/tiles/web2.jpg")
         },
         {
-          path: require("@/assets/img/tiles/poster1.jpg"),
+          path: require("@/assets/img/tiles/poster1.jpg")
         },
 
         {
-          path: require("@/assets/img/tiles/web3.png"),
+          path: require("@/assets/img/tiles/web3.png")
         },
 
         {
-          path: require("@/assets/img/tiles/poster4.jpg"),
+          path: require("@/assets/img/tiles/poster4.jpg")
         },
         {
-          path: require("@/assets/img/tiles/web12.png"),
+          path: require("@/assets/img/tiles/web12.png")
         },
         {
-          path: require("@/assets/img/tiles/mural1.jpeg"),
+          path: require("@/assets/img/tiles/mural1.jpeg")
         },
         {
-          path: require("@/assets/img/tiles/web5.png"),
+          path: require("@/assets/img/tiles/web5.png")
         },
         {
-          path: require("@/assets/img/tiles/web6.png"),
+          path: require("@/assets/img/tiles/web6.png")
         },
         {
-          path: require("@/assets/img/tiles/poster5.png"),
-        },
+          path: require("@/assets/img/tiles/poster5.png")
+        }
       ],
       web: [
         {
-          path: require("@/assets/img/tiles/web7.png"),
+          path: require("@/assets/img/tiles/web7.png")
         },
         {
-          path: require("@/assets/img/tiles/poster6.png"),
+          path: require("@/assets/img/tiles/poster6.png")
         },
         {
-          path: require("@/assets/img/tiles/web8.png"),
+          path: require("@/assets/img/tiles/web8.png")
         },
         {
-          path: require("@/assets/img/tiles/poster7.png"),
+          path: require("@/assets/img/tiles/poster7.png")
         },
         {
-          path: require("@/assets/img/tiles/web9.png"),
+          path: require("@/assets/img/tiles/web9.png")
         },
         {
-          path: require("@/assets/img/tiles/poster8.png"),
+          path: require("@/assets/img/tiles/poster8.png")
         },
         {
-          path: require("@/assets/img/tiles/web10.png"),
+          path: require("@/assets/img/tiles/web10.png")
         },
         {
-          path: require("@/assets/img/tiles/poster9.png"),
+          path: require("@/assets/img/tiles/poster9.png")
         },
         {
-          path: require("@/assets/img/tiles/web11.png"),
+          path: require("@/assets/img/tiles/web11.png")
         },
         {
-          path: require("@/assets/img/tiles/mural2.jpeg"),
+          path: require("@/assets/img/tiles/mural2.jpeg")
         },
         {
-          path: require("@/assets/img/tiles/web4.png"),
+          path: require("@/assets/img/tiles/web4.png")
         },
         {
-          path: require("@/assets/img/tiles/web13.jpg"),
-        },
+          path: require("@/assets/img/tiles/web13.jpg")
+        }
       ],
 
       expertise: [
@@ -291,7 +298,7 @@ export default {
             "Branding - Charte graphique - Logo - Identité de marque - Campagne marketing - Lancement de produit",
           class: "DA",
           description:
-            "Prendre des idées afin de les matérialiser en véritable positionnement de marque, une image désirable avec un message mémorable",
+            "Prendre des idées afin de les matérialiser en véritable positionnement de marque, une image désirable avec un message mémorable"
         },
         {
           name: "Expérience Utilisateur",
@@ -299,7 +306,7 @@ export default {
             "Design thinking - Ateliers de coconception - Design sprint - Interview - Ergonomie Web - Persona",
           class: "UX",
           description:
-            "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et des process adaptés",
+            "L’intelligence collective pour comprendre & optimiser l’expérience de vos utilisateurs à travers des ateliers, selon des methodes et des process adaptés"
         },
         {
           name: "Design d'Interfaces",
@@ -307,7 +314,7 @@ export default {
             "Catalogue - Ecommerce - Logiciel - Application - Site évènementiel - Webdesign - Maquettes - Prototypes intéractifs",
           class: "UI",
           description:
-            "Concevoir & décliner des interfaces digitales cohérentes selon des codes graphiques & des règles fonctionnelles définies",
+            "Concevoir & décliner des interfaces digitales cohérentes selon des codes graphiques & des règles fonctionnelles définies"
         },
         {
           name: "Communication Visuelle",
@@ -315,7 +322,7 @@ export default {
             "Graphisme - Illustration - Supports marketing - Publicité - Pao - Réseaux sociaux - Motion Design",
           class: "CV",
           description:
-            "Valoriser et communiquer votre identité de marque sur différentes plateformes et supports",
+            "Valoriser et communiquer votre identité de marque sur différentes plateformes et supports"
         },
 
         {
@@ -324,9 +331,9 @@ export default {
             "Framework - Animation - Intéraction - Site Vitrine - Responsive",
           class: "DF",
           description:
-            "Développer les interfaces de votre projet, créer une expérience intéractive et immersive, tout en veillant à sa performance technique",
-        },
-      ],
+            "Développer les interfaces de votre projet, créer une expérience intéractive et immersive, tout en veillant à sa performance technique"
+        }
+      ]
     };
   },
   head() {
@@ -336,9 +343,9 @@ export default {
         {
           name: "Expertise",
           content:
-            "Direction Artistique, Expérience utilisateur, Design d'interfaces, Communication Visuelle, Développement Front ",
-        },
-      ],
+            "Direction Artistique, Expérience utilisateur, Design d'interfaces, Communication Visuelle, Développement Front "
+        }
+      ]
     };
   },
   mounted() {
@@ -349,8 +356,8 @@ export default {
       onComplete: Done,
       ScrollTrigger: {
         trigger: ".introexpertise",
-        start: "top top",
-      },
+        start: "top top"
+      }
     });
     backTile
       .progress(0)
@@ -360,7 +367,7 @@ export default {
         {
           yPercent: 50,
           duration: 120,
-          ease: "none",
+          ease: "none"
         },
         "<"
       )
@@ -369,7 +376,7 @@ export default {
         {
           yPercent: -50,
           duration: 120,
-          ease: "none",
+          ease: "none"
         },
         "<"
       );
@@ -378,15 +385,18 @@ export default {
     }
 
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
+
     const lotties = document.querySelectorAll(".lottie");
+    const anims = [da, ux, ui];
+    console.log(anims);
     gsap.utils.toArray(".skill").forEach((el, i) => {
       let SkillAnim = gsap.timeline({
         scrollTrigger: {
           trigger: el,
           start: "top 70%",
           toggleActions: "play none none reset",
-          onEnter: () => this.playLottie(i),
-        },
+          onEnter: () => this.playLottie(i)
+        }
       });
       SkillAnim.from(el, { autoAlpha: 0, y: 20 })
         .to(el, { autoAlpha: 1, y: 0 })
@@ -395,7 +405,7 @@ export default {
           {
             right: "-10%",
             autoAlpha: 1,
-            duration: 1,
+            duration: 1
           },
           "<"
         );
@@ -408,23 +418,23 @@ export default {
         trigger: ".introexpertise",
         start: "bottom center",
         end: "10000",
-        scrub: true,
-      },
+        scrub: true
+      }
     });
     circleText
       .to(".circleText", { autoAlpha: 1 })
       .to(".circleText", { rotate: "360deg", duration: 10 }, "<");
   },
   methods: {
-    handleAnimation: function (anim) {
+    handleAnimation: function(anim) {
       this.anim = anim;
     },
-    playLottie: function () {
-      this.anim.play();
+    playLottie: function() {
+      this.anim.play(0);
     },
-    stopLottie: function () {
+    stopLottie: function() {
       this.anim.stop();
-    },
-  },
+    }
+  }
 };
 </script>
