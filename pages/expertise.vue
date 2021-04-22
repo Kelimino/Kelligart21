@@ -1,8 +1,9 @@
 <template>
   <div id="expertise">
     <div
-      class="scrollBar fixed w-1 left-14 top-1/2 bg-primary rounded overflow-hidden"
+      class="scrollBar fixed w-0.5 h-10 left-14 top-1/2 bg-primary rounded overflow-hidden"
     ></div>
+
     <img
       src="@/assets/icons/circleText.svg"
       alt="circle text"

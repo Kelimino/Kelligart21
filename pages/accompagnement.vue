@@ -1,5 +1,27 @@
 <template>
   <div id="accompagnement">
+    <div
+      class="scrollBar fixed w-0.5 h-10 left-14 top-1/2 bg-primary rounded overflow-hidden"
+    ></div>
+    <div class="counter fixed right-10 top-1/2 text-center w-8">
+      <div
+        class="text-3xl text-primary font-title font-bold rounded w-full h-10 overflow-hidden"
+      >
+        <div class="span-wrapper">
+          <span>00</span>
+          <span>01</span>
+          <span>02</span>
+          <span>03</span>
+          <span>04</span>
+          <span>05</span>
+        </div>
+      </div>
+
+      <div class="w-full h-0.5 bg-primary opacity-50"></div>
+      <p class="text-xl text-primary font-title font-bold mt-2 opacity-50">
+        05
+      </p>
+    </div>
     <section
       class="couverture w-full md:w-8/12 p-6 md:-p-0 mx-auto h-screen flex flex-col text-center justify-center items-center"
     >
@@ -308,9 +330,7 @@ export default {
   },
   mounted() {
     // EACH PAGE ANIMATION
-
     const pageWidth = document.querySelector(".page").offsetWidth;
-    console.log(pageWidth);
 
     gsap.utils.toArray(".page").forEach(el => {
       let Qa = gsap.timeline({
@@ -321,24 +341,31 @@ export default {
           toggleActions: "play restart play reset"
         }
       });
-      Qa
-        // .from(".illustration", {
-        //   rotationY: -90,
-        //   duration: 0.2,
-        //   transformOrigin: "right",
-        //   ease: "Power2.easeOut"
-        // })
-        //   .to(".illustration", { rotationY: 0 }, "-=0.2")
-        .from(".question h3", { x: pageWidth * 2.5 })
+      Qa.from(".question h3", { x: pageWidth * 2.5 })
         .to(".question h3", { x: -pageWidth * 2, duration: 10 })
         .to(el, {
           autoAlpha: 0
         });
     });
 
-    const pages = document.querySelectorAll(".page");
+    // COUNTER ANIMATION
+
+    const counter = document.querySelector(".span-wrapper");
+    gsap.utils.toArray(".page").forEach(el => {
+      let count = gsap.timeline({
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none reverse reverse"
+        }
+      });
+      count.to(counter, {
+        y: "-=30"
+      });
+    });
 
     // ADD PAGINATION
+    const pages = document.querySelectorAll(".page");
     Array.from(pages).forEach((page, index) => {
       const numberNode = document.createElement("span");
       numberNode.textContent = index + 1;
