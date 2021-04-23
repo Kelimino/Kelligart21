@@ -89,6 +89,7 @@ body {
     li {
       border-bottom: solid 1px transparent;
       transition: all 0.2s linear;
+      cursor: none;
 
       &:hover {
         border-bottom: solid 1px $primary;
@@ -225,6 +226,30 @@ body {
 
       100% {
         transform: scaleY(0.5);
+      }
+    }
+  }
+}
+
+.hi {
+  &:hover {
+    img {
+      transform-origin: center center;
+      animation: coucou 1s linear infinite;
+    }
+
+    @keyframes coucou {
+      0% {
+        transform: rotate(20deg);
+      }
+      50% {
+        transform: rotate(-20deg);
+      }
+      75% {
+        transform: rotate(20deg);
+      }
+      100% {
+        transform: rotate(20deg);
       }
     }
   }
