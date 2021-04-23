@@ -1,5 +1,5 @@
 <template>
-  <div id="expertise" class="relative">
+  <div id="expertise">
     <div
       class="scrollBar fixed w-0.5 h-10 left-14 top-1/2 bg-primary rounded overflow-hidden"
     ></div>
@@ -120,7 +120,7 @@
     </div>
 
     <section
-      class="h-footer w-full absolute left-0 bottom-0 z-30 box-border overflow-hidden bg-gradient-to-t from-white"
+      class="h-footer w-full box-border overflow-hidden bg-gradient-to-t from-white"
     >
       <nuxt-link
         to="/projets"

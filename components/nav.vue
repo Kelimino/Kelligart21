@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="relative z-40">
+    <header class="relative z-20">
       <div
         class="logo link fixed top-2 left-5 md:top-5 md:left-10 z-50 cursor-pointer"
         @mouseover="animLogo"

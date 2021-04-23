@@ -381,7 +381,8 @@ export default {
       }
     });
     boardAnim
-      .to(".board", { background: "#3451be" })
+
+      .to(".board", { background: "#3451be" }, "<")
       .from(".screen", { autoAlpha: 0, duration: 0.2 })
       .from(
         ".research li",
@@ -411,11 +412,19 @@ export default {
     const tl2 = gsap.timeline({
       delay: 0.5,
       scrollTrigger: {
-        trigger: ".ensemble"
+        trigger: ".ensemble",
+        toggleActions: "play none reverse reverse"
       },
       start: "top center"
     });
-    tl2.from(".ensemble", { y: 40, autoAlpha: 0, skewY: "6deg", duration: 2 });
+    tl2
+      .to(".counter", { autoAlpha: 0 })
+      .to(".scrollBar", { autoAlpha: 0 }, "<")
+      .from(
+        ".ensemble",
+        { y: 40, autoAlpha: 0, skewY: "6deg", duration: 2 },
+        "<"
+      );
   }
 };
 </script>
