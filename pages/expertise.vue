@@ -1,5 +1,5 @@
 <template>
-  <div id="expertise">
+  <div id="expertise" class="relative">
     <div
       class="scrollBar fixed w-0.5 h-10 left-14 top-1/2 bg-primary rounded overflow-hidden"
     ></div>
@@ -86,16 +86,7 @@
         </div>
       </div>
     </section>
-    <section class="h-footer z-40 box-border overflow-hidden">
-      <nuxt-link
-        to="/projets"
-        class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
-      >
-        <h2 class="text-primary font-bold font-title text-8xl text-center">
-          Projets
-        </h2>
-      </nuxt-link>
-    </section>
+
     <div
       class="lotties fixed top-0 right-0 z-20 w-2/6 h-full flex items-center justify-center"
     >
@@ -127,7 +118,21 @@
         />
       </div>
     </div>
-    <Footer />
+
+    <section
+      class="h-footer w-full absolute left-0 bottom-0 z-30 box-border overflow-hidden bg-gradient-to-t from-white"
+    >
+      <nuxt-link
+        to="/projets"
+        class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
+      >
+        <h2 class="text-primary font-bold font-title text-8xl text-center">
+          Projets
+        </h2>
+      </nuxt-link>
+      <div class="cereal flex flex-row whitespace-nowrap mb-20"></div>
+      <Footer />
+    </section>
   </div>
 </template>
 
@@ -348,6 +353,40 @@ export default {
     };
   },
   mounted() {
+    //FOOTER TRIGGER HIDE
+
+    const FooterBottom = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".h-footer",
+        start: "top center",
+        toggleActions: "play none reverse reverse"
+      }
+    });
+    FooterBottom.to(
+      ".lotties",
+      {
+        autoAlpha: 0
+      },
+      "<"
+    ).to(".scrollBar", {
+      autoAlpha: 0
+    });
+
+    //FOOTER BANNER CEREAL
+    function addImg() {
+      const cereal = document.querySelector(".cereal");
+
+      const count = 50;
+      for (let i = 0; i < count; i++) {
+        const imgFlake = document.createElement("IMG");
+        imgFlake.src = require("~/assets/icons/flake.png");
+        imgFlake.style.width = "40px";
+        var spin = Math.round(Math.random() * 180);
+        imgFlake.style.transform = "rotate(" + spin + "deg)";
+        cereal.appendChild(imgFlake);
+      }
+    }
+    addImg();
     //BACK TILE ANIMATION
     let backTile = gsap.timeline({
       repeat: -1,

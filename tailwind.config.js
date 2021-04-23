@@ -23,7 +23,7 @@ module.exports = {
         "12xl": "10rem"
       },
       height: {
-        footer: "400px"
+        footer: "40rem"
       },
       spacing: {
          '100': '100rem',
