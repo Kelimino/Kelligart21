@@ -91,15 +91,9 @@
         to="/projets"
         class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
-        <h2 class="text-primary text-6xl font-title text-center mb-5">
-          Découvrez mes projets
+        <h2 class="text-primary font-bold font-title text-8xl text-center">
+          Projets
         </h2>
-        <h3
-          class="text-primary text-3xl inline-flex font-text mt-10 uppercase italic whitespace-nowrap"
-        >
-          Webdesign - Graphisme - UX Design - Branding - Set Design - Logos -
-          Peinture - Poster
-        </h3>
       </nuxt-link>
     </section>
     <div
@@ -133,10 +127,13 @@
         />
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "/components/footer";
+
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -148,7 +145,8 @@ import * as da from "assets/animation/DA.json";
 export default {
   name: "Expertise",
   components: {
-    lottie
+    lottie,
+    Footer
   },
   scrollToTop: true,
   transition: {

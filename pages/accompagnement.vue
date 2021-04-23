@@ -189,21 +189,17 @@
         to="/expertise"
         class="expertise-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
-        <h2 class="text-main text-sm text-center mb-5">
-          Découvrez mes expertises : domaines &amp; prestations
+        <h2 class="text-primary font-bold font-title text-8xl text-center">
+          Expertise
         </h2>
-        <h3
-          class="text-primary text-6xl inline-flex font-title mr-5 whitespace-nowrap"
-        >
-          Direction Artistique - Expérience Utilisateur - Design d'Interfaces -
-          Communication Visuelle - Développement Front
-        </h3>
       </nuxt-link>
     </section>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "/components/footer";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -211,7 +207,9 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   name: "Accompagnement",
   scrollToTop: true,
-
+  componenets: {
+    Footer
+  },
   transition: {
     mode: "out-in",
     css: false,
@@ -360,7 +358,7 @@ export default {
         }
       });
       count.to(counter, {
-        y: "-=30"
+        y: "-=35"
       });
     });
 

@@ -69,14 +69,15 @@ body {
 
 @keyframes scrollAnim {
   0% {
-    transform: translateY(0px) scale(0);
+    transform: translateY(-20px) scale(0);
   }
   50% {
-    transform: translateY(20px) scale(1);
+    transform-origin: top;
+    transform: translateY(0px) scale(1);
   }
   100% {
     transform-origin: bottom;
-    transform: translateY(40px) scale(0);
+    transform: translateY(20px) scale(0);
   }
 }
 .navlinks:hover > *:hover {
@@ -226,31 +227,6 @@ body {
         transform: scaleY(0.5);
       }
     }
-  }
-}
-
-/*-----EXPERTISE LINKS ANIMATION-----*/
-.expertise-link h3 {
-  animation: linksMove 10s linear infinite;
-}
-@keyframes linksMove {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translateX(calc(-100% + 35%));
-  }
-}
-
-.projets-link h3 {
-  animation: linksMove 10s linear infinite;
-}
-@keyframes linksMove {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translateX(calc(-100% + 70%));
   }
 }
 //LAFORET PROJET
