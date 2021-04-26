@@ -8,12 +8,7 @@
         class="text-3xl text-primary font-title font-bold rounded w-full h-10 overflow-hidden"
       >
         <div class="span-wrapper">
-          <span>00</span>
-          <span>01</span>
-          <span>02</span>
-          <span>03</span>
-          <span>04</span>
-          <span>05</span>
+          <span></span>
         </div>
       </div>
 
@@ -347,18 +342,22 @@ export default {
     });
 
     // COUNTER ANIMATION
-
-    const counter = document.querySelector(".span-wrapper");
-    gsap.utils.toArray(".page").forEach(el => {
+    const counter = document.querySelector(".span-wrapper span");
+    const allChapitre = document.querySelectorAll(".chapitre");
+    gsap.utils.toArray(allChapitre).forEach(el => {
       let count = gsap.timeline({
         scrollTrigger: {
           trigger: el,
-          start: "top 80%",
-          toggleActions: "play none reverse reverse"
+          start: "top 80%"
         }
       });
-      count.to(counter, {
-        y: "-=35"
+      count.call(() => {
+        for (let index = 0; index < allChapitre.length; index++) {
+          let counterIndex = 0;
+          counterIndex++;
+          counter.textContent = "0" + counterIndex;
+          console.log(counterIndex);
+        }
       });
     });
 

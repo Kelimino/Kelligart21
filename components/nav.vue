@@ -48,28 +48,28 @@
       <div class="menu w-screen h-32 fixed">
         <nav class="mainNav h-full flex justify-start items-center px-40">
           <ul class="navlinks h-full flex flex-row justify-center items-center">
-            <li class="closeNav navitem h-full mr-4 flex items-center">
+            <li class="closeNav navitem link h-full mr-4 flex items-center">
               <nuxt-link
                 to="/accompagnement"
                 class="h-full text-main text-xs font-bold flex items-center"
                 >Accompagnement
               </nuxt-link>
             </li>
-            <li class="closeNav navitem h-full mr-4">
+            <li class="closeNav navitem link h-full mr-4">
               <nuxt-link
                 to="/expertise"
                 class="h-full text-main text-xs font-bold flex items-center"
                 >Expertise
               </nuxt-link>
             </li>
-            <li class="closeNav navitem h-full mr-4">
+            <li class="closeNav navitem link h-full mr-4">
               <nuxt-link
                 to="/projets"
                 class="h-full text-main text-xs font-bold flex items-center"
                 >Projets
               </nuxt-link>
             </li>
-            <li class="closeNav navitem h-full mr-4">
+            <li class="closeNav navitem link h-full mr-4">
               <nuxt-link
                 to="/about"
                 class="h-full text-main text-xs font-bold flex items-center"
