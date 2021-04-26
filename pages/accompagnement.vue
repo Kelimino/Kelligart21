@@ -359,25 +359,26 @@ export default {
     });
 
     // COUNTER ANIMATION
-    const counter = document.querySelector(".span-wrapper span");
+    const counter = document.querySelector(".counter span");
     const allChapitre = document.querySelectorAll(".chapitre");
-    let counterIndex = 0;
-    counter.textContent = "0" + counterIndex;
     gsap.utils.toArray(allChapitre).forEach((el, index) => {
-      let count = gsap.timeline({
-        scrollTrigger: {
-          trigger: el,
-          start: "top 80%",
-          toggleActions: "play none reverse reset"
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 50%",
+        end: "bottom 50%",
+        onEnter: function() {
+          counter.textContent = "0" + (index + 1);
+          tweenCounter();
+        },
+        onEnterBack: function() {
+          counter.textContent = "0" + (index + 1);
+          tweenCounter();
         }
       });
-      count.call(() => {
-        let counterIndex = index;
-        counter.textContent = "0" + counterIndex;
-        gsap.from(counter, { y: -20, autoAlpha: 0 });
-        gsap.to(counter, { y: 0, autoAlpha: 1 });
-      });
     });
+    function tweenCounter() {
+      gsap.from(counter, { duration: 0.25, y: -25, autoAlpha: 0 });
+    }
 
     // ADD PAGINATION
     const pages = document.querySelectorAll(".page");

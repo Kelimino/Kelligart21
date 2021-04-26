@@ -1,7 +1,7 @@
 <template>
   <div id="projets relative ">
     <div
-      class="slideNav absolute bottom-10 left-1/2 transform -translate-x-1/2 flex justify-center opacity-50 "
+      class="slideNav absolute bottom-10 left-1/2 transform -translate-x-1/2 flex justify-center opacity-50"
     >
       <svg
         id="Layer_1"
@@ -33,9 +33,7 @@
           />
         </g>
       </svg>
-      <p class="barControl text-main font-text ">
-        Hold &amp; drag
-      </p>
+      <p class="barControl text-main font-text">Hold &amp; drag</p>
     </div>
     <slider />
   </div>
@@ -51,15 +49,16 @@ export default {
   transition: {
     mode: "out-in",
     css: false,
-    beforeEnter() {
-      console.log("beforeEnterProjet");
+    beforeEnter(el) {
+      el.style.opacity = 0;
+      el.style.transition = "all 1s linear";
     },
     enter(el, done) {
-      console.log("EnterProjet");
+      el.style.opacity = 1;
       done();
     },
+    beforeLeave() {},
     leave(el, done) {
-      console.log("leaveProjet");
       done();
     }
   },

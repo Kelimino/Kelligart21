@@ -155,11 +155,13 @@ export default {
   transition: {
     mode: "out-in",
     css: false,
-    beforeEnter() {
-      console.log("beforeEnterExpertise");
+    beforeEnter(el) {
+      el.style.opacity = 0;
+      el.style.transition = "all 1s linear";
     },
     enter(el, done) {
       //TITLE INTRO ANIMATION
+      el.style.opacity = 1;
       console.log("enterexpertise");
       let inT = gsap.timeline({ delay: 0.5 });
       inT
@@ -373,7 +375,6 @@ export default {
     //FOOTER BANNER CEREAL
     function addImg() {
       const cereal = document.querySelector(".cereal");
-
       const count = 50;
       for (let i = 0; i < count; i++) {
         const imgFlake = document.createElement("IMG");
