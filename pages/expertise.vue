@@ -119,9 +119,7 @@
       </div>
     </div>
 
-    <section
-      class="h-footer w-full box-border overflow-hidden bg-gradient-to-t from-white"
-    >
+    <section class="h-footer box-border overflow-hidden">
       <nuxt-link
         to="/projets"
         class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
@@ -131,8 +129,8 @@
         </h2>
       </nuxt-link>
       <div class="cereal flex flex-row whitespace-nowrap mb-20"></div>
-      <Footer />
     </section>
+    <Footer />
   </div>
 </template>
 

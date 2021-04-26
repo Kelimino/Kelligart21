@@ -85,7 +85,7 @@
         class="panel w-4/6 h-4/5 px-20 my-auto flex flex-row justify-center items-center"
       >
         <p class="text-main text-sm mr-20">
-          Poster pour mon ancien club de football amériacin, les Kelted de
+          Poster pour mon ancien club de football américain, les Kelted de
           Quimper
         </p>
         <img

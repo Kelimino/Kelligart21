@@ -188,6 +188,7 @@
           Expertise
         </h2>
       </nuxt-link>
+      <div class="cereal flex flex-row whitespace-nowrap mb-20"></div>
     </section>
     <Footer />
   </div>
@@ -322,6 +323,22 @@ export default {
     };
   },
   mounted() {
+    //FOOTER BANNER CEREAL
+    function addImg() {
+      const cereal = document.querySelector(".cereal");
+
+      const count = 50;
+      for (let i = 0; i < count; i++) {
+        const imgFlake = document.createElement("IMG");
+        imgFlake.src = require("~/assets/icons/flake.png");
+        imgFlake.style.width = "40px";
+        var spin = Math.round(Math.random() * 180);
+        imgFlake.style.transform = "rotate(" + spin + "deg)";
+        cereal.appendChild(imgFlake);
+      }
+    }
+    addImg();
+
     // EACH PAGE ANIMATION
     const pageWidth = document.querySelector(".page").offsetWidth;
 
@@ -344,20 +361,21 @@ export default {
     // COUNTER ANIMATION
     const counter = document.querySelector(".span-wrapper span");
     const allChapitre = document.querySelectorAll(".chapitre");
-    gsap.utils.toArray(allChapitre).forEach(el => {
+    let counterIndex = 0;
+    counter.textContent = "0" + counterIndex;
+    gsap.utils.toArray(allChapitre).forEach((el, index) => {
       let count = gsap.timeline({
         scrollTrigger: {
           trigger: el,
-          start: "top 80%"
+          start: "top 80%",
+          toggleActions: "play none reverse reset"
         }
       });
       count.call(() => {
-        for (let index = 0; index < allChapitre.length; index++) {
-          let counterIndex = 0;
-          counterIndex++;
-          counter.textContent = "0" + counterIndex;
-          console.log(counterIndex);
-        }
+        let counterIndex = index;
+        counter.textContent = "0" + counterIndex;
+        gsap.from(counter, { y: -20, autoAlpha: 0 });
+        gsap.to(counter, { y: 0, autoAlpha: 1 });
       });
     });
 
