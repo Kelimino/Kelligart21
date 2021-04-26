@@ -366,6 +366,7 @@ export default {
         trigger: el,
         start: "top 50%",
         end: "bottom 50%",
+        scrub: true,
         onEnter: function() {
           counter.textContent = "0" + (index + 1);
           tweenCounter();
@@ -377,7 +378,7 @@ export default {
       });
     });
     function tweenCounter() {
-      gsap.from(counter, { duration: 0.25, y: -25, autoAlpha: 0 });
+      gsap.from(counter, { duration: 0.5, y: -25, autoAlpha: 0 });
     }
 
     // ADD PAGINATION
