@@ -1,8 +1,10 @@
 <template>
   <div id="accompagnement">
+    <!--SCROLLBAR LEFT-->
     <div
       class="scrollBar fixed w-0.5 h-10 left-14 top-1/2 bg-primary rounded overflow-hidden"
     ></div>
+    <!--COUNTER RIGHT-->
     <div class="counter fixed right-10 top-1/2 text-center w-8">
       <div
         class="text-3xl text-primary font-title font-bold rounded w-full h-10 overflow-hidden"
@@ -17,6 +19,7 @@
         05
       </p>
     </div>
+    <!--MAIN TITLE-->
     <section
       class="couverture w-full md:w-8/12 p-6 md:-p-0 mx-auto h-screen flex flex-col text-center justify-center items-center"
     >
@@ -36,10 +39,11 @@
         <img
           src="@/assets/icons/chair.svg"
           alt="bol de céreales "
-          class="h-6 md:ml-3"
+          class="h-6 md:ml-3 mt-3"
         />
       </p>
     </section>
+    <!--STORY BLOCKS-->
     <div class="story-wrapper w-full overflow-x-hidden">
       <div class="story w-11/12 md:w-4/6 mx-auto">
         <section
@@ -95,7 +99,7 @@
         adaptées, on va pouvoir co-concevoir votre histoire
       </h2>
     </div>
-
+    <!--BLUE BOARD-->
     <section class="board h-screen flex justify-center items-center">
       <div class="board-wrapper relative w-full h-full">
         <div
@@ -179,6 +183,7 @@
         </div>
       </div>
     </section>
+    <!--FOOTER-->
     <section class="h-footer box-border overflow-hidden">
       <nuxt-link
         to="/expertise"
@@ -256,6 +261,7 @@ export default {
 
   data() {
     return {
+      //STORY BLOCKS
       stories: [
         {
           titre: "Synopsis",
@@ -312,6 +318,7 @@ export default {
   },
   head() {
     return {
+      //HEADER TITLE
       titleTemplate: " %s - Accompagnement",
       meta: [
         {
@@ -339,9 +346,8 @@ export default {
     }
     addImg();
 
-    // EACH PAGE ANIMATION
-    const pageWidth = document.querySelector(".page").offsetWidth;
-
+    // EACH QUESTION HORIZONTAL SCROLL
+    let pageWidth = document.querySelector(".page").offsetWidth;
     gsap.utils.toArray(".page").forEach(el => {
       let Qa = gsap.timeline({
         scrollTrigger: {
@@ -351,11 +357,20 @@ export default {
           toggleActions: "play restart play reset"
         }
       });
-      Qa.from(".question h3", { x: pageWidth * 2.5 })
-        .to(".question h3", { x: -pageWidth * 2, duration: 10 })
+      Qa.from(".question h3", {
+        x: function(index, target) {
+          return pageWidth + target.offsetWidth;
+        }
+      })
+        .to(".question h3", {
+          x: function(index, target) {
+            return -pageWidth - target.offsetWidth;
+          },
+          duration: 30
+        })
         .to(el, {
           autoAlpha: 0
-        });
+        })"<";
     });
 
     // COUNTER ANIMATION
@@ -378,10 +393,10 @@ export default {
       });
     });
     function tweenCounter() {
-      gsap.from(counter, { duration: 0.5, y: -25, autoAlpha: 0 });
+      gsap.from(counter, { y: -25, autoAlpha: 0 });
     }
 
-    // ADD PAGINATION
+    // ADD NUMBER PAGINATION TO EACH PAGE SPAN
     const pages = document.querySelectorAll(".page");
     Array.from(pages).forEach((page, index) => {
       const numberNode = document.createElement("span");
@@ -389,7 +404,7 @@ export default {
       page.appendChild(numberNode);
     });
 
-    // BOARD ANIMATION
+    // BLUE BOARD ANIMATION
     let boardAnim = gsap.timeline({
       scrollTrigger: {
         trigger: ".board",
@@ -427,7 +442,7 @@ export default {
       )
       .to(".board", { background: "transparent" });
 
-    //TITLE ANIMATION ENSEMBLE
+    //TITLE ANIMATION BEFORE BLUE BOARD
     const tl2 = gsap.timeline({
       delay: 0.5,
       scrollTrigger: {

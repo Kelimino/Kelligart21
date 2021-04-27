@@ -390,15 +390,12 @@ export default {
     let backTile = gsap.timeline({
       repeat: -1,
       yoyo: true,
-      onComplete: Done,
       ScrollTrigger: {
         trigger: ".introexpertise",
         start: "top top"
       }
     });
     backTile
-      .progress(0)
-      .play()
       .to(
         ".graphisme",
         {
@@ -417,12 +414,8 @@ export default {
         },
         "<"
       );
-    function Done() {
-      backTile.progress(0).pause();
-    }
 
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
-
     const lotties = document.querySelectorAll(".lottie");
     const anims = [da, ux, ui];
     console.log(anims);
@@ -432,7 +425,7 @@ export default {
           trigger: el,
           start: "top 70%",
           toggleActions: "play none none reset",
-          onEnter: () => this.playLottie(i)
+          onEnter: () => this.playLottie()
         }
       });
       SkillAnim.from(el, { autoAlpha: 0, y: 20 })
