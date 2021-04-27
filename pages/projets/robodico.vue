@@ -105,16 +105,16 @@ export default {
           // pinSpacing: false,
           scrub: 1,
           // snap: 1 / (sections.length - 1),
-          end: () => "+=" + container.offsetWidth,
-        },
+          end: () => "+=" + container.offsetWidth
+        }
       });
       Scroll.to(container, {
         x: () =>
           -(container.scrollWidth - document.documentElement.clientWidth) +
           "px",
-        ease: "none",
+        ease: "none"
       }).to(".imgMain", { yPercent: -50 }, "<");
     });
-  },
+  }
 };
 </script>
