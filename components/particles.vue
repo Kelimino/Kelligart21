@@ -1,23 +1,30 @@
 <template>
   <div id="canvas"></div>
 </template>
-<script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.dom.js"></script>
 <script>
 // import Matter from "matter-js/build/matter.js";
 export default {
   mounted() {
-    function setup() {
-      let canvas = createCanvas(600, 400);
-      canvas.parent("#canvas");
-    }
-    setup();
+    const script = function(p5) {
+      // VARIABLES
 
-    function draw() {
-      background(102);
-      ellipse(50, 50, 80, 80);
-    }
-    draw();
+      // SETUP
+      p5.setup = () => {
+        var canvas = p5.createCanvas(500, 500);
+        canvas.parent("canvas");
+        p5.background(0);
+      };
+
+      // DRAW
+      p5.draw = () => {
+        p5.ellipse(100, 100, 50, 50);
+        p5.fill(255, 0, 0);
+      };
+    };
+
+    // RENDER CONSCTRUCTOR
+    const P5 = require("p5");
+    new P5(script);
   }
 };
 </script>
