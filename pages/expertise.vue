@@ -1,14 +1,16 @@
 <template>
   <div id="expertise">
+    <!--SCROLLBAR LEFT-->
     <div
       class="scrollBar fixed w-0.5 h-10 left-14 top-1/2 bg-primary rounded overflow-hidden"
     ></div>
-
+    <!--ROTATING CIRCLE TEXT -->
     <img
       src="@/assets/icons/circleText.svg"
       alt="circle text"
       class="circleText w-32 fixed top-20 left-40 opacity-0"
     />
+    <!--BACK TILES IMAGES -->
     <div
       class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden opacity-50 md:opacity-100"
     >
@@ -44,6 +46,7 @@
     <section class="expertise grid grid-cols-3">
       <div class="list-expertise col-span-2 pb-20">
         <div class="list-wrapper flex flex-col items-end">
+          <!--TITLE INTRO -->
           <section
             class="introexpertise w-full md:w-5/6 pl-5 md:pl-0 min-h-full h-screen flex flex-col items-start justify-center"
           >
@@ -64,6 +67,7 @@
               />
             </p>
           </section>
+          <!--SECTION SKILLS -->
           <section
             v-for="(domain, index) in expertise"
             :key="index"
@@ -86,7 +90,7 @@
         </div>
       </div>
     </section>
-
+    <!--LOTTIES FILES -->
     <div
       class="lotties fixed top-0 right-0 z-20 w-2/6 h-full flex items-center justify-center"
     >
@@ -118,7 +122,7 @@
         />
       </div>
     </div>
-
+    <!--FOOTER -->
     <section class="h-footer box-border overflow-hidden">
       <nuxt-link
         to="/projets"
@@ -193,6 +197,7 @@ export default {
   },
   data() {
     return {
+      //LOTTIES FILES
       lotties: {
         da: {
           class: "ux",
@@ -213,6 +218,7 @@ export default {
           autoplay: false
         }
       },
+      //BACK TILES IMAGES
       graphisme: [
         {
           path: require("@/assets/img/tiles/poster3.png")
@@ -294,7 +300,7 @@ export default {
           path: require("@/assets/img/tiles/web13.jpg")
         }
       ],
-
+      //ARRAY OF SECTIOSN SKILLS
       expertise: [
         {
           name: "Direction Artistique",
@@ -425,7 +431,7 @@ export default {
           trigger: el,
           start: "top 70%",
           toggleActions: "play none none reset",
-          onEnter: () => this.playLottie()
+          onEnter: () => this.playLottie(anims[i])
         }
       });
       SkillAnim.from(el, { autoAlpha: 0, y: 20 })

@@ -370,7 +370,8 @@ export default {
         })
         .to(el, {
           autoAlpha: 0
-        })"<";
+        }),
+        "<";
     });
 
     // COUNTER ANIMATION
@@ -447,7 +448,7 @@ export default {
       delay: 0.5,
       scrollTrigger: {
         trigger: ".ensemble",
-        toggleActions: "play none reverse reverse"
+        toggleActions: "play none reverse reset"
       },
       start: "top center"
     });
