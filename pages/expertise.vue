@@ -402,6 +402,8 @@ export default {
       }
     });
     backTile
+      .progress(0)
+      .play()
       .to(
         ".graphisme",
         {

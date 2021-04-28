@@ -6,7 +6,7 @@
 export default {
   mounted() {
     const script = function(p5) {
-      // VARIABLES
+      //VARIABLES
 
       // SETUP
       p5.setup = () => {
