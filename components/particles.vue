@@ -1,9 +1,9 @@
 <template>
-  <div></div>
+  <div id="canvas"></div>
 </template>
 <script>
 import Matter from "matter-js/build/matter.js";
-// import { Box } from "mixins/box.js";
+import { Box } from "/mixins/box";
 export default {
   mounted() {
     // this.$nextTick( () =>{
@@ -22,17 +22,17 @@ export default {
       // SETUP
 
       p5.setup = () => {
-        p5.createCanvas(400, 400);
+        var canvas = p5.createCanvas(400, 400);
+        canvas.parent("canvas");
+        p5.rect(p5.CENTER, p5.CENTER);
 
         engine = Engine.create();
         world = engine.world;
         Runner.run(engine);
 
-        box = Bodies.rectangle(200, 100, 40, 40);
-        p5.fill(0, 255, 0);
+        box = new Box(200, 100, 40, 40);
 
-        ground = Bodies.rectangle(100, 400, 400, 40, { isStatic: true });
-        p5.fill(255, 0, 0);
+        ground = Bodies.rectangle(0, 300, 500, 40, { isStatic: true });
 
         World.add(world, [box, ground]);
       };
@@ -40,7 +40,10 @@ export default {
       // DRAW
       p5.draw = () => {
         p5.background(0);
-        p5.rect(box.position.x, box.position.y, 40, 40);
+
+        Box.show();
+
+        p5.fill(255, 0, 0);
         p5.rect(ground.position.x, ground.position.y, 400, 400);
       };
     };
