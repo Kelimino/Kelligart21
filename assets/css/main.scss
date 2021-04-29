@@ -104,6 +104,38 @@ body {
   }
 
   .swiper-slide {
+    position: relative;
+    border: solid 2px $primary;
+    border-radius: 0px 0px 4px 4px;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -30px;
+      left: -3px;
+      height: 30px;
+      border-radius: 4px 4px 0px 0;
+      transform-origin: bottom left;
+      width: 101%;
+      border: solid 3px $primary;
+      background: white;
+      transform: skewX(-45deg);
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: -31px;
+      height: 100%;
+      width: 30px;
+      border-radius: 0px 4px 4px 0;
+      transform-origin: bottom left;
+      border: solid 3px $primary;
+      background: white;
+      transform: skewY(-45deg);
+    }
     img {
       transition: all 4s ease-in-out;
     }

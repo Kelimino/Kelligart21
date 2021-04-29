@@ -10,14 +10,14 @@
           v-for="(projet, index) in projets"
           :key="index"
           ref="projet"
-          class="swiper-slide h-full flex flex-col justify-center items-center"
+          class="swiper-slide h-full flex flex-col justify-center items-center bg-white"
           :class="projet.class"
         >
           <nuxt-link
             :to="projet.href"
-            class="link h-full flex flex-col items-start"
+            class="link w-full h-full flex flex-col items-start"
           >
-            <div class="img-wrapper h-2/3 w-full overflow-hidden">
+            <div class="img-wrapper h-1/2 w-full overflow-hidden">
               <img
                 :src="projet.path"
                 alt="projet image"
@@ -29,7 +29,7 @@
                 muted="muted"
                 onmouseover="this.play()"
                 onmouseout="this.pause();this.currentTime=0;"
-                class="w-full min-h-full min-w-full h-full object-cover object-center"
+                class="w-full max-w-full h-full object-contain object-center overflow-hidden"
               >
                 <source :src="projet.path" type="video/mp4" />
               </video>
@@ -48,7 +48,7 @@
                 {{ projet.nom }}
               </h2>
 
-              <p class="font-text text-main text-base mt-3 w-full md:w-4/6">
+              <p class="font-text text-main text-base mt-3 w-full">
                 {{ projet.description }}
               </p>
             </div>
@@ -146,6 +146,7 @@ export default {
     this.swiper = new Swiper(".swiper-projet", {
       direction: "horizontal",
       loop: true,
+      centeredSlides: true,
       speed: 1000,
       parallax: true,
       mousewheel: {
@@ -154,15 +155,22 @@ export default {
       breakpoints: {
         640: {
           slidesPerView: "1",
-          spaceBetween: 20
+          spaceBetween: 50
         },
         768: {
-          slidesPerView: "3",
-          spaceBetween: 10,
-          centeredSlides: true
+          slidesPerView: "4",
+          spaceBetween: 100
         }
       }
     });
+    // this.swiper.on("activeIndexChange", function() {
+    //   gsap.to(".swiper-slide", {
+    //     rotation: 4,
+    //     rotationY: -40,
+    //     transformOrigin: "0% 0%"
+    //   });
+    //   gsap.to(".swiper-slide-active", { rotation: 0 });
+    // });
 
     this.swiper.on("touchMove", function() {
       gsap.to(".swiper-slide", { scale: 0.8 });

@@ -12,7 +12,7 @@
     />
     <!--BACK TILES IMAGES -->
     <div
-      class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden opacity-50 md:opacity-100"
+      class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden opacity-50 md:opacity-100 z-0"
     >
       <div class="back-wrapper">
         <ul class="backlist flex row">
@@ -123,7 +123,7 @@
       </div>
     </div>
     <!--FOOTER -->
-    <section class="h-footer box-border overflow-hidden">
+    <section class="h-footer box-border overflow-hidden z-10 bg-back">
       <nuxt-link
         to="/projets"
         class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
@@ -368,15 +368,18 @@ export default {
         toggleActions: "play none reverse reverse"
       }
     });
-    FooterBottom.to(
-      ".lotties",
-      {
+    FooterBottom.to(".back-expertise", { autoAlpha: 0 })
+
+      .to(
+        ".lotties",
+        {
+          autoAlpha: 0
+        },
+        "<"
+      )
+      .to(".scrollBar", {
         autoAlpha: 0
-      },
-      "<"
-    ).to(".scrollBar", {
-      autoAlpha: 0
-    });
+      });
 
     //FOOTER BANNER CEREAL
     function addImg() {

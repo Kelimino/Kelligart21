@@ -394,6 +394,7 @@ export default {
       });
     });
     function tweenCounter() {
+      gsap.set(counter, { autoAlpha: 1 });
       gsap.from(counter, { y: -25, autoAlpha: 0 });
     }
 
