@@ -15,6 +15,9 @@ export default {
         World = Matter.World;
 
       // var bodyWidth = document.querySelector(".bg-back").offSetWidth;
+      //VARIABLES
+      var engine, world, box, ground, flake, squareSize;
+      var bubble1, bubble2;
 
       // SETUP
       p5.setup = () => {
@@ -25,6 +28,8 @@ export default {
         engine = Engine.create();
         world = engine.world;
         Runner.run(engine);
+        bubble1 = new bubble(200, 100, 60);
+        bubble2 = new bubble(100, 200, 30);
         // Render.run(render);
 
         flake = p5.loadImage(require("../assets/icons/flake.png"));
@@ -47,15 +52,42 @@ export default {
         p5.ellipse(100, 100, 20, 20);
       };
 
-      //VARIABLES
-      var engine, world, box, ground, flake, squareSize;
       // let circleX = 100;
       // let speed = 5;
+
+      class bubble {
+        constructor(x, y, diametre) {
+          this.x = 100;
+          this.y = 100;
+          this.diametre = diametre;
+        }
+        show() {
+          p5.fill(p5.random(0, 255), p5.random(0, 255), p5.random(0, 255));
+          p5.noStroke();
+          p5.ellipse(this.x, this.y, this.diametre);
+        }
+        move() {
+          this.x = this.x + p5.random(-5, 5);
+          this.y = this.y + p5.random(-5, 5);
+        }
+      }
+
+      var hello = ["hello", "my", "friend"];
 
       // DRAW
       p5.draw = () => {
         var colorBack = p5.map(p5.mouseX, 0, p5.windowWidth, 0, 255);
         p5.background(colorBack);
+
+        bubble1.show();
+        bubble1.move();
+
+        bubble2.show();
+        bubble2.move();
+
+        for (let index = 0; index < hello.length; index++) {
+          p5.text(hello[index], index * 50 + 10, 200);
+        }
         // p5.fill(random(50, 255), random(50, 150), random(50, 255), 100);
         // p5.circle(p5.mouseX, p5.mouseY, 20, 20);
 
@@ -68,9 +100,10 @@ export default {
         // p5.ellipse(circleX, 200, 40, 40);
 
         var ballx = 0;
-        while (ballx < p5.width) {
-          p5.ellipse(x, 40, 20, 20);
-          var x = x + 5;
+        while (ballx <= p5.mouseX) {
+          p5.fill(25, 124, 89);
+          p5.ellipse(ballx, 40, 20, 20);
+          ballx = ballx + 50;
         }
 
         p5.stroke(255, 35, 67);
