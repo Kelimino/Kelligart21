@@ -3,7 +3,7 @@
 </template>
 <script>
 import Matter from "matter-js/build/matter.js";
-// import { Box } from "../mixins/box";
+import { Box } from "../mixins/box";
 export default {
   mounted() {
     const script = function(p5) {
@@ -30,8 +30,8 @@ export default {
 
         flake = p5.loadImage(require("../assets/icons/flake.png"));
 
-        // box = new Box(200, 100, 40, 40);
-        box = Bodies.rectangle(200, 100, 40, 40);
+        box = new Box(200, 100, 40, 40);
+        // box = Bodies.rectangle(200, 100, 40, 40);
         ground = Bodies.rectangle(0, 300, 500, 40, { isStatic: true });
 
         World.add(world, [box, ground, flake]);

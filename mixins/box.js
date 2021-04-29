@@ -2,7 +2,7 @@ import Matter from "matter-js/build/matter.js";
 import p5 from "../node_modules/p5/lib/p5";
 const { World } = require("matter-js");
 
-function Box(x, y, w, h) {
+export default function Box(x, y, w, h) {
   this.body = Matter.Bodies.rectangle(x, y, w, h);
   this.w = w;
   this.h = h;
