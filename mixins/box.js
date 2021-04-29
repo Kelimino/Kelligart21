@@ -1,5 +1,5 @@
 import Matter from "matter-js/build/matter.js";
-import P5 from "../node_modules/p5/lib/p5";
+import p5 from "../node_modules/p5/lib/p5";
 const { World } = require("matter-js");
 
 function Box(x, y, w, h) {
@@ -12,12 +12,12 @@ function Box(x, y, w, h) {
     var pos = this.body.position;
     var angle = this.body.angle;
 
-    P5.push();
-    P5.translate(pos.x, pos.y);
-    P5.rotate(angle);
-    P5.rectMode(P5.CENTER);
-    P5.rect(0, 0, this.w, this.h);
-    P5.pop();
+    p5.push();
+    p5.translate(pos.x, pos.y);
+    p5.rotate(angle);
+    p5.rectMode(p5.CENTER);
+    p5.rect(0, 0, this.w, this.h);
+    p5.pop();
   };
 }
 

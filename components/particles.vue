@@ -9,13 +9,13 @@ export default {
     const script = function(p5) {
       //MODULE ALIAS
       var Engine = Matter.Engine,
-        Render = Matter.Render,
+        // Render = Matter.Render,
         Runner = Matter.Runner,
         Bodies = Matter.Bodies,
         World = Matter.World;
 
       //VARIABLES
-      var engine, world, render, box, ground, flake;
+      var engine, world, box, ground, flake;
 
       // SETUP
       p5.setup = () => {
@@ -26,17 +26,12 @@ export default {
         engine = Engine.create();
         world = engine.world;
         Runner.run(engine);
-        Render.run(render);
+        // Render.run(render);
 
         flake = p5.loadImage(require("../assets/icons/flake.png"));
 
-        box = Bodies.rectangle(200, 100, 40, 40, {
-          render: {
-            sprite: {
-              texture: flake
-            }
-          }
-        });
+        // box = new Box(200, 100, 40, 40);
+        box = Bodies.rectangle(200, 100, 40, 40);
         ground = Bodies.rectangle(0, 300, 500, 40, { isStatic: true });
 
         World.add(world, [box, ground, flake]);
