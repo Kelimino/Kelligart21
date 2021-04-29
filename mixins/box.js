@@ -10,11 +10,11 @@ export default function Box(x, y, w, h) {
 
   this.show = function() {
     var pos = this.body.position;
-    var angle = this.body.angle;
+    // var angle = this.body.angle;
 
     p5.push();
     p5.translate(pos.x, pos.y);
-    p5.rotate(angle);
+    // p5.rotate(angle);
     p5.rectMode(p5.CENTER);
     p5.rect(0, 0, this.w, this.h);
     p5.pop();

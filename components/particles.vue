@@ -41,7 +41,8 @@ export default {
       p5.draw = () => {
         p5.background(51);
         p5.image(flake, 100, 100, flake.width / 2, flake.height / 2);
-        p5.rect(box.position.x, box.position.y, 40, 40);
+        // p5.rect(box.position.x, box.position.y, 40, 40);
+        box.show();
 
         p5.fill(255, 0, 0);
         p5.rect(ground.position.x, ground.position.y, 400, 400);
