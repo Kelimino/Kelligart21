@@ -289,7 +289,7 @@ export default {
           texte:
             "Le héros arrive avec une quête à accomplir, une idée en tête, une attente singulière émanant d'un problème à résoudre.  ",
           span:
-            "La réponse à ses besoins et ses attentes doit correspondre à votre offre",
+            "Votre offre doit correspondre à la réponse à ses besoins et ses attentes",
           path: require("@/assets/animation/declenchement.png"),
           question: "Pourquoi est-il là ?"
         },
@@ -416,9 +416,21 @@ export default {
       }
     });
     boardAnim
-
-      .to(".board", { background: "#3451be" }, "<")
-      .from(".screen", { autoAlpha: 0, duration: 0.2 })
+      .to(".laptop", {
+        width: "100%",
+        height: "100%",
+        duration: 1,
+        borderRadius: 0
+      })
+      .from(
+        ".screen img",
+        {
+          autoAlpha: 0,
+          duration: 0.2,
+          ease: "Power2.easeIn"
+        },
+        "<"
+      )
       .from(
         ".research li",
         {
@@ -445,21 +457,16 @@ export default {
 
     //TITLE ANIMATION BEFORE BLUE BOARD
     const tl2 = gsap.timeline({
-      delay: 0.5,
       scrollTrigger: {
         trigger: ".ensemble",
+        start: "top 70%",
         toggleActions: "play none reverse reset"
-      },
-      start: "top center"
+      }
     });
     tl2
-      .to(".counter", { autoAlpha: 0 })
-      .to(".scrollBar", { autoAlpha: 0 }, "<")
-      .from(
-        ".ensemble",
-        { y: 40, autoAlpha: 0, skewY: "6deg", duration: 2 },
-        "<"
-      );
+      .from(".ensemble", { y: 40, autoAlpha: 0, skewY: "6deg", duration: 2 })
+      .to(".counter", { autoAlpha: 0 }, "<")
+      .to(".scrollBar", { autoAlpha: 0 }, "<");
   }
 };
 </script>

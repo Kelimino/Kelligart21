@@ -3,12 +3,9 @@
 </template>
 <script>
 import Matter from "matter-js/build/matter.js";
-import { Box } from "/mixins/box";
+import { Box } from "mixins/box.js";
 export default {
   mounted() {
-    // this.$nextTick( () =>{
-    // });
-
     const script = function(p5) {
       //MODULE ALIAS
       var Engine = Matter.Engine,
@@ -17,7 +14,11 @@ export default {
         Bodies = Matter.Bodies,
         World = Matter.World;
 
-      var engine, world, box, ground;
+      var engine,
+        world,
+        box,
+        // box = [],
+        ground;
 
       // SETUP
 
@@ -30,18 +31,29 @@ export default {
         world = engine.world;
         Runner.run(engine);
 
-        box = new Box(200, 100, 40, 40);
+        box = Bodies.rectangle(200, 100, 40, 40);
+        // box = new Box(200,200,80,80);
 
         ground = Bodies.rectangle(0, 300, 500, 40, { isStatic: true });
 
         World.add(world, [box, ground]);
       };
+      // function mousePressed() {
+      //   box.push(Bodies.rectangle(200, 200, 40, 40));
+      // }
+      // mousePressed();
 
       // DRAW
       p5.draw = () => {
         p5.background(0);
 
-        Box.show();
+        // Box.show()
+        // for (let index = 0; index < box.length; index++) {
+        //   p5.fill(0, 255, 0);
+        //   p5.rect(200, 200, 40, 40);
+        // }
+        p5.fill(0, 255, 0);
+        p5.rect(box.position.x, box.position.y, 40, 40);
 
         p5.fill(255, 0, 0);
         p5.rect(ground.position.x, ground.position.y, 400, 400);
