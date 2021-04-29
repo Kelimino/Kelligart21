@@ -9,19 +9,15 @@ export default {
     const script = function(p5) {
       //MODULE ALIAS
       var Engine = Matter.Engine,
-        // Render = Matter.Render,
+        Render = Matter.Render,
         Runner = Matter.Runner,
         Bodies = Matter.Bodies,
         World = Matter.World;
 
-      var engine,
-        world,
-        box,
-        // box = [],
-        ground;
+      //VARIABLES
+      var engine, world, render, box, ground, flake;
 
       // SETUP
-
       p5.setup = () => {
         var canvas = p5.createCanvas(400, 400);
         canvas.parent("canvas");
@@ -30,36 +26,26 @@ export default {
         engine = Engine.create();
         world = engine.world;
         Runner.run(engine);
+        Render.run(render);
 
-        box = Bodies.rectangle(200, 100, 40, 40);
-        // box = new Box(200, 200, 80, 80);
+        flake = p5.loadImage(require("../assets/icons/flake.png"));
 
+        box = Bodies.rectangle(200, 100, 40, 40, {
+          render: {
+            sprite: {
+              texture: flake
+            }
+          }
+        });
         ground = Bodies.rectangle(0, 300, 500, 40, { isStatic: true });
 
-        World.add(world, [box, ground]);
+        World.add(world, [box, ground, flake]);
       };
-      // function mousePressed() {
-      //   box.push(Bodies.rectangle(200, 200, 40, 40));
-      // }
-      // mousePressed();
 
       // DRAW
       p5.draw = () => {
-        p5.background(0);
-
-        // Box.show();
-        // for (let index = 0; index < box.length; index++) {
-        //   p5.fill(0, 255, 0);
-        //   p5.rect(200, 200, 40, 40);
-        // }
-
-        // var boxCnt = 10;
-        // for (let index = 0; index < boxCnt.length; index++) {
-        //   p5.fill(0, 255, 0);
-        //   p5.rect(box.position.x, box.position.y, 40, 40);
-        // }
-
-        p5.fill(0, 255, 0);
+        p5.background(51);
+        p5.image(flake, 100, 100, flake.width / 2, flake.height / 2);
         p5.rect(box.position.x, box.position.y, 40, 40);
 
         p5.fill(255, 0, 0);
