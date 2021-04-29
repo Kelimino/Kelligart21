@@ -360,16 +360,16 @@ export default {
   },
   mounted() {
     //FOOTER TRIGGER HIDE
-
     const FooterBottom = gsap.timeline({
       scrollTrigger: {
         trigger: ".h-footer",
         start: "top center",
+        end: "center center",
+        scrub: true,
         toggleActions: "play none reverse reverse"
       }
     });
-    FooterBottom.to(".back-expertise", { autoAlpha: 0 })
-
+    FooterBottom.to(".back-expertise", { xPercent: 110 })
       .to(
         ".lotties",
         {
@@ -377,9 +377,13 @@ export default {
         },
         "<"
       )
-      .to(".scrollBar", {
-        autoAlpha: 0
-      });
+      .to(
+        ".scrollBar",
+        {
+          autoAlpha: 0
+        },
+        "<"
+      );
 
     //FOOTER BANNER CEREAL
     function addImg() {
@@ -428,7 +432,7 @@ export default {
 
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     const lotties = document.querySelectorAll(".lottie");
-    const anims = [da, ux, ui];
+    const anims = [da, ux, ui, ui, ui];
     console.log(anims);
     gsap.utils.toArray(".skill").forEach((el, i) => {
       let SkillAnim = gsap.timeline({

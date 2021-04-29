@@ -44,11 +44,11 @@
                 projet.nb
               }}</span>
 
-              <h2 class="font-title text-primary text-6xl font-bold my-5">
+              <h2 class="font-title text-primary text-6xl font-bold my-3">
                 {{ projet.nom }}
               </h2>
 
-              <p class="font-text text-main text-base mt-3 w-full">
+              <p class="font-text text-main text-base w-full">
                 {{ projet.description }}
               </p>
             </div>
@@ -158,8 +158,8 @@ export default {
           spaceBetween: 50
         },
         768: {
-          slidesPerView: "4",
-          spaceBetween: 100
+          slidesPerView: "3",
+          spaceBetween: 70
         }
       }
     });
