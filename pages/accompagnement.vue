@@ -69,7 +69,7 @@
             <div
               class="page chapitre h-1/2 md:h-full p-10 md:p-20 border border-solid border-primary border-opacity-30 flex flex-col justify-center items-start relative text-left"
             >
-              <h2 class="font-title text-primary text-2xl font-bold">
+              <h2 class="font-title text-primary text-4xl font-bold">
                 {{ story.titre }}
               </h2>
               <h4 class="font-text text-main text-base mt-3">
