@@ -129,7 +129,7 @@
         class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
         <h2 class="font-text text-primary font-light text-7xl text-center">
-          Découvrez <em em class="font-title italic"> mes projets</em>
+          Découvrez <em em class="font-title italic"> mes Projets</em>
         </h2>
       </nuxt-link>
       <div class="cereal flex flex-row whitespace-nowrap mb-20"></div>
@@ -421,7 +421,7 @@ export default {
       .to(
         ".graphisme",
         {
-          yPercent: 50,
+          yPercent: 45,
           duration: 120,
           ease: "none"
         },
@@ -443,15 +443,18 @@ export default {
 
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     const lotties = document.querySelectorAll(".lottie");
-    const anims = [da, ux, ui, ui, ui];
-    console.log(anims);
     gsap.utils.toArray(".skill").forEach((el, i) => {
       let SkillAnim = gsap.timeline({
         scrollTrigger: {
           trigger: el,
           start: "top 70%",
-          toggleActions: "play none none reset",
-          onEnter: () => this.playLottie(anims[i])
+          toggleActions: "play none play reset",
+          onEnter: () => {
+            this.playLottie();
+          },
+          onLeave: () => {
+            this.stopLottie();
+          }
         }
       });
       SkillAnim.from(el, { autoAlpha: 0, y: 20 })
@@ -489,7 +492,7 @@ export default {
       this.anim.play(0);
     },
     stopLottie: function() {
-      this.anim.stop();
+      this.anim.stop(0);
     }
   }
 };
