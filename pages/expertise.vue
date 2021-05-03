@@ -443,6 +443,7 @@ export default {
 
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     const lotties = document.querySelectorAll(".lottie");
+    const anims = [da, ux, ui, ui, ui];
     gsap.utils.toArray(".skill").forEach((el, i) => {
       let SkillAnim = gsap.timeline({
         scrollTrigger: {
@@ -450,10 +451,7 @@ export default {
           start: "top 70%",
           toggleActions: "play none play reset",
           onEnter: () => {
-            this.playLottie();
-          },
-          onLeave: () => {
-            this.stopLottie();
+            this.playLottie(anims[i]);
           }
         }
       });
