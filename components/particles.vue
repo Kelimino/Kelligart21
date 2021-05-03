@@ -1,5 +1,5 @@
 <template>
-  <div id="canvas"></div>
+  <div id="canvas" class="w-full h-full flex justify-end"></div>
 </template>
 <script>
 import Matter from "matter-js/build/matter.js";
@@ -14,8 +14,8 @@ export default {
         World = Matter.World;
 
       ///////////////////////////////// VARIABLES
-      var engine, world, ground, flake, cereal;
-      let cereals = [];
+      var engine, world, ground, flake;
+      let boxes = [];
 
       p5.preload = () => {
         flake = p5.loadImage(require("../assets/icons/flake.png"));
@@ -24,7 +24,7 @@ export default {
       ///////////////////////////////// SETUP
       p5.setup = () => {
         //DRAW CANVAS
-        var canvas = p5.createCanvas(p5.windowWidth, 400);
+        var canvas = p5.createCanvas(p5.windowWidth, 500);
         canvas.parent("canvas");
         p5.angleMode(p5.DEGREES);
 
@@ -38,43 +38,45 @@ export default {
         //OBJECT RENDER IN SETUP
 
         // MATTER OBJECTS
-        cereal = Bodies.rectangle(200, 100, 34, 40);
-        ground = Bodies.rectangle(0, 400, p5.windowWidth, 40, {
+        ground = Bodies.rectangle(p5.windowWidth / 2, 400, p5.windowWidth, 10, {
           isStatic: true
         });
 
         // GENERATE WORLD
-        World.add(world, [ground, cereal]);
+        World.add(world, [ground]);
       };
 
       // FUNCTIONS
-      p5.mousePressed = function() {
-        cereals.push(new Cereal(p5.mouseX, p5.mouseY, 50, 20));
-      };
 
       ///////////////////////////////// DRAW
       p5.draw = () => {
-        p5.background(51);
-
-        p5.image(flake, cereal.position.x, cereal.position.y, 20, 50);
-
-        for (let index = 0; index < cereals.length; index++) {
-          cereals[index].show();
+        p5.background(243, 245, 251);
+        for (let index = 0; index < 10; index++) {
+          boxes.push(
+            new Boxes(p5.random(p5.width), p5.random(p5.height), 50, 20)
+          );
+          boxes[index].show();
         }
       };
 
       //CONSTRUCTOR CEREAL BUBBLES
-      class Cereal {
+      class Boxes {
         constructor(x, y, w, h) {
-          this.corn = Bodies.rectangle(x, y, w, h);
+          this.body = Bodies.rectangle(x, y, w, h);
           this.x = x;
           this.y = y;
           this.w = w;
           this.h = h;
+          World.add(world, [this.body]);
         }
         show() {
+          var angle = this.body.angle;
+          var pos = this.body.position;
           p5.push();
-          p5.image(flake, this.x, this.y, this.w, this.h);
+          p5.rotate(angle);
+          p5.rectMode(p5.CENTER);
+          p5.translate(pos.x, pos.y);
+          p5.image(flake, 0, 0, this.w, this.h);
           p5.pop();
         }
         move() {
