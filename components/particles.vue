@@ -38,7 +38,7 @@ export default {
         //OBJECT RENDER IN SETUP
 
         // MATTER OBJECTS
-        ground = Bodies.rectangle(p5.windowWidth / 2, 400, p5.windowWidth, 10, {
+        ground = Bodies.rectangle(p5.windowWidth / 2, 500, p5.windowWidth, 10, {
           isStatic: true
         });
 
@@ -47,14 +47,23 @@ export default {
       };
 
       // FUNCTIONS
+      p5.mouseDragged = function() {
+        boxes.push(
+          new Boxes(
+            p5.mouseX,
+            p5.mouseY,
+            p5.random(10, 30),
+            p5.random(10, 30),
+            p5.rotate(p5.PI / p5.random(0, 1))
+          )
+        );
+      };
 
       ///////////////////////////////// DRAW
       p5.draw = () => {
-        p5.background(243, 245, 251);
-        for (let index = 0; index < 10; index++) {
-          boxes.push(
-            new Boxes(p5.random(p5.width), p5.random(p5.height), 50, 20)
-          );
+        //p5.background(243, 245, 251);
+        p5.background(51);
+        for (let index = 0; index < boxes.length; index++) {
           boxes[index].show();
         }
       };

@@ -2,7 +2,7 @@
   <div>
     <h1>À propos</h1>
     <p>Directeur artistique &amp; creative Designer</p>
-    <!-- <Particles /> -->
+    <Particles />
     <div class="contactnav mt-10 flex flex-row justify-center">
       <div>
         <a class="font-text text-md text-main">bonjour[a]kelligart.com</a>
@@ -55,12 +55,12 @@
 </template>
 
 <script>
-// import Particles from "/components/particles";
+import Particles from "/components/particles";
 export default {
   name: "About",
 
   components: {
-    // Particles
+    Particles
   },
   head() {
     return {

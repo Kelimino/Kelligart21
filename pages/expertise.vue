@@ -125,7 +125,7 @@
     <!--FOOTER -->
     <section class="h-footer box-border overflow-hidden z-10 bg-back relative">
       <div class="canvas-wrapper absolute left-0 bottom-0 w-full h-full">
-        <Particles />
+        <!-- <Particles /> -->
       </div>
       <nuxt-link
         to="/projets"
@@ -142,7 +142,7 @@
 
 <script>
 import Footer from "/components/footer";
-import Particles from "/components/particles";
+// import Particles from "/components/particles";
 
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -156,8 +156,8 @@ export default {
   name: "Expertise",
   components: {
     lottie,
-    Footer,
-    Particles
+    Footer
+    // Particles
   },
   scrollToTop: true,
   transition: {
