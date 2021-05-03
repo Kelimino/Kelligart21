@@ -5,16 +5,15 @@
     >
       <div class="back-board absolute w-4/6 h-4/6 py-36 bg-white rounded"></div>
       <h1
-        class="font-title flex flex-col justify-center items-center text-center"
+        class="font-title flex flex-col justify-center items-center text-center text-7xl"
       >
-        <span
-          class="font-text text-primary text-4xl md:text-7xl font-light italic"
-          >Directeur Artistique </span
-        ><span class="font-title text-primary text-8xl font-extrabold mt-6"
-          >&amp; Creative Designer
+        <span class="font-text text-primary font-light text-7xl"
+          >Directeur <em class="font-title italic">Artistique</em> </span
+        ><span class="text-primary mt-3"
+          >&amp; <em class="font-title italic">Creative</em> Designer
         </span>
       </h1>
-      <p class="font-text text-main text-base mt-6 text-center">
+      <p class="font-text text-main text-base mt-10 text-center">
         Bonjour, je m’appelle Kellig, un peu comme Kellogg’s ©, un bol complet
         ;)
       </p>

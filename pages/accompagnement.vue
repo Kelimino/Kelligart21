@@ -93,10 +93,12 @@
 
     <div>
       <h2
-        class="ensemble text-4xl font-title text-primary w-5/6 md:w-4/6 my-40 text-center mx-auto"
+        class="ensemble font-text text-primary font-light md:text-4xl w-5/6 md:w-4/6 my-40 text-center mx-auto"
       >
-        Ensemble, grâce à l'intelligence collective et avec des méthodes
-        adaptées, on va pouvoir co-concevoir votre histoire
+        Ensemble, grâce à
+        <em class="font-title italic">l'intelligence collective</em> et avec des
+        <em class="font-title italic">méthodes adaptées</em>, on va pouvoir
+        <em class="font-title italic">co-concevoir votre histoire</em>
       </h2>
     </div>
     <!--BLUE BOARD-->
@@ -189,8 +191,8 @@
         to="/expertise"
         class="expertise-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
-        <h2 class="text-primary font-bold font-title text-8xl text-center">
-          Expertise
+        <h2 class="font-text text-primary font-light text-7xl text-center">
+          Découvrez <em em class="font-title italic"> mes Expertises</em>
         </h2>
       </nuxt-link>
       <div class="cereal flex flex-row whitespace-nowrap mb-20"></div>

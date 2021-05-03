@@ -128,8 +128,8 @@
         to="/projets"
         class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
-        <h2 class="text-primary font-bold font-title text-8xl text-center">
-          Projets
+        <h2 class="font-text text-primary font-light text-7xl text-center">
+          Découvrez <em em class="font-title italic"> mes projets</em>
         </h2>
       </nuxt-link>
       <div class="cereal flex flex-row whitespace-nowrap mb-20"></div>
@@ -382,6 +382,13 @@ export default {
           autoAlpha: 0
         },
         "<"
+      )
+      .to(
+        ".circleText",
+        {
+          autoAlpha: 0
+        },
+        "<"
       );
 
     //FOOTER BANNER CEREAL
@@ -402,6 +409,7 @@ export default {
     let backTile = gsap.timeline({
       repeat: -1,
       yoyo: true,
+      onComplete: done,
       ScrollTrigger: {
         trigger: ".introexpertise",
         start: "top top"
@@ -428,6 +436,10 @@ export default {
         },
         "<"
       );
+
+    function done() {
+      backTile.reverse();
+    }
 
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     const lotties = document.querySelectorAll(".lottie");

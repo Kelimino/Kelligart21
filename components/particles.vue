@@ -13,21 +13,22 @@ export default {
         Bodies = Matter.Bodies,
         World = Matter.World;
 
-      //VARIABLES
+      ///////////////////////////////// VARIABLES
       var engine, world, box, ground, flake;
       let hello = ["hello", "my", "friend"];
       let cereals = [];
+      var angle = 45;
 
       p5.preload = () => {
         flake = p5.loadImage(require("../assets/icons/flake.png"));
       };
 
-      // SETUP
+      ///////////////////////////////// SETUP
       p5.setup = () => {
         //DRAW CANVAS
         var canvas = p5.createCanvas(p5.windowWidth, 400);
         canvas.parent("canvas");
-        p5.rect(p5.CENTER, p5.CENTER);
+        p5.angleMode(p5.DEGREES);
 
         //ENGINE AND WORLD INIT
         engine = Engine.create();
@@ -38,11 +39,11 @@ export default {
 
         //OBJECT RENDER IN SETUP
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 100; i++) {
           let CerealX = p5.random(p5.width);
           let CerealY = p5.random(p5.height);
-          let CerealW = p5.random(20, 30);
-          let CerealH = p5.random(5, 15);
+          let CerealW = p5.random(20, 50);
+          let CerealH = p5.random(10, 30);
           let b = new Cereal(CerealX, CerealY, CerealW, CerealH);
           cereals.push(b);
         }
@@ -62,7 +63,7 @@ export default {
         p5.ellipse(100, 100, 20, 20);
       };
 
-      // DRAW
+      ///////////////////////////////// DRAW
       p5.draw = () => {
         var colorBack = p5.map(p5.mouseX, 0, p5.windowWidth, 0, 255);
         p5.background(colorBack);
@@ -71,9 +72,9 @@ export default {
           p5.text(hello[index], index * 50 + 10, 200);
         }
 
-        for (let i = 0; i < cereals.length; i++) {
-          cereals[i].show();
-          cereals[i].move();
+        for (let cereal of cereals) {
+          cereal.show();
+          cereal.move();
         }
 
         var ballx = 0;
@@ -86,11 +87,14 @@ export default {
         p5.push();
         p5.stroke(255, 35, 67);
         p5.strokeWeight(4);
-        p5.rectMode(p5.CENTER);
         p5.fill(25, 125, 98);
-        p5.scale(2);
-        p5.rect(200, 200, 50, 50);
+
+        p5.translate(p5.width / 2, p5.height / 2);
+        p5.rotate(p5.PI * angle);
+        p5.rectMode(p5.CENTER);
+        p5.rect(0, 0, 52, 52);
         p5.pop();
+        angle = angle + 0.5;
 
         p5.fill(p5.mouseY);
         p5.ellipse(200, p5.mouseY, 50, 50);
@@ -104,22 +108,25 @@ export default {
       //CONSTRUCTOR CEREAL BUBBLES
       class Cereal {
         constructor(x, y, w, h) {
-          this.x = 100;
-          this.y = 100;
+          this.x = p5.random(0, p5.windowWidth);
+          this.y = p5.random(0, p5.windowHeight);
           this.w = w;
           this.h = h;
         }
 
+        rotateIt() {
+          p5.rotate(p5.PI / p5.random(0, 360));
+        }
+
         show() {
           p5.push();
-          p5.rectMode(p5.CENTER);
-          p5.rotate(p5.random(0, 360));
           p5.image(flake, this.x, this.y, this.w, this.h);
+
           p5.pop();
         }
         move() {
-          this.x = this.x + p5.random(-2, 3);
-          this.y = this.y + p5.random(-2, 5);
+          // this.x = p5.random(0, p5.windowWidth);
+          // this.y = p5.random(0, p5.windowHeight);
         }
       }
     };
