@@ -9,6 +9,7 @@ export const cursor = {
       mouseCursor.style.left = e.clientX + "px";
     }
 
+    //EACH LINK
     const link = document.querySelectorAll(".link");
 
     Array.from(link).forEach(linkElement => {
@@ -19,14 +20,29 @@ export const cursor = {
         mouseCursor.style.transform = "scale(1)";
       });
     });
+    //PAGE LINK FOOTER
+    const pageLink = document.querySelectorAll(".pageLink");
+    console.log(pageLink);
 
-    const slider = document.querySelector(".swiper-wrapper");
+    Array.from(pageLink).forEach(linkElement => {
+      linkElement.addEventListener("mouseover", () => {
+        mouseCursor.classList.add("cursorPage");
+        console.log("hey");
+      });
 
-    slider.addEventListener("mouseover", () => {
-      mouseCursor.classList.add("cursorSlide");
+      linkElement.addEventListener("mouseleave", () => {
+        mouseCursor.classList.remove("cursorPage");
+      });
     });
-    slider.addEventListener("mouseleave", () => {
-      mouseCursor.classList.remove("cursorSlide");
-    });
+
+    //SLIDER PROJECT
+    // const slider = document.querySelector(".swiper-wrapper");
+
+    // slider.addEventListener("mouseover", () => {
+    //   mouseCursor.classList.add("cursorSlide");
+    // });
+    // slider.addEventListener("mouseleave", () => {
+    //   mouseCursor.classList.remove("cursorSlide");
+    // });
   }
 };

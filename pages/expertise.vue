@@ -125,7 +125,7 @@
       <!-- <Particles /> -->
       <nuxt-link
         to="/projets"
-        class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
+        class="pageLink link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
         <h2 class="font-text text-primary font-light text-7xl text-center">
           Découvrez <em em class="font-title italic"> mes Projets</em>

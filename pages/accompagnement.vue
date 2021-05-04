@@ -189,7 +189,7 @@
     <section class="h-footer box-border overflow-hidden">
       <nuxt-link
         to="/expertise"
-        class="expertise-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
+        class="pageLink link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
       >
         <h2 class="font-text text-primary font-light text-7xl text-center">
           Découvrez <em em class="font-title italic"> mes Expertises</em>

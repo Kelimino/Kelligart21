@@ -6,7 +6,9 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  cursor: none !important;
+}
+* {
+  cursor: none;
 }
 ::-webkit-scrollbar {
   width: 0px;
@@ -23,17 +25,30 @@ body {
   transform: scale(4) !important;
   border: solid 1px transparent;
   background: white;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &::after {
+    display: block;
     content: "< >";
     color: $primary;
+    font-size: 0.2rem;
+  }
+}
+.cursorPage {
+  transform: scale(4) !important;
+  border: solid 1px transparent;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
     display: block;
-    width: 0.5rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    content: "->";
+    color: $primary;
+    font-size: 0.2rem;
   }
 }
 
