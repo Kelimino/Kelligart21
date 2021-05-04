@@ -12,14 +12,12 @@
     />
     <!--BACK TILES IMAGES -->
     <div
-      class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden opacity-50 md:opacity-100 z-0"
+      class="back-expertise fixed h-screen top-0 right-0 w-2/6 col-span-1 overflow-hidden opacity-50 md:opacity-100"
     >
       <div class="back-wrapper">
         <ul class="backlist flex row">
           <li class="w-1/2 mr-2">
-            <div
-              class="graphisme w-full mb-2 block transform origin-bottom -translate-y-3/4"
-            >
+            <div class="graphisme w-full mb-2 block">
               <img
                 v-for="(poster, index) in graphisme"
                 :key="index"
@@ -123,10 +121,8 @@
       </div>
     </div>
     <!--FOOTER -->
-    <section class="h-footer box-border overflow-hidden z-10 bg-back relative">
-      <div class="canvas-wrapper absolute left-0 bottom-0 w-full h-full">
-        <!-- <Particles /> -->
-      </div>
+    <section class="h-footer box-border overflow-hidden relative">
+      <!-- <Particles /> -->
       <nuxt-link
         to="/projets"
         class="projets-link link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
@@ -414,19 +410,17 @@ export default {
     let backTile = gsap.timeline({
       repeat: -1,
       yoyo: true,
-      onComplete: done,
       ScrollTrigger: {
         trigger: ".introexpertise",
         start: "top top"
       }
     });
     backTile
-      .progress(0)
-      .play()
+      .set(".graphisme", { transformOrigin: "top center", yPercent: -50 })
       .to(
         ".graphisme",
         {
-          yPercent: 45,
+          yPercent: 0,
           duration: 120,
           ease: "none"
         },
@@ -441,10 +435,6 @@ export default {
         },
         "<"
       );
-
-    function done() {
-      backTile.reverse();
-    }
 
     //LISTE EACH EXPERTISE ILLUSTRATIONS ANIMATION
     const lotties = document.querySelectorAll(".lottie");
