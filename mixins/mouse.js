@@ -22,12 +22,9 @@ export const cursor = {
     });
     //PAGE LINK FOOTER
     const pageLink = document.querySelectorAll(".pageLink");
-    console.log(pageLink);
-
     Array.from(pageLink).forEach(linkElement => {
       linkElement.addEventListener("mouseover", () => {
         mouseCursor.classList.add("cursorPage");
-        console.log("hey");
       });
 
       linkElement.addEventListener("mouseleave", () => {
@@ -36,12 +33,13 @@ export const cursor = {
     });
 
     //SLIDER PROJECT
-    // const slider = document.querySelector(".swiper-wrapper");
+    let projetWrapper = document.querySelector(".projet-wrapper");
+    console.log(projetWrapper);
 
-    // slider.addEventListener("mouseover", () => {
+    // projetWrapper.addEventListener("mouseover", () => {
     //   mouseCursor.classList.add("cursorSlide");
     // });
-    // slider.addEventListener("mouseleave", () => {
+    // projetWrapper.addEventListener("mouseleave", () => {
     //   mouseCursor.classList.remove("cursorSlide");
     // });
   }

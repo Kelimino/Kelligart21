@@ -5,7 +5,7 @@
       ref="swipCont"
       class="swiper-container swiper-projet h-screen flex flex-col justify-center"
     >
-      <div class="swiper-wrapper h-1/2">
+      <div class="swiper-wrapper projet-wrapper h-1/2">
         <div
           v-for="(projet, index) in projets"
           :key="index"
