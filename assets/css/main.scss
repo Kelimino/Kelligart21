@@ -19,6 +19,11 @@ body {
 .cursor {
   transition: transform 0.2s linear;
 }
+.cursorSlide {
+  transform: scale(1.4);
+  background: $back;
+  border: solid 2px $primary;
+}
 
 .accompagnement-link {
   svg {

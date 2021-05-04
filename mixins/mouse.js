@@ -19,5 +19,16 @@ export const cursor = {
         mouseCursor.style.transform = "scale(1)";
       });
     });
+
+    const slider = document.querySelector(".swiper-wrapper");
+
+    slider.addEventListener("mouseover", () => {
+      setTimeout(function() {
+        mouseCursor.classList.add("cursorSlide");
+      }, 3000);
+    });
+    slider.addEventListener("mouseleave", () => {
+      mouseCursor.classList.remove("cursorSlide");
+    });
   }
 };
