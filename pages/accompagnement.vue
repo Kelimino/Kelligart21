@@ -189,11 +189,10 @@
     <section class="h-footer box-border overflow-hidden">
       <nuxt-link
         to="/expertise"
-        class="pageLink link h-1/2 mt-28 mx-0 relative flex flex-col justify-center box-border"
+        class="pageLink link h-1/2 mt-28 relative flex flex-col justify-center box-border font-text text-primary font-light text-7xl text-center"
+        @mouseEnter="cursorHover()"
       >
-        <h2 class="font-text text-primary font-light text-7xl text-center">
-          Découvrez <em em class="font-title italic"> mes Expertises</em>
-        </h2>
+        Découvrez <span class="font-title italic"> mes Expertises</span>
       </nuxt-link>
       <div class="cereal flex flex-row whitespace-nowrap mb-20"></div>
     </section>
@@ -470,6 +469,12 @@ export default {
       .from(".ensemble", { y: 40, autoAlpha: 0, skewY: "6deg", duration: 2 })
       .to(".counter", { autoAlpha: 0 }, "<")
       .to(".scrollBar", { autoAlpha: 0 }, "<");
+  },
+  methods: {
+    cursorHover: function() {
+      this.$refs.cursor.classList.add("cursorPage");
+      console.log("hey");
+    }
   }
 };
 </script>

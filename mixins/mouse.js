@@ -3,6 +3,9 @@ export const cursor = {
     let mouseCursor = document.querySelector(".cursor");
 
     window.addEventListener("mousemove", cursor);
+    window.onload = function() {
+      mouseCursor.classList.remove("cursorPage");
+    };
 
     function cursor(e) {
       mouseCursor.style.top = e.clientY + "px";
@@ -21,20 +24,23 @@ export const cursor = {
       });
     });
     //PAGE LINK FOOTER
-    const pageLink = document.querySelectorAll(".pageLink");
-    Array.from(pageLink).forEach(linkElement => {
-      linkElement.addEventListener("mouseover", () => {
-        mouseCursor.classList.add("cursorPage");
-      });
+    // const pageLink = document.querySelectorAll(".pageLink");
+    // Array.from(pageLink).forEach(linkElement => {
+    //   linkElement.addEventListener("mouseover", () => {
+    //     if (mouseCursor.classList.contains("cursorPage")) {
+    //       mouseCursor.classList.remove("cursorPage");
+    //     } else {
+    //       mouseCursor.classList.add("cursorPage");
+    //     }
+    //   });
 
-      linkElement.addEventListener("mouseleave", () => {
-        mouseCursor.classList.remove("cursorPage");
-      });
-    });
+    //   linkElement.addEventListener("mouseleave", () => {
+    //     mouseCursor.classList.remove("cursorPage");
+    //   });
+    // });
 
     //SLIDER PROJECT
-    let projetWrapper = document.querySelector(".projet-wrapper");
-    console.log(projetWrapper);
+    // let projetWrapper = document.querySelector(".projet-wrapper");
 
     // projetWrapper.addEventListener("mouseover", () => {
     //   mouseCursor.classList.add("cursorSlide");
